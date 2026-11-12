@@ -16,6 +16,7 @@
 
     --pass: #6fcf97;
     --fail: #f28b82;
+    --warn: #f2c97d;
 
     --radius-lg: 18px;
     --radius-md: 12px;
@@ -291,8 +292,66 @@ button {
     margin-bottom: 5px;
 }
 
+.result-section h3 + .result-grid,
+.result-section .result-stack + h3 {
+    margin-top: 15px;
+}
 
-/* Evaluation page */
+.note,
+.source {
+    font-size: 0.85rem;
+}
+
+.result-section p.source {
+    color: var(--text-muted);
+    margin-bottom: 0;
+}
+
+.result-section p.warning {
+    color: var(--warn);
+    font-weight: bold;
+}
+
+.recall-card p {
+    margin: 8px 0 0;
+    font-size: 0.9rem;
+}
+
+.detail-label {
+    color: var(--text-muted);
+    font-weight: bold;
+}
+
+.button-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 20px;
+}
+
+.secondary-button {
+    background: transparent;
+    color: var(--text);
+
+    border: 1px solid var(--border-strong);
+    border-radius: var(--radius-sm);
+
+    padding: 12px 20px;
+
+    font-size: 1rem;
+    font-weight: bold;
+}
+
+.secondary-button:hover {
+    background: var(--border);
+}
+
+[hidden] {
+    display: none !important;
+}
+
+
+/* Tables and evaluation page */
 
 .eval-summary {
     display: grid;
@@ -315,21 +374,21 @@ button {
     border-radius: var(--radius-md);
 }
 
-.eval-table {
+.data-table {
     width: 100%;
     border-collapse: collapse;
     font-size: 0.9rem;
 }
 
-.eval-table th,
-.eval-table td {
+.data-table th,
+.data-table td {
     text-align: left;
     vertical-align: top;
     padding: 10px 12px;
     border-bottom: 1px solid var(--border);
 }
 
-.eval-table th {
+.data-table th {
     background: var(--surface);
     color: var(--text-muted);
     font-size: 0.78rem;
@@ -338,16 +397,29 @@ button {
     white-space: nowrap;
 }
 
-.eval-table tr:last-child td {
+.data-table tr:last-child td {
     border-bottom: none;
 }
 
-.eval-table td.eval-input {
+.data-table td.eval-input {
     min-width: 220px;
 }
 
-.eval-table td.eval-runs {
+.data-table tbody th {
+    white-space: normal;
+    min-width: 130px;
+}
+
+.nowrap {
     white-space: nowrap;
+}
+
+.mismatch {
+    margin: 8px 0 0;
+    color: var(--fail);
+    font-size: 0.8rem;
+    white-space: pre-wrap;
+    overflow-wrap: anywhere;
 }
 
 .pass {
