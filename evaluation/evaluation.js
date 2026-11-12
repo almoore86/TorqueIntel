@@ -45,7 +45,7 @@
                 "intent": "vehicle_information",
                 "status": "ready",
                 "tools": ["getVehicleInfo"],
-                "vehicle": { "horsepower": 435 }
+                "vehicles": [{ "trim": "GT", "horsepower": 435 }]
             }
         }
 
@@ -53,10 +53,11 @@
     Fields you can check:
 
         allowed, intent, status, sanitized, requiresApproval,
-        years, unsupportedYears,
+        years, unsupportedYears, trims,
         tools     names of the planned tools, in order
         args      arguments of the first planned tool
-        vehicle   the dataset entry for the planned vehicle
+        vehicles  the dataset entries for the planned lookup,
+                  in order (only the fields you list are checked)
 */
 
 const RUNS_PER_CASE = 3;
@@ -88,12 +89,13 @@ function runAgentOnce(input, vehicles) {
         requiresApproval: analysis.requiresApproval,
         years: analysis.years,
         unsupportedYears: analysis.unsupportedYears,
+        trims: analysis.trims,
         tools: analysis.toolCalls.map(call => call.tool),
         args: analysis.toolCalls.length
             ? analysis.toolCalls[0].args
             : null,
-        vehicle: infoCall
-            ? lookupVehicle(vehicles, infoCall.args)
+        vehicles: infoCall
+            ? findVehicles(vehicles, infoCall.args).vehicles
             : null
     };
 }
@@ -119,6 +121,27 @@ function findMismatches(expected, actual, path = "") {
                     expected[key],
                     actual[key],
                     path ? `${path}.${key}` : key
+                )
+        );
+    }
+
+    /*
+        A list of objects (such as "vehicles") must have the
+        same length, and each item is compared field by field.
+    */
+    if (
+        Array.isArray(expected) &&
+        Array.isArray(actual) &&
+        expected.length === actual.length &&
+        expected.every(isPlainObject)
+    ) {
+
+        return expected.flatMap(
+            (item, index) =>
+                findMismatches(
+                    item,
+                    actual[index],
+                    `${path}[${index}]`
                 )
         );
     }

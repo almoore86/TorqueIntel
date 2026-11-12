@@ -322,6 +322,39 @@ button {
     font-weight: bold;
 }
 
+.year-block {
+    margin-top: 12px;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    padding: 10px 14px;
+}
+
+.year-block summary {
+    cursor: pointer;
+    color: var(--text-soft);
+}
+
+.year-block summary strong {
+    color: var(--text);
+    margin-right: 6px;
+}
+
+.year-block .year-block {
+    padding: 8px 12px;
+}
+
+.plain-list {
+    margin: 6px 0 0;
+    padding-left: 20px;
+    color: var(--text-soft);
+    font-size: 0.9rem;
+}
+
+.result-section p.detail-label {
+    margin: 16px 0 0;
+    color: var(--text-muted);
+}
+
 .button-row {
     display: flex;
     flex-wrap: wrap;
