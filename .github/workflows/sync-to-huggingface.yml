@@ -1,0 +1,24 @@
+name: Deploy Torque Intel to Hugging Face
+
+on:
+  push:
+    branches:
+      - main
+
+  workflow_dispatch:
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v6
+
+      - name: Sync to Hugging Face Space
+        uses: huggingface/hub-sync@v0.3.0
+        with:
+          github_repo_id: ${{ github.repository }}
+          huggingface_repo_id: amoore386/TorqueIntel
+          hf_token: ${{ secrets.HF_TOKEN }}
+          space_sdk: static
