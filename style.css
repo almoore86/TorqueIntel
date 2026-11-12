@@ -1,18 +1,18 @@
 /* Theme */
 
 :root {
-    --bg: #0c111b;
-    --surface: #141c29;
-    --border: #263247;
-    --border-strong: #35435c;
+    --bg: #0B0F19;
+    --surface: #121824;
+    --border: #1E293B;
+    --border-strong: #334155;
 
-    --text: #f5f7fa;
-    --text-soft: #c2cad6;
-    --text-muted: #8f9bb0;
+    --text: #E2E8F0;
+    --text-soft: #CBD5E1;
+    --text-muted: #94A3B8;
 
-    --accent: #7ea2e0;
-    --button-bg: #e6e9ee;
-    --button-text: #111827;
+    --accent: #38BDF8;
+    --button-bg: #38BDF8;
+    --button-text: #0B0F19;
 
     --pass: #6fcf97;
     --fail: #f28b82;
@@ -57,7 +57,7 @@ a {
 }
 
 .eyebrow {
-    color: var(--text-muted);
+    color: var(--accent);
     font-size: 0.8rem;
     letter-spacing: 0.15em;
     font-weight: bold;
