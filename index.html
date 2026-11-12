@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Torque Intel</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <main class="page-container">
+
+        <header class="hero">
+            <p class="eyebrow">AUTOMOTIVE INTELLIGENCE</p>
+
+            <h1>Torque Intel</h1>
+
+            <p class="subtitle">
+                Research vehicle specifications, reliability,
+                recalls, and buying considerations.
+            </p>
+        </header>
+
+
+        <section class="search-card">
+
+            <label for="userQuestion">
+                Ask Torque Intel about a vehicle
+            </label>
+
+            <textarea
+                id="userQuestion"
+                placeholder="Example: I'm considering a 2020 Mustang GT. What engine does it have and what should I know about it?"
+            ></textarea>
+
+            <button id="analyzeButton">
+                Analyze Vehicle
+            </button>
+
+            <p class="example-text">
+                Torque Intel currently focuses on Ford Mustang
+                research for the beginning prototype.
+            </p>
+
+        </section>
+
+
+        <section id="statusArea" class="status-area"></section>
+
+    </main>
+
+    <!-- Result Modal -->
+    <div id="resultModal" class="modal hidden">
+
+        <div class="modal-card">
+
+            <button
+                id="closeModal"
+                class="close-button"
+                aria-label="Close results"
+            >
+                ×
+            </button>
+
+            <p class="eyebrow">
+                TORQUE INTEL RESULT
+            </p>
+
+            <h2 id="resultTitle">
+                Vehicle Research
+            </h2>
+
+            <div id="resultContent"></div>
+
+        </div>
+
+    </div>
+
+    <script src="app.js"></script>
+
+</body>
+</html>
