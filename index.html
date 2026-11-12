@@ -38,26 +38,39 @@
                 placeholder="Example: I'm considering a 2020 Mustang GT. What engine does it have and what should I know about it?"
             ></textarea>
 
-            <button id="analyzeButton">
+            <button id="analyzeButton" type="button">
                 Analyze Vehicle
             </button>
 
             <p class="example-text">
-                Torque Intel currently focuses on Ford Mustang
-                research for the beginning prototype.
+                Torque Intel currently covers the Ford Mustang, all trims,
+                model years 2015 through 2023.
             </p>
 
         </section>
 
 
-        <section id="statusArea" class="status-area"></section>
+        <section
+            id="statusArea"
+            class="status-area"
+            aria-live="polite"
+        ></section>
+
+        <footer class="page-footer">
+            <a href="evaluation/index.html">Evaluation runner</a>
+        </footer>
 
     </main>
 
     <!-- Result Modal -->
     <div id="resultModal" class="modal hidden">
 
-        <div class="modal-card">
+        <div
+            class="modal-card"
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="resultTitle"
+        >
 
             <button
                 id="closeModal"
@@ -81,6 +94,8 @@
 
     </div>
 
+    <script src="agent.js"></script>
+    <script src="tools.js"></script>
     <script src="app.js"></script>
 
 </body>
