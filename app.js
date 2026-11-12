@@ -4,7 +4,8 @@
     This file owns everything the user sees: reading the
     question, asking the agent for a plan (agent.js), running
     the planned tools (tools.js), the human approval gate,
-    and showing results in the modal.
+    the evidence review (agent.js), and showing results in
+    the modal.
 
     Load order in index.html: agent.js, tools.js, app.js.
 */
@@ -147,7 +148,9 @@ async function actOnAnalysis(analysis) {
         case "blocked":
 
             showMessage(
-                "Request Not Available",
+                analysis.intent === "harmful_request"
+                    ? "Torque Intel Can't Help With That"
+                    : "Request Not Available",
                 [analysis.message]
             );
 
@@ -248,6 +251,7 @@ async function actOnAnalysis(analysis) {
                 INTENT_TITLES[analysis.intent],
                 sanitizedNoticeHtml(analysis.sanitized) +
                 skippedYearsNoticeHtml(analysis.unsupportedYears) +
+                evidenceReviewHtml(reviewEvidence(results)) +
                 results.map(toolResultHtml).join("")
             );
 
@@ -379,6 +383,7 @@ async function approvePendingAction() {
 
     showResult(
         INTENT_TITLES.vehicle_comparison,
+        evidenceReviewHtml(reviewEvidence([result])) +
         toolResultHtml(result)
     );
 }
@@ -939,6 +944,44 @@ function sourceHtml(source) {
                 ? `<a href="${escapeHtml(source.url)}" target="_blank" rel="noopener noreferrer">${name}</a>`
                 : name}
         </p>
+    `;
+}
+
+
+/*
+    Shows the Evidence Review (agent.js: reviewEvidence) above
+    the tool results: what the sources support, and what is
+    missing.
+*/
+function evidenceReviewHtml(review) {
+
+    const STATUS_TEXT = {
+        complete: "Everything below came from a named source. Nothing was estimated.",
+        partial: "Some of what you asked for could not be backed by a source. The gaps are listed here and nothing was filled in.",
+        none: "No source returned usable data for this request, so Torque Intel has nothing to report."
+    };
+
+    const itemHtml = item => `
+        <li>
+            <strong>${escapeHtml(item.tool)}</strong>${item.source ? ` (${escapeHtml(item.source)})` : ""}
+            ${item.findings.map(text => `<br>✓ ${escapeHtml(text)}`).join("")}
+            ${item.gaps.map(text => `<br>⚠ ${escapeHtml(text)}`).join("")}
+        </li>
+    `;
+
+    return `
+        <div class="result-section">
+            <h3>Evidence Review</h3>
+            <p class="${review.status === "complete" ? "note" : "warning"}">
+                ${escapeHtml(STATUS_TEXT[review.status])}
+            </p>
+            <details class="year-block">
+                <summary>What was checked</summary>
+                <ul class="plain-list">
+                    ${review.items.map(itemHtml).join("")}
+                </ul>
+            </details>
+        </div>
     `;
 }
 

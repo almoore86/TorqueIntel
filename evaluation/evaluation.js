@@ -3,13 +3,15 @@
 
     What it does:
 
-        1. Loads the test cases from eval/test-cases.json.
+        1. Loads the test cases from evaluation/test-cases.json.
         2. Runs every case RUNS_PER_CASE (3) times through
            analyzeRequest() from agent.js. That is the same
            guard + coordinator the real app uses.
         3. For cases that plan a getVehicleInfo call, also looks
            the vehicle up in data/vehicles.json, so wrong data
            is caught as well as wrong routing.
+           The lookup is then passed through reviewEvidence()
+           from agent.js, the same Evidence Review the app uses.
         4. Compares what actually happened with "expected".
         5. Reports pass@1 and pass^3 and keeps every single
            run so failures can be reviewed by hand.
@@ -58,6 +60,8 @@
         args      arguments of the first planned tool
         vehicles  the dataset entries for the planned lookup,
                   in order (only the fields you list are checked)
+        evidence  what the Evidence Review says about that dataset
+                  lookup: "complete", "partial" or "none"
 */
 
 const RUNS_PER_CASE = 3;
@@ -81,6 +85,11 @@ function runAgentOnce(input, vehicles) {
             call => call.tool === "getVehicleInfo"
         );
 
+    const lookup =
+        infoCall
+            ? findVehicles(vehicles, infoCall.args)
+            : null;
+
     return {
         allowed: analysis.allowed,
         intent: analysis.intent,
@@ -94,8 +103,18 @@ function runAgentOnce(input, vehicles) {
         args: analysis.toolCalls.length
             ? analysis.toolCalls[0].args
             : null,
-        vehicles: infoCall
-            ? findVehicles(vehicles, infoCall.args).vehicles
+        vehicles: lookup
+            ? lookup.vehicles
+            : null,
+        evidence: lookup
+            ? reviewEvidence([
+                {
+                    tool: "getVehicleInfo",
+                    ok: lookup.vehicles.length > 0,
+                    source: SOURCES.localDataset,
+                    data: lookup
+                }
+            ]).status
             : null
     };
 }
@@ -473,7 +492,7 @@ function startInBrowser() {
 
             const [cases, vehicles] =
                 await Promise.all([
-                    loadJson("../eval/test-cases.json", "eval/test-cases.json"),
+                    loadJson("test-cases.json", "evaluation/test-cases.json"),
                     loadJson("../data/vehicles.json", "data/vehicles.json")
                 ]);
 
@@ -553,7 +572,7 @@ function startInTerminal() {
 
     const report =
         runEvaluation(
-            readJson("eval/test-cases.json"),
+            readJson("evaluation/test-cases.json"),
             Object.values(readJson("data/vehicles.json"))
         );
 
