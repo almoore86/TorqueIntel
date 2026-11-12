@@ -10,7 +10,7 @@ short_description: Automotive intelligent agent for vehicle reliability.
 
 # Torque Intel
 
-Torque Intel is a student agentic AI project: a small automotive research
+Torque Intel is a student agentic AI project: a small automotive research and reliability
 agent that runs entirely in the browser as a Hugging Face Static Space.
 
 It is built with plain HTML, CSS, JavaScript, and JSON. There is no
