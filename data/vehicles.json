@@ -1,1 +1,119 @@
-
+[
+    {
+        "year": 2015,
+        "make": "Ford",
+        "model": "Mustang",
+        "trim": "GT",
+        "engine": "5.0L V8",
+        "horsepower": 435,
+        "drivetrain": "Rear-wheel drive",
+        "transmissions": [
+            "6-speed manual",
+            "6-speed automatic"
+        ]
+    },
+    {
+        "year": 2016,
+        "make": "Ford",
+        "model": "Mustang",
+        "trim": "GT",
+        "engine": "5.0L V8",
+        "horsepower": 435,
+        "drivetrain": "Rear-wheel drive",
+        "transmissions": [
+            "6-speed manual",
+            "6-speed automatic"
+        ]
+    },
+    {
+        "year": 2017,
+        "make": "Ford",
+        "model": "Mustang",
+        "trim": "GT",
+        "engine": "5.0L V8",
+        "horsepower": 435,
+        "drivetrain": "Rear-wheel drive",
+        "transmissions": [
+            "6-speed manual",
+            "6-speed automatic"
+        ]
+    },
+    {
+        "year": 2018,
+        "make": "Ford",
+        "model": "Mustang",
+        "trim": "GT",
+        "engine": "5.0L V8",
+        "horsepower": 460,
+        "drivetrain": "Rear-wheel drive",
+        "transmissions": [
+            "6-speed manual",
+            "10-speed automatic"
+        ]
+    },
+    {
+        "year": 2019,
+        "make": "Ford",
+        "model": "Mustang",
+        "trim": "GT",
+        "engine": "5.0L V8",
+        "horsepower": 460,
+        "drivetrain": "Rear-wheel drive",
+        "transmissions": [
+            "6-speed manual",
+            "10-speed automatic"
+        ]
+    },
+    {
+        "year": 2020,
+        "make": "Ford",
+        "model": "Mustang",
+        "trim": "GT",
+        "engine": "5.0L V8",
+        "horsepower": 460,
+        "drivetrain": "Rear-wheel drive",
+        "transmissions": [
+            "6-speed manual",
+            "10-speed automatic"
+        ]
+    },
+    {
+        "year": 2021,
+        "make": "Ford",
+        "model": "Mustang",
+        "trim": "GT",
+        "engine": "5.0L V8",
+        "horsepower": 460,
+        "drivetrain": "Rear-wheel drive",
+        "transmissions": [
+            "6-speed manual",
+            "10-speed automatic"
+        ]
+    },
+    {
+        "year": 2022,
+        "make": "Ford",
+        "model": "Mustang",
+        "trim": "GT",
+        "engine": "5.0L V8",
+        "horsepower": 450,
+        "drivetrain": "Rear-wheel drive",
+        "transmissions": [
+            "6-speed manual",
+            "10-speed automatic"
+        ]
+    },
+    {
+        "year": 2023,
+        "make": "Ford",
+        "model": "Mustang",
+        "trim": "GT",
+        "engine": "5.0L V8",
+        "horsepower": 450,
+        "drivetrain": "Rear-wheel drive",
+        "transmissions": [
+            "6-speed manual",
+            "10-speed automatic"
+        ]
+    }
+]

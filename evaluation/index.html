@@ -21,15 +21,26 @@
             <h1>Evaluation</h1>
 
             <p class="subtitle">
-                Runs every case in test-cases.json three times
-                through the security / scope guard and the
-                coordinating agent.
+                Runs every test case three times through the
+                security / scope guard and the coordinating agent,
+                then reports pass@1 and pass^3.
             </p>
         </header>
 
-        <button id="runEvalButton" class="primary-button" type="button">
-            Run Evaluation
-        </button>
+        <div class="button-row">
+            <button id="runEvalButton" class="primary-button" type="button">
+                Run Evaluation
+            </button>
+
+            <button
+                id="downloadResultsButton"
+                class="secondary-button"
+                type="button"
+                hidden
+            >
+                Download results.json
+            </button>
+        </div>
 
         <section
             id="evalStatus"
@@ -48,7 +59,8 @@
     </main>
 
     <script src="../agent.js"></script>
-    <script src="run-eval.js"></script>
+    <script src="../tools.js"></script>
+    <script src="evaluation.js"></script>
 
 </body>
 </html>
