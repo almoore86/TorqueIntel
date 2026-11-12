@@ -3,9 +3,85 @@
         "year": 2015,
         "make": "Ford",
         "model": "Mustang",
+        "trim": "V6",
+        "engine": "3.7L V6",
+        "horsepower": 300,
+        "drivetrain": "Rear-wheel drive",
+        "transmissions": [
+            "6-speed manual",
+            "6-speed automatic"
+        ]
+    },
+    {
+        "year": 2015,
+        "make": "Ford",
+        "model": "Mustang",
+        "trim": "EcoBoost",
+        "engine": "2.3L turbocharged 4-cylinder",
+        "horsepower": 310,
+        "drivetrain": "Rear-wheel drive",
+        "transmissions": [
+            "6-speed manual",
+            "6-speed automatic"
+        ]
+    },
+    {
+        "year": 2015,
+        "make": "Ford",
+        "model": "Mustang",
         "trim": "GT",
         "engine": "5.0L V8",
         "horsepower": 435,
+        "drivetrain": "Rear-wheel drive",
+        "transmissions": [
+            "6-speed manual",
+            "6-speed automatic"
+        ]
+    },
+    {
+        "year": 2015,
+        "make": "Ford",
+        "model": "Mustang",
+        "trim": "Shelby GT350",
+        "engine": "5.2L V8",
+        "horsepower": 526,
+        "drivetrain": "Rear-wheel drive",
+        "transmissions": [
+            "6-speed manual"
+        ]
+    },
+    {
+        "year": 2015,
+        "make": "Ford",
+        "model": "Mustang",
+        "trim": "Shelby GT350R",
+        "engine": "5.2L V8",
+        "horsepower": 526,
+        "drivetrain": "Rear-wheel drive",
+        "transmissions": [
+            "6-speed manual"
+        ]
+    },
+    {
+        "year": 2016,
+        "make": "Ford",
+        "model": "Mustang",
+        "trim": "V6",
+        "engine": "3.7L V6",
+        "horsepower": 300,
+        "drivetrain": "Rear-wheel drive",
+        "transmissions": [
+            "6-speed manual",
+            "6-speed automatic"
+        ]
+    },
+    {
+        "year": 2016,
+        "make": "Ford",
+        "model": "Mustang",
+        "trim": "EcoBoost",
+        "engine": "2.3L turbocharged 4-cylinder",
+        "horsepower": 310,
         "drivetrain": "Rear-wheel drive",
         "transmissions": [
             "6-speed manual",
@@ -26,6 +102,56 @@
         ]
     },
     {
+        "year": 2016,
+        "make": "Ford",
+        "model": "Mustang",
+        "trim": "Shelby GT350",
+        "engine": "5.2L V8",
+        "horsepower": 526,
+        "drivetrain": "Rear-wheel drive",
+        "transmissions": [
+            "6-speed manual"
+        ]
+    },
+    {
+        "year": 2016,
+        "make": "Ford",
+        "model": "Mustang",
+        "trim": "Shelby GT350R",
+        "engine": "5.2L V8",
+        "horsepower": 526,
+        "drivetrain": "Rear-wheel drive",
+        "transmissions": [
+            "6-speed manual"
+        ]
+    },
+    {
+        "year": 2017,
+        "make": "Ford",
+        "model": "Mustang",
+        "trim": "V6",
+        "engine": "3.7L V6",
+        "horsepower": 300,
+        "drivetrain": "Rear-wheel drive",
+        "transmissions": [
+            "6-speed manual",
+            "6-speed automatic"
+        ]
+    },
+    {
+        "year": 2017,
+        "make": "Ford",
+        "model": "Mustang",
+        "trim": "EcoBoost",
+        "engine": "2.3L turbocharged 4-cylinder",
+        "horsepower": 310,
+        "drivetrain": "Rear-wheel drive",
+        "transmissions": [
+            "6-speed manual",
+            "6-speed automatic"
+        ]
+    },
+    {
         "year": 2017,
         "make": "Ford",
         "model": "Mustang",
@@ -39,12 +165,86 @@
         ]
     },
     {
+        "year": 2017,
+        "make": "Ford",
+        "model": "Mustang",
+        "trim": "Shelby GT350",
+        "engine": "5.2L V8",
+        "horsepower": 526,
+        "drivetrain": "Rear-wheel drive",
+        "transmissions": [
+            "6-speed manual"
+        ]
+    },
+    {
+        "year": 2017,
+        "make": "Ford",
+        "model": "Mustang",
+        "trim": "Shelby GT350R",
+        "engine": "5.2L V8",
+        "horsepower": 526,
+        "drivetrain": "Rear-wheel drive",
+        "transmissions": [
+            "6-speed manual"
+        ]
+    },
+    {
+        "year": 2018,
+        "make": "Ford",
+        "model": "Mustang",
+        "trim": "EcoBoost",
+        "engine": "2.3L turbocharged 4-cylinder",
+        "horsepower": 310,
+        "drivetrain": "Rear-wheel drive",
+        "transmissions": [
+            "6-speed manual",
+            "10-speed automatic"
+        ]
+    },
+    {
         "year": 2018,
         "make": "Ford",
         "model": "Mustang",
         "trim": "GT",
         "engine": "5.0L V8",
         "horsepower": 460,
+        "drivetrain": "Rear-wheel drive",
+        "transmissions": [
+            "6-speed manual",
+            "10-speed automatic"
+        ]
+    },
+    {
+        "year": 2018,
+        "make": "Ford",
+        "model": "Mustang",
+        "trim": "Shelby GT350",
+        "engine": "5.2L V8",
+        "horsepower": 526,
+        "drivetrain": "Rear-wheel drive",
+        "transmissions": [
+            "6-speed manual"
+        ]
+    },
+    {
+        "year": 2018,
+        "make": "Ford",
+        "model": "Mustang",
+        "trim": "Shelby GT350R",
+        "engine": "5.2L V8",
+        "horsepower": 526,
+        "drivetrain": "Rear-wheel drive",
+        "transmissions": [
+            "6-speed manual"
+        ]
+    },
+    {
+        "year": 2019,
+        "make": "Ford",
+        "model": "Mustang",
+        "trim": "EcoBoost",
+        "engine": "2.3L turbocharged 4-cylinder",
+        "horsepower": 310,
         "drivetrain": "Rear-wheel drive",
         "transmissions": [
             "6-speed manual",
@@ -65,12 +265,122 @@
         ]
     },
     {
+        "year": 2019,
+        "make": "Ford",
+        "model": "Mustang",
+        "trim": "Bullitt",
+        "engine": "5.0L V8",
+        "horsepower": 480,
+        "drivetrain": "Rear-wheel drive",
+        "transmissions": [
+            "6-speed manual"
+        ]
+    },
+    {
+        "year": 2019,
+        "make": "Ford",
+        "model": "Mustang",
+        "trim": "Shelby GT350",
+        "engine": "5.2L V8",
+        "horsepower": 526,
+        "drivetrain": "Rear-wheel drive",
+        "transmissions": [
+            "6-speed manual"
+        ]
+    },
+    {
+        "year": 2019,
+        "make": "Ford",
+        "model": "Mustang",
+        "trim": "Shelby GT350R",
+        "engine": "5.2L V8",
+        "horsepower": 526,
+        "drivetrain": "Rear-wheel drive",
+        "transmissions": [
+            "6-speed manual"
+        ]
+    },
+    {
+        "year": 2020,
+        "make": "Ford",
+        "model": "Mustang",
+        "trim": "EcoBoost",
+        "engine": "2.3L turbocharged 4-cylinder",
+        "horsepower": 310,
+        "drivetrain": "Rear-wheel drive",
+        "transmissions": [
+            "6-speed manual",
+            "10-speed automatic"
+        ]
+    },
+    {
         "year": 2020,
         "make": "Ford",
         "model": "Mustang",
         "trim": "GT",
         "engine": "5.0L V8",
         "horsepower": 460,
+        "drivetrain": "Rear-wheel drive",
+        "transmissions": [
+            "6-speed manual",
+            "10-speed automatic"
+        ]
+    },
+    {
+        "year": 2020,
+        "make": "Ford",
+        "model": "Mustang",
+        "trim": "Bullitt",
+        "engine": "5.0L V8",
+        "horsepower": 480,
+        "drivetrain": "Rear-wheel drive",
+        "transmissions": [
+            "6-speed manual"
+        ]
+    },
+    {
+        "year": 2020,
+        "make": "Ford",
+        "model": "Mustang",
+        "trim": "Shelby GT350",
+        "engine": "5.2L V8",
+        "horsepower": 526,
+        "drivetrain": "Rear-wheel drive",
+        "transmissions": [
+            "6-speed manual"
+        ]
+    },
+    {
+        "year": 2020,
+        "make": "Ford",
+        "model": "Mustang",
+        "trim": "Shelby GT350R",
+        "engine": "5.2L V8",
+        "horsepower": 526,
+        "drivetrain": "Rear-wheel drive",
+        "transmissions": [
+            "6-speed manual"
+        ]
+    },
+    {
+        "year": 2020,
+        "make": "Ford",
+        "model": "Mustang",
+        "trim": "Shelby GT500",
+        "engine": "5.2L supercharged V8",
+        "horsepower": 760,
+        "drivetrain": "Rear-wheel drive",
+        "transmissions": [
+            "7-speed dual-clutch automatic"
+        ]
+    },
+    {
+        "year": 2021,
+        "make": "Ford",
+        "model": "Mustang",
+        "trim": "EcoBoost",
+        "engine": "2.3L turbocharged 4-cylinder",
+        "horsepower": 310,
         "drivetrain": "Rear-wheel drive",
         "transmissions": [
             "6-speed manual",
@@ -91,7 +401,96 @@
         ]
     },
     {
+        "year": 2021,
+        "make": "Ford",
+        "model": "Mustang",
+        "trim": "Mach 1",
+        "engine": "5.0L V8",
+        "horsepower": 480,
+        "drivetrain": "Rear-wheel drive",
+        "transmissions": [
+            "6-speed manual",
+            "10-speed automatic"
+        ]
+    },
+    {
+        "year": 2021,
+        "make": "Ford",
+        "model": "Mustang",
+        "trim": "Shelby GT500",
+        "engine": "5.2L supercharged V8",
+        "horsepower": 760,
+        "drivetrain": "Rear-wheel drive",
+        "transmissions": [
+            "7-speed dual-clutch automatic"
+        ]
+    },
+    {
         "year": 2022,
+        "make": "Ford",
+        "model": "Mustang",
+        "trim": "EcoBoost",
+        "engine": "2.3L turbocharged 4-cylinder",
+        "horsepower": 310,
+        "drivetrain": "Rear-wheel drive",
+        "transmissions": [
+            "6-speed manual",
+            "10-speed automatic"
+        ]
+    },
+    {
+        "year": 2022,
+        "make": "Ford",
+        "model": "Mustang",
+        "trim": "GT",
+        "engine": "5.0L V8",
+        "horsepower": 450,
+        "drivetrain": "Rear-wheel drive",
+        "transmissions": [
+            "6-speed manual",
+            "10-speed automatic"
+        ]
+    },
+    {
+        "year": 2022,
+        "make": "Ford",
+        "model": "Mustang",
+        "trim": "Mach 1",
+        "engine": "5.0L V8",
+        "horsepower": 470,
+        "drivetrain": "Rear-wheel drive",
+        "transmissions": [
+            "6-speed manual",
+            "10-speed automatic"
+        ]
+    },
+    {
+        "year": 2022,
+        "make": "Ford",
+        "model": "Mustang",
+        "trim": "Shelby GT500",
+        "engine": "5.2L supercharged V8",
+        "horsepower": 760,
+        "drivetrain": "Rear-wheel drive",
+        "transmissions": [
+            "7-speed dual-clutch automatic"
+        ]
+    },
+    {
+        "year": 2023,
+        "make": "Ford",
+        "model": "Mustang",
+        "trim": "EcoBoost",
+        "engine": "2.3L turbocharged 4-cylinder",
+        "horsepower": 310,
+        "drivetrain": "Rear-wheel drive",
+        "transmissions": [
+            "6-speed manual",
+            "10-speed automatic"
+        ]
+    },
+    {
+        "year": 2023,
         "make": "Ford",
         "model": "Mustang",
         "trim": "GT",
@@ -107,9 +506,9 @@
         "year": 2023,
         "make": "Ford",
         "model": "Mustang",
-        "trim": "GT",
+        "trim": "Mach 1",
         "engine": "5.0L V8",
-        "horsepower": 450,
+        "horsepower": 470,
         "drivetrain": "Rear-wheel drive",
         "transmissions": [
             "6-speed manual",

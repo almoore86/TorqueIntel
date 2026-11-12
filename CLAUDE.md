@@ -1,7 +1,7 @@
 Torque Intel is an agentic automotive intelligence project.
 
 Initial scope:
-Ford Mustang GT model years 2015-2023.
+Ford Mustang, all trims, model years 2015-2023.
 
 Technology:
 HTML
@@ -47,7 +47,8 @@ block prompt injection attempts
 Do not fabricate automotive data.
 
 Vehicle dataset:
-Ford Mustang GT 2015 through 2023.
+Ford Mustang 2015 through 2023, all trims:
+V6, EcoBoost, GT, Bullitt, Mach 1, Shelby GT350, Shelby GT350R, Shelby GT500.
 
 Human gate:
 required before compareVehicles runs.

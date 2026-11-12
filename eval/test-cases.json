@@ -1,6 +1,6 @@
 [
     {
-        "id": "info-2015",
+        "id": "info-2015-gt",
         "category": "vehicle_information",
         "input": "What engine is in a 2015 Mustang GT?",
         "expected": {
@@ -10,29 +10,39 @@
             "years": [
                 2015
             ],
+            "trims": [
+                "GT"
+            ],
             "tools": [
                 "getVehicleInfo"
             ],
             "args": {
                 "make": "Ford",
                 "model": "Mustang",
-                "trim": "GT",
-                "year": 2015
-            },
-            "vehicle": {
-                "year": 2015,
-                "engine": "5.0L V8",
-                "horsepower": 435,
-                "drivetrain": "Rear-wheel drive",
-                "transmissions": [
-                    "6-speed manual",
-                    "6-speed automatic"
+                "trims": [
+                    "GT"
+                ],
+                "years": [
+                    2015
                 ]
-            }
+            },
+            "vehicles": [
+                {
+                    "year": 2015,
+                    "trim": "GT",
+                    "engine": "5.0L V8",
+                    "horsepower": 435,
+                    "drivetrain": "Rear-wheel drive",
+                    "transmissions": [
+                        "6-speed manual",
+                        "6-speed automatic"
+                    ]
+                }
+            ]
         }
     },
     {
-        "id": "info-2017",
+        "id": "info-2017-gt",
         "category": "vehicle_information",
         "input": "What engine is in a 2017 Mustang GT?",
         "expected": {
@@ -42,29 +52,39 @@
             "years": [
                 2017
             ],
+            "trims": [
+                "GT"
+            ],
             "tools": [
                 "getVehicleInfo"
             ],
             "args": {
                 "make": "Ford",
                 "model": "Mustang",
-                "trim": "GT",
-                "year": 2017
-            },
-            "vehicle": {
-                "year": 2017,
-                "engine": "5.0L V8",
-                "horsepower": 435,
-                "drivetrain": "Rear-wheel drive",
-                "transmissions": [
-                    "6-speed manual",
-                    "6-speed automatic"
+                "trims": [
+                    "GT"
+                ],
+                "years": [
+                    2017
                 ]
-            }
+            },
+            "vehicles": [
+                {
+                    "year": 2017,
+                    "trim": "GT",
+                    "engine": "5.0L V8",
+                    "horsepower": 435,
+                    "drivetrain": "Rear-wheel drive",
+                    "transmissions": [
+                        "6-speed manual",
+                        "6-speed automatic"
+                    ]
+                }
+            ]
         }
     },
     {
-        "id": "info-2020",
+        "id": "info-2020-gt",
         "category": "vehicle_information",
         "input": "What transmission options does a 2020 Mustang GT have?",
         "expected": {
@@ -74,29 +94,39 @@
             "years": [
                 2020
             ],
+            "trims": [
+                "GT"
+            ],
             "tools": [
                 "getVehicleInfo"
             ],
             "args": {
                 "make": "Ford",
                 "model": "Mustang",
-                "trim": "GT",
-                "year": 2020
-            },
-            "vehicle": {
-                "year": 2020,
-                "engine": "5.0L V8",
-                "horsepower": 460,
-                "drivetrain": "Rear-wheel drive",
-                "transmissions": [
-                    "6-speed manual",
-                    "10-speed automatic"
+                "trims": [
+                    "GT"
+                ],
+                "years": [
+                    2020
                 ]
-            }
+            },
+            "vehicles": [
+                {
+                    "year": 2020,
+                    "trim": "GT",
+                    "engine": "5.0L V8",
+                    "horsepower": 460,
+                    "drivetrain": "Rear-wheel drive",
+                    "transmissions": [
+                        "6-speed manual",
+                        "10-speed automatic"
+                    ]
+                }
+            ]
         }
     },
     {
-        "id": "info-2023",
+        "id": "info-2023-gt",
         "category": "vehicle_information",
         "input": "How much horsepower does the 2023 Ford Mustang GT make?",
         "expected": {
@@ -106,25 +136,406 @@
             "years": [
                 2023
             ],
+            "trims": [
+                "GT"
+            ],
             "tools": [
                 "getVehicleInfo"
             ],
             "args": {
                 "make": "Ford",
                 "model": "Mustang",
-                "trim": "GT",
-                "year": 2023
-            },
-            "vehicle": {
-                "year": 2023,
-                "engine": "5.0L V8",
-                "horsepower": 450,
-                "drivetrain": "Rear-wheel drive",
-                "transmissions": [
-                    "6-speed manual",
-                    "10-speed automatic"
+                "trims": [
+                    "GT"
+                ],
+                "years": [
+                    2023
                 ]
-            }
+            },
+            "vehicles": [
+                {
+                    "year": 2023,
+                    "trim": "GT",
+                    "engine": "5.0L V8",
+                    "horsepower": 450,
+                    "drivetrain": "Rear-wheel drive",
+                    "transmissions": [
+                        "6-speed manual",
+                        "10-speed automatic"
+                    ]
+                }
+            ]
+        }
+    },
+    {
+        "id": "info-2020-ecoboost",
+        "category": "vehicle_information",
+        "input": "How much horsepower does a 2020 Mustang EcoBoost have?",
+        "expected": {
+            "allowed": true,
+            "intent": "vehicle_information",
+            "status": "ready",
+            "years": [
+                2020
+            ],
+            "trims": [
+                "EcoBoost"
+            ],
+            "tools": [
+                "getVehicleInfo"
+            ],
+            "args": {
+                "make": "Ford",
+                "model": "Mustang",
+                "trims": [
+                    "EcoBoost"
+                ],
+                "years": [
+                    2020
+                ]
+            },
+            "vehicles": [
+                {
+                    "year": 2020,
+                    "trim": "EcoBoost",
+                    "engine": "2.3L turbocharged 4-cylinder",
+                    "horsepower": 310,
+                    "drivetrain": "Rear-wheel drive",
+                    "transmissions": [
+                        "6-speed manual",
+                        "10-speed automatic"
+                    ]
+                }
+            ]
+        }
+    },
+    {
+        "id": "info-2016-v6",
+        "category": "vehicle_information",
+        "input": "What engine is in the 2016 Mustang V6?",
+        "expected": {
+            "allowed": true,
+            "intent": "vehicle_information",
+            "status": "ready",
+            "years": [
+                2016
+            ],
+            "trims": [
+                "V6"
+            ],
+            "tools": [
+                "getVehicleInfo"
+            ],
+            "args": {
+                "make": "Ford",
+                "model": "Mustang",
+                "trims": [
+                    "V6"
+                ],
+                "years": [
+                    2016
+                ]
+            },
+            "vehicles": [
+                {
+                    "year": 2016,
+                    "trim": "V6",
+                    "engine": "3.7L V6",
+                    "horsepower": 300,
+                    "drivetrain": "Rear-wheel drive",
+                    "transmissions": [
+                        "6-speed manual",
+                        "6-speed automatic"
+                    ]
+                }
+            ]
+        }
+    },
+    {
+        "id": "info-2021-gt500",
+        "category": "vehicle_information",
+        "input": "What transmission does the 2021 Mustang Shelby GT500 have?",
+        "expected": {
+            "allowed": true,
+            "intent": "vehicle_information",
+            "status": "ready",
+            "years": [
+                2021
+            ],
+            "trims": [
+                "Shelby GT500"
+            ],
+            "tools": [
+                "getVehicleInfo"
+            ],
+            "args": {
+                "make": "Ford",
+                "model": "Mustang",
+                "trims": [
+                    "Shelby GT500"
+                ],
+                "years": [
+                    2021
+                ]
+            },
+            "vehicles": [
+                {
+                    "year": 2021,
+                    "trim": "Shelby GT500",
+                    "engine": "5.2L supercharged V8",
+                    "horsepower": 760,
+                    "drivetrain": "Rear-wheel drive",
+                    "transmissions": [
+                        "7-speed dual-clutch automatic"
+                    ]
+                }
+            ]
+        }
+    },
+    {
+        "id": "info-2019-gt350",
+        "category": "vehicle_information",
+        "input": "Tell me about the 2019 Mustang GT350.",
+        "expected": {
+            "allowed": true,
+            "intent": "vehicle_information",
+            "status": "ready",
+            "years": [
+                2019
+            ],
+            "trims": [
+                "Shelby GT350"
+            ],
+            "tools": [
+                "getVehicleInfo"
+            ],
+            "args": {
+                "make": "Ford",
+                "model": "Mustang",
+                "trims": [
+                    "Shelby GT350"
+                ],
+                "years": [
+                    2019
+                ]
+            },
+            "vehicles": [
+                {
+                    "year": 2019,
+                    "trim": "Shelby GT350",
+                    "engine": "5.2L V8",
+                    "horsepower": 526,
+                    "drivetrain": "Rear-wheel drive",
+                    "transmissions": [
+                        "6-speed manual"
+                    ]
+                }
+            ]
+        }
+    },
+    {
+        "id": "info-all-trims-2021",
+        "category": "vehicle_information",
+        "input": "What engines were available in the 2021 Mustang?",
+        "expected": {
+            "allowed": true,
+            "intent": "vehicle_information",
+            "status": "ready",
+            "years": [
+                2021
+            ],
+            "trims": [],
+            "tools": [
+                "getVehicleInfo"
+            ],
+            "args": {
+                "make": "Ford",
+                "model": "Mustang",
+                "trims": [],
+                "years": [
+                    2021
+                ]
+            },
+            "vehicles": [
+                {
+                    "trim": "EcoBoost",
+                    "horsepower": 310
+                },
+                {
+                    "trim": "GT",
+                    "horsepower": 460
+                },
+                {
+                    "trim": "Mach 1",
+                    "horsepower": 480
+                },
+                {
+                    "trim": "Shelby GT500",
+                    "horsepower": 760
+                }
+            ]
+        }
+    },
+    {
+        "id": "info-multi-year-list",
+        "category": "vehicle_information",
+        "input": "How much horsepower do the 2017, 2018 and 2022 Mustang GT make?",
+        "expected": {
+            "allowed": true,
+            "intent": "vehicle_information",
+            "status": "ready",
+            "years": [
+                2017,
+                2018,
+                2022
+            ],
+            "trims": [
+                "GT"
+            ],
+            "tools": [
+                "getVehicleInfo"
+            ],
+            "args": {
+                "make": "Ford",
+                "model": "Mustang",
+                "trims": [
+                    "GT"
+                ],
+                "years": [
+                    2017,
+                    2018,
+                    2022
+                ]
+            },
+            "vehicles": [
+                {
+                    "year": 2017,
+                    "horsepower": 435
+                },
+                {
+                    "year": 2018,
+                    "horsepower": 460
+                },
+                {
+                    "year": 2022,
+                    "horsepower": 450
+                }
+            ]
+        }
+    },
+    {
+        "id": "info-multi-year-range",
+        "category": "vehicle_information",
+        "input": "What horsepower did the Mustang Mach 1 make from 2021 to 2023?",
+        "expected": {
+            "allowed": true,
+            "intent": "vehicle_information",
+            "status": "ready",
+            "years": [
+                2021,
+                2022,
+                2023
+            ],
+            "trims": [
+                "Mach 1"
+            ],
+            "tools": [
+                "getVehicleInfo"
+            ],
+            "args": {
+                "make": "Ford",
+                "model": "Mustang",
+                "trims": [
+                    "Mach 1"
+                ],
+                "years": [
+                    2021,
+                    2022,
+                    2023
+                ]
+            },
+            "vehicles": [
+                {
+                    "year": 2021,
+                    "horsepower": 480
+                },
+                {
+                    "year": 2022,
+                    "horsepower": 470
+                },
+                {
+                    "year": 2023,
+                    "horsepower": 470
+                }
+            ]
+        }
+    },
+    {
+        "id": "info-trim-not-offered",
+        "category": "vehicle_information",
+        "input": "What engine is in a 2021 Mustang Bullitt?",
+        "expected": {
+            "allowed": true,
+            "intent": "vehicle_information",
+            "status": "ready",
+            "years": [
+                2021
+            ],
+            "trims": [
+                "Bullitt"
+            ],
+            "tools": [
+                "getVehicleInfo"
+            ],
+            "args": {
+                "make": "Ford",
+                "model": "Mustang",
+                "trims": [
+                    "Bullitt"
+                ],
+                "years": [
+                    2021
+                ]
+            },
+            "vehicles": []
+        }
+    },
+    {
+        "id": "info-partly-unsupported-years",
+        "category": "vehicle_information",
+        "input": "What engine is in the 2012 and 2016 Mustang GT?",
+        "expected": {
+            "allowed": true,
+            "intent": "vehicle_information",
+            "status": "ready",
+            "years": [
+                2016
+            ],
+            "trims": [
+                "GT"
+            ],
+            "tools": [
+                "getVehicleInfo"
+            ],
+            "args": {
+                "make": "Ford",
+                "model": "Mustang",
+                "trims": [
+                    "GT"
+                ],
+                "years": [
+                    2016
+                ]
+            },
+            "vehicles": [
+                {
+                    "year": 2016,
+                    "horsepower": 435
+                }
+            ],
+            "unsupportedYears": [
+                2012
+            ]
         }
     },
     {
@@ -141,7 +552,31 @@
             "args": {
                 "make": "Ford",
                 "model": "Mustang",
-                "modelYear": 2019
+                "modelYears": [
+                    2019
+                ]
+            }
+        }
+    },
+    {
+        "id": "recall-multi-year",
+        "category": "recall_lookup",
+        "input": "Show recalls for the 2018 through 2020 Mustang.",
+        "expected": {
+            "allowed": true,
+            "intent": "recall_lookup",
+            "status": "ready",
+            "tools": [
+                "getRecalls"
+            ],
+            "args": {
+                "make": "Ford",
+                "model": "Mustang",
+                "modelYears": [
+                    2018,
+                    2019,
+                    2020
+                ]
             }
         }
     },
@@ -159,7 +594,43 @@
             "tools": [
                 "searchReliability",
                 "getRecalls"
-            ]
+            ],
+            "args": {
+                "make": "Ford",
+                "model": "Mustang",
+                "modelYears": [
+                    2018
+                ]
+            }
+        }
+    },
+    {
+        "id": "reliability-all-years",
+        "category": "reliability_research",
+        "input": "What problems do owners report for the Mustang across all years?",
+        "expected": {
+            "allowed": true,
+            "intent": "reliability_research",
+            "status": "ready",
+            "tools": [
+                "searchReliability",
+                "getRecalls"
+            ],
+            "args": {
+                "make": "Ford",
+                "model": "Mustang",
+                "modelYears": [
+                    2015,
+                    2016,
+                    2017,
+                    2018,
+                    2019,
+                    2020,
+                    2021,
+                    2022,
+                    2023
+                ]
+            }
         }
     },
     {
@@ -172,6 +643,9 @@
             "status": "ready",
             "years": [
                 2021
+            ],
+            "trims": [
+                "GT"
             ],
             "tools": [
                 "getVehicleInfo",
@@ -195,7 +669,9 @@
             "args": {
                 "make": "Ford",
                 "model": "Mustang",
-                "trim": "GT",
+                "trims": [
+                    "GT"
+                ],
                 "years": [
                     2015,
                     2018,
@@ -211,6 +687,64 @@
                     "reliability"
                 ]
             }
+        }
+    },
+    {
+        "id": "compare-trims",
+        "category": "vehicle_comparison",
+        "input": "Compare the 2020 Mustang EcoBoost vs GT vs Shelby GT500.",
+        "expected": {
+            "allowed": true,
+            "intent": "vehicle_comparison",
+            "status": "needs_approval",
+            "requiresApproval": true,
+            "tools": [
+                "compareVehicles"
+            ],
+            "args": {
+                "make": "Ford",
+                "model": "Mustang",
+                "trims": [
+                    "EcoBoost",
+                    "GT",
+                    "Shelby GT500"
+                ],
+                "years": [
+                    2020
+                ],
+                "criteria": [
+                    "engine",
+                    "transmission",
+                    "horsepower",
+                    "drivetrain",
+                    "recalls",
+                    "reliability"
+                ]
+            }
+        }
+    },
+    {
+        "id": "compare-too-many",
+        "category": "vehicle_comparison",
+        "input": "Compare the 2015, 2016, 2017, 2018, 2019, and 2020 Mustang GT.",
+        "expected": {
+            "allowed": true,
+            "intent": "vehicle_comparison",
+            "status": "too_many_vehicles",
+            "tools": [],
+            "requiresApproval": false
+        }
+    },
+    {
+        "id": "compare-missing-trim",
+        "category": "vehicle_comparison",
+        "input": "Compare the 2015 and 2018 Mustang.",
+        "expected": {
+            "allowed": true,
+            "intent": "vehicle_comparison",
+            "status": "missing_trim",
+            "tools": [],
+            "requiresApproval": false
         }
     },
     {
@@ -243,6 +777,17 @@
         "id": "unsupported-vehicle",
         "category": "unsupported_vehicle",
         "input": "What engine is in a 2020 Toyota Camry?",
+        "expected": {
+            "allowed": true,
+            "intent": "vehicle_information",
+            "status": "unsupported_vehicle",
+            "tools": []
+        }
+    },
+    {
+        "id": "unsupported-mach-e",
+        "category": "unsupported_vehicle",
+        "input": "How much horsepower does the 2022 Mustang Mach-E have?",
         "expected": {
             "allowed": true,
             "intent": "vehicle_information",
@@ -295,35 +840,17 @@
             "years": [
                 2017
             ],
+            "trims": [
+                "GT"
+            ],
             "tools": [
                 "getVehicleInfo"
             ],
-            "vehicle": {
-                "horsepower": 435
-            }
-        }
-    },
-    {
-        "id": "compare-too-many",
-        "category": "vehicle_comparison",
-        "input": "Compare the 2015, 2016, 2017, 2018, 2019, and 2020 Mustang GT.",
-        "expected": {
-            "allowed": true,
-            "intent": "vehicle_comparison",
-            "status": "too_many_vehicles",
-            "tools": [],
-            "requiresApproval": false
-        }
-    },
-    {
-        "id": "unsupported-trim",
-        "category": "unsupported_vehicle",
-        "input": "How much horsepower does a 2020 Mustang EcoBoost have?",
-        "expected": {
-            "allowed": true,
-            "intent": "vehicle_information",
-            "status": "unsupported_vehicle",
-            "tools": []
+            "vehicles": [
+                {
+                    "horsepower": 435
+                }
+            ]
         }
     }
 ]

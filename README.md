@@ -16,7 +16,10 @@ agent that runs entirely in the browser as a Hugging Face Static Space.
 It is built with plain HTML, CSS, JavaScript, and JSON. There is no
 framework, no build step, and no server.
 
-**Current scope:** Ford Mustang GT, model years 2015 through 2023.
+**Current scope:** Ford Mustang, model years 2015 through 2023, all trims:
+V6, EcoBoost, GT, Bullitt, Mach 1, Shelby GT350, Shelby GT350R, and Shelby
+GT500. Not every trim was offered in every year. The Mustang Mach-E is a
+different vehicle and is not covered.
 
 ## How a request flows
 
@@ -37,8 +40,12 @@ instruction, the unsafe part is removed and the vehicle question is kept.
 
 The coordinator classifies the safe question (`vehicle_information`,
 `recall_lookup`, `reliability_research`, `buying_research`,
-`vehicle_comparison`) and plans which tools to run. It never runs a tool
-itself.
+`vehicle_comparison`), works out which trims and model years were asked
+about, and plans which tools to run. It never runs a tool itself.
+
+A question can cover several model years: a list ("2017, 2018 and 2022"), a
+range ("2018 through 2020"), or "all years". If no trim is named, every trim
+offered in those years is returned.
 
 ## Tools
 
@@ -46,23 +53,33 @@ itself.
 |---|---|---|
 | `getVehicleInfo` | `data/vehicles.json` | Working |
 | `getRecalls` | NHTSA public recalls API (no key) | Working |
-| `compareVehicles` | `data/vehicles.json` + NHTSA recall counts | Working, needs approval |
-| `searchReliability` | none yet | Placeholder; reports "not available" |
+| `searchReliability` | NHTSA public owner-complaints API (no key) | Working |
+| `compareVehicles` | `data/vehicles.json` + NHTSA recall and complaint counts | Working, needs approval |
 
 Torque Intel does not invent data. When a source has nothing, or cannot be
 reached, the response says so.
 
-Recall data comes from
-`https://api.nhtsa.gov/recalls/recallsByVehicle?make=…&model=…&modelYear=…`.
-NHTSA lists recalls by model, not by trim, so recall results cover the whole
-Mustang line for a model year.
+NHTSA data comes from:
+
+- `https://api.nhtsa.gov/recalls/recallsByVehicle?make=…&model=…&modelYear=…`
+- `https://api.nhtsa.gov/complaints/complaintsByVehicle?make=…&model=…&modelYear=…`
+
+NHTSA lists recalls and complaints by model, not by trim, so those results
+cover the whole Mustang line for a model year.
+
+Reliability results are the owner complaints filed publicly with NHTSA:
+how many, how many mention a crash, fire, injury or death, which components
+are named most, and the most recent complaint texts. NHTSA publishes these
+without verifying each one, and the totals depend on how many cars were sold
+and how old they are. Torque Intel shows the counts and does not turn them
+into a reliability score. NHTSA is currently the only reliability source.
 
 ## Human approval gate
 
 `compareVehicles` never runs on its own. The app stores the pending action
 as data, shows the exact tool name and arguments, and waits for **Approve**
 or **Cancel**. Closing the window counts as Cancel. A comparison is limited
-to 5 model years.
+to 5 vehicles (model years x trims) and needs at least one trim named.
 
 ## Limits
 
@@ -82,7 +99,7 @@ to 5 model years.
 | `agent.js` | Limits, security / scope guard, coordinating agent (no page code) |
 | `tools.js` | Tools that return data (no page code) |
 | `app.js` | Page logic: runs the plan, approval gate, result display |
-| `data/vehicles.json` | Ford Mustang GT dataset, 2015 through 2023 |
+| `data/vehicles.json` | Ford Mustang dataset, all trims, 2015 through 2023 |
 | `eval/test-cases.json` | Evaluation cases |
 | `evaluation/evaluation.js` | Evaluation harness (pass@1 and pass^3) |
 | `evaluation/index.html` | Evaluation page |
@@ -113,7 +130,8 @@ checked against `data/vehicles.json`.
 The agent is rule-based, so the three runs normally agree, and no randomness
 is added. Every individual run is kept in the results for manual review.
 The harness does not call NHTSA, because live recall data changes over time;
-a recall case passes when the right tool is planned with the right arguments.
+a recall or reliability case passes when the right tool is planned with the
+right arguments.
 
 Run it in the browser at `/evaluation/`, or in a terminal:
 
@@ -137,7 +155,7 @@ checked:
         "intent": "vehicle_information",
         "status": "ready",
         "tools": ["getVehicleInfo"],
-        "vehicle": { "horsepower": 435 }
+        "vehicles": [{ "trim": "GT", "horsepower": 435 }]
     }
 }
 ```

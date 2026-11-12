@@ -38,16 +38,20 @@ let sessionTurns = 0;
 
         {
             tool: "compareVehicles",
-            args: { make, model, trim, years, criteria },
+            args: { make, model, trims, years, criteria },
             status: "pending" | "approved",
-            sanitized: true | false
+            sanitized: true | false,
+            unsupportedYears: []
         }
 */
 let pendingAction = null;
 
 
 const SCOPE_TEXT =
-    `${SUPPORTED_VEHICLE.make} ${SUPPORTED_VEHICLE.model} ${SUPPORTED_VEHICLE.trim}, model years ${SUPPORTED_VEHICLE.minYear} through ${SUPPORTED_VEHICLE.maxYear}`;
+    `${SUPPORTED_VEHICLE.make} ${SUPPORTED_VEHICLE.model}, model years ${SUPPORTED_VEHICLE.minYear} through ${SUPPORTED_VEHICLE.maxYear}`;
+
+const TRIM_LIST_TEXT =
+    TRIMS.map(trim => trim.name).join(", ");
 
 const INTENT_TITLES = {
     vehicle_information: "Vehicle Information",
@@ -63,7 +67,16 @@ const CRITERIA_LABELS = {
     horsepower: "Horsepower",
     drivetrain: "Drivetrain",
     recalls: "Recalls (NHTSA, all trims)",
-    reliability: "Reliability"
+    reliability: "Owner complaints (NHTSA, all trims)"
+};
+
+const NHTSA_ERROR_TEXT = {
+
+    network_error:
+        "Torque Intel could not reach NHTSA, so nothing is shown. This does not mean there is nothing on file.",
+
+    service_error:
+        "NHTSA returned an unexpected response, so nothing is shown. This does not mean there is nothing on file."
 };
 
 
@@ -159,7 +172,7 @@ async function actOnAnalysis(analysis) {
             showMessage(
                 "Unsupported Model Year",
                 [
-                    `Torque Intel does not have data for the ${analysis.unsupportedYears.join(", ")} Mustang GT.`,
+                    `Torque Intel does not have data for the ${analysis.unsupportedYears.join(", ")} Mustang.`,
                     `It currently supports only the ${SCOPE_TEXT}.`
                 ]
             );
@@ -173,13 +186,27 @@ async function actOnAnalysis(analysis) {
                 "Model Year Needed",
                 analysis.intent === "vehicle_comparison"
                     ? [
-                        "Name at least two model years to compare.",
+                        "A comparison needs at least two vehicles: two model years, or two trims.",
                         "Example: Compare the 2015 and 2018 Mustang GT."
                     ]
                     : [
-                        "Tell Torque Intel which model year you mean.",
-                        "Example: What engine is in a 2017 Mustang GT?"
+                        "Tell Torque Intel which model year or years you mean.",
+                        "Examples: What engine is in a 2017 Mustang GT? Recalls for the 2018 to 2020 Mustang."
                     ]
+            );
+
+            return;
+
+
+        case "missing_trim":
+
+            showMessage(
+                "Trim Needed",
+                [
+                    "Tell Torque Intel which Mustang trim or trims to compare.",
+                    `Supported trims: ${TRIM_LIST_TEXT}.`,
+                    "Example: Compare the 2020 Mustang EcoBoost and GT."
+                ]
             );
 
             return;
@@ -190,7 +217,7 @@ async function actOnAnalysis(analysis) {
             showMessage(
                 "Too Many Vehicles",
                 [
-                    `Torque Intel can compare up to ${MAX_COMPARISON_VEHICLES} model years at once. You asked for ${analysis.years.length}.`
+                    `Torque Intel can compare up to ${MAX_COMPARISON_VEHICLES} vehicles at once. You asked for ${analysis.years.length * analysis.trims.length} (${analysis.years.length} model years x ${analysis.trims.length} trims).`
                 ]
             );
 
@@ -203,7 +230,8 @@ async function actOnAnalysis(analysis) {
                 tool: analysis.toolCalls[0].tool,
                 args: analysis.toolCalls[0].args,
                 status: "pending",
-                sanitized: analysis.sanitized
+                sanitized: analysis.sanitized,
+                unsupportedYears: analysis.unsupportedYears
             };
 
             showApprovalGate(pendingAction);
@@ -219,6 +247,7 @@ async function actOnAnalysis(analysis) {
             showResult(
                 INTENT_TITLES[analysis.intent],
                 sanitizedNoticeHtml(analysis.sanitized) +
+                skippedYearsNoticeHtml(analysis.unsupportedYears) +
                 results.map(toolResultHtml).join("")
             );
 
@@ -266,11 +295,12 @@ async function runToolCalls(toolCalls) {
 
 function showApprovalGate(action) {
 
-    const { make, model, trim, years, criteria } =
+    const { make, model, trims, years, criteria } =
         action.args;
 
     const html = `
         ${sanitizedNoticeHtml(action.sanitized)}
+        ${skippedYearsNoticeHtml(action.unsupportedYears)}
         <div class="result-section">
             <h3>Approval Required</h3>
             <p>
@@ -284,7 +314,7 @@ function showApprovalGate(action) {
             <div class="result-grid">
                 ${resultItemHtml(["make", make])}
                 ${resultItemHtml(["model", model])}
-                ${resultItemHtml(["trim", trim])}
+                ${resultItemHtml(["trims", trims.join(", ")])}
                 ${resultItemHtml(["years", years.join(", ")])}
             </div>
             <div class="result-stack">
@@ -396,118 +426,216 @@ function toolResultHtml(result) {
 }
 
 
-function vehicleInfoHtml(result) {
+function vehicleName(vehicle) {
 
-    if (!result.ok) {
-
-        return sectionHtml(
-            "Specifications",
-            [
-                result.error === "not_found"
-                    ? `Torque Intel has no entry for that vehicle. It currently supports only the ${SCOPE_TEXT}.`
-                    : "Torque Intel could not load its vehicle dataset, so no specifications are shown."
-            ]
-        );
-    }
-
-    const vehicle = result.data;
-
-    const heading = [
+    return [
         vehicle.year,
         vehicle.make,
         vehicle.model,
         vehicle.trim
     ].join(" ");
+}
 
-    const items = [
-        ["Engine", vehicle.engine],
-        ["Horsepower", `${vehicle.horsepower} hp`],
-        ["Drivetrain", vehicle.drivetrain],
-        ["Transmission Options", vehicle.transmissions.join(", ")]
-    ];
+
+function vehicleInfoHtml(result) {
+
+    if (result.error === "data_unavailable" || result.error === "invalid_arguments") {
+
+        return sectionHtml(
+            "Specifications",
+            [
+                "Torque Intel could not load its vehicle dataset, so no specifications are shown."
+            ]
+        );
+    }
+
+    const { vehicles, missing } =
+        result.data;
+
+    const missingHtml =
+        missing.length
+            ? `
+                <p class="note">
+                    No entry in the Torque Intel dataset for:
+                    ${escapeHtml(
+                        missing
+                            .map(item => `${item.year} Mustang ${item.trim || ""}`.trim())
+                            .join(", ")
+                    )}.
+                </p>
+            `
+            : "";
+
+    if (vehicles.length === 0) {
+
+        return `
+            <div class="result-section">
+                <h3>Specifications</h3>
+                ${missingHtml}
+                <p>Supported trims: ${escapeHtml(TRIM_LIST_TEXT)}. Not every trim was offered in every year.</p>
+            </div>
+        `;
+    }
+
+
+    /* One vehicle: cards. Several vehicles: a table. */
+    if (vehicles.length === 1) {
+
+        const vehicle = vehicles[0];
+
+        const items = [
+            ["Engine", vehicle.engine],
+            ["Horsepower", `${vehicle.horsepower} hp`],
+            ["Drivetrain", vehicle.drivetrain],
+            ["Transmission Options", vehicle.transmissions.join(", ")]
+        ];
+
+        return `
+            <div class="result-section">
+                <h3>${escapeHtml(vehicleName(vehicle))}</h3>
+                <div class="result-grid">
+                    ${items.map(resultItemHtml).join("")}
+                </div>
+                ${missingHtml}
+                ${sourceHtml(result.source)}
+            </div>
+        `;
+    }
+
+    const rows =
+        vehicles
+            .map(vehicle => `
+                <tr>
+                    <th scope="row">${escapeHtml(`${vehicle.year} ${vehicle.trim}`)}</th>
+                    <td>${escapeHtml(vehicle.engine)}</td>
+                    <td class="nowrap">${escapeHtml(vehicle.horsepower)} hp</td>
+                    <td>${escapeHtml(vehicle.transmissions.join(", "))}</td>
+                    <td>${escapeHtml(vehicle.drivetrain)}</td>
+                </tr>
+            `)
+            .join("");
 
     return `
         <div class="result-section">
-            <h3>${escapeHtml(heading)}</h3>
-            <div class="result-grid">
-                ${items.map(resultItemHtml).join("")}
+            <h3>Specifications: Ford Mustang</h3>
+            <div class="table-scroll">
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th scope="col">Vehicle</th>
+                            <th scope="col">Engine</th>
+                            <th scope="col">Horsepower</th>
+                            <th scope="col">Transmissions</th>
+                            <th scope="col">Drivetrain</th>
+                        </tr>
+                    </thead>
+                    <tbody>${rows}</tbody>
+                </table>
             </div>
+            ${missingHtml}
             ${sourceHtml(result.source)}
         </div>
     `;
 }
 
 
+/*
+    Shared layout for NHTSA results that come per model year.
+    One year is shown open; several years are shown as
+    collapsible blocks.
+*/
+function perYearHtml(years, yearSummary, yearBody) {
+
+    if (years.length === 1) {
+        return yearBody(years[0]);
+    }
+
+    return years
+        .map(year => `
+            <details class="year-block">
+                <summary>
+                    <strong>${escapeHtml(year.modelYear)}</strong>
+                    ${escapeHtml(yearSummary(year))}
+                </summary>
+                ${yearBody(year)}
+            </details>
+        `)
+        .join("");
+}
+
+
+function yearRangeText(years) {
+
+    const list =
+        years.map(year => year.modelYear);
+
+    return list.length === 1
+        ? String(list[0])
+        : list.join(", ");
+}
+
+
 function recallsHtml(result) {
-
-    const { make, model, modelYear } =
-        result.args;
-
-    const heading =
-        `Safety Recalls: ${modelYear} ${make} ${model}`;
-
 
     if (!result.ok) {
 
-        const reasons = {
-
-            network_error:
-                "Torque Intel could not reach NHTSA, so no recall information is shown. This does not mean there are no recalls.",
-
-            service_error:
-                "NHTSA returned an unexpected response, so no recall information is shown. This does not mean there are no recalls.",
-
-            invalid_arguments:
-                "The recall lookup needs a make, model, and model year."
-        };
-
-        return `
-            <div class="result-section">
-                <h3>${escapeHtml(heading)}</h3>
-                <p>${escapeHtml(reasons[result.error] || reasons.service_error)}</p>
-                <p>You can check directly at nhtsa.gov/recalls.</p>
-                ${sourceHtml(result.source)}
-            </div>
-        `;
+        return sectionHtml(
+            "Safety Recalls",
+            ["The recall lookup needs a make, model, and model year."]
+        );
     }
 
-
-    const { totalCount, recalls } =
+    const { make, model, years } =
         result.data;
 
-    if (totalCount === 0) {
+    const summary = year =>
+        !year.ok
+            ? "could not be checked"
+            : `${year.totalCount} recall${year.totalCount === 1 ? "" : "s"}`;
+
+    const body = year => {
+
+        if (!year.ok) {
+
+            return `
+                <p>${escapeHtml(NHTSA_ERROR_TEXT[year.error] || NHTSA_ERROR_TEXT.service_error)}</p>
+                <p>You can check directly at nhtsa.gov/recalls.</p>
+            `;
+        }
+
+        if (year.totalCount === 0) {
+
+            return `
+                <p>
+                    NHTSA returned no recalls for the
+                    ${escapeHtml(`${year.modelYear} ${make} ${model}`)}.
+                </p>
+            `;
+        }
+
+        const countText =
+            year.recalls.length < year.totalCount
+                ? `NHTSA lists ${year.totalCount} recalls for ${year.modelYear}. Showing the ${year.recalls.length} most recent.`
+                : `NHTSA lists ${year.totalCount} recall${year.totalCount === 1 ? "" : "s"} for ${year.modelYear}.`;
 
         return `
-            <div class="result-section">
-                <h3>${escapeHtml(heading)}</h3>
-                <p>
-                    NHTSA returned no recalls for this
-                    make, model, and model year.
-                </p>
-                ${sourceHtml(result.source)}
+            <p>${escapeHtml(countText)}</p>
+            <div class="result-stack">
+                ${year.recalls.map(recallCardHtml).join("")}
             </div>
         `;
-    }
-
-
-    const countText =
-        recalls.length < totalCount
-            ? `NHTSA lists ${totalCount} recalls. Showing the ${recalls.length} most recent.`
-            : `NHTSA lists ${totalCount} recall${totalCount === 1 ? "" : "s"}.`;
+    };
 
     return `
         <div class="result-section">
-            <h3>${escapeHtml(heading)}</h3>
-            <p>${escapeHtml(countText)}</p>
+            <h3>${escapeHtml(`Safety Recalls: ${yearRangeText(years)} ${make} ${model}`)}</h3>
             <p class="note">
-                NHTSA lists recalls by model, not by trim. These
-                cover the ${escapeHtml(model)} line for ${escapeHtml(modelYear)},
-                and a recall may apply to only some vehicles.
-                Check a specific car by VIN at nhtsa.gov/recalls.
+                NHTSA lists recalls by model, not by trim. These cover
+                the whole ${escapeHtml(model)} line, and a recall may apply to
+                only some vehicles. Check a specific car by VIN at
+                nhtsa.gov/recalls.
             </p>
-            <div class="result-stack">
-                ${recalls.map(recallCardHtml).join("")}
-            </div>
+            ${perYearHtml(years, summary, body)}
             ${sourceHtml(result.source)}
         </div>
     `;
@@ -549,13 +677,114 @@ function recallCardHtml(recall) {
 
 function reliabilityHtml(result) {
 
-    return sectionHtml(
-        "Reliability",
-        [
-            "Torque Intel does not have a verified reliability source connected yet, so it will not give a reliability rating or list of common problems.",
-            "Official safety recalls are shown where available."
-        ]
-    );
+    if (!result.ok) {
+
+        return sectionHtml(
+            "Owner Complaints",
+            ["The complaint lookup needs a make, model, and model year."]
+        );
+    }
+
+    const { make, model, years } =
+        result.data;
+
+    const summary = year =>
+        !year.ok
+            ? "could not be checked"
+            : `${year.totalCount} complaint${year.totalCount === 1 ? "" : "s"}`;
+
+    const body = year => {
+
+        if (!year.ok) {
+
+            return `
+                <p>${escapeHtml(NHTSA_ERROR_TEXT[year.error] || NHTSA_ERROR_TEXT.service_error)}</p>
+            `;
+        }
+
+        if (year.totalCount === 0) {
+
+            return `
+                <p>
+                    NHTSA has no owner complaints on file for the
+                    ${escapeHtml(`${year.modelYear} ${make} ${model}`)}.
+                </p>
+            `;
+        }
+
+        const stats = [
+            ["Complaints filed", year.totalCount],
+            ["Reporting a crash", year.crashCount],
+            ["Reporting a fire", year.fireCount],
+            ["Injuries reported", year.injuries],
+            ["Deaths reported", year.deaths]
+        ];
+
+        const components =
+            year.topComponents
+                .map(item => `
+                    <li>
+                        ${escapeHtml(item.component)}:
+                        ${escapeHtml(item.count)}
+                    </li>
+                `)
+                .join("");
+
+        return `
+            <div class="result-grid">
+                ${stats.map(resultItemHtml).join("")}
+            </div>
+            <p class="detail-label">Most reported components (${escapeHtml(year.modelYear)})</p>
+            <ul class="plain-list">${components}</ul>
+            <details class="year-block">
+                <summary>
+                    Most recent complaint${year.recentComplaints.length === 1 ? "" : "s"}
+                    (${escapeHtml(year.recentComplaints.length)} of ${escapeHtml(year.totalCount)})
+                </summary>
+                <div class="result-stack">
+                    ${year.recentComplaints.map(complaintCardHtml).join("")}
+                </div>
+            </details>
+        `;
+    };
+
+    return `
+        <div class="result-section">
+            <h3>${escapeHtml(`Owner Complaints: ${yearRangeText(years)} ${make} ${model}`)}</h3>
+            <p class="note">
+                These are complaints that owners filed publicly with
+                NHTSA. NHTSA publishes them without verifying each one.
+                They cover every ${escapeHtml(model)} trim, and the totals depend on
+                how many cars were sold and how long they have been on
+                the road. This is not a reliability rating.
+            </p>
+            ${perYearHtml(years, summary, body)}
+            ${sourceHtml(result.source)}
+        </div>
+    `;
+}
+
+
+function complaintCardHtml(complaint) {
+
+    const flags = [
+        complaint.crash ? "crash reported" : null,
+        complaint.fire ? "fire reported" : null,
+        complaint.injuries ? `${complaint.injuries} injured` : null,
+        complaint.deaths ? `${complaint.deaths} deaths` : null
+    ].filter(Boolean);
+
+    return `
+        <div class="result-item recall-card">
+            <span class="result-label">
+                NHTSA ID ${escapeHtml(complaint.odiNumber ?? "not provided")}
+                ${complaint.dateFiled ? " · filed " + escapeHtml(complaint.dateFiled) : ""}
+            </span>
+            <strong>${escapeHtml(complaint.components || "Component not provided")}</strong>
+            ${flags.length ? `<p class="warning">${escapeHtml(flags.join(", "))}</p>` : ""}
+            ${complaint.summary ? `<p>${escapeHtml(complaint.summary)}</p>` : ""}
+        </div>
+    `;
 }
 
 
@@ -573,39 +802,45 @@ function comparisonHtml(result) {
         );
     }
 
-    const { make, model, trim, criteria, rows, recallSource } =
+    const { make, model, criteria, rows, otherSources } =
         result.data;
+
+    const spec = value =>
+        value ?? "No entry";
+
+    const count = value =>
+        value !== null && value !== undefined
+            ? String(value)
+            : "Could not reach NHTSA";
 
     const cellText = {
 
         engine: row =>
-            row.engine ?? "Not available",
+            spec(row.engine),
 
         transmission: row =>
             row.transmissions
                 ? row.transmissions.join(", ")
-                : "Not available",
+                : "No entry",
 
         horsepower: row =>
             row.horsepower !== null
                 ? `${row.horsepower} hp`
-                : "Not available",
+                : "No entry",
 
         drivetrain: row =>
-            row.drivetrain ?? "Not available",
+            spec(row.drivetrain),
 
         recalls: row =>
-            row.recallCount !== null
-                ? String(row.recallCount)
-                : "Could not reach NHTSA",
+            count(row.recallCount),
 
-        reliability: () =>
-            "Not available"
+        reliability: row =>
+            count(row.complaintCount)
     };
 
     const headerCells =
         rows
-            .map(row => `<th scope="col">${escapeHtml(row.year)}</th>`)
+            .map(row => `<th scope="col">${escapeHtml(`${row.year} ${row.trim}`)}</th>`)
             .join("");
 
     const bodyRows =
@@ -619,28 +854,39 @@ function comparisonHtml(result) {
             `)
             .join("");
 
+    const notFound =
+        rows.filter(row => !row.found);
+
     return `
         <div class="result-section">
-            <h3>${escapeHtml(`${make} ${model} ${trim}`)}</h3>
+            <h3>${escapeHtml(`${make} ${model}`)}</h3>
             <div class="table-scroll">
                 <table class="data-table">
                     <thead>
                         <tr>
-                            <th scope="col">Model year</th>
+                            <th scope="col">Vehicle</th>
                             ${headerCells}
                         </tr>
                     </thead>
                     <tbody>${bodyRows}</tbody>
                 </table>
             </div>
+            ${notFound.length ? `
+                <p class="note">
+                    "No entry" means the Torque Intel dataset has no
+                    ${escapeHtml(notFound.map(row => `${row.year} ${row.trim}`).join(", "))}.
+                    Not every trim was offered in every year.
+                </p>
+            ` : ""}
             <p class="note">
-                Recall counts come from NHTSA and cover the whole
-                ${escapeHtml(model)} line for each year, not only the
-                ${escapeHtml(trim)}. Reliability is not available because no
-                verified reliability source is connected yet.
+                Recall and complaint counts come from NHTSA and cover
+                the whole ${escapeHtml(model)} line for each model year, not one
+                trim. Complaints are owner reports that NHTSA publishes
+                without verifying each one; a higher count is not a
+                reliability rating.
             </p>
             ${sourceHtml(result.source)}
-            ${recallSource ? sourceHtml(recallSource) : ""}
+            ${otherSources.map(sourceHtml).join("")}
         </div>
     `;
 }
@@ -706,6 +952,21 @@ function sanitizedNoticeHtml(sanitized) {
                     Part of your request was removed because it asked
                     for protected information or tried to change how
                     Torque Intel works. The vehicle question was kept.
+                </p>
+            </div>
+        `
+        : "";
+}
+
+
+function skippedYearsNoticeHtml(unsupportedYears) {
+
+    return unsupportedYears && unsupportedYears.length
+        ? `
+            <div class="result-section">
+                <p class="note">
+                    Skipped ${escapeHtml(unsupportedYears.join(", "))}:
+                    Torque Intel supports only the ${escapeHtml(SCOPE_TEXT)}.
                 </p>
             </div>
         `
