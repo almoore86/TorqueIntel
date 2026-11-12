@@ -1,3 +1,13 @@
+/*
+    Torque Intel - page logic
+
+    This file owns everything the user sees: reading the
+    question, calling the agent (agent.js), running tools
+    (tools.js), and showing results in the modal.
+
+    Load order in index.html: agent.js, tools.js, app.js.
+*/
+
 const analyzeButton =
     document.getElementById("analyzeButton");
 
@@ -19,9 +29,6 @@ const resultContent =
 const closeModal =
     document.getElementById("closeModal");
 
-
-const MAX_TOOL_CALLS_PER_TURN = 4;
-const MAX_TURNS_PER_SESSION = 10;
 
 let sessionTurns = 0;
 
@@ -56,164 +63,48 @@ async function handleUserRequest() {
     statusArea.textContent =
         "Torque Intel is reviewing your request...";
 
-
-    const securityResult =
-        checkRequestSafety(question);
+    analyzeButton.disabled = true;
 
 
-    if (!securityResult.allowed) {
+    try {
 
-        showResult(
-            "Request Not Available",
-            `
-            <div class="result-section">
-                <p>${securityResult.message}</p>
-            </div>
-            `
+        const securityResult =
+            checkRequestSafety(question);
+
+
+        if (!securityResult.allowed) {
+
+            showMessage(
+                "Request Not Available",
+                [securityResult.message]
+            );
+
+            return;
+        }
+
+
+        const intent =
+            coordinateRequest(question);
+
+
+        await routeRequest(
+            intent,
+            securityResult.safeQuestion
         );
+    }
+
+    finally {
 
         statusArea.textContent = "";
 
-        return;
+        analyzeButton.disabled = false;
     }
-
-
-    const intent =
-        coordinateRequest(question);
-
-
-    await routeRequest(
-        intent,
-        securityResult.safeQuestion
-    );
 }
 
 
 /*
-    Security / Scope Guard
-*/
-function checkRequestSafety(question) {
-
-    const lowerQuestion =
-        question.toLowerCase();
-
-
-    const protectedRequests = [
-        "api key",
-        "password",
-        "credentials",
-        "environment variable",
-        "system prompt",
-        "hidden instruction",
-        "secret key",
-        "private configuration"
-    ];
-
-
-    const containsProtectedRequest =
-        protectedRequests.some(
-            phrase =>
-                lowerQuestion.includes(phrase)
-        );
-
-
-    if (containsProtectedRequest) {
-
-        return {
-            allowed: false,
-
-            message:
-                "Torque Intel cannot provide credentials, private configuration, system instructions, or protected application information."
-        };
-    }
-
-
-    const automotiveTerms = [
-        "car",
-        "vehicle",
-        "ford",
-        "mustang",
-        "engine",
-        "transmission",
-        "horsepower",
-        "recall",
-        "reliability",
-        "buy",
-        "buying",
-        "model",
-        "drivetrain"
-    ];
-
-
-    const appearsAutomotive =
-        automotiveTerms.some(
-            term =>
-                lowerQuestion.includes(term)
-        );
-
-
-    if (!appearsAutomotive) {
-
-        return {
-            allowed: false,
-
-            message:
-                "Torque Intel is designed for automotive research, vehicle specifications, reliability, recalls, and vehicle comparisons."
-        };
-    }
-
-
-    return {
-        allowed: true,
-        safeQuestion: question
-    };
-}
-
-
-/*
-    Coordinating Agent
-    Determines what kind of automotive
-    request the user is making.
-*/
-function coordinateRequest(question) {
-
-    const text =
-        question.toLowerCase();
-
-
-    if (
-        text.includes("compare") ||
-        text.includes("versus") ||
-        text.includes(" vs ")
-    ) {
-        return "vehicle_comparison";
-    }
-
-
-    if (
-        text.includes("recall") ||
-        text.includes("recalled")
-    ) {
-        return "recall_lookup";
-    }
-
-
-    if (
-        text.includes("reliable") ||
-        text.includes("reliability") ||
-        text.includes("problem") ||
-        text.includes("issue")
-    ) {
-        return "reliability_research";
-    }
-
-
-    return "vehicle_information";
-}
-
-
-/*
-    Routes the request to the correct tool.
+    Runs the tool for an intent,
+    then hands the result to the display code.
 */
 async function routeRequest(
     intent,
@@ -224,8 +115,8 @@ async function routeRequest(
 
         case "vehicle_information":
 
-            await runVehicleInformationTool(
-                question
+            displayToolResult(
+                await getVehicleInfo(question)
             );
 
             break;
@@ -233,20 +124,8 @@ async function routeRequest(
 
         case "reliability_research":
 
-            showResult(
-                "Reliability Research",
-                `
-                <div class="result-section">
-                    <p>
-                        Torque Intel identified this as
-                        a reliability research request.
-                    </p>
-                    <p>
-                        The reliability tool will be
-                        connected next.
-                    </p>
-                </div>
-                `
+            displayToolResult(
+                await searchReliability(question)
             );
 
             break;
@@ -254,20 +133,8 @@ async function routeRequest(
 
         case "recall_lookup":
 
-            showResult(
-                "Recall Research",
-                `
-                <div class="result-section">
-                    <p>
-                        Torque Intel identified this as
-                        a recall request.
-                    </p>
-                    <p>
-                        The live NHTSA recall tool will
-                        be connected next.
-                    </p>
-                </div>
-                `
+            displayToolResult(
+                await getRecalls(question)
             );
 
             break;
@@ -275,212 +142,121 @@ async function routeRequest(
 
         case "vehicle_comparison":
 
-            showComparisonApproval(
-                question
-            );
+            /*
+                compareVehicles is NOT called here.
+                It may only run after human approval.
+            */
+            showComparisonApproval(question);
 
             break;
 
 
         default:
 
-            showResult(
+            showMessage(
                 "Request",
-                `
-                <p>
-                    Torque Intel could not determine
-                    which automotive tool should be used.
-                </p>
-                `
+                [
+                    "Torque Intel could not determine which automotive tool should be used."
+                ]
             );
     }
-
-
-    statusArea.textContent = "";
 }
 
 
 /*
-    Vehicle Information Tool
+    Display: chooses how to show a tool result.
 */
-async function runVehicleInformationTool(
-    question
-) {
+function displayToolResult(result) {
 
-    try {
+    if (result.ok) {
 
-        const response =
-            await fetch(
-                "data/vehicles.json"
-            );
-
-
-        if (!response.ok) {
-            throw new Error(
-                "Vehicle data could not be loaded."
-            );
+        if (result.tool === "getVehicleInfo") {
+            displayVehicleInformation(result.data);
         }
 
-
-        const vehicles =
-            await response.json();
-
-
-        const vehicle =
-            identifyVehicle(
-                question,
-                vehicles
-            );
-
-
-        if (!vehicle) {
-
-            showResult(
-                "Vehicle Not Found",
-                `
-                <div class="result-section">
-                    <p>
-                        Torque Intel could not match
-                        that request to a supported
-                        vehicle yet.
-                    </p>
-                    <p>
-                        The current prototype focuses
-                        on selected Ford Mustang GT
-                        model years.
-                    </p>
-                </div>
-                `
-            );
-
-            return;
-        }
-
-
-        displayVehicleInformation(
-            vehicle
-        );
-
+        return;
     }
 
-    catch (error) {
 
-        showResult(
+    if (result.error === "not_found") {
+
+        showMessage(
+            "Vehicle Not Found",
+            [
+                "Torque Intel could not match that request to a supported vehicle yet.",
+                "The current prototype covers the Ford Mustang GT, model years 2015 through 2023. Include the year, for example: 2020 Mustang GT."
+            ]
+        );
+
+        return;
+    }
+
+
+    if (result.error === "data_unavailable") {
+
+        showMessage(
             "Vehicle Data Error",
-            `
-            <div class="result-section">
-                <p>
-                    Torque Intel could not access
-                    the local vehicle dataset.
-                </p>
-            </div>
-            `
+            [
+                "Torque Intel could not access the local vehicle dataset."
+            ]
         );
 
-
-        console.error(error);
+        return;
     }
+
+
+    const placeholders = {
+
+        getRecalls: [
+            "Recall Research",
+            "Torque Intel identified this as a recall request.",
+            "The live NHTSA recall tool will be connected next."
+        ],
+
+        searchReliability: [
+            "Reliability Research",
+            "Torque Intel identified this as a reliability research request.",
+            "The reliability tool will be connected next."
+        ]
+    };
+
+    const [title, ...paragraphs] =
+        placeholders[result.tool] ||
+        ["Tool Not Available", "This tool is not available yet."];
+
+    showMessage(title, paragraphs);
 }
 
 
 /*
-    Matches a user's question
-    to the local vehicle dataset.
-*/
-function identifyVehicle(
-    question,
-    vehicles
-) {
-
-    const text =
-        question.toLowerCase();
-
-
-    for (
-        const vehicle of
-        Object.values(vehicles)
-    ) {
-
-        const yearFound =
-            text.includes(
-                String(vehicle.year)
-            );
-
-
-        const modelFound =
-            text.includes(
-                vehicle.model.toLowerCase()
-            );
-
-
-        const trimFound =
-            text.includes(
-                vehicle.trim.toLowerCase()
-            );
-
-
-        if (
-            yearFound &&
-            modelFound &&
-            trimFound
-        ) {
-            return vehicle;
-        }
-    }
-
-
-    return null;
-}
-
-
-/*
-    Formats vehicle tool results.
+    Display: vehicle specifications.
 */
 function displayVehicleInformation(
     vehicle
 ) {
 
-    const transmissionText =
-        vehicle.transmissions.join(", ");
+    const heading = [
+        vehicle.year,
+        vehicle.make,
+        vehicle.model,
+        vehicle.trim
+    ].join(" ");
 
+    const items = [
+        ["Engine", vehicle.engine],
+        ["Horsepower", `${vehicle.horsepower} hp`],
+        ["Drivetrain", vehicle.drivetrain],
+        ["Transmission Options", vehicle.transmissions.join(", ")]
+    ];
 
     const html = `
         <div class="result-section">
-            <h3>
-                ${vehicle.year}
-                ${vehicle.make}
-                ${vehicle.model}
-                ${vehicle.trim}
-            </h3>
+            <h3>${escapeHtml(heading)}</h3>
             <div class="result-grid">
-                <div class="result-item">
-                    <span class="result-label">
-                        Engine
-                    </span>
-                    ${vehicle.engine}
-                </div>
-                <div class="result-item">
-                    <span class="result-label">
-                        Horsepower
-                    </span>
-                    ${vehicle.horsepower} hp
-                </div>
-                <div class="result-item">
-                    <span class="result-label">
-                        Drivetrain
-                    </span>
-                    ${vehicle.drivetrain}
-                </div>
-                <div class="result-item">
-                    <span class="result-label">
-                        Transmission Options
-                    </span>
-                    ${transmissionText}
-                </div>
+                ${items.map(resultItemHtml).join("")}
             </div>
         </div>
     `;
-
 
     showResult(
         "Vehicle Information",
@@ -490,7 +266,7 @@ function displayVehicleInformation(
 
 
 /*
-    Human Gate placeholder.
+    Display: Human Gate placeholder.
 */
 function showComparisonApproval(
     question
@@ -498,24 +274,14 @@ function showComparisonApproval(
 
     const html = `
         <div class="result-section">
-            <h3>
-                Approval Required
-            </h3>
+            <h3>Approval Required</h3>
             <p>
                 Torque Intel selected a
                 comparison action.
             </p>
-            <div class="result-item">
-                <span class="result-label">
-                    Tool
-                </span>
-                compareVehicles
-            </div>
-            <div class="result-item">
-                <span class="result-label">
-                    User Request
-                </span>
-                ${escapeHtml(question)}
+            <div class="result-stack">
+                ${resultItemHtml(["Tool", "compareVehicles"])}
+                ${resultItemHtml(["User Request", question])}
             </div>
             <p>
                 The full comparison arguments
@@ -525,11 +291,41 @@ function showComparisonApproval(
         </div>
     `;
 
-
     showResult(
         "Torque Intel Action Request",
         html
     );
+}
+
+
+/*
+    Display helpers
+*/
+function resultItemHtml([label, value]) {
+
+    return `
+        <div class="result-item">
+            <span class="result-label">${escapeHtml(label)}</span>
+            ${escapeHtml(value)}
+        </div>
+    `;
+}
+
+
+function showMessage(
+    title,
+    paragraphs
+) {
+
+    const html = `
+        <div class="result-section">
+            ${paragraphs
+                .map(text => `<p>${escapeHtml(text)}</p>`)
+                .join("")}
+        </div>
+    `;
+
+    showResult(title, html);
 }
 
 
@@ -550,16 +346,28 @@ function showResult(
     resultModal.classList.remove(
         "hidden"
     );
+
+    closeModal.focus();
+}
+
+
+function hideResult() {
+
+    resultModal.classList.add(
+        "hidden"
+    );
+
+    userQuestion.focus();
 }
 
 
 /*
-    Basic HTML escaping
-    for user-provided text.
+    Basic HTML escaping.
+    Everything placed into the modal goes through this.
 */
 function escapeHtml(text) {
 
-    return text
+    return String(text)
         .replaceAll("&", "&amp;")
         .replaceAll("<", "&lt;")
         .replaceAll(">", "&gt;")
@@ -579,12 +387,7 @@ analyzeButton.addEventListener(
 
 closeModal.addEventListener(
     "click",
-    () => {
-
-        resultModal.classList.add(
-            "hidden"
-        );
-    }
+    hideResult
 );
 
 
@@ -595,10 +398,21 @@ resultModal.addEventListener(
         if (
             event.target === resultModal
         ) {
+            hideResult();
+        }
+    }
+);
 
-            resultModal.classList.add(
-                "hidden"
-            );
+
+document.addEventListener(
+    "keydown",
+    event => {
+
+        if (
+            event.key === "Escape" &&
+            !resultModal.classList.contains("hidden")
+        ) {
+            hideResult();
         }
     }
 );
