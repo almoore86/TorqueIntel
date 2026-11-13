@@ -1,10 +1,10 @@
 ---
-title: TorqueIntel
-emoji: 🏎️
-colorFrom: indigo
-colorTo: gray
-sdk: static
-pinned: false
+Title: TorqueIntel
+Emoji: 🏎️
+ColorFrom: indigo
+ColorTo: gray
+Sdk: static
+Pinned: false
 short_description: Automotive intelligent agent for vehicle reliability.
 ---
 
