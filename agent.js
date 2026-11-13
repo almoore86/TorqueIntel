@@ -160,6 +160,7 @@ const HARMFUL_PATTERNS = [
     /* Dangerous or illegal driving */
     /\b(outrun|evade|escape|flee|lose|get away from)\b[^.!?\n]{0,30}\b(police|cops?|troopers?|officers?)\b/,
     /\bstreet rac(e|es|ing)\b/,
+    /\b(lay|lays|laying|laid)\s+(down\s+)?drag\b/,
     /\b(drunk|buzzed) driv(e|ing)\b/,
     /\bdriv(e|ing)\b[^.!?\n]{0,20}\b(drunk|wasted|high|stoned)\b/
 ];

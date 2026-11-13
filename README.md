@@ -1,10 +1,10 @@
 ---
-Title: TorqueIntel
-Emoji: 🏎️
-ColorFrom: indigo
-ColorTo: gray
-Sdk: static
-Pinned: false
+title: TorqueIntel
+emoji: 🏎️
+colorFrom: indigo
+colorTo: gray
+sdk: static
+pinned: false
 short_description: Automotive intelligent agent for vehicle reliability.
 ---
 
@@ -32,7 +32,7 @@ User
 ```
 
 The guard always runs first. It blocks unrelated requests, requests for
-protected information including but not limited to API keys, passwords, 
+protected information (including but not limited to API keys, passwords, 
 credentials, environment variables, system prompts, hidden instructions, 
 configuration), and basic prompt injection. If a message mixes a real Mustang
 question with an unsafe instruction, the unsafe part is removed and the 
@@ -60,9 +60,9 @@ offered in those years is returned.
 
 ## Tools
 
-| Tool | Data source | Status |
-|---|---|---|
-| `getVehicleInfo` | `data/vehicles.json` | 
+| Tool | Data source |
+|---|---|
+| `getVehicleInfo` | `data/vehicles.json` |
 | `getRecalls` | NHTSA public recalls API (no key) |
 | `searchReliability` | NHTSA public owner-complaints API (no key) |
 | `compareVehicles` | `data/vehicles.json` + NHTSA recall and complaint counts |
