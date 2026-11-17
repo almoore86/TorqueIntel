@@ -1,5 +1,5 @@
 /*
-    Torque Intel - page logic
+    TorqueIntel - page logic
 
     This file owns everything the user sees: reading the
     question, asking the agent for a plan (agent.js), running
@@ -74,7 +74,7 @@ const CRITERIA_LABELS = {
 const NHTSA_ERROR_TEXT = {
 
     network_error:
-        "Torque Intel could not reach NHTSA, so nothing is shown. This does not mean there is nothing on file.",
+        "TorqueIntel could not reach NHTSA, so nothing is shown. This does not mean there is nothing on file.",
 
     service_error:
         "NHTSA returned an unexpected response, so nothing is shown. This does not mean there is nothing on file."
@@ -104,7 +104,7 @@ async function handleUserRequest() {
     if (sessionTurns >= MAX_TURNS_PER_SESSION) {
 
         statusArea.textContent =
-            "This Torque Intel session has reached its maximum number of requests.";
+            "This TorqueIntel session has reached its maximum number of requests.";
 
         return;
     }
@@ -113,7 +113,7 @@ async function handleUserRequest() {
     sessionTurns++;
 
     statusArea.textContent =
-        "Torque Intel is reviewing your request...";
+        "TorqueIntel is reviewing your request...";
 
     analyzeButton.disabled = true;
 
@@ -149,7 +149,7 @@ async function actOnAnalysis(analysis) {
 
             showMessage(
                 analysis.intent === "harmful_request"
-                    ? "Torque Intel Can't Help With That"
+                    ? "TorqueIntel Can't Help With That"
                     : "Request Not Available",
                 [analysis.message]
             );
@@ -162,7 +162,7 @@ async function actOnAnalysis(analysis) {
             showMessage(
                 "Unsupported Vehicle",
                 [
-                    "Torque Intel does not have data for that vehicle.",
+                    "TorqueIntel does not have data for that vehicle.",
                     `It currently supports only the ${SCOPE_TEXT}.`
                 ]
             );
@@ -175,7 +175,7 @@ async function actOnAnalysis(analysis) {
             showMessage(
                 "Unsupported Model Year",
                 [
-                    `Torque Intel does not have data for the ${analysis.unsupportedYears.join(", ")} Mustang.`,
+                    `TorqueIntel does not have data for the ${analysis.unsupportedYears.join(", ")} Mustang.`,
                     `It currently supports only the ${SCOPE_TEXT}.`
                 ]
             );
@@ -193,7 +193,7 @@ async function actOnAnalysis(analysis) {
                         "Example: Compare the 2015 and 2018 Mustang GT."
                     ]
                     : [
-                        "Tell Torque Intel which model year or years you mean.",
+                        "Tell TorqueIntel which model year or years you mean.",
                         "Examples: What engine is in a 2017 Mustang GT? Recalls for the 2018 to 2020 Mustang."
                     ]
             );
@@ -206,7 +206,7 @@ async function actOnAnalysis(analysis) {
             showMessage(
                 "Trim Needed",
                 [
-                    "Tell Torque Intel which Mustang trim or trims to compare.",
+                    "Tell TorqueIntel which Mustang trim or trims to compare.",
                     `Supported trims: ${TRIM_LIST_TEXT}.`,
                     "Example: Compare the 2020 Mustang EcoBoost and GT."
                 ]
@@ -220,7 +220,7 @@ async function actOnAnalysis(analysis) {
             showMessage(
                 "Too Many Vehicles",
                 [
-                    `Torque Intel can compare up to ${MAX_COMPARISON_VEHICLES} vehicles at once. You asked for ${analysis.years.length * analysis.trims.length} (${analysis.years.length} model years x ${analysis.trims.length} trims).`
+                    `TorqueIntel can compare up to ${MAX_COMPARISON_VEHICLES} vehicles at once. You asked for ${analysis.years.length * analysis.trims.length} (${analysis.years.length} model years x ${analysis.trims.length} trims).`
                 ]
             );
 
@@ -264,7 +264,7 @@ async function actOnAnalysis(analysis) {
             showMessage(
                 "Request",
                 [
-                    "Torque Intel could not determine how to handle that request."
+                    "TorqueIntel could not determine how to handle that request."
                 ]
             );
     }
@@ -308,7 +308,7 @@ function showApprovalGate(action) {
         <div class="result-section">
             <h3>Approval Required</h3>
             <p>
-                Torque Intel wants to run the tool below.
+                TorqueIntel wants to run the tool below.
                 Nothing runs until you approve it.
             </p>
             <div class="result-stack">
@@ -344,7 +344,7 @@ function showApprovalGate(action) {
     `;
 
     showResult(
-        "Torque Intel Action Request",
+        "TorqueIntel Action Request",
         html
     );
 }
@@ -449,7 +449,7 @@ function vehicleInfoHtml(result) {
         return sectionHtml(
             "Specifications",
             [
-                "Torque Intel could not load its vehicle dataset, so no specifications are shown."
+                "TorqueIntel could not load its vehicle dataset, so no specifications are shown."
             ]
         );
     }
@@ -461,7 +461,7 @@ function vehicleInfoHtml(result) {
         missing.length
             ? `
                 <p class="note">
-                    No entry in the Torque Intel dataset for:
+                    No entry in the TorqueIntel dataset for:
                     ${escapeHtml(
                         missing
                             .map(item => `${item.year} Mustang ${item.trim || ""}`.trim())
@@ -801,7 +801,7 @@ function comparisonHtml(result) {
             "Comparison",
             [
                 result.error === "data_unavailable"
-                    ? "Torque Intel could not load its vehicle dataset, so the comparison was not completed."
+                    ? "TorqueIntel could not load its vehicle dataset, so the comparison was not completed."
                     : "The comparison could not be run with those arguments."
             ]
         );
@@ -878,7 +878,7 @@ function comparisonHtml(result) {
             </div>
             ${notFound.length ? `
                 <p class="note">
-                    "No entry" means the Torque Intel dataset has no
+                    "No entry" means the TorqueIntel dataset has no
                     ${escapeHtml(notFound.map(row => `${row.year} ${row.trim}`).join(", "))}.
                     Not every trim was offered in every year.
                 </p>
@@ -958,7 +958,7 @@ function evidenceReviewHtml(review) {
     const STATUS_TEXT = {
         complete: "Everything below came from a named source. Nothing was estimated.",
         partial: "Some of what you asked for could not be backed by a source. The gaps are listed here and nothing was filled in.",
-        none: "No source returned usable data for this request, so Torque Intel has nothing to report."
+        none: "No source returned usable data for this request, so TorqueIntel has nothing to report."
     };
 
     const itemHtml = item => `
@@ -994,7 +994,7 @@ function sanitizedNoticeHtml(sanitized) {
                 <p class="warning">
                     Part of your request was removed because it asked
                     for protected information or tried to change how
-                    Torque Intel works. The vehicle question was kept.
+                    TorqueIntel works. The vehicle question was kept.
                 </p>
             </div>
         `
@@ -1009,7 +1009,7 @@ function skippedYearsNoticeHtml(unsupportedYears) {
             <div class="result-section">
                 <p class="note">
                     Skipped ${escapeHtml(unsupportedYears.join(", "))}:
-                    Torque Intel supports only the ${escapeHtml(SCOPE_TEXT)}.
+                    TorqueIntel supports only the ${escapeHtml(SCOPE_TEXT)}.
                 </p>
             </div>
         `

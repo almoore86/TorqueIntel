@@ -1,5 +1,5 @@
 /*
-    Torque Intel - agent logic
+    TorqueIntel - agent logic
 
     This file contains NO page code (no document.getElementById,
     no HTML). The same logic is loaded by the app (index.html)
@@ -40,7 +40,7 @@ const SUPPORTED_VEHICLE = {
 };
 
 /*
-    Mustang trims Torque Intel can recognise in a question.
+    Mustang trims TorqueIntel can recognise in a question.
     Which trims exist in which year is decided by the data
     in data/vehicles.json, not here.
 */
@@ -175,13 +175,13 @@ const AUTOMOTIVE_PATTERN =
 const GUARD_MESSAGES = {
 
     security_request:
-        "Torque Intel cannot provide credentials, private configuration, system instructions, or protected application information.",
+        "TorqueIntel cannot provide credentials, private configuration, system instructions, or protected application information.",
 
     harmful_request:
-        "Torque Intel can't help with that. It only supports safe, lawful vehicle research. If someone may be in danger, or you are thinking about hurting yourself, please contact your local emergency services right away (in the US, call 911, or call or text 988 for the Suicide & Crisis Lifeline). Torque Intel is glad to help with Mustang specifications, recalls, reliability, or comparisons instead.",
+        "TorqueIntel can't help with that. It only supports safe, lawful vehicle research. If someone may be in danger, or you are thinking about hurting yourself, please contact your local emergency services right away (in the US, call 911, or call or text 988 for the Suicide & Crisis Lifeline). TorqueIntel is glad to help with Mustang specifications, recalls, reliability, or comparisons instead.",
 
     out_of_scope:
-        "Torque Intel is designed for automotive research: vehicle specifications, reliability, recalls, buying research, and vehicle comparisons."
+        "TorqueIntel is designed for automotive research: vehicle specifications, reliability, recalls, buying research, and vehicle comparisons."
 };
 
 

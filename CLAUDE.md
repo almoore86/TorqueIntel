@@ -1,4 +1,4 @@
-Torque Intel is an agentic automotive intelligence project.
+TorqueIntel is an agentic automotive intelligence project.
 
 Initial scope:
 Ford Mustang, all trims, model years 2015-2023.

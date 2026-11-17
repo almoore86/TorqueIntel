@@ -1,5 +1,5 @@
 /*
-    Torque Intel - evaluation harness
+    TorqueIntel - evaluation harness
 
     What it does:
 

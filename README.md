@@ -8,9 +8,9 @@ pinned: false
 short_description: Automotive intelligent agent for vehicle reliability.
 ---
 
-# Torque Intel
+# TorqueIntel
 
-Torque Intel is an agentic AI project: a small automotive research and reliability
+TorqueIntel is an agentic AI project: a small automotive research and reliability
 agent that runs entirely in the browser as a Hugging Face Static Space.
 
 It is built with plain HTML, CSS, JavaScript, and JSON.
@@ -67,7 +67,7 @@ offered in those years is returned.
 | `searchReliability` | NHTSA public owner-complaints API (no key) |
 | `compareVehicles` | `data/vehicles.json` + NHTSA recall and complaint counts |
 
-Torque Intel does not invent data. When a source has nothing, or cannot be
+TorqueIntel does not invent data. When a source has nothing, or cannot be
 reached, the response says so.
 
 NHTSA data comes from:
@@ -82,7 +82,7 @@ Reliability results are the owner complaints filed publicly with NHTSA:
 how many, how many mention a crash, fire, injury or death, which components
 are named most, and the most recent complaint texts. NHTSA publishes these
 without verifying each one, and the totals depend on how many cars were sold
-and how old they are. Torque Intel shows the counts and does not turn them
+and how old they are. TorqueIntel shows the counts and does not turn them
 into a reliability score. NHTSA is currently the only reliability source.
 
 ## Evidence review

@@ -1,5 +1,5 @@
 /*
-    Torque Intel - tools
+    TorqueIntel - tools
 
     Tools fetch or compute data and RETURN it.
     They never touch the page. app.js decides how to display
@@ -46,7 +46,7 @@ const TOOL_CONFIG = {
 const SOURCES = {
 
     localDataset: {
-        name: "Torque Intel vehicle dataset",
+        name: "TorqueIntel vehicle dataset",
         url: null
     },
 
