@@ -51,7 +51,7 @@ research instead.
 
 The coordinator classifies the user request (safe question) (`vehicle_information`,
 `recall_lookup`, `reliability_research`, `buying_research`,
-`vehicle_comparison`), works out which trims and model years were asked
+`vehicle_comparison`, `vin_lookup`), works out which trims and model years were asked
 about, and plans which tools to run. It doesn't run a tool itself.
 
 A question can cover several model years: a list ("2017, 2018 and 2022"), a
@@ -65,6 +65,7 @@ offered in those years is returned.
 | `getVehicleInfo` | `data/vehicles.json` |
 | `getRecalls` | NHTSA public recalls API (no key) |
 | `searchReliability` | NHTSA public owner-complaints API (no key) |
+| `getVinRecalls` | NHTSA vPIC VIN decoder + NHTSA public recalls API (no key) |
 | `compareVehicles` | `data/vehicles.json` + NHTSA recall and complaint counts |
 
 TorqueIntel does not invent data. When a source has nothing, or cannot be
@@ -84,6 +85,22 @@ are named most, and the most recent complaint texts. NHTSA publishes these
 without verifying each one, and the totals depend on how many cars were sold
 and how old they are. TorqueIntel shows the counts and does not turn them
 into a reliability score. NHTSA is currently the only reliability source.
+
+## VIN recall lookup
+
+A user can enter their 17-character VIN, on its own or in a question. The
+VIN's check digit is verified first, so most typos are caught without
+contacting anyone. A valid VIN is sent to NHTSA's public vPIC decoder to
+identify the car (year, make, model, trim, body, engine, drive type, plant).
+If it is a 2015 through 2023 Ford Mustang, the recalls for that model year
+are shown; any other vehicle, including the Mustang Mach-E, is reported as
+unsupported. One VIN is looked up per request.
+
+NHTSA's public recall API lists recalls by model year, not by VIN, and its
+VIN-specific recall check at nhtsa.gov/recalls has no public API. So
+TorqueIntel shows every recall for the car's model year, says plainly that
+some may not apply to that exact car and that it cannot tell whether a recall
+has been repaired, and links to nhtsa.gov/recalls to check the exact VIN.
 
 ## Evidence review
 

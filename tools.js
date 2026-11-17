@@ -40,6 +40,12 @@ const TOOL_CONFIG = {
     nhtsaRecallsUrl: "https://api.nhtsa.gov/recalls/recallsByVehicle",
     nhtsaComplaintsUrl: "https://api.nhtsa.gov/complaints/complaintsByVehicle",
 
+    /*
+        NHTSA's public VIN decoder (vPIC). No API key.
+        https://vpic.nhtsa.dot.gov/api/vehicles/DecodeVinValues/<VIN>?format=json
+    */
+    nhtsaVinDecoderUrl: "https://vpic.nhtsa.dot.gov/api/vehicles/DecodeVinValues/",
+
     requestTimeoutMs: 15000
 };
 
@@ -58,6 +64,11 @@ const SOURCES = {
     nhtsaComplaints: {
         name: "NHTSA (National Highway Traffic Safety Administration) Complaints API",
         url: "https://www.nhtsa.gov/recalls"
+    },
+
+    nhtsaVinDecoder: {
+        name: "NHTSA vPIC VIN decoder",
+        url: "https://vpic.nhtsa.dot.gov/"
     }
 };
 
@@ -647,6 +658,242 @@ async function searchReliability(args) {
 
 
 /* =====================================================
+    VIN recalls
+   ===================================================== */
+
+/*
+    Asks NHTSA's VIN decoder what vehicle a VIN belongs to.
+    Returns { ok: true, vehicle } or { ok: false, error }.
+    Only fields NHTSA filled in are kept; nothing is guessed.
+*/
+async function decodeVin(vin) {
+
+    let response;
+
+    try {
+
+        response =
+            await fetch(
+                `${TOOL_CONFIG.nhtsaVinDecoderUrl}${encodeURIComponent(vin)}?format=json`,
+                {
+                    signal: AbortSignal.timeout(
+                        TOOL_CONFIG.requestTimeoutMs
+                    )
+                }
+            );
+    }
+
+    catch (error) {
+
+        console.error(error);
+
+        return {
+            ok: false,
+            error: "network_error"
+        };
+    }
+
+
+    let body = null;
+
+    if (response.ok) {
+
+        try {
+            body = await response.json();
+        }
+
+        catch (error) {
+            console.error(error);
+        }
+    }
+
+    const row =
+        body && Array.isArray(body.Results)
+            ? body.Results[0]
+            : null;
+
+    if (!row) {
+
+        return {
+            ok: false,
+            error: "service_error"
+        };
+    }
+
+
+    const text = value =>
+        typeof value === "string" && value.trim()
+            ? value.trim()
+            : null;
+
+    /* "FORD" -> "Ford", "FLAT ROCK" -> "Flat Rock" */
+    const titleCase = value =>
+        value
+            ? value.toLowerCase().replace(/(^|[\s-])\w/g, letter => letter.toUpperCase())
+            : null;
+
+    const year =
+        Number(row.ModelYear) || null;
+
+    if (!year || !text(row.Make) || !text(row.Model)) {
+
+        return {
+            ok: false,
+            error: "vin_not_decoded"
+        };
+    }
+
+    const displacement =
+        Number(row.DisplacementL);
+
+    const engine =
+        [
+            displacement ? `${displacement.toFixed(1)}L` : null,
+            text(row.EngineCylinders) ? `${text(row.EngineCylinders)}-cylinder` : null
+        ]
+            .filter(Boolean)
+            .join(" ") || null;
+
+    const plant =
+        [
+            titleCase(text(row.PlantCity)),
+            titleCase(text(row.PlantState))
+        ]
+            .filter(Boolean)
+            .join(", ") || null;
+
+    return {
+        ok: true,
+        vehicle: {
+            year,
+            make: titleCase(text(row.Make)),
+            model: text(row.Model),
+            trim: text(row.Trim),
+            bodyClass: text(row.BodyClass),
+            engine,
+            driveType: text(row.DriveType),
+            plant
+        }
+    };
+}
+
+
+/*
+    Tool: getVinRecalls
+    args: { vin }
+
+    1. Asks NHTSA's VIN decoder which vehicle the VIN is.
+    2. If it is a 2015-2023 Ford Mustang, looks up NHTSA's
+       recalls for that model year.
+
+    data:
+        {
+            vin,
+            vehicle: { year, make, model, trim, bodyClass,
+                       engine, driveType, plant },
+            recalls: { ok: true, totalCount, recalls }
+                   | { ok: false, error }
+        }
+
+    Important: NHTSA's public recall API lists recalls by
+    model year, not by VIN. These are every recall for that
+    model year; they cannot say which apply to this exact car
+    or whether they have been repaired. NHTSA's own VIN check
+    at nhtsa.gov/recalls can, but it has no public API.
+
+    Extra error codes:
+        vin_not_decoded       NHTSA could not identify the VIN
+        unsupported_vehicle   the VIN is not a 2015-2023 Mustang
+                              (data.vehicle says what it is)
+*/
+async function getVinRecalls(args) {
+
+    const base = {
+        tool: "getVinRecalls",
+        args,
+        source: SOURCES.nhtsaVinDecoder
+    };
+
+    const vin =
+        args && typeof args.vin === "string"
+            ? args.vin.toUpperCase()
+            : "";
+
+    if (!isValidVin(vin)) {
+
+        return {
+            ...base,
+            ok: false,
+            error: "invalid_arguments"
+        };
+    }
+
+
+    const decoded =
+        await decodeVin(vin);
+
+    if (!decoded.ok) {
+
+        return {
+            ...base,
+            ok: false,
+            error: decoded.error,
+            data: { vin }
+        };
+    }
+
+    const { vehicle } =
+        decoded;
+
+    const same = (a, b) =>
+        String(a).toLowerCase() === String(b).toLowerCase();
+
+    const supported =
+        same(vehicle.make, SUPPORTED_VEHICLE.make) &&
+        same(vehicle.model, SUPPORTED_VEHICLE.model) &&
+        isSupportedYear(vehicle.year);
+
+    if (!supported) {
+
+        return {
+            ...base,
+            ok: false,
+            error: "unsupported_vehicle",
+            data: { vin, vehicle }
+        };
+    }
+
+
+    const recalls =
+        await fetchNhtsaRecalls(
+            SUPPORTED_VEHICLE.make,
+            SUPPORTED_VEHICLE.model,
+            vehicle.year
+        );
+
+    return {
+        ...base,
+        ok: true,
+        data: {
+            vin,
+            vehicle,
+            recalls: recalls.ok
+                ? {
+                    ok: true,
+                    totalCount: recalls.count,
+                    recalls: recalls.recalls.slice(0, MAX_RESULTS_PER_TOOL)
+                }
+                : {
+                    ok: false,
+                    error: recalls.error
+                },
+            otherSources: [SOURCES.nhtsaRecalls]
+        }
+    };
+}
+
+
+/* =====================================================
     Comparison
    ===================================================== */
 
@@ -792,5 +1039,6 @@ const TOOLS = {
     getVehicleInfo,
     getRecalls,
     searchReliability,
+    getVinRecalls,
     compareVehicles
 };

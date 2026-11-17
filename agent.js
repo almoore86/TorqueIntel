@@ -170,7 +170,93 @@ const HARMFUL_PATTERNS = [
     Whole words only, so "card" does not match "car".
 */
 const AUTOMOTIVE_PATTERN =
-    /\b(cars?|vehicles?|automobiles?|trucks?|suvs?|sedans?|coupes?|convertibles?|fastbacks?|ford|mustangs?|engines?|motors?|v8|v6|coyote|transmissions?|gearbox(es)?|horsepower|hp|torque|drivetrains?|rwd|awd|fwd|mpg|recall(s|ed)?|reliab(le|ility)|model years?|toyota|honda|chevrolet|chevy|camaro|corvette|dodge|challenger|charger|nissan|bmw|audi|tesla|jeep|subaru|hyundai|kia|mazda|volkswagen|porsche|mercedes|lexus)\b/;
+    /\b(cars?|vehicles?|automobiles?|trucks?|suvs?|sedans?|coupes?|convertibles?|fastbacks?|ford|mustangs?|engines?|motors?|v8|v6|coyote|transmissions?|gearbox(es)?|horsepower|hp|torque|drivetrains?|rwd|awd|fwd|mpg|recall(s|ed)?|reliab(le|ility)|model years?|vins?|toyota|honda|chevrolet|chevy|camaro|corvette|dodge|challenger|charger|nissan|bmw|audi|tesla|jeep|subaru|hyundai|kia|mazda|volkswagen|porsche|mercedes|lexus)\b/;
+
+/* =====================================================
+    VIN (vehicle identification number)
+   ===================================================== */
+
+/*
+    A VIN is 17 letters and digits; I, O and Q are never used.
+    The 9th character is a check digit computed from the other
+    16, so most typing mistakes are caught here, before
+    anything is sent to NHTSA.
+*/
+const VIN_CANDIDATE_PATTERN = /\b[A-Z0-9]{17}\b/gi;
+
+const VIN_LETTER_VALUES = {
+    A: 1, B: 2, C: 3, D: 4, E: 5, F: 6, G: 7, H: 8,
+    J: 1, K: 2, L: 3, M: 4, N: 5, P: 7, R: 9,
+    S: 2, T: 3, U: 4, V: 5, W: 6, X: 7, Y: 8, Z: 9
+};
+
+const VIN_WEIGHTS = [8, 7, 6, 5, 4, 3, 2, 10, 0, 9, 8, 7, 6, 5, 4, 3, 2];
+
+
+/*
+    Finds 17-character tokens that look like a VIN (a mix of
+    letters and digits), uppercased, without duplicates.
+    They are not checked yet; see isValidVin.
+*/
+function findVinCandidates(text) {
+
+    const found = new Set();
+
+    for (const match of text.matchAll(VIN_CANDIDATE_PATTERN)) {
+
+        const token =
+            match[0].toUpperCase();
+
+        if (/\d/.test(token) && /[A-Z]/.test(token)) {
+            found.add(token);
+        }
+    }
+
+    return [...found];
+}
+
+
+/*
+    True when the VIN uses only allowed characters and its
+    check digit (9th character) is correct.
+*/
+function isValidVin(vin) {
+
+    if (!/^[A-HJ-NPR-Z0-9]{17}$/.test(vin)) {
+        return false;
+    }
+
+    const sum =
+        [...vin].reduce(
+            (total, char, index) =>
+                total +
+                (/\d/.test(char) ? Number(char) : VIN_LETTER_VALUES[char]) *
+                VIN_WEIGHTS[index],
+            0
+        );
+
+    const remainder = sum % 11;
+
+    return vin[8] === (remainder === 10 ? "X" : String(remainder));
+}
+
+
+/*
+    "2018 Ford Mustang GT Coupe" from a vehicle that NHTSA's
+    VIN decoder returned (see getVinRecalls in tools.js).
+*/
+function describeVinVehicle(vehicle) {
+
+    return [
+        vehicle.year,
+        vehicle.make,
+        vehicle.model,
+        vehicle.trim
+    ]
+        .filter(Boolean)
+        .join(" ");
+}
+
 
 const GUARD_MESSAGES = {
 
@@ -297,10 +383,10 @@ function checkRequestSafety(question) {
     const safeQuestion =
         safeSentences.join(" ");
 
+    /* A bare VIN on its own also counts as automotive. */
     const appearsAutomotive =
-        AUTOMOTIVE_PATTERN.test(
-            safeQuestion.toLowerCase()
-        );
+        AUTOMOTIVE_PATTERN.test(safeQuestion.toLowerCase()) ||
+        findVinCandidates(safeQuestion).length > 0;
 
 
     if (!appearsAutomotive) {
@@ -503,6 +589,12 @@ function classifyIntent(text) {
         unsupported_year      no mentioned year is in 2015-2023
         unsupported_vehicle   not a Ford Mustang
         too_many_vehicles     comparison exceeds the limit
+        invalid_vin           a VIN was given but is not valid
+        multiple_vins         more than one VIN was given
+
+    If the question contains a VIN, the intent is "vin_lookup"
+    and the year and vehicle come from NHTSA's VIN decoder
+    (getVinRecalls), not from the wording.
 
     If some mentioned years are supported and some are not,
     the plan continues with the supported ones and lists the
@@ -542,6 +634,39 @@ function coordinateRequest(question) {
         toolCalls: [],
         requiresApproval: false
     };
+
+
+    const vins =
+        findVinCandidates(question);
+
+    if (vins.length > 0) {
+
+        plan.intent = "vin_lookup";
+        plan.years = [];
+        plan.unsupportedYears = [];
+        plan.trims = [];
+
+        if (vins.length > 1) {
+            plan.status = "multiple_vins";
+
+            return plan;
+        }
+
+        if (!isValidVin(vins[0])) {
+            plan.status = "invalid_vin";
+
+            return plan;
+        }
+
+        plan.toolCalls = [
+            {
+                tool: "getVinRecalls",
+                args: { vin: vins[0] }
+            }
+        ];
+
+        return plan;
+    }
 
 
     if (
@@ -683,7 +808,9 @@ const EVIDENCE_ERROR_TEXT = {
     data_unavailable: "the vehicle dataset could not be loaded",
     network_error: "the source could not be reached",
     service_error: "the source returned an unexpected response",
-    not_implemented: "this tool has no data source yet"
+    not_implemented: "this tool has no data source yet",
+    vin_not_decoded: "NHTSA could not identify the VIN",
+    unsupported_vehicle: "the VIN is not a 2015-2023 Ford Mustang, so no recalls were looked up"
 };
 
 
@@ -816,6 +943,41 @@ function reviewToolResult(result) {
                     `${label} counts could not be checked for ${failed.join(", ")}.`
                 );
             }
+        }
+    }
+
+
+    else if (result.tool === "getVinRecalls") {
+
+        const vehicle = data.vehicle;
+        const recalls = data.recalls;
+
+        if (vehicle) {
+            findings.push(
+                `NHTSA decoded the VIN as a ${describeVinVehicle(vehicle)}.`
+            );
+        }
+
+        if (!result.ok) {
+            gaps.push(`No recalls are shown: ${errorText(result.error)}.`);
+        }
+
+        else if (recalls && recalls.ok) {
+            findings.push(
+                `${plural(recalls.totalCount, "recall")} on file for the ${vehicle.year} Mustang line.`
+            );
+        }
+
+        else {
+            gaps.push(
+                `Recalls could not be checked (${errorText(recalls && recalls.error)}). This does not mean there is nothing on file.`
+            );
+        }
+
+        if (result.ok) {
+            gaps.push(
+                "NHTSA's public data does not show which of these recalls apply to this exact VIN, or whether they have been repaired."
+            );
         }
     }
 

@@ -59,7 +59,8 @@ const INTENT_TITLES = {
     recall_lookup: "Recall Research",
     reliability_research: "Reliability Research",
     buying_research: "Buying Research",
-    vehicle_comparison: "Vehicle Comparison"
+    vehicle_comparison: "Vehicle Comparison",
+    vin_lookup: "VIN Recall Lookup"
 };
 
 const CRITERIA_LABELS = {
@@ -196,6 +197,31 @@ async function actOnAnalysis(analysis) {
                         "Tell TorqueIntel which model year or years you mean.",
                         "Examples: What engine is in a 2017 Mustang GT? Recalls for the 2018 to 2020 Mustang."
                     ]
+            );
+
+            return;
+
+
+        case "invalid_vin":
+
+            showMessage(
+                "Check the VIN",
+                [
+                    "That doesn't look like a valid VIN. A VIN is 17 letters and digits, never uses I, O or Q, and its 9th character is a check digit that didn't match.",
+                    "You can find it on the driver's side of the dashboard, visible through the windshield, on the driver's door frame, or on your registration or insurance card."
+                ]
+            );
+
+            return;
+
+
+        case "multiple_vins":
+
+            showMessage(
+                "One VIN at a Time",
+                [
+                    "TorqueIntel can look up one VIN per request. Enter a single VIN and try again."
+                ]
             );
 
             return;
@@ -418,6 +444,9 @@ function toolResultHtml(result) {
 
         case "searchReliability":
             return reliabilityHtml(result);
+
+        case "getVinRecalls":
+            return vinRecallsHtml(result);
 
         case "compareVehicles":
             return comparisonHtml(result);
@@ -675,6 +704,125 @@ function recallCardHtml(recall) {
             ${details.map(([label, text]) => `
                 <p><span class="detail-label">${label}:</span> ${escapeHtml(text)}</p>
             `).join("")}
+        </div>
+    `;
+}
+
+
+/*
+    VIN lookup: what NHTSA decoded the VIN as, then every
+    recall for that model year, with a clear note that NHTSA's
+    public data is not VIN-specific.
+*/
+function vinRecallsHtml(result) {
+
+    const data =
+        result.data || {};
+
+    const vehicle =
+        data.vehicle;
+
+    const vin =
+        data.vin || (result.args && result.args.vin) || "";
+
+
+    if (!result.ok) {
+
+        const messages = {
+
+            unsupported_vehicle: vehicle
+                ? [
+                    `NHTSA decodes VIN ${vin} as a ${describeVinVehicle(vehicle)}.`,
+                    `TorqueIntel currently supports only the ${SCOPE_TEXT}, so no recalls were looked up.`
+                ]
+                : [`TorqueIntel currently supports only the ${SCOPE_TEXT}.`],
+
+            vin_not_decoded: [
+                `NHTSA could not identify VIN ${vin}.`,
+                "Check the VIN and try again. It is on the driver's side of the dashboard, visible through the windshield, and on the driver's door frame."
+            ],
+
+            invalid_arguments: [
+                "That VIN is not valid, so nothing was sent to NHTSA."
+            ]
+        };
+
+        return sectionHtml(
+            "VIN Lookup",
+            messages[result.error] ||
+            [NHTSA_ERROR_TEXT[result.error] || NHTSA_ERROR_TEXT.service_error]
+        );
+    }
+
+
+    const details = [
+        ["VIN", vin],
+        ["Trim (as decoded by NHTSA)", vehicle.trim],
+        ["Body", vehicle.bodyClass],
+        ["Engine", vehicle.engine],
+        ["Drive type", vehicle.driveType],
+        ["Assembly plant", vehicle.plant]
+    ].filter(([, value]) => value);
+
+    const recalls =
+        data.recalls;
+
+    const yearText =
+        `${vehicle.year} ${SUPPORTED_VEHICLE.make} ${SUPPORTED_VEHICLE.model}`;
+
+    let recallsBody;
+
+    if (!recalls.ok) {
+
+        recallsBody = `
+            <p>${escapeHtml(NHTSA_ERROR_TEXT[recalls.error] || NHTSA_ERROR_TEXT.service_error)}</p>
+        `;
+    }
+
+    else if (recalls.totalCount === 0) {
+
+        recallsBody = `
+            <p>NHTSA returned no recalls for the ${escapeHtml(yearText)}.</p>
+        `;
+    }
+
+    else {
+
+        const countText =
+            recalls.recalls.length < recalls.totalCount
+                ? `NHTSA lists ${recalls.totalCount} recalls for the ${yearText}. Showing the ${recalls.recalls.length} most recent.`
+                : `NHTSA lists ${recalls.totalCount} recall${recalls.totalCount === 1 ? "" : "s"} for the ${yearText}.`;
+
+        recallsBody = `
+            <p>${escapeHtml(countText)}</p>
+            <div class="result-stack">
+                ${recalls.recalls.map(recallCardHtml).join("")}
+            </div>
+        `;
+    }
+
+
+    return `
+        <div class="result-section">
+            <h3>${escapeHtml(`Your vehicle: ${describeVinVehicle(vehicle)}`)}</h3>
+            <div class="result-grid">
+                ${details.map(resultItemHtml).join("")}
+            </div>
+            ${sourceHtml(result.source)}
+        </div>
+        <div class="result-section">
+            <h3>${escapeHtml(`Recalls for the ${yearText}`)}</h3>
+            <p class="warning">
+                NHTSA's public recall data is listed by model year, not by
+                VIN. These are all recalls for the ${escapeHtml(yearText)}:
+                some may not apply to your car, and this can't show whether a
+                recall has already been repaired. To check your exact car,
+                enter your VIN at
+                <a href="https://www.nhtsa.gov/recalls" target="_blank" rel="noopener noreferrer">nhtsa.gov/recalls</a>
+                or ask a Ford dealer.
+            </p>
+            ${recallsBody}
+            ${sourceHtml(SOURCES.nhtsaRecalls)}
         </div>
     `;
 }
