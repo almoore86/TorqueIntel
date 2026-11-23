@@ -717,3 +717,23 @@ a.accent-button {
     display: inline-block;
     text-decoration: none;
 }
+
+
+a.secondary-button {
+    display: inline-block;
+    text-decoration: none;
+}
+
+
+/* Logo beside the title */
+.brand {
+    display: flex;
+    align-items: center;
+    gap: clamp(10px, 2.5vw, 16px);
+}
+
+.brand-logo {
+    width: clamp(48px, 11vw, 68px);
+    height: auto;
+    flex: none;
+}
