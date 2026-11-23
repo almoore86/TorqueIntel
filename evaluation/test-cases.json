@@ -1311,9 +1311,9 @@
         }
     },
     {
-        "id": "specs-torque-not-on-file",
+        "id": "specs-torque-2015-gt350",
         "category": "vehicle_information",
-        "input": "Specs for the 2017 Mustang Shelby GT350",
+        "input": "Specs for the 2015 Mustang Shelby GT350",
         "expected": {
             "allowed": true,
             "intent": "vehicle_information",
@@ -1323,11 +1323,10 @@
             ],
             "vehicles": [
                 {
-                    "year": 2017,
+                    "year": 2015,
                     "trim": "Shelby GT350",
                     "horsepower": 526,
-                    "torque": null,
-                    "source": null
+                    "torque": 429
                 }
             ]
         }

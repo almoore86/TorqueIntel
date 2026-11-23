@@ -828,11 +828,6 @@ function vinRecallsHtml(result) {
             <div class="result-grid">
                 ${details.map(resultItemHtml).join("")}
             </div>
-            <div class="button-row">
-                <button type="button" class="accent-button" data-action="open-sticker" data-vin="${escapeHtml(vin)}">
-                    Window Sticker
-                </button>
-            </div>
             ${sourceHtml(result.source)}
         </div>
         <div class="result-section">
@@ -1216,8 +1211,6 @@ function showResult(
     html
 ) {
 
-    resultModal.querySelector(".modal-card").classList.remove("wide");
-
     resultTitle.textContent =
         title;
 
@@ -1530,80 +1523,6 @@ function followUpsHtml(analysis) {
 /* =====================================================
     Check my VIN (popup with live checking)
    ===================================================== */
-
-/* =====================================================
-    Window sticker (Ford's official service)
-   ===================================================== */
-
-/*
-    Ford publishes the original window sticker (Monroney
-    label) for many of its vehicles as a free PDF, looked up
-    by VIN. If Ford has not released a sticker for that VIN,
-    the PDF itself says so. The PDF is shown inside the popup;
-    the VIN is sent to Ford only when the sticker is opened.
-*/
-const WINDOW_STICKER_URL =
-    "https://www.windowsticker.forddirect.com/windowsticker.pdf?vin=";
-
-let previousResult = null;
-
-
-function showWindowSticker(vin) {
-
-    if (!isValidVin(String(vin || ""))) {
-        return;
-    }
-
-    previousResult = {
-        title: resultTitle.textContent,
-        html: resultContent.innerHTML
-    };
-
-    const url =
-        WINDOW_STICKER_URL + encodeURIComponent(vin);
-
-    showResult(
-        "Window Sticker",
-        `
-            <div class="result-section">
-                <p class="note">
-                    The original window sticker for VIN
-                    ${escapeHtml(vin)}, from Ford's window sticker service.
-                    If Ford has not released a sticker for this car, the
-                    PDF says so. Opening it sends the VIN to Ford.
-                </p>
-                <iframe
-                    class="sticker-frame"
-                    src="${escapeHtml(url)}"
-                    title="Window sticker for VIN ${escapeHtml(vin)}"
-                ></iframe>
-                <div class="button-row">
-                    <a class="accent-button" href="${escapeHtml(url)}" target="_blank" rel="noopener noreferrer">Open PDF in a new tab</a>
-                    <button type="button" class="secondary-button" data-action="back-to-result">Back to VIN results</button>
-                </div>
-                <p class="source">
-                    Source:
-                    <a href="${escapeHtml(url)}" target="_blank" rel="noopener noreferrer">Ford window sticker (Monroney label) service</a>
-                </p>
-            </div>
-        `
-    );
-
-    resultModal.querySelector(".modal-card").classList.add("wide");
-}
-
-
-function restorePreviousResult() {
-
-    if (!previousResult) {
-        return;
-    }
-
-    showResult(previousResult.title, previousResult.html);
-
-    previousResult = null;
-}
-
 
 function showVinDialog() {
 
@@ -2027,14 +1946,6 @@ resultContent.addEventListener(
 
         if (button.dataset.action === "vin-lookup") {
             submitVinDialog();
-        }
-
-        if (button.dataset.action === "open-sticker") {
-            showWindowSticker(button.dataset.vin);
-        }
-
-        if (button.dataset.action === "back-to-result") {
-            restorePreviousResult();
         }
 
         if (button.dataset.action === "clear-recent") {

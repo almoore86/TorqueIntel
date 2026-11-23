@@ -1,5 +1,5 @@
 {
-    "generatedAt": "2026-11-23T17:10:45.237Z",
+    "generatedAt": "2026-11-23T20:12:40.594Z",
     "runsPerCase": 3,
     "summary": {
         "totalCases": 61,
@@ -8113,9 +8113,9 @@
             ]
         },
         {
-            "id": "specs-torque-not-on-file",
+            "id": "specs-torque-2015-gt350",
             "category": "vehicle_information",
-            "input": "Specs for the 2017 Mustang Shelby GT350",
+            "input": "Specs for the 2015 Mustang Shelby GT350",
             "expected": {
                 "allowed": true,
                 "intent": "vehicle_information",
@@ -8125,11 +8125,10 @@
                 ],
                 "vehicles": [
                     {
-                        "year": 2017,
+                        "year": 2015,
                         "trim": "Shelby GT350",
                         "horsepower": 526,
-                        "torque": null,
-                        "source": null
+                        "torque": 429
                     }
                 ]
             },
@@ -8147,7 +8146,7 @@
                         "sanitized": false,
                         "requiresApproval": false,
                         "years": [
-                            2017
+                            2015
                         ],
                         "unsupportedYears": [],
                         "trims": [
@@ -8163,12 +8162,12 @@
                                 "Shelby GT350"
                             ],
                             "years": [
-                                2017
+                                2015
                             ]
                         },
                         "vehicles": [
                             {
-                                "year": 2017,
+                                "year": 2015,
                                 "make": "Ford",
                                 "model": "Mustang",
                                 "trim": "Shelby GT350",
@@ -8178,8 +8177,12 @@
                                 "transmissions": [
                                     "6-speed manual"
                                 ],
-                                "torque": null,
-                                "source": null
+                                "torque": 429,
+                                "source": {
+                                    "name": "Ford 2016 Shelby GT350/GT350R technical specifications (archived copy)",
+                                    "url": "https://web.archive.org/web/20160304060758/https://media.ford.com/content/dam/fordmedia/North%20America/US/2015/08/24/gt350-gt350r-tech-specs.pdf"
+                                },
+                                "sourceNote": "Ford's spec sheet for the Shelby GT350 and GT350R is titled 2016. The 2015 cars were a limited early run with the same 5.2L engine (526 hp, 429 lb-ft)."
                             }
                         ],
                         "evidence": "complete"
@@ -8196,7 +8199,7 @@
                         "sanitized": false,
                         "requiresApproval": false,
                         "years": [
-                            2017
+                            2015
                         ],
                         "unsupportedYears": [],
                         "trims": [
@@ -8212,12 +8215,12 @@
                                 "Shelby GT350"
                             ],
                             "years": [
-                                2017
+                                2015
                             ]
                         },
                         "vehicles": [
                             {
-                                "year": 2017,
+                                "year": 2015,
                                 "make": "Ford",
                                 "model": "Mustang",
                                 "trim": "Shelby GT350",
@@ -8227,8 +8230,12 @@
                                 "transmissions": [
                                     "6-speed manual"
                                 ],
-                                "torque": null,
-                                "source": null
+                                "torque": 429,
+                                "source": {
+                                    "name": "Ford 2016 Shelby GT350/GT350R technical specifications (archived copy)",
+                                    "url": "https://web.archive.org/web/20160304060758/https://media.ford.com/content/dam/fordmedia/North%20America/US/2015/08/24/gt350-gt350r-tech-specs.pdf"
+                                },
+                                "sourceNote": "Ford's spec sheet for the Shelby GT350 and GT350R is titled 2016. The 2015 cars were a limited early run with the same 5.2L engine (526 hp, 429 lb-ft)."
                             }
                         ],
                         "evidence": "complete"
@@ -8245,7 +8252,7 @@
                         "sanitized": false,
                         "requiresApproval": false,
                         "years": [
-                            2017
+                            2015
                         ],
                         "unsupportedYears": [],
                         "trims": [
@@ -8261,12 +8268,12 @@
                                 "Shelby GT350"
                             ],
                             "years": [
-                                2017
+                                2015
                             ]
                         },
                         "vehicles": [
                             {
-                                "year": 2017,
+                                "year": 2015,
                                 "make": "Ford",
                                 "model": "Mustang",
                                 "trim": "Shelby GT350",
@@ -8276,8 +8283,12 @@
                                 "transmissions": [
                                     "6-speed manual"
                                 ],
-                                "torque": null,
-                                "source": null
+                                "torque": 429,
+                                "source": {
+                                    "name": "Ford 2016 Shelby GT350/GT350R technical specifications (archived copy)",
+                                    "url": "https://web.archive.org/web/20160304060758/https://media.ford.com/content/dam/fordmedia/North%20America/US/2015/08/24/gt350-gt350r-tech-specs.pdf"
+                                },
+                                "sourceNote": "Ford's spec sheet for the Shelby GT350 and GT350R is titled 2016. The 2015 cars were a limited early run with the same 5.2L engine (526 hp, 429 lb-ft)."
                             }
                         ],
                         "evidence": "complete"

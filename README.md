@@ -101,10 +101,12 @@ Archive copies because Ford no longer hosts them. Every horsepower value
 matches Ford's sheets. Ford's 2015 sheet marks its ratings as projected.
 
 The 2018 figures come from Ford's 2018 Mustang brochure, filed publicly with
-NHTSA. No Ford document has been found yet for the 2015 and 2017 Shelby
-GT350 and GT350R, or the 2019 and 2020 GT350R. Those entries have
-`torque: null` and `source: null`, and the app says torque is not on file
-rather than guessing.
+NHTSA. Ford's 2019 and 2020 sheets list only the Shelby GT350; the GT350R uses the
+same engine, so it shares those figures, with a note in the app. The 2017
+Shelby figures come from a copy of Ford's 2017 Mustang brochure. The 2015 Shelby GT350 and GT350R, a limited early run, use Ford's GT350
+spec sheet, which is titled 2016; the app notes this. Every Mustang now has torque. An entry without a Ford source would have
+`torque: null` and `source: null`, and the app would say torque is not on
+file rather than guessing.
 
 ## Fuel economy
 
@@ -149,15 +151,6 @@ VIN-specific recall check at nhtsa.gov/recalls has no public API. So
 TorqueIntel shows every recall for the car's model year, says plainly that
 some may not apply to that exact car and that it cannot tell whether a recall
 has been repaired, and links to nhtsa.gov/recalls to check the exact VIN.
-
-## Window sticker
-
-A VIN result for a Mustang has a **Window Sticker** button. It opens the
-car's original window sticker (Monroney label) as a PDF inside a popup, from
-Ford's free window sticker service
-(`windowsticker.forddirect.com/windowsticker.pdf?vin=…`). If Ford has not
-released a sticker for that VIN, the PDF says so. The VIN is sent to Ford
-only when the sticker is opened.
 
 ## Evidence review
 

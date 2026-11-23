@@ -67,8 +67,12 @@
         "transmissions": [
             "6-speed manual"
         ],
-        "torque": null,
-        "source": null
+        "torque": 429,
+        "source": {
+            "name": "Ford 2016 Shelby GT350/GT350R technical specifications (archived copy)",
+            "url": "https://web.archive.org/web/20160304060758/https://media.ford.com/content/dam/fordmedia/North%20America/US/2015/08/24/gt350-gt350r-tech-specs.pdf"
+        },
+        "sourceNote": "Ford's spec sheet for the Shelby GT350 and GT350R is titled 2016. The 2015 cars were a limited early run with the same 5.2L engine (526 hp, 429 lb-ft)."
     },
     {
         "year": 2015,
@@ -81,8 +85,12 @@
         "transmissions": [
             "6-speed manual"
         ],
-        "torque": null,
-        "source": null
+        "torque": 429,
+        "source": {
+            "name": "Ford 2016 Shelby GT350/GT350R technical specifications (archived copy)",
+            "url": "https://web.archive.org/web/20160304060758/https://media.ford.com/content/dam/fordmedia/North%20America/US/2015/08/24/gt350-gt350r-tech-specs.pdf"
+        },
+        "sourceNote": "Ford's spec sheet for the Shelby GT350 and GT350R is titled 2016. The 2015 cars were a limited early run with the same 5.2L engine (526 hp, 429 lb-ft)."
     },
     {
         "year": 2016,
@@ -237,8 +245,11 @@
         "transmissions": [
             "6-speed manual"
         ],
-        "torque": null,
-        "source": null
+        "torque": 429,
+        "source": {
+            "name": "Ford 2017 Mustang brochure (copy hosted at billswebspace.com)",
+            "url": "https://billswebspace.com/2017MustangBrochure.pdf"
+        }
     },
     {
         "year": 2017,
@@ -251,8 +262,12 @@
         "transmissions": [
             "6-speed manual"
         ],
-        "torque": null,
-        "source": null
+        "torque": 429,
+        "source": {
+            "name": "Ford 2017 Mustang brochure (copy hosted at billswebspace.com)",
+            "url": "https://billswebspace.com/2017MustangBrochure.pdf"
+        },
+        "sourceNote": "Ford's 2017 brochure lists the GT350R as a package on the GT350, which has one powertrain (526 hp, 429 lb-ft)."
     },
     {
         "year": 2018,
@@ -406,8 +421,12 @@
         "transmissions": [
             "6-speed manual"
         ],
-        "torque": null,
-        "source": null
+        "torque": 429,
+        "source": {
+            "name": "Ford 2019 Mustang technical specifications (archived copy)",
+            "url": "https://web.archive.org/web/20201114162449/https://media.ford.com/content/dam/fordmedia/North%20America/US/product/2019/mustang/2019-mustang-techspecs.pdf"
+        },
+        "sourceNote": "Ford's 2019 sheet lists the Shelby GT350; the GT350R uses the same 5.2L engine, adding track-focused suspension, carbon-fiber wheels and aero."
     },
     {
         "year": 2020,
@@ -490,8 +509,12 @@
         "transmissions": [
             "6-speed manual"
         ],
-        "torque": null,
-        "source": null
+        "torque": 429,
+        "source": {
+            "name": "Ford 2020 Mustang technical specifications (archived copy)",
+            "url": "https://web.archive.org/web/20201109184001/https://media.ford.com/content/dam/fordmedia/North%20America/US/product/2020/mustang/2020-Mustang-Tech_Specs.pdf"
+        },
+        "sourceNote": "Ford's 2020 sheet lists the Shelby GT350; the GT350R uses the same 5.2L engine, adding track-focused suspension, carbon-fiber wheels and aero."
     },
     {
         "year": 2020,
