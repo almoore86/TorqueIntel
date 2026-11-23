@@ -46,7 +46,17 @@ const TOOL_CONFIG = {
     */
     nhtsaVinDecoderUrl: "https://vpic.nhtsa.dot.gov/api/vehicles/DecodeVinValues/",
 
-    requestTimeoutMs: 15000
+    /*
+        NHTSA is sometimes slow for a moment. Each request gets
+        requestTimeoutMs to answer; if it times out, cannot be
+        reached, or NHTSA reports a temporary server error, it
+        is tried again (up to maxAttempts in total), waiting
+        retryDelaysMs between tries. Worst case is about 27
+        seconds before the app says NHTSA could not be reached.
+    */
+    requestTimeoutMs: 8000,
+    maxAttempts: 3,
+    retryDelaysMs: [1000, 2000]
 };
 
 const SOURCES = {
@@ -269,6 +279,90 @@ function parseNhtsaDate(value, order) {
 
 
 /*
+    Fetches JSON from an NHTSA service, retrying temporary
+    failures (see TOOL_CONFIG). Returns { ok: true, body }
+    or { ok: false, error } with error "network_error" or
+    "service_error".
+
+    Retried: timeouts, network failures, HTTP 429 and 5xx,
+    and answers that are not valid JSON.
+    Not retried: other HTTP errors such as 400 or 403, which
+    would fail the same way again.
+*/
+async function fetchJsonWithRetry(url) {
+
+    const wait = ms =>
+        new Promise(resolve => setTimeout(resolve, ms));
+
+    let lastError = "network_error";
+
+    for (let attempt = 1; attempt <= TOOL_CONFIG.maxAttempts; attempt++) {
+
+        if (attempt > 1) {
+            await wait(TOOL_CONFIG.retryDelaysMs[attempt - 2] ?? 2000);
+        }
+
+        let response;
+
+        try {
+
+            response =
+                await fetch(url, {
+                    signal: AbortSignal.timeout(
+                        TOOL_CONFIG.requestTimeoutMs
+                    )
+                });
+        }
+
+        catch (error) {
+
+            console.error(`NHTSA attempt ${attempt} failed:`, error);
+
+            lastError = "network_error";
+
+            continue;
+        }
+
+
+        if (!response.ok) {
+
+            lastError = "service_error";
+
+            if (response.status === 429 || response.status >= 500) {
+                continue;
+            }
+
+            return {
+                ok: false,
+                error: "service_error"
+            };
+        }
+
+
+        try {
+
+            return {
+                ok: true,
+                body: await response.json()
+            };
+        }
+
+        catch (error) {
+
+            console.error(`NHTSA attempt ${attempt} returned invalid JSON:`, error);
+
+            lastError = "service_error";
+        }
+    }
+
+    return {
+        ok: false,
+        error: lastError
+    };
+}
+
+
+/*
     Asks one NHTSA endpoint for one make / model / model year.
     Returns { ok: true, results } or { ok: false, error }.
 */
@@ -294,41 +388,15 @@ async function fetchNhtsaResults(
     }
 
 
-    let response;
+    const response =
+        await fetchJsonWithRetry(url);
 
-    try {
-
-        response =
-            await fetch(url, {
-                signal: AbortSignal.timeout(
-                    TOOL_CONFIG.requestTimeoutMs
-                )
-            });
+    if (!response.ok) {
+        return response;
     }
 
-    catch (error) {
-
-        console.error(error);
-
-        return {
-            ok: false,
-            error: "network_error"
-        };
-    }
-
-
-    let body = null;
-
-    if (response.ok) {
-
-        try {
-            body = await response.json();
-        }
-
-        catch (error) {
-            console.error(error);
-        }
-    }
+    const body =
+        response.body;
 
     if (!body || !Array.isArray(body.results)) {
 
@@ -668,44 +736,17 @@ async function searchReliability(args) {
 */
 async function decodeVin(vin) {
 
-    let response;
+    const response =
+        await fetchJsonWithRetry(
+            `${TOOL_CONFIG.nhtsaVinDecoderUrl}${encodeURIComponent(vin)}?format=json`
+        );
 
-    try {
-
-        response =
-            await fetch(
-                `${TOOL_CONFIG.nhtsaVinDecoderUrl}${encodeURIComponent(vin)}?format=json`,
-                {
-                    signal: AbortSignal.timeout(
-                        TOOL_CONFIG.requestTimeoutMs
-                    )
-                }
-            );
+    if (!response.ok) {
+        return response;
     }
 
-    catch (error) {
-
-        console.error(error);
-
-        return {
-            ok: false,
-            error: "network_error"
-        };
-    }
-
-
-    let body = null;
-
-    if (response.ok) {
-
-        try {
-            body = await response.json();
-        }
-
-        catch (error) {
-            console.error(error);
-        }
-    }
+    const body =
+        response.body;
 
     const row =
         body && Array.isArray(body.Results)

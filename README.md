@@ -71,6 +71,10 @@ offered in those years is returned.
 TorqueIntel does not invent data. When a source has nothing, or cannot be
 reached, the response says so.
 
+NHTSA is sometimes slow for a moment, so each NHTSA request is tried up to
+three times (8 seconds each, with a short pause between tries) before
+TorqueIntel reports that NHTSA could not be reached.
+
 NHTSA data comes from:
 
 - `https://api.nhtsa.gov/recalls/recallsByVehicle?make=…&model=…&modelYear=…`
