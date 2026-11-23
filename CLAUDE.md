@@ -27,6 +27,7 @@ getRecalls
 searchReliability
 compareVehicles
 getVinRecalls (decode a VIN with NHTSA vPIC, then recalls for that model year)
+getFuelEconomy (EPA ratings from fueleconomy.gov)
 
 The coordinator should classify:
 vehicle_information
@@ -35,6 +36,7 @@ reliability_research
 vehicle_comparison
 buying_research
 vin_lookup
+fuel_economy
 out_of_scope
 security_request
 harmful_request

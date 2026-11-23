@@ -51,7 +51,7 @@ research instead.
 
 The coordinator classifies the user request (safe question) (`vehicle_information`,
 `recall_lookup`, `reliability_research`, `buying_research`,
-`vehicle_comparison`, `vin_lookup`), works out which trims and model years were asked
+`vehicle_comparison`, `vin_lookup`, `fuel_economy`), works out which trims and model years were asked
 about, and plans which tools to run. It doesn't run a tool itself.
 
 A question can cover several model years: a list ("2017, 2018 and 2022"), a
@@ -66,6 +66,7 @@ offered in those years is returned.
 | `getRecalls` | NHTSA public recalls API (no key) |
 | `searchReliability` | NHTSA public owner-complaints API (no key) |
 | `getVinRecalls` | NHTSA vPIC VIN decoder + NHTSA public recalls API (no key) |
+| `getFuelEconomy` | U.S. EPA fuel economy data, fueleconomy.gov (no key) |
 | `compareVehicles` | `data/vehicles.json` + NHTSA recall and complaint counts |
 
 TorqueIntel does not invent data. When a source has nothing, or cannot be
@@ -90,6 +91,48 @@ without verifying each one, and the totals depend on how many cars were sold
 and how old they are. TorqueIntel shows the counts and does not turn them
 into a reliability score. NHTSA is currently the only reliability source.
 
+## Specifications and sources
+
+`data/vehicles.json` holds engine, horsepower, torque, drivetrain and
+transmissions for every trim from 2015 through 2023. Each entry links to the
+Ford document its horsepower and torque come from: Ford's technical
+specification sheets and Ford Media Center pages, linked through Internet
+Archive copies because Ford no longer hosts them. Every horsepower value
+matches Ford's sheets. Ford's 2015 sheet marks its ratings as projected.
+
+No Ford document has been found yet for the 2018 Mustang, the 2015 and 2017
+Shelby GT350 and GT350R, or the 2019 and 2020 GT350R. Those entries have
+`torque: null` and `source: null`, and the app says torque is not on file
+rather than guessing.
+
+## Fuel economy
+
+`getFuelEconomy` reads the EPA's official ratings (city, highway and
+combined mpg) from fueleconomy.gov, with a link to the EPA page for each
+configuration. The EPA lists Mustangs by model and engine rather than by
+trim, so trims are matched by EPA model name and engine size; the EPA does
+not list the GT350R separately. Buying research includes fuel economy.
+
+## Recalls by model year
+
+A model-year recall search shows how many recalls NHTSA lists for that year
+but does not list them, because recalls apply to specific vehicles. It
+offers **Check my exact VIN** instead.
+
+## Interactive features
+
+- **Suggestions** under Analyze Vehicle: follow-ups to your recent searches
+  plus new ideas. Recent searches are saved only in that browser (never
+  VINs); **Recent searches** opens them in a popup with **Clear history**.
+- **Pick a Mustang**: choose a year, a trim (only trims offered that year)
+  and a topic instead of typing.
+- **Check my VIN** popup: checks the VIN as you type (17 characters, no I,
+  O or Q, correct check digit) and turns green once it is valid.
+- **Next steps** buttons under each result.
+
+Every click builds an ordinary question that goes through the same guard,
+coordinator, approval gate and evidence review as a typed one.
+
 ## VIN recall lookup
 
 A user can enter their 17-character VIN, on its own or in a question. The
@@ -105,6 +148,15 @@ VIN-specific recall check at nhtsa.gov/recalls has no public API. So
 TorqueIntel shows every recall for the car's model year, says plainly that
 some may not apply to that exact car and that it cannot tell whether a recall
 has been repaired, and links to nhtsa.gov/recalls to check the exact VIN.
+
+## Window sticker
+
+A VIN result for a Mustang has a **Window Sticker** button. It opens the
+car's original window sticker (Monroney label) as a PDF inside a popup, from
+Ford's free window sticker service
+(`windowsticker.forddirect.com/windowsticker.pdf?vin=…`). If Ford has not
+released a sticker for that VIN, the PDF says so. The VIN is sent to Ford
+only when the sticker is opened.
 
 ## Evidence review
 

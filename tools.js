@@ -47,6 +47,12 @@ const TOOL_CONFIG = {
     nhtsaVinDecoderUrl: "https://vpic.nhtsa.dot.gov/api/vehicles/DecodeVinValues/",
 
     /*
+        U.S. EPA fuel economy data (fueleconomy.gov). No API key.
+        https://www.fueleconomy.gov/ws/rest/vehicle/menu/model?year=2019&make=Ford
+    */
+    fuelEconomyUrl: "https://www.fueleconomy.gov/ws/rest/vehicle/",
+
+    /*
         NHTSA is sometimes slow for a moment. Each request gets
         requestTimeoutMs to answer; if it times out, cannot be
         reached, or NHTSA reports a temporary server error, it
@@ -79,6 +85,11 @@ const SOURCES = {
     nhtsaVinDecoder: {
         name: "NHTSA vPIC VIN decoder",
         url: "https://vpic.nhtsa.dot.gov/"
+    },
+
+    fuelEconomy: {
+        name: "U.S. EPA fuel economy ratings (fueleconomy.gov)",
+        url: "https://www.fueleconomy.gov/"
     }
 };
 
@@ -289,7 +300,7 @@ function parseNhtsaDate(value, order) {
     Not retried: other HTTP errors such as 400 or 403, which
     would fail the same way again.
 */
-async function fetchJsonWithRetry(url) {
+async function fetchJsonWithRetry(url, headers = {}) {
 
     const wait = ms =>
         new Promise(resolve => setTimeout(resolve, ms));
@@ -308,6 +319,7 @@ async function fetchJsonWithRetry(url) {
 
             response =
                 await fetch(url, {
+                    headers,
                     signal: AbortSignal.timeout(
                         TOOL_CONFIG.requestTimeoutMs
                     )
@@ -935,6 +947,271 @@ async function getVinRecalls(args) {
 
 
 /* =====================================================
+    Fuel economy
+   ===================================================== */
+
+/*
+    How each TorqueIntel trim appears in the EPA's data.
+    The EPA names Mustangs by model ("Mustang", "Mustang
+    Bullitt", "Shelby GT350 Mustang") and engine, not by
+    trim, so the base trims are told apart by engine size.
+    The EPA does not list the GT350R separately.
+*/
+const EPA_TRIMS = {
+    "V6": { models: ["Mustang", "Mustang Convertible"], liters: "3.7" },
+    "EcoBoost": {
+        models: ["Mustang", "Mustang Convertible", "Mustang Performance Package", "Mustang HO Coupe", "Mustang HO Convertible"],
+        liters: "2.3"
+    },
+    "GT": { models: ["Mustang", "Mustang Convertible", "Mustang Performance Package"], liters: "5.0" },
+    "Bullitt": { models: ["Mustang Bullitt"] },
+    "Mach 1": { models: ["Mustang Mach 1"] },
+    "Shelby GT350": { models: ["Shelby GT350 Mustang"] },
+    "Shelby GT500": { models: ["Shelby GT500 Mustang"] }
+};
+
+const EPA_JSON = { Accept: "application/json" };
+
+const epaCache = new Map();
+
+
+/* Cached GET of one fueleconomy.gov JSON resource. */
+async function fetchEpa(path) {
+
+    const url =
+        `${TOOL_CONFIG.fuelEconomyUrl}${path}`;
+
+    if (epaCache.has(url)) {
+        return epaCache.get(url);
+    }
+
+    const response =
+        await fetchJsonWithRetry(url, EPA_JSON);
+
+    if (response.ok) {
+        epaCache.set(url, response);
+    }
+
+    return response;
+}
+
+
+/* The EPA returns one item as an object and several as a list. */
+function asList(value) {
+
+    if (!value) {
+        return [];
+    }
+
+    return Array.isArray(value) ? value : [value];
+}
+
+
+/*
+    Tool: getFuelEconomy
+    args: { make, model, trims, years }
+
+    trims = [] means every trim offered in those years.
+
+    data.years holds one entry per model year:
+        {
+            year, ok: true,
+            configurations: [{ trim, epaModel, description,
+                               transmission, city, highway,
+                               combined, fuel, epaUrl }],
+            missing: [{ trim, reason }]
+        }
+        { year, ok: false, error }
+
+    Ratings are the EPA's; nothing is estimated.
+*/
+async function getFuelEconomy(args) {
+
+    const base = {
+        tool: "getFuelEconomy",
+        args,
+        source: SOURCES.fuelEconomy
+    };
+
+    const { years, trims } =
+        args || {};
+
+    if (!Array.isArray(years) || years.length === 0) {
+
+        return {
+            ...base,
+            ok: false,
+            error: "invalid_arguments"
+        };
+    }
+
+
+    let vehicles = [];
+
+    try {
+        vehicles = await loadVehicles();
+    }
+
+    catch (error) {
+        console.error(error);
+    }
+
+
+    /* Step 1: find matching EPA configurations (cheap menu calls). */
+    const perYear =
+        await Promise.all(
+            years.map(async year => {
+
+                const wanted =
+                    trims && trims.length
+                        ? trims
+                        : vehicles
+                            .filter(vehicle => vehicle.year === Number(year))
+                            .map(vehicle => vehicle.trim);
+
+                const models =
+                    await fetchEpa(`menu/model?year=${year}&make=Ford`);
+
+                if (!models.ok) {
+                    return { year, ok: false, error: models.error };
+                }
+
+                const available =
+                    asList(models.body && models.body.menuItem)
+                        .map(item => item.text);
+
+                const found = [];
+                const missing = [];
+
+                for (const trim of wanted) {
+
+                    const rule = EPA_TRIMS[trim];
+
+                    if (!rule) {
+                        missing.push({
+                            trim,
+                            reason: trim === "Shelby GT350R"
+                                ? "the EPA does not list the GT350R separately."
+                                : "the EPA has no matching model."
+                        });
+
+                        continue;
+                    }
+
+                    const matches = [];
+
+                    for (const epaModel of rule.models.filter(name => available.includes(name))) {
+
+                        const options =
+                            await fetchEpa(
+                                `menu/options?year=${year}&make=Ford&model=${encodeURIComponent(epaModel)}`
+                            );
+
+                        if (!options.ok) {
+                            continue;
+                        }
+
+                        for (const option of asList(options.body && options.body.menuItem)) {
+
+                            const liters =
+                                (/([\d.]+) L\b/.exec(option.text) || [])[1];
+
+                            if (!rule.liters || liters === rule.liters) {
+                                matches.push({
+                                    trim,
+                                    epaModel,
+                                    description: option.text,
+                                    id: option.value
+                                });
+                            }
+                        }
+                    }
+
+                    if (matches.length === 0) {
+                        missing.push({
+                            trim,
+                            reason: "no EPA rating was found for this trim and year."
+                        });
+                    }
+
+                    found.push(...matches);
+                }
+
+                return { year, ok: true, found, missing };
+            })
+        );
+
+
+    /* Step 2: fetch ratings, at most MAX_RESULTS_PER_TOOL in total. */
+    const total =
+        perYear.reduce((sum, year) => sum + (year.ok ? year.found.length : 0), 0);
+
+    let budget = MAX_RESULTS_PER_TOOL;
+
+    const result = [];
+
+    for (const year of perYear) {
+
+        if (!year.ok) {
+            result.push(year);
+
+            continue;
+        }
+
+        const chosen =
+            year.found.slice(0, Math.max(0, budget));
+
+        budget -= chosen.length;
+
+        const configurations =
+            (await Promise.all(
+                chosen.map(async item => {
+
+                    const details =
+                        await fetchEpa(`${encodeURIComponent(item.id)}`);
+
+                    if (!details.ok || !details.body) {
+                        return null;
+                    }
+
+                    const vehicle = details.body;
+                    const number = value => Number(value) || null;
+
+                    return {
+                        trim: item.trim,
+                        epaModel: item.epaModel,
+                        description: item.description,
+                        transmission: vehicle.trany || null,
+                        city: number(vehicle.city08),
+                        highway: number(vehicle.highway08),
+                        combined: number(vehicle.comb08),
+                        fuel: vehicle.fuelType1 || null,
+                        epaUrl: `https://www.fueleconomy.gov/feg/noframes/${encodeURIComponent(item.id)}.shtml`
+                    };
+                })
+            )).filter(Boolean);
+
+        result.push({
+            year: year.year,
+            ok: true,
+            configurations,
+            missing: year.missing
+        });
+    }
+
+    return {
+        ...base,
+        ok: true,
+        data: {
+            years: result,
+            totalConfigurations: total,
+            shownConfigurations: Math.min(total, MAX_RESULTS_PER_TOOL)
+        }
+    };
+}
+
+
+/* =====================================================
     Comparison
    ===================================================== */
 
@@ -1049,6 +1326,8 @@ async function compareVehicles(args) {
                 found: vehicle !== null,
                 engine: vehicle ? vehicle.engine : null,
                 horsepower: vehicle ? vehicle.horsepower : null,
+                torque: vehicle ? vehicle.torque ?? null : null,
+                specSource: vehicle ? vehicle.source ?? null : null,
                 drivetrain: vehicle ? vehicle.drivetrain : null,
                 transmissions: vehicle ? vehicle.transmissions : null,
                 ...countsByYear.get(year)
@@ -1081,5 +1360,6 @@ const TOOLS = {
     getRecalls,
     searchReliability,
     getVinRecalls,
+    getFuelEconomy,
     compareVehicles
 };

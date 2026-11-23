@@ -59,6 +59,7 @@ const COMPARISON_CRITERIA = [
     "engine",
     "transmission",
     "horsepower",
+    "torque",
     "drivetrain",
     "recalls",
     "reliability"
@@ -170,7 +171,7 @@ const HARMFUL_PATTERNS = [
     Whole words only, so "card" does not match "car".
 */
 const AUTOMOTIVE_PATTERN =
-    /\b(cars?|vehicles?|automobiles?|trucks?|suvs?|sedans?|coupes?|convertibles?|fastbacks?|ford|mustangs?|engines?|motors?|v8|v6|coyote|transmissions?|gearbox(es)?|horsepower|hp|torque|drivetrains?|rwd|awd|fwd|mpg|recall(s|ed)?|reliab(le|ility)|model years?|vins?|toyota|honda|chevrolet|chevy|camaro|corvette|dodge|challenger|charger|nissan|bmw|audi|tesla|jeep|subaru|hyundai|kia|mazda|volkswagen|porsche|mercedes|lexus)\b/;
+    /\b(cars?|vehicles?|automobiles?|trucks?|suvs?|sedans?|coupes?|convertibles?|fastbacks?|ford|mustangs?|engines?|motors?|v8|v6|coyote|transmissions?|gearbox(es)?|horsepower|hp|torque|drivetrains?|rwd|awd|fwd|mpg|fuel|mileage|recall(s|ed)?|reliab(le|ility)|model years?|vins?|toyota|honda|chevrolet|chevy|camaro|corvette|dodge|challenger|charger|nissan|bmw|audi|tesla|jeep|subaru|hyundai|kia|mazda|volkswagen|porsche|mercedes|lexus)\b/;
 
 /* =====================================================
     VIN (vehicle identification number)
@@ -562,6 +563,12 @@ function classifyIntent(text) {
         return "buying_research";
     }
 
+    if (
+        /\b(mpg|fuel economy|fuel efficiency|fuel consumption|gas mileage|miles per gallon)\b/.test(text)
+    ) {
+        return "fuel_economy";
+    }
+
     return "vehicle_information";
 }
 
@@ -755,11 +762,18 @@ function coordinateRequest(question) {
     };
 
 
+    const fuelEconomyCall = {
+        tool: "getFuelEconomy",
+        args: { make, model, trims, years }
+    };
+
+
     const toolCallsByIntent = {
         vehicle_information: [infoCall],
         recall_lookup: [recallCall],
         reliability_research: [reliabilityCall, recallCall],
-        buying_research: [infoCall, recallCall, reliabilityCall]
+        fuel_economy: [fuelEconomyCall],
+        buying_research: [infoCall, recallCall, reliabilityCall, fuelEconomyCall]
     };
 
     plan.toolCalls =
@@ -943,6 +957,41 @@ function reviewToolResult(result) {
                     `${label} counts could not be checked for ${failed.join(", ")}.`
                 );
             }
+        }
+    }
+
+
+    else if (result.tool === "getFuelEconomy") {
+
+        if (!result.ok) {
+            gaps.push(`Nothing was checked: ${errorText(result.error)}.`);
+        }
+
+        for (const year of data.years || []) {
+
+            if (!year.ok) {
+                gaps.push(
+                    `${year.year}: EPA fuel economy could not be checked (${errorText(year.error)}).`
+                );
+
+                continue;
+            }
+
+            if (year.configurations.length) {
+                findings.push(
+                    `${year.year}: ${plural(year.configurations.length, "EPA-rated configuration")} found.`
+                );
+            }
+
+            for (const item of year.missing) {
+                gaps.push(`${year.year} Mustang ${item.trim}: ${item.reason}`);
+            }
+        }
+
+        if (data.totalConfigurations > (data.shownConfigurations || 0)) {
+            gaps.push(
+                `Only ${data.shownConfigurations} of ${data.totalConfigurations} EPA configurations are shown.`
+            );
         }
     }
 

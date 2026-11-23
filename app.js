@@ -60,13 +60,15 @@ const INTENT_TITLES = {
     reliability_research: "Reliability Research",
     buying_research: "Buying Research",
     vehicle_comparison: "Vehicle Comparison",
-    vin_lookup: "VIN Recall Lookup"
+    vin_lookup: "VIN Recall Lookup",
+    fuel_economy: "Fuel Economy"
 };
 
 const CRITERIA_LABELS = {
     engine: "Engine",
     transmission: "Transmission options",
     horsepower: "Horsepower",
+    torque: "Torque",
     drivetrain: "Drivetrain",
     recalls: "Recalls (NHTSA, all trims)",
     reliability: "Owner complaints (NHTSA, all trims)"
@@ -89,7 +91,11 @@ const NHTSA_ERROR_TEXT = {
 /*
     Entry point for a user request.
 */
-async function handleUserRequest() {
+async function handleUserRequest(questionOverride) {
+
+    if (typeof questionOverride === "string") {
+        userQuestion.value = questionOverride;
+    }
 
     const question =
         userQuestion.value.trim();
@@ -126,6 +132,10 @@ async function handleUserRequest() {
         */
         const analysis =
             analyzeRequest(question);
+
+        if (analysis.allowed) {
+            rememberSearch(analysis.sanitized ? analysis.safeQuestion : question);
+        }
 
         await actOnAnalysis(analysis);
     }
@@ -278,7 +288,8 @@ async function actOnAnalysis(analysis) {
                 sanitizedNoticeHtml(analysis.sanitized) +
                 skippedYearsNoticeHtml(analysis.unsupportedYears) +
                 evidenceReviewHtml(reviewEvidence(results)) +
-                results.map(toolResultHtml).join("")
+                results.map(toolResultHtml).join("") +
+                followUpsHtml(analysis)
             );
 
             return;
@@ -410,7 +421,12 @@ async function approvePendingAction() {
     showResult(
         INTENT_TITLES.vehicle_comparison,
         evidenceReviewHtml(reviewEvidence([result])) +
-        toolResultHtml(result)
+        toolResultHtml(result) +
+        followUpsHtml({
+            intent: "vehicle_comparison",
+            years: action.args.years,
+            trims: action.args.trims
+        })
     );
 }
 
@@ -447,6 +463,9 @@ function toolResultHtml(result) {
 
         case "getVinRecalls":
             return vinRecallsHtml(result);
+
+        case "getFuelEconomy":
+            return fuelEconomyHtml(result);
 
         case "compareVehicles":
             return comparisonHtml(result);
@@ -520,6 +539,7 @@ function vehicleInfoHtml(result) {
         const items = [
             ["Engine", vehicle.engine],
             ["Horsepower", `${vehicle.horsepower} hp`],
+            ["Torque", torqueText(vehicle.torque)],
             ["Drivetrain", vehicle.drivetrain],
             ["Transmission Options", vehicle.transmissions.join(", ")]
         ];
@@ -531,7 +551,7 @@ function vehicleInfoHtml(result) {
                     ${items.map(resultItemHtml).join("")}
                 </div>
                 ${missingHtml}
-                ${sourceHtml(result.source)}
+                ${specSourcesHtml(vehicles)}
             </div>
         `;
     }
@@ -543,6 +563,7 @@ function vehicleInfoHtml(result) {
                     <th scope="row">${escapeHtml(`${vehicle.year} ${vehicle.trim}`)}</th>
                     <td>${escapeHtml(vehicle.engine)}</td>
                     <td class="nowrap">${escapeHtml(vehicle.horsepower)} hp</td>
+                    <td class="nowrap">${escapeHtml(torqueText(vehicle.torque))}</td>
                     <td>${escapeHtml(vehicle.transmissions.join(", "))}</td>
                     <td>${escapeHtml(vehicle.drivetrain)}</td>
                 </tr>
@@ -559,6 +580,7 @@ function vehicleInfoHtml(result) {
                             <th scope="col">Vehicle</th>
                             <th scope="col">Engine</th>
                             <th scope="col">Horsepower</th>
+                            <th scope="col">Torque</th>
                             <th scope="col">Transmissions</th>
                             <th scope="col">Drivetrain</th>
                         </tr>
@@ -567,7 +589,7 @@ function vehicleInfoHtml(result) {
                 </table>
             </div>
             ${missingHtml}
-            ${sourceHtml(result.source)}
+            ${specSourcesHtml(vehicles)}
         </div>
     `;
 }
@@ -647,29 +669,27 @@ function recallsHtml(result) {
             `;
         }
 
-        const countText =
-            year.recalls.length < year.totalCount
-                ? `NHTSA lists ${year.totalCount} recalls for ${year.modelYear}. Showing the ${year.recalls.length} most recent.`
-                : `NHTSA lists ${year.totalCount} recall${year.totalCount === 1 ? "" : "s"} for ${year.modelYear}.`;
-
         return `
-            <p>${escapeHtml(countText)}</p>
-            <div class="result-stack">
-                ${year.recalls.map(recallCardHtml).join("")}
-            </div>
+            <p>
+                ${escapeHtml(`NHTSA lists ${year.totalCount} recall${year.totalCount === 1 ? "" : "s"} across the ${year.modelYear} ${make} ${model} line.`)}
+            </p>
         `;
     };
 
     return `
         <div class="result-section">
             <h3>${escapeHtml(`Safety Recalls: ${yearRangeText(years)} ${make} ${model}`)}</h3>
-            <p class="note">
-                NHTSA lists recalls by model, not by trim. These cover
-                the whole ${escapeHtml(model)} line, and a recall may apply to
-                only some vehicles. Check a specific car by VIN at
-                nhtsa.gov/recalls.
-            </p>
             ${perYearHtml(years, summary, body)}
+            <p class="note">
+                Recalls apply to specific vehicles, so they are not listed
+                here by model year. Check your VIN to see the recalls for
+                your Mustang's year and how to confirm which apply to your car.
+            </p>
+            <div class="button-row">
+                <button type="button" class="accent-button" data-action="open-vin">
+                    Check my exact VIN
+                </button>
+            </div>
             ${sourceHtml(result.source)}
         </div>
     `;
@@ -807,6 +827,11 @@ function vinRecallsHtml(result) {
             <h3>${escapeHtml(`Your vehicle: ${describeVinVehicle(vehicle)}`)}</h3>
             <div class="result-grid">
                 ${details.map(resultItemHtml).join("")}
+            </div>
+            <div class="button-row">
+                <button type="button" class="accent-button" data-action="open-sticker" data-vin="${escapeHtml(vin)}">
+                    Window Sticker
+                </button>
             </div>
             ${sourceHtml(result.source)}
         </div>
@@ -981,6 +1006,11 @@ function comparisonHtml(result) {
                 ? `${row.horsepower} hp`
                 : "No entry",
 
+        torque: row =>
+            row.found
+                ? torqueText(row.torque)
+                : "No entry",
+
         drivetrain: row =>
             spec(row.drivetrain),
 
@@ -1031,6 +1061,7 @@ function comparisonHtml(result) {
                     Not every trim was offered in every year.
                 </p>
             ` : ""}
+            ${specSourcesHtml(rows.filter(row => row.found).map(row => ({ year: row.year, trim: row.trim, source: row.specSource })))}
             <p class="note">
                 Recall and complaint counts come from NHTSA and cover
                 the whole ${escapeHtml(model)} line for each model year, not one
@@ -1185,6 +1216,8 @@ function showResult(
     html
 ) {
 
+    resultModal.querySelector(".modal-card").classList.remove("wide");
+
     resultTitle.textContent =
         title;
 
@@ -1231,6 +1264,720 @@ function escapeHtml(text) {
 
 
 /* =====================================================
+    Specs: torque and sources
+   ===================================================== */
+
+function torqueText(torque) {
+
+    return torque !== null && torque !== undefined
+        ? `${torque} lb-ft`
+        : "Not on file";
+}
+
+
+/*
+    Links each spec to the Ford document it came from. Entries
+    with no Ford document on file are named, so it is clear
+    which values come only from the TorqueIntel dataset.
+*/
+function specSourcesHtml(vehicles) {
+
+    const bySource = new Map();
+    const unsourced = [];
+    const notes = new Set();
+
+    for (const vehicle of vehicles) {
+
+        if (vehicle.source && vehicle.source.url) {
+            bySource.set(vehicle.source.url, vehicle.source);
+        }
+
+        else {
+            unsourced.push(`${vehicle.year} ${vehicle.trim}`);
+        }
+
+        if (vehicle.sourceNote) {
+            notes.add(vehicle.sourceNote);
+        }
+    }
+
+    const links =
+        [...bySource.values()]
+            .map(source => `
+                <a href="${escapeHtml(source.url)}" target="_blank" rel="noopener noreferrer">${escapeHtml(source.name)}</a>
+            `)
+            .join(" · ");
+
+    return `
+        ${links ? `<p class="source">Source: ${links}</p>` : ""}
+        ${unsourced.length ? `
+            <p class="source">
+                Source: TorqueIntel vehicle dataset. No Ford specification
+                sheet is on file yet for ${escapeHtml(unsourced.join(", "))},
+                so torque is not shown for ${unsourced.length === 1 ? "it" : "them"}.
+            </p>
+        ` : ""}
+        ${[...notes].map(note => `<p class="note">${escapeHtml(note)}</p>`).join("")}
+    `;
+}
+
+
+/* =====================================================
+    Fuel economy
+   ===================================================== */
+
+function fuelEconomyHtml(result) {
+
+    if (!result.ok) {
+
+        return sectionHtml(
+            "Fuel Economy",
+            ["The fuel economy lookup needs at least one model year."]
+        );
+    }
+
+    const { years, totalConfigurations, shownConfigurations } =
+        result.data;
+
+    const rows = [];
+    const notes = [];
+
+    for (const year of years) {
+
+        if (!year.ok) {
+            notes.push(
+                `TorqueIntel could not reach the EPA's fueleconomy.gov for ${year.year}, so nothing is shown for that year.`
+            );
+
+            continue;
+        }
+
+        for (const item of year.configurations) {
+
+            const rating = [item.city, item.highway, item.combined]
+                .map(value => value ?? "?")
+                .join(" / ");
+
+            rows.push(`
+                <tr>
+                    <th scope="row">${escapeHtml(`${year.year} ${item.trim}`)}</th>
+                    <td>${escapeHtml(`${item.epaModel}: ${item.description}`)}</td>
+                    <td class="nowrap">${escapeHtml(rating)} mpg</td>
+                    <td><a href="${escapeHtml(item.epaUrl)}" target="_blank" rel="noopener noreferrer">EPA page</a></td>
+                </tr>
+            `);
+        }
+
+        for (const item of year.missing) {
+            notes.push(`${year.year} Mustang ${item.trim}: ${item.reason}`);
+        }
+    }
+
+    if (totalConfigurations > shownConfigurations) {
+        notes.push(
+            `Showing ${shownConfigurations} of ${totalConfigurations} EPA configurations. Ask about fewer years or one trim to see the rest.`
+        );
+    }
+
+    return `
+        <div class="result-section">
+            <h3>Fuel Economy (EPA)</h3>
+            ${rows.length ? `
+                <div class="table-scroll">
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th scope="col">Vehicle</th>
+                                <th scope="col">EPA configuration</th>
+                                <th scope="col">City / Hwy / Combined</th>
+                                <th scope="col">Details</th>
+                            </tr>
+                        </thead>
+                        <tbody>${rows.join("")}</tbody>
+                    </table>
+                </div>
+            ` : "<p>No EPA ratings were found for this request.</p>"}
+            ${notes.map(text => `<p class="note">${escapeHtml(text)}</p>`).join("")}
+            <p class="note">
+                These are the EPA's official ratings. Real-world mileage
+                depends on driving, weather and the car's condition.
+            </p>
+            ${sourceHtml(result.source)}
+        </div>
+    `;
+}
+
+
+/* =====================================================
+    Follow-up buttons
+   ===================================================== */
+
+/* Trims offered each model year, from data/vehicles.json. */
+const trimsByYear = new Map();
+
+
+function listText(items) {
+
+    return items.length <= 1
+        ? String(items[0] ?? "")
+        : `${items.slice(0, -1).join(", ")} and ${items[items.length - 1]}`;
+}
+
+
+/* Another trim offered the same year, to compare against. */
+function otherTrim(year, trim) {
+
+    const offered =
+        (trimsByYear.get(year) || []).filter(name => name !== trim);
+
+    const preferred =
+        { GT: "EcoBoost", EcoBoost: "GT" }[trim];
+
+    return offered.includes(preferred) ? preferred : offered[0] || null;
+}
+
+
+/*
+    Suggested next questions under a result. Each one is an
+    ordinary question that goes through the same guard,
+    coordinator and evidence review as a typed one.
+*/
+function followUpsHtml(analysis) {
+
+    const years = analysis.years || [];
+    const trims = analysis.trims || [];
+
+    const buttons = [];
+
+    const ask = (label, query) =>
+        buttons.push(
+            `<button type="button" class="follow-up" data-action="run-query" data-query="${escapeHtml(query)}">${escapeHtml(label)}</button>`
+        );
+
+    const checkVin = label =>
+        buttons.push(
+            `<button type="button" class="follow-up accent" data-action="open-vin">${escapeHtml(label)}</button>`
+        );
+
+    if (analysis.intent === "vin_lookup") {
+        checkVin("Check another VIN");
+    }
+
+    if (years.length) {
+
+        const yearText = listText(years);
+        const vehicle = `${yearText} Mustang${trims.length ? " " + listText(trims) : ""}`;
+
+        const compare =
+            years.length === 1 && trims.length === 1
+                ? otherTrim(years[0], trims[0])
+                : null;
+
+        const compareQuery = compare
+            ? `Compare the ${years[0]} Mustang ${trims[0]} and ${compare}`
+            : null;
+
+        switch (analysis.intent) {
+
+            case "vehicle_information":
+                ask("Recalls", `Recalls for the ${yearText} Mustang`);
+                ask("Owner complaints", `Owner complaints for the ${vehicle}`);
+                ask("Fuel economy", `Fuel economy for the ${vehicle}`);
+                if (compareQuery) ask(`Compare with the ${compare}`, compareQuery);
+                break;
+
+            case "recall_lookup":
+                checkVin("Check my exact VIN");
+                ask("Owner complaints", `Owner complaints for the ${vehicle}`);
+                ask("Specs", `Specs for the ${vehicle}`);
+                break;
+
+            case "reliability_research":
+                ask("Buying research", `I'm considering a ${vehicle}. What should I know?`);
+                checkVin("Check my exact VIN");
+                break;
+
+            case "fuel_economy":
+                ask("Specs", `Specs for the ${vehicle}`);
+                if (compareQuery) ask(`Compare with the ${compare}`, compareQuery);
+                break;
+
+            case "buying_research":
+                if (compareQuery) ask(`Compare with the ${compare}`, compareQuery);
+                checkVin("Check my exact VIN");
+                break;
+
+            case "vehicle_comparison":
+                ask("Fuel economy", `Fuel economy for the ${vehicle}`);
+                ask("Recalls", `Recalls for the ${yearText} Mustang`);
+                break;
+        }
+    }
+
+    if (buttons.length === 0) {
+        return "";
+    }
+
+    return `
+        <div class="result-section">
+            <h3>Next steps</h3>
+            <div class="follow-up-row">${buttons.join("")}</div>
+        </div>
+    `;
+}
+
+
+/* =====================================================
+    Check my VIN (popup with live checking)
+   ===================================================== */
+
+/* =====================================================
+    Window sticker (Ford's official service)
+   ===================================================== */
+
+/*
+    Ford publishes the original window sticker (Monroney
+    label) for many of its vehicles as a free PDF, looked up
+    by VIN. If Ford has not released a sticker for that VIN,
+    the PDF itself says so. The PDF is shown inside the popup;
+    the VIN is sent to Ford only when the sticker is opened.
+*/
+const WINDOW_STICKER_URL =
+    "https://www.windowsticker.forddirect.com/windowsticker.pdf?vin=";
+
+let previousResult = null;
+
+
+function showWindowSticker(vin) {
+
+    if (!isValidVin(String(vin || ""))) {
+        return;
+    }
+
+    previousResult = {
+        title: resultTitle.textContent,
+        html: resultContent.innerHTML
+    };
+
+    const url =
+        WINDOW_STICKER_URL + encodeURIComponent(vin);
+
+    showResult(
+        "Window Sticker",
+        `
+            <div class="result-section">
+                <p class="note">
+                    The original window sticker for VIN
+                    ${escapeHtml(vin)}, from Ford's window sticker service.
+                    If Ford has not released a sticker for this car, the
+                    PDF says so. Opening it sends the VIN to Ford.
+                </p>
+                <iframe
+                    class="sticker-frame"
+                    src="${escapeHtml(url)}"
+                    title="Window sticker for VIN ${escapeHtml(vin)}"
+                ></iframe>
+                <div class="button-row">
+                    <a class="accent-button" href="${escapeHtml(url)}" target="_blank" rel="noopener noreferrer">Open PDF in a new tab</a>
+                    <button type="button" class="secondary-button" data-action="back-to-result">Back to VIN results</button>
+                </div>
+                <p class="source">
+                    Source:
+                    <a href="${escapeHtml(url)}" target="_blank" rel="noopener noreferrer">Ford window sticker (Monroney label) service</a>
+                </p>
+            </div>
+        `
+    );
+
+    resultModal.querySelector(".modal-card").classList.add("wide");
+}
+
+
+function restorePreviousResult() {
+
+    if (!previousResult) {
+        return;
+    }
+
+    showResult(previousResult.title, previousResult.html);
+
+    previousResult = null;
+}
+
+
+function showVinDialog() {
+
+    showResult(
+        "Check my VIN",
+        `
+            <div class="result-section">
+                <label for="vinInput" class="detail-label">Your 17-character VIN</label>
+                <div class="vin-row">
+                    <input
+                        id="vinInput"
+                        class="vin-input"
+                        maxlength="17"
+                        autocomplete="off"
+                        autocapitalize="characters"
+                        spellcheck="false"
+                        placeholder="1FA6P8CF9J5100001"
+                        aria-describedby="vinMessage vinHelp"
+                    >
+                    <button type="button" class="primary-button" data-action="vin-lookup" id="vinLookupButton" disabled>
+                        Look up
+                    </button>
+                </div>
+                <p id="vinMessage" class="vin-message" aria-live="polite"></p>
+                <p id="vinHelp" class="note">
+                    A VIN is 17 characters of letters and numbers. It never uses
+                    the letters I, O or Q, so type the number 0 (zero), not the
+                    letter O, and the number 1 (one), not the letter I. Find it on
+                    the driver's side of the dashboard, the driver's door frame,
+                    or your registration. Your VIN is sent to NHTSA to identify
+                    the car.
+                </p>
+            </div>
+        `
+    );
+
+    document.getElementById("vinInput").focus();
+}
+
+
+/*
+    Checks the VIN as it is typed. The text turns green once
+    the VIN is valid (allowed characters and a correct check
+    digit); nothing is sent to NHTSA until Look up is pressed.
+*/
+function checkVinInput(input) {
+
+    const vin =
+        input.value.toUpperCase().replace(/[^A-Z0-9]/g, "");
+
+    if (input.value !== vin) {
+        input.value = vin;
+    }
+
+    const message = document.getElementById("vinMessage");
+    const button = document.getElementById("vinLookupButton");
+
+    let text = "";
+    let state = "";
+
+    const forbidden = vin.match(/[IOQ]/);
+
+    if (!vin) {
+        text = "";
+    }
+
+    else if (forbidden) {
+        state = "invalid";
+        text = forbidden[0] === "Q"
+            ? "The letter Q is never used in a VIN. Check that character again."
+            : `The letter ${forbidden[0]} is never used in a VIN. Did you mean the number ${forbidden[0] === "I" ? "1 (one)" : "0 (zero)"}?`;
+    }
+
+    else if (vin.length < 17) {
+        text = `${vin.length} of 17 characters`;
+    }
+
+    else if (!isValidVin(vin)) {
+        state = "invalid";
+        text = "That VIN doesn't add up (its 9th character is a check digit). Look for a typo.";
+    }
+
+    else {
+        state = "valid";
+        text = "Valid VIN. Ready to look up with NHTSA.";
+    }
+
+    input.classList.toggle("vin-valid", state === "valid");
+    input.classList.toggle("vin-invalid", state === "invalid");
+    message.className = `vin-message ${state}`;
+    message.textContent = text;
+    button.disabled = state !== "valid";
+}
+
+
+function submitVinDialog() {
+
+    const input = document.getElementById("vinInput");
+
+    if (!input || !isValidVin(input.value)) {
+        return;
+    }
+
+    const vin = input.value;
+
+    hideResult();
+
+    handleUserRequest(`Recalls for VIN ${vin}`);
+}
+
+
+/* =====================================================
+    Recent searches and suggestions
+   ===================================================== */
+
+/*
+    Recent searches are kept only in this browser
+    (localStorage). They never leave the device.
+*/
+const RECENT_KEY = "torqueintel.recentSearches";
+const MAX_RECENT = 8;
+
+const FRESH_SUGGESTIONS = [
+    "What engine is in a 2019 Mustang GT?",
+    "Recalls for the 2021 Mustang",
+    "Is the 2016 Mustang EcoBoost reliable?",
+    "Fuel economy for the 2020 Mustang EcoBoost",
+    "Compare the 2020 Mustang GT and Bullitt",
+    "I'm considering a 2017 Mustang GT. What should I know?"
+];
+
+
+function loadRecentSearches() {
+
+    try {
+        const list = JSON.parse(localStorage.getItem(RECENT_KEY) || "[]");
+
+        return Array.isArray(list) ? list.filter(item => typeof item === "string") : [];
+    }
+
+    catch (error) {
+        return [];
+    }
+}
+
+
+function saveRecentSearches(list) {
+
+    try {
+        localStorage.setItem(RECENT_KEY, JSON.stringify(list));
+    }
+
+    catch (error) {
+        /* Storage blocked (private window); suggestions still work. */
+    }
+}
+
+
+/* VINs are not stored, so a shared computer does not keep them. */
+function rememberSearch(question) {
+
+    if (!question || findVinCandidates(question).length) {
+        return;
+    }
+
+    const recent =
+        loadRecentSearches().filter(item => item.toLowerCase() !== question.toLowerCase());
+
+    saveRecentSearches([question, ...recent].slice(0, MAX_RECENT));
+
+    renderSuggestions();
+}
+
+
+/* Shorter chip text: "What engine is in a 2019 Mustang GT?" -> "2019 Mustang GT" */
+function chipLabel(question) {
+
+    return question
+        .replace(/^What engine is in (a |the )?/i, "")
+        .replace(/^Specs for the /i, "Specs: ")
+        .replace(/^I'm considering a (.*?)\. What should I know\?$/i, "Buying: $1")
+        .replace(/\?$/, "");
+}
+
+
+function suggestedSearches(recent) {
+
+    const asked = text =>
+        recent.some(item => item.toLowerCase() === text.toLowerCase());
+
+    const related = [];
+
+    for (const question of recent.slice(0, 2)) {
+
+        const text = question.toLowerCase();
+        const years = extractYears(text).filter(isSupportedYear);
+        const trims = extractTrims(text);
+
+        if (years.length !== 1) {
+            continue;
+        }
+
+        const year = years[0];
+        const trim = trims.length === 1 ? trims[0] : null;
+        const vehicle = `${year} Mustang${trim ? " " + trim : ""}`;
+        const other = trim ? otherTrim(year, trim) : null;
+
+        [
+            `Recalls for the ${year} Mustang`,
+            `Owner complaints for the ${vehicle}`,
+            `Fuel economy for the ${vehicle}`,
+            other ? `Compare the ${year} Mustang ${trim} and ${other}` : null
+        ]
+            .filter(Boolean)
+            .filter(item => !asked(item) && !related.includes(item))
+            .slice(0, 2)
+            .forEach(item => related.push(item));
+    }
+
+    const fresh =
+        FRESH_SUGGESTIONS.filter(item => !asked(item) && !related.includes(item));
+
+    return [
+        ...related.slice(0, 3).map(query => ({ query, related: true })),
+        ...fresh.map(query => ({ query, related: false }))
+    ].slice(0, 5);
+}
+
+
+function renderSuggestions() {
+
+    const area = document.getElementById("suggestions");
+
+    if (!area) {
+        return;
+    }
+
+    const recent = loadRecentSearches();
+
+    const chips =
+        suggestedSearches(recent)
+            .map(item => `
+                <button type="button" class="suggest-chip${item.related ? " related" : ""}" data-query="${escapeHtml(item.query)}">
+                    ${item.related ? "→" : "+"} ${escapeHtml(chipLabel(item.query))}
+                </button>
+            `)
+            .join("");
+
+    area.innerHTML = `
+        <div class="suggest-head">
+            <span>Suggested for you</span>
+            ${recent.length ? `<button type="button" class="recent-link" id="openRecent">Recent searches (${recent.length})</button>` : ""}
+        </div>
+        <div class="suggest-row">${chips}</div>
+    `;
+}
+
+
+function showRecentDialog() {
+
+    const recent = loadRecentSearches();
+
+    showResult(
+        "Recent Searches",
+        recent.length
+            ? `
+                <div class="result-section">
+                    <div class="recent-list">
+                        ${recent.map(question => `
+                            <button type="button" class="recent-item" data-action="run-query" data-query="${escapeHtml(question)}">
+                                ${escapeHtml(question)}
+                            </button>
+                        `).join("")}
+                    </div>
+                    <p class="note">Saved only in this browser. VINs are never saved.</p>
+                    <div class="button-row">
+                        <button type="button" class="secondary-button" data-action="clear-recent">Clear history</button>
+                    </div>
+                </div>
+            `
+            : sectionHtml("", ["No recent searches. Your searches will appear here."])
+    );
+}
+
+
+/* =====================================================
+    Pick a Mustang (year, trim and topic)
+   ===================================================== */
+
+const PICK_TOPICS = {
+    specs: vehicle => `Specs for the ${vehicle}`,
+    recalls: (vehicle, year) => `Recalls for the ${year} Mustang`,
+    complaints: vehicle => `Owner complaints for the ${vehicle}`,
+    fuel: vehicle => `Fuel economy for the ${vehicle}`,
+    buying: vehicle => `I'm considering a ${vehicle}. What should I know?`
+};
+
+let pickTopic = "specs";
+
+
+function pickedQuestion() {
+
+    const year = document.getElementById("pickYear").value;
+    const trim = document.getElementById("pickTrim").value;
+
+    return PICK_TOPICS[pickTopic](`${year} Mustang${trim ? " " + trim : ""}`, year);
+}
+
+
+function fillPickTrims() {
+
+    const yearSelect = document.getElementById("pickYear");
+    const trimSelect = document.getElementById("pickTrim");
+    const keep = trimSelect.value;
+
+    const trims = trimsByYear.get(Number(yearSelect.value)) || [];
+
+    trimSelect.innerHTML =
+        `<option value="">All trims</option>` +
+        trims.map(trim => `<option>${escapeHtml(trim)}</option>`).join("");
+
+    if (trims.includes(keep)) {
+        trimSelect.value = keep;
+    }
+
+    updatePickPreview();
+}
+
+
+function updatePickPreview() {
+
+    document.getElementById("pickPreview").textContent =
+        `Will ask: ${pickedQuestion()}`;
+}
+
+
+async function setupPicker() {
+
+    try {
+
+        for (const vehicle of await loadVehicles()) {
+
+            if (!trimsByYear.has(vehicle.year)) {
+                trimsByYear.set(vehicle.year, []);
+            }
+
+            trimsByYear.get(vehicle.year).push(vehicle.trim);
+        }
+    }
+
+    catch (error) {
+
+        console.error(error);
+
+        document.getElementById("pickerCard").hidden = true;
+
+        return;
+    }
+
+    const yearSelect = document.getElementById("pickYear");
+
+    yearSelect.innerHTML =
+        [...trimsByYear.keys()]
+            .sort((a, b) => b - a)
+            .map(year => `<option>${year}</option>`)
+            .join("");
+
+    fillPickTrims();
+
+    renderSuggestions();
+}
+
+
+/* =====================================================
     Event listeners
    ===================================================== */
 
@@ -1268,8 +2015,51 @@ resultContent.addEventListener(
         if (button.dataset.action === "cancel") {
             cancelPendingAction();
         }
+
+        if (button.dataset.action === "run-query") {
+            hideResult();
+            handleUserRequest(button.dataset.query);
+        }
+
+        if (button.dataset.action === "open-vin") {
+            showVinDialog();
+        }
+
+        if (button.dataset.action === "vin-lookup") {
+            submitVinDialog();
+        }
+
+        if (button.dataset.action === "open-sticker") {
+            showWindowSticker(button.dataset.vin);
+        }
+
+        if (button.dataset.action === "back-to-result") {
+            restorePreviousResult();
+        }
+
+        if (button.dataset.action === "clear-recent") {
+            saveRecentSearches([]);
+            renderSuggestions();
+            showRecentDialog();
+        }
     }
 );
+
+
+resultContent.addEventListener("input", event => {
+
+    if (event.target.id === "vinInput") {
+        checkVinInput(event.target);
+    }
+});
+
+
+resultContent.addEventListener("keydown", event => {
+
+    if (event.target.id === "vinInput" && event.key === "Enter") {
+        submitVinDialog();
+    }
+});
 
 
 resultModal.addEventListener(
@@ -1297,3 +2087,50 @@ document.addEventListener(
         }
     }
 );
+
+
+document.getElementById("openVinButton").addEventListener("click", showVinDialog);
+
+
+document.getElementById("suggestions").addEventListener("click", event => {
+
+    if (event.target.closest("#openRecent")) {
+        showRecentDialog();
+
+        return;
+    }
+
+    const chip = event.target.closest(".suggest-chip");
+
+    if (chip) {
+        handleUserRequest(chip.dataset.query);
+    }
+});
+
+
+document.getElementById("pickYear").addEventListener("change", fillPickTrims);
+
+document.getElementById("pickTrim").addEventListener("change", updatePickPreview);
+
+document.getElementById("pickTopics").addEventListener("click", event => {
+
+    const button = event.target.closest("[data-topic]");
+
+    if (!button) {
+        return;
+    }
+
+    pickTopic = button.dataset.topic;
+
+    for (const item of document.querySelectorAll("#pickTopics [data-topic]")) {
+        item.setAttribute("aria-pressed", String(item === button));
+    }
+
+    updatePickPreview();
+});
+
+document.getElementById("pickButton").addEventListener("click", () => handleUserRequest(pickedQuestion()));
+
+
+renderSuggestions();
+setupPicker();

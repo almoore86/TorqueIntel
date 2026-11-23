@@ -1,14 +1,14 @@
 {
-    "generatedAt": "2026-11-17T14:44:50.575Z",
+    "generatedAt": "2026-11-23T16:12:51.645Z",
     "runsPerCase": 3,
     "summary": {
-        "totalCases": 55,
+        "totalCases": 60,
         "passAt1": {
-            "passed": 55,
+            "passed": 60,
             "rate": 1
         },
         "passPow3": {
-            "passed": 55,
+            "passed": 60,
             "rate": 1
         }
     },
@@ -99,7 +99,13 @@
                                 "transmissions": [
                                     "6-speed manual",
                                     "6-speed automatic"
-                                ]
+                                ],
+                                "torque": 400,
+                                "source": {
+                                    "name": "Ford 2015 Mustang specifications (archived copy)",
+                                    "url": "https://web.archive.org/web/20151022233042/https://media.ford.com/content/dam/fordmedia/North%20America/US/2015_Specs/2015_Mustang_Specs.pdf"
+                                },
+                                "sourceNote": "Ford's 2015 sheet marks these ratings as projected."
                             }
                         ],
                         "evidence": "complete"
@@ -147,7 +153,13 @@
                                 "transmissions": [
                                     "6-speed manual",
                                     "6-speed automatic"
-                                ]
+                                ],
+                                "torque": 400,
+                                "source": {
+                                    "name": "Ford 2015 Mustang specifications (archived copy)",
+                                    "url": "https://web.archive.org/web/20151022233042/https://media.ford.com/content/dam/fordmedia/North%20America/US/2015_Specs/2015_Mustang_Specs.pdf"
+                                },
+                                "sourceNote": "Ford's 2015 sheet marks these ratings as projected."
                             }
                         ],
                         "evidence": "complete"
@@ -195,7 +207,13 @@
                                 "transmissions": [
                                     "6-speed manual",
                                     "6-speed automatic"
-                                ]
+                                ],
+                                "torque": 400,
+                                "source": {
+                                    "name": "Ford 2015 Mustang specifications (archived copy)",
+                                    "url": "https://web.archive.org/web/20151022233042/https://media.ford.com/content/dam/fordmedia/North%20America/US/2015_Specs/2015_Mustang_Specs.pdf"
+                                },
+                                "sourceNote": "Ford's 2015 sheet marks these ratings as projected."
                             }
                         ],
                         "evidence": "complete"
@@ -290,7 +308,12 @@
                                 "transmissions": [
                                     "6-speed manual",
                                     "6-speed automatic"
-                                ]
+                                ],
+                                "torque": 400,
+                                "source": {
+                                    "name": "Ford Media Center: 2017 Mustang (archived copy)",
+                                    "url": "https://web.archive.org/web/20240815052756/https://media.ford.com/content/fordmedia/fna/us/en/products/icons/mustang/2017-mustang.html"
+                                }
                             }
                         ],
                         "evidence": "complete"
@@ -338,7 +361,12 @@
                                 "transmissions": [
                                     "6-speed manual",
                                     "6-speed automatic"
-                                ]
+                                ],
+                                "torque": 400,
+                                "source": {
+                                    "name": "Ford Media Center: 2017 Mustang (archived copy)",
+                                    "url": "https://web.archive.org/web/20240815052756/https://media.ford.com/content/fordmedia/fna/us/en/products/icons/mustang/2017-mustang.html"
+                                }
                             }
                         ],
                         "evidence": "complete"
@@ -386,7 +414,12 @@
                                 "transmissions": [
                                     "6-speed manual",
                                     "6-speed automatic"
-                                ]
+                                ],
+                                "torque": 400,
+                                "source": {
+                                    "name": "Ford Media Center: 2017 Mustang (archived copy)",
+                                    "url": "https://web.archive.org/web/20240815052756/https://media.ford.com/content/fordmedia/fna/us/en/products/icons/mustang/2017-mustang.html"
+                                }
                             }
                         ],
                         "evidence": "complete"
@@ -480,7 +513,12 @@
                                 "transmissions": [
                                     "6-speed manual",
                                     "10-speed automatic"
-                                ]
+                                ],
+                                "torque": 420,
+                                "source": {
+                                    "name": "Ford 2020 Mustang technical specifications (archived copy)",
+                                    "url": "https://web.archive.org/web/20201109184001/https://media.ford.com/content/dam/fordmedia/North%20America/US/product/2020/mustang/2020-Mustang-Tech_Specs.pdf"
+                                }
                             }
                         ],
                         "evidence": "complete"
@@ -528,7 +566,12 @@
                                 "transmissions": [
                                     "6-speed manual",
                                     "10-speed automatic"
-                                ]
+                                ],
+                                "torque": 420,
+                                "source": {
+                                    "name": "Ford 2020 Mustang technical specifications (archived copy)",
+                                    "url": "https://web.archive.org/web/20201109184001/https://media.ford.com/content/dam/fordmedia/North%20America/US/product/2020/mustang/2020-Mustang-Tech_Specs.pdf"
+                                }
                             }
                         ],
                         "evidence": "complete"
@@ -576,7 +619,12 @@
                                 "transmissions": [
                                     "6-speed manual",
                                     "10-speed automatic"
-                                ]
+                                ],
+                                "torque": 420,
+                                "source": {
+                                    "name": "Ford 2020 Mustang technical specifications (archived copy)",
+                                    "url": "https://web.archive.org/web/20201109184001/https://media.ford.com/content/dam/fordmedia/North%20America/US/product/2020/mustang/2020-Mustang-Tech_Specs.pdf"
+                                }
                             }
                         ],
                         "evidence": "complete"
@@ -670,7 +718,12 @@
                                 "transmissions": [
                                     "6-speed manual",
                                     "10-speed automatic"
-                                ]
+                                ],
+                                "torque": 410,
+                                "source": {
+                                    "name": "Ford 2023 Mustang technical specifications (archived copy)",
+                                    "url": "https://web.archive.org/web/20221120143800/https://media.ford.com/content/dam/fordmedia/North%20America/US/product/2023/mustang/2023-mustang-specs-final.pdf"
+                                }
                             }
                         ],
                         "evidence": "complete"
@@ -718,7 +771,12 @@
                                 "transmissions": [
                                     "6-speed manual",
                                     "10-speed automatic"
-                                ]
+                                ],
+                                "torque": 410,
+                                "source": {
+                                    "name": "Ford 2023 Mustang technical specifications (archived copy)",
+                                    "url": "https://web.archive.org/web/20221120143800/https://media.ford.com/content/dam/fordmedia/North%20America/US/product/2023/mustang/2023-mustang-specs-final.pdf"
+                                }
                             }
                         ],
                         "evidence": "complete"
@@ -766,7 +824,12 @@
                                 "transmissions": [
                                     "6-speed manual",
                                     "10-speed automatic"
-                                ]
+                                ],
+                                "torque": 410,
+                                "source": {
+                                    "name": "Ford 2023 Mustang technical specifications (archived copy)",
+                                    "url": "https://web.archive.org/web/20221120143800/https://media.ford.com/content/dam/fordmedia/North%20America/US/product/2023/mustang/2023-mustang-specs-final.pdf"
+                                }
                             }
                         ],
                         "evidence": "complete"
@@ -860,7 +923,12 @@
                                 "transmissions": [
                                     "6-speed manual",
                                     "10-speed automatic"
-                                ]
+                                ],
+                                "torque": 350,
+                                "source": {
+                                    "name": "Ford 2020 Mustang technical specifications (archived copy)",
+                                    "url": "https://web.archive.org/web/20201109184001/https://media.ford.com/content/dam/fordmedia/North%20America/US/product/2020/mustang/2020-Mustang-Tech_Specs.pdf"
+                                }
                             }
                         ],
                         "evidence": "complete"
@@ -908,7 +976,12 @@
                                 "transmissions": [
                                     "6-speed manual",
                                     "10-speed automatic"
-                                ]
+                                ],
+                                "torque": 350,
+                                "source": {
+                                    "name": "Ford 2020 Mustang technical specifications (archived copy)",
+                                    "url": "https://web.archive.org/web/20201109184001/https://media.ford.com/content/dam/fordmedia/North%20America/US/product/2020/mustang/2020-Mustang-Tech_Specs.pdf"
+                                }
                             }
                         ],
                         "evidence": "complete"
@@ -956,7 +1029,12 @@
                                 "transmissions": [
                                     "6-speed manual",
                                     "10-speed automatic"
-                                ]
+                                ],
+                                "torque": 350,
+                                "source": {
+                                    "name": "Ford 2020 Mustang technical specifications (archived copy)",
+                                    "url": "https://web.archive.org/web/20201109184001/https://media.ford.com/content/dam/fordmedia/North%20America/US/product/2020/mustang/2020-Mustang-Tech_Specs.pdf"
+                                }
                             }
                         ],
                         "evidence": "complete"
@@ -1050,7 +1128,12 @@
                                 "transmissions": [
                                     "6-speed manual",
                                     "6-speed automatic"
-                                ]
+                                ],
+                                "torque": 280,
+                                "source": {
+                                    "name": "Ford 2016 Mustang technical specifications (archived copy)",
+                                    "url": "https://web.archive.org/web/20210710191424/https://media.ford.com/content/dam/lincolnmedia/lna/us/product/2016/2016-Ford-Mustang-Tech-Specs.pdf"
+                                }
                             }
                         ],
                         "evidence": "complete"
@@ -1098,7 +1181,12 @@
                                 "transmissions": [
                                     "6-speed manual",
                                     "6-speed automatic"
-                                ]
+                                ],
+                                "torque": 280,
+                                "source": {
+                                    "name": "Ford 2016 Mustang technical specifications (archived copy)",
+                                    "url": "https://web.archive.org/web/20210710191424/https://media.ford.com/content/dam/lincolnmedia/lna/us/product/2016/2016-Ford-Mustang-Tech-Specs.pdf"
+                                }
                             }
                         ],
                         "evidence": "complete"
@@ -1146,7 +1234,12 @@
                                 "transmissions": [
                                     "6-speed manual",
                                     "6-speed automatic"
-                                ]
+                                ],
+                                "torque": 280,
+                                "source": {
+                                    "name": "Ford 2016 Mustang technical specifications (archived copy)",
+                                    "url": "https://web.archive.org/web/20210710191424/https://media.ford.com/content/dam/lincolnmedia/lna/us/product/2016/2016-Ford-Mustang-Tech-Specs.pdf"
+                                }
                             }
                         ],
                         "evidence": "complete"
@@ -1238,7 +1331,12 @@
                                 "drivetrain": "Rear-wheel drive",
                                 "transmissions": [
                                     "7-speed dual-clutch automatic"
-                                ]
+                                ],
+                                "torque": 625,
+                                "source": {
+                                    "name": "Ford 2021 Mustang technical specifications (archived copy)",
+                                    "url": "https://web.archive.org/web/20210527160358/https://media.ford.com/content/dam/fordmedia/North%20America/US/product/2021/mustang/2021-Mustang-Tech-Specs.pdf"
+                                }
                             }
                         ],
                         "evidence": "complete"
@@ -1285,7 +1383,12 @@
                                 "drivetrain": "Rear-wheel drive",
                                 "transmissions": [
                                     "7-speed dual-clutch automatic"
-                                ]
+                                ],
+                                "torque": 625,
+                                "source": {
+                                    "name": "Ford 2021 Mustang technical specifications (archived copy)",
+                                    "url": "https://web.archive.org/web/20210527160358/https://media.ford.com/content/dam/fordmedia/North%20America/US/product/2021/mustang/2021-Mustang-Tech-Specs.pdf"
+                                }
                             }
                         ],
                         "evidence": "complete"
@@ -1332,7 +1435,12 @@
                                 "drivetrain": "Rear-wheel drive",
                                 "transmissions": [
                                     "7-speed dual-clutch automatic"
-                                ]
+                                ],
+                                "torque": 625,
+                                "source": {
+                                    "name": "Ford 2021 Mustang technical specifications (archived copy)",
+                                    "url": "https://web.archive.org/web/20210527160358/https://media.ford.com/content/dam/fordmedia/North%20America/US/product/2021/mustang/2021-Mustang-Tech-Specs.pdf"
+                                }
                             }
                         ],
                         "evidence": "complete"
@@ -1424,7 +1532,12 @@
                                 "drivetrain": "Rear-wheel drive",
                                 "transmissions": [
                                     "6-speed manual"
-                                ]
+                                ],
+                                "torque": 429,
+                                "source": {
+                                    "name": "Ford 2019 Mustang technical specifications (archived copy)",
+                                    "url": "https://web.archive.org/web/20201114162449/https://media.ford.com/content/dam/fordmedia/North%20America/US/product/2019/mustang/2019-mustang-techspecs.pdf"
+                                }
                             }
                         ],
                         "evidence": "complete"
@@ -1471,7 +1584,12 @@
                                 "drivetrain": "Rear-wheel drive",
                                 "transmissions": [
                                     "6-speed manual"
-                                ]
+                                ],
+                                "torque": 429,
+                                "source": {
+                                    "name": "Ford 2019 Mustang technical specifications (archived copy)",
+                                    "url": "https://web.archive.org/web/20201114162449/https://media.ford.com/content/dam/fordmedia/North%20America/US/product/2019/mustang/2019-mustang-techspecs.pdf"
+                                }
                             }
                         ],
                         "evidence": "complete"
@@ -1518,7 +1636,12 @@
                                 "drivetrain": "Rear-wheel drive",
                                 "transmissions": [
                                     "6-speed manual"
-                                ]
+                                ],
+                                "torque": 429,
+                                "source": {
+                                    "name": "Ford 2019 Mustang technical specifications (archived copy)",
+                                    "url": "https://web.archive.org/web/20201114162449/https://media.ford.com/content/dam/fordmedia/North%20America/US/product/2019/mustang/2019-mustang-techspecs.pdf"
+                                }
                             }
                         ],
                         "evidence": "complete"
@@ -1609,7 +1732,12 @@
                                 "transmissions": [
                                     "6-speed manual",
                                     "10-speed automatic"
-                                ]
+                                ],
+                                "torque": 350,
+                                "source": {
+                                    "name": "Ford 2021 Mustang technical specifications (archived copy)",
+                                    "url": "https://web.archive.org/web/20210527160358/https://media.ford.com/content/dam/fordmedia/North%20America/US/product/2021/mustang/2021-Mustang-Tech-Specs.pdf"
+                                }
                             },
                             {
                                 "year": 2021,
@@ -1622,7 +1750,12 @@
                                 "transmissions": [
                                     "6-speed manual",
                                     "10-speed automatic"
-                                ]
+                                ],
+                                "torque": 420,
+                                "source": {
+                                    "name": "Ford 2021 Mustang technical specifications (archived copy)",
+                                    "url": "https://web.archive.org/web/20210527160358/https://media.ford.com/content/dam/fordmedia/North%20America/US/product/2021/mustang/2021-Mustang-Tech-Specs.pdf"
+                                }
                             },
                             {
                                 "year": 2021,
@@ -1635,7 +1768,12 @@
                                 "transmissions": [
                                     "6-speed manual",
                                     "10-speed automatic"
-                                ]
+                                ],
+                                "torque": 420,
+                                "source": {
+                                    "name": "Ford 2021 Mustang technical specifications (archived copy)",
+                                    "url": "https://web.archive.org/web/20210527160358/https://media.ford.com/content/dam/fordmedia/North%20America/US/product/2021/mustang/2021-Mustang-Tech-Specs.pdf"
+                                }
                             },
                             {
                                 "year": 2021,
@@ -1647,7 +1785,12 @@
                                 "drivetrain": "Rear-wheel drive",
                                 "transmissions": [
                                     "7-speed dual-clutch automatic"
-                                ]
+                                ],
+                                "torque": 625,
+                                "source": {
+                                    "name": "Ford 2021 Mustang technical specifications (archived copy)",
+                                    "url": "https://web.archive.org/web/20210527160358/https://media.ford.com/content/dam/fordmedia/North%20America/US/product/2021/mustang/2021-Mustang-Tech-Specs.pdf"
+                                }
                             }
                         ],
                         "evidence": "complete"
@@ -1691,7 +1834,12 @@
                                 "transmissions": [
                                     "6-speed manual",
                                     "10-speed automatic"
-                                ]
+                                ],
+                                "torque": 350,
+                                "source": {
+                                    "name": "Ford 2021 Mustang technical specifications (archived copy)",
+                                    "url": "https://web.archive.org/web/20210527160358/https://media.ford.com/content/dam/fordmedia/North%20America/US/product/2021/mustang/2021-Mustang-Tech-Specs.pdf"
+                                }
                             },
                             {
                                 "year": 2021,
@@ -1704,7 +1852,12 @@
                                 "transmissions": [
                                     "6-speed manual",
                                     "10-speed automatic"
-                                ]
+                                ],
+                                "torque": 420,
+                                "source": {
+                                    "name": "Ford 2021 Mustang technical specifications (archived copy)",
+                                    "url": "https://web.archive.org/web/20210527160358/https://media.ford.com/content/dam/fordmedia/North%20America/US/product/2021/mustang/2021-Mustang-Tech-Specs.pdf"
+                                }
                             },
                             {
                                 "year": 2021,
@@ -1717,7 +1870,12 @@
                                 "transmissions": [
                                     "6-speed manual",
                                     "10-speed automatic"
-                                ]
+                                ],
+                                "torque": 420,
+                                "source": {
+                                    "name": "Ford 2021 Mustang technical specifications (archived copy)",
+                                    "url": "https://web.archive.org/web/20210527160358/https://media.ford.com/content/dam/fordmedia/North%20America/US/product/2021/mustang/2021-Mustang-Tech-Specs.pdf"
+                                }
                             },
                             {
                                 "year": 2021,
@@ -1729,7 +1887,12 @@
                                 "drivetrain": "Rear-wheel drive",
                                 "transmissions": [
                                     "7-speed dual-clutch automatic"
-                                ]
+                                ],
+                                "torque": 625,
+                                "source": {
+                                    "name": "Ford 2021 Mustang technical specifications (archived copy)",
+                                    "url": "https://web.archive.org/web/20210527160358/https://media.ford.com/content/dam/fordmedia/North%20America/US/product/2021/mustang/2021-Mustang-Tech-Specs.pdf"
+                                }
                             }
                         ],
                         "evidence": "complete"
@@ -1773,7 +1936,12 @@
                                 "transmissions": [
                                     "6-speed manual",
                                     "10-speed automatic"
-                                ]
+                                ],
+                                "torque": 350,
+                                "source": {
+                                    "name": "Ford 2021 Mustang technical specifications (archived copy)",
+                                    "url": "https://web.archive.org/web/20210527160358/https://media.ford.com/content/dam/fordmedia/North%20America/US/product/2021/mustang/2021-Mustang-Tech-Specs.pdf"
+                                }
                             },
                             {
                                 "year": 2021,
@@ -1786,7 +1954,12 @@
                                 "transmissions": [
                                     "6-speed manual",
                                     "10-speed automatic"
-                                ]
+                                ],
+                                "torque": 420,
+                                "source": {
+                                    "name": "Ford 2021 Mustang technical specifications (archived copy)",
+                                    "url": "https://web.archive.org/web/20210527160358/https://media.ford.com/content/dam/fordmedia/North%20America/US/product/2021/mustang/2021-Mustang-Tech-Specs.pdf"
+                                }
                             },
                             {
                                 "year": 2021,
@@ -1799,7 +1972,12 @@
                                 "transmissions": [
                                     "6-speed manual",
                                     "10-speed automatic"
-                                ]
+                                ],
+                                "torque": 420,
+                                "source": {
+                                    "name": "Ford 2021 Mustang technical specifications (archived copy)",
+                                    "url": "https://web.archive.org/web/20210527160358/https://media.ford.com/content/dam/fordmedia/North%20America/US/product/2021/mustang/2021-Mustang-Tech-Specs.pdf"
+                                }
                             },
                             {
                                 "year": 2021,
@@ -1811,7 +1989,12 @@
                                 "drivetrain": "Rear-wheel drive",
                                 "transmissions": [
                                     "7-speed dual-clutch automatic"
-                                ]
+                                ],
+                                "torque": 625,
+                                "source": {
+                                    "name": "Ford 2021 Mustang technical specifications (archived copy)",
+                                    "url": "https://web.archive.org/web/20210527160358/https://media.ford.com/content/dam/fordmedia/North%20America/US/product/2021/mustang/2021-Mustang-Tech-Specs.pdf"
+                                }
                             }
                         ],
                         "evidence": "complete"
@@ -1914,7 +2097,12 @@
                                 "transmissions": [
                                     "6-speed manual",
                                     "6-speed automatic"
-                                ]
+                                ],
+                                "torque": 400,
+                                "source": {
+                                    "name": "Ford Media Center: 2017 Mustang (archived copy)",
+                                    "url": "https://web.archive.org/web/20240815052756/https://media.ford.com/content/fordmedia/fna/us/en/products/icons/mustang/2017-mustang.html"
+                                }
                             },
                             {
                                 "year": 2018,
@@ -1927,7 +2115,9 @@
                                 "transmissions": [
                                     "6-speed manual",
                                     "10-speed automatic"
-                                ]
+                                ],
+                                "torque": null,
+                                "source": null
                             },
                             {
                                 "year": 2022,
@@ -1940,7 +2130,12 @@
                                 "transmissions": [
                                     "6-speed manual",
                                     "10-speed automatic"
-                                ]
+                                ],
+                                "torque": 420,
+                                "source": {
+                                    "name": "Ford 2022 Mustang technical specifications (archived copy)",
+                                    "url": "https://web.archive.org/web/20220213055914/https://media.ford.com/content/dam/fordmedia/North%20America/US/product/2022/mustang/2022-Mustang-Tech-Specs.pdf"
+                                }
                             }
                         ],
                         "evidence": "complete"
@@ -1992,7 +2187,12 @@
                                 "transmissions": [
                                     "6-speed manual",
                                     "6-speed automatic"
-                                ]
+                                ],
+                                "torque": 400,
+                                "source": {
+                                    "name": "Ford Media Center: 2017 Mustang (archived copy)",
+                                    "url": "https://web.archive.org/web/20240815052756/https://media.ford.com/content/fordmedia/fna/us/en/products/icons/mustang/2017-mustang.html"
+                                }
                             },
                             {
                                 "year": 2018,
@@ -2005,7 +2205,9 @@
                                 "transmissions": [
                                     "6-speed manual",
                                     "10-speed automatic"
-                                ]
+                                ],
+                                "torque": null,
+                                "source": null
                             },
                             {
                                 "year": 2022,
@@ -2018,7 +2220,12 @@
                                 "transmissions": [
                                     "6-speed manual",
                                     "10-speed automatic"
-                                ]
+                                ],
+                                "torque": 420,
+                                "source": {
+                                    "name": "Ford 2022 Mustang technical specifications (archived copy)",
+                                    "url": "https://web.archive.org/web/20220213055914/https://media.ford.com/content/dam/fordmedia/North%20America/US/product/2022/mustang/2022-Mustang-Tech-Specs.pdf"
+                                }
                             }
                         ],
                         "evidence": "complete"
@@ -2070,7 +2277,12 @@
                                 "transmissions": [
                                     "6-speed manual",
                                     "6-speed automatic"
-                                ]
+                                ],
+                                "torque": 400,
+                                "source": {
+                                    "name": "Ford Media Center: 2017 Mustang (archived copy)",
+                                    "url": "https://web.archive.org/web/20240815052756/https://media.ford.com/content/fordmedia/fna/us/en/products/icons/mustang/2017-mustang.html"
+                                }
                             },
                             {
                                 "year": 2018,
@@ -2083,7 +2295,9 @@
                                 "transmissions": [
                                     "6-speed manual",
                                     "10-speed automatic"
-                                ]
+                                ],
+                                "torque": null,
+                                "source": null
                             },
                             {
                                 "year": 2022,
@@ -2096,7 +2310,12 @@
                                 "transmissions": [
                                     "6-speed manual",
                                     "10-speed automatic"
-                                ]
+                                ],
+                                "torque": 420,
+                                "source": {
+                                    "name": "Ford 2022 Mustang technical specifications (archived copy)",
+                                    "url": "https://web.archive.org/web/20220213055914/https://media.ford.com/content/dam/fordmedia/North%20America/US/product/2022/mustang/2022-Mustang-Tech-Specs.pdf"
+                                }
                             }
                         ],
                         "evidence": "complete"
@@ -2199,7 +2418,12 @@
                                 "transmissions": [
                                     "6-speed manual",
                                     "10-speed automatic"
-                                ]
+                                ],
+                                "torque": 420,
+                                "source": {
+                                    "name": "Ford 2021 Mustang technical specifications (archived copy)",
+                                    "url": "https://web.archive.org/web/20210527160358/https://media.ford.com/content/dam/fordmedia/North%20America/US/product/2021/mustang/2021-Mustang-Tech-Specs.pdf"
+                                }
                             },
                             {
                                 "year": 2022,
@@ -2212,7 +2436,12 @@
                                 "transmissions": [
                                     "6-speed manual",
                                     "10-speed automatic"
-                                ]
+                                ],
+                                "torque": 410,
+                                "source": {
+                                    "name": "Ford 2022 Mustang technical specifications (archived copy)",
+                                    "url": "https://web.archive.org/web/20220213055914/https://media.ford.com/content/dam/fordmedia/North%20America/US/product/2022/mustang/2022-Mustang-Tech-Specs.pdf"
+                                }
                             },
                             {
                                 "year": 2023,
@@ -2225,7 +2454,12 @@
                                 "transmissions": [
                                     "6-speed manual",
                                     "10-speed automatic"
-                                ]
+                                ],
+                                "torque": 410,
+                                "source": {
+                                    "name": "Ford 2023 Mustang technical specifications (archived copy)",
+                                    "url": "https://web.archive.org/web/20221120143800/https://media.ford.com/content/dam/fordmedia/North%20America/US/product/2023/mustang/2023-mustang-specs-final.pdf"
+                                }
                             }
                         ],
                         "evidence": "complete"
@@ -2277,7 +2511,12 @@
                                 "transmissions": [
                                     "6-speed manual",
                                     "10-speed automatic"
-                                ]
+                                ],
+                                "torque": 420,
+                                "source": {
+                                    "name": "Ford 2021 Mustang technical specifications (archived copy)",
+                                    "url": "https://web.archive.org/web/20210527160358/https://media.ford.com/content/dam/fordmedia/North%20America/US/product/2021/mustang/2021-Mustang-Tech-Specs.pdf"
+                                }
                             },
                             {
                                 "year": 2022,
@@ -2290,7 +2529,12 @@
                                 "transmissions": [
                                     "6-speed manual",
                                     "10-speed automatic"
-                                ]
+                                ],
+                                "torque": 410,
+                                "source": {
+                                    "name": "Ford 2022 Mustang technical specifications (archived copy)",
+                                    "url": "https://web.archive.org/web/20220213055914/https://media.ford.com/content/dam/fordmedia/North%20America/US/product/2022/mustang/2022-Mustang-Tech-Specs.pdf"
+                                }
                             },
                             {
                                 "year": 2023,
@@ -2303,7 +2547,12 @@
                                 "transmissions": [
                                     "6-speed manual",
                                     "10-speed automatic"
-                                ]
+                                ],
+                                "torque": 410,
+                                "source": {
+                                    "name": "Ford 2023 Mustang technical specifications (archived copy)",
+                                    "url": "https://web.archive.org/web/20221120143800/https://media.ford.com/content/dam/fordmedia/North%20America/US/product/2023/mustang/2023-mustang-specs-final.pdf"
+                                }
                             }
                         ],
                         "evidence": "complete"
@@ -2355,7 +2604,12 @@
                                 "transmissions": [
                                     "6-speed manual",
                                     "10-speed automatic"
-                                ]
+                                ],
+                                "torque": 420,
+                                "source": {
+                                    "name": "Ford 2021 Mustang technical specifications (archived copy)",
+                                    "url": "https://web.archive.org/web/20210527160358/https://media.ford.com/content/dam/fordmedia/North%20America/US/product/2021/mustang/2021-Mustang-Tech-Specs.pdf"
+                                }
                             },
                             {
                                 "year": 2022,
@@ -2368,7 +2622,12 @@
                                 "transmissions": [
                                     "6-speed manual",
                                     "10-speed automatic"
-                                ]
+                                ],
+                                "torque": 410,
+                                "source": {
+                                    "name": "Ford 2022 Mustang technical specifications (archived copy)",
+                                    "url": "https://web.archive.org/web/20220213055914/https://media.ford.com/content/dam/fordmedia/North%20America/US/product/2022/mustang/2022-Mustang-Tech-Specs.pdf"
+                                }
                             },
                             {
                                 "year": 2023,
@@ -2381,7 +2640,12 @@
                                 "transmissions": [
                                     "6-speed manual",
                                     "10-speed automatic"
-                                ]
+                                ],
+                                "torque": 410,
+                                "source": {
+                                    "name": "Ford 2023 Mustang technical specifications (archived copy)",
+                                    "url": "https://web.archive.org/web/20221120143800/https://media.ford.com/content/dam/fordmedia/North%20America/US/product/2023/mustang/2023-mustang-specs-final.pdf"
+                                }
                             }
                         ],
                         "evidence": "complete"
@@ -2610,7 +2874,12 @@
                                 "transmissions": [
                                     "6-speed manual",
                                     "6-speed automatic"
-                                ]
+                                ],
+                                "torque": 400,
+                                "source": {
+                                    "name": "Ford 2016 Mustang technical specifications (archived copy)",
+                                    "url": "https://web.archive.org/web/20210710191424/https://media.ford.com/content/dam/lincolnmedia/lna/us/product/2016/2016-Ford-Mustang-Tech-Specs.pdf"
+                                }
                             }
                         ],
                         "evidence": "complete"
@@ -2660,7 +2929,12 @@
                                 "transmissions": [
                                     "6-speed manual",
                                     "6-speed automatic"
-                                ]
+                                ],
+                                "torque": 400,
+                                "source": {
+                                    "name": "Ford 2016 Mustang technical specifications (archived copy)",
+                                    "url": "https://web.archive.org/web/20210710191424/https://media.ford.com/content/dam/lincolnmedia/lna/us/product/2016/2016-Ford-Mustang-Tech-Specs.pdf"
+                                }
                             }
                         ],
                         "evidence": "complete"
@@ -2710,7 +2984,12 @@
                                 "transmissions": [
                                     "6-speed manual",
                                     "6-speed automatic"
-                                ]
+                                ],
+                                "torque": 400,
+                                "source": {
+                                    "name": "Ford 2016 Mustang technical specifications (archived copy)",
+                                    "url": "https://web.archive.org/web/20210710191424/https://media.ford.com/content/dam/lincolnmedia/lna/us/product/2016/2016-Ford-Mustang-Tech-Specs.pdf"
+                                }
                             }
                         ],
                         "evidence": "complete"
@@ -3272,7 +3551,8 @@
                 "tools": [
                     "getVehicleInfo",
                     "getRecalls",
-                    "searchReliability"
+                    "searchReliability",
+                    "getFuelEconomy"
                 ]
             },
             "passedFirstRun": true,
@@ -3298,7 +3578,8 @@
                         "tools": [
                             "getVehicleInfo",
                             "getRecalls",
-                            "searchReliability"
+                            "searchReliability",
+                            "getFuelEconomy"
                         ],
                         "args": {
                             "make": "Ford",
@@ -3322,7 +3603,12 @@
                                 "transmissions": [
                                     "6-speed manual",
                                     "10-speed automatic"
-                                ]
+                                ],
+                                "torque": 420,
+                                "source": {
+                                    "name": "Ford 2021 Mustang technical specifications (archived copy)",
+                                    "url": "https://web.archive.org/web/20210527160358/https://media.ford.com/content/dam/fordmedia/North%20America/US/product/2021/mustang/2021-Mustang-Tech-Specs.pdf"
+                                }
                             }
                         ],
                         "evidence": "complete"
@@ -3348,7 +3634,8 @@
                         "tools": [
                             "getVehicleInfo",
                             "getRecalls",
-                            "searchReliability"
+                            "searchReliability",
+                            "getFuelEconomy"
                         ],
                         "args": {
                             "make": "Ford",
@@ -3372,7 +3659,12 @@
                                 "transmissions": [
                                     "6-speed manual",
                                     "10-speed automatic"
-                                ]
+                                ],
+                                "torque": 420,
+                                "source": {
+                                    "name": "Ford 2021 Mustang technical specifications (archived copy)",
+                                    "url": "https://web.archive.org/web/20210527160358/https://media.ford.com/content/dam/fordmedia/North%20America/US/product/2021/mustang/2021-Mustang-Tech-Specs.pdf"
+                                }
                             }
                         ],
                         "evidence": "complete"
@@ -3398,7 +3690,8 @@
                         "tools": [
                             "getVehicleInfo",
                             "getRecalls",
-                            "searchReliability"
+                            "searchReliability",
+                            "getFuelEconomy"
                         ],
                         "args": {
                             "make": "Ford",
@@ -3422,7 +3715,12 @@
                                 "transmissions": [
                                     "6-speed manual",
                                     "10-speed automatic"
-                                ]
+                                ],
+                                "torque": 420,
+                                "source": {
+                                    "name": "Ford 2021 Mustang technical specifications (archived copy)",
+                                    "url": "https://web.archive.org/web/20210527160358/https://media.ford.com/content/dam/fordmedia/North%20America/US/product/2021/mustang/2021-Mustang-Tech-Specs.pdf"
+                                }
                             }
                         ],
                         "evidence": "complete"
@@ -3458,6 +3756,7 @@
                         "engine",
                         "transmission",
                         "horsepower",
+                        "torque",
                         "drivetrain",
                         "recalls",
                         "reliability"
@@ -3506,6 +3805,7 @@
                                 "engine",
                                 "transmission",
                                 "horsepower",
+                                "torque",
                                 "drivetrain",
                                 "recalls",
                                 "reliability"
@@ -3554,6 +3854,7 @@
                                 "engine",
                                 "transmission",
                                 "horsepower",
+                                "torque",
                                 "drivetrain",
                                 "recalls",
                                 "reliability"
@@ -3602,6 +3903,7 @@
                                 "engine",
                                 "transmission",
                                 "horsepower",
+                                "torque",
                                 "drivetrain",
                                 "recalls",
                                 "reliability"
@@ -3640,6 +3942,7 @@
                         "engine",
                         "transmission",
                         "horsepower",
+                        "torque",
                         "drivetrain",
                         "recalls",
                         "reliability"
@@ -3686,6 +3989,7 @@
                                 "engine",
                                 "transmission",
                                 "horsepower",
+                                "torque",
                                 "drivetrain",
                                 "recalls",
                                 "reliability"
@@ -3732,6 +4036,7 @@
                                 "engine",
                                 "transmission",
                                 "horsepower",
+                                "torque",
                                 "drivetrain",
                                 "recalls",
                                 "reliability"
@@ -3778,6 +4083,7 @@
                                 "engine",
                                 "transmission",
                                 "horsepower",
+                                "torque",
                                 "drivetrain",
                                 "recalls",
                                 "reliability"
@@ -4578,7 +4884,12 @@
                                 "transmissions": [
                                     "6-speed manual",
                                     "6-speed automatic"
-                                ]
+                                ],
+                                "torque": 400,
+                                "source": {
+                                    "name": "Ford Media Center: 2017 Mustang (archived copy)",
+                                    "url": "https://web.archive.org/web/20240815052756/https://media.ford.com/content/fordmedia/fna/us/en/products/icons/mustang/2017-mustang.html"
+                                }
                             }
                         ],
                         "evidence": "complete"
@@ -4626,7 +4937,12 @@
                                 "transmissions": [
                                     "6-speed manual",
                                     "6-speed automatic"
-                                ]
+                                ],
+                                "torque": 400,
+                                "source": {
+                                    "name": "Ford Media Center: 2017 Mustang (archived copy)",
+                                    "url": "https://web.archive.org/web/20240815052756/https://media.ford.com/content/fordmedia/fna/us/en/products/icons/mustang/2017-mustang.html"
+                                }
                             }
                         ],
                         "evidence": "complete"
@@ -4674,7 +4990,12 @@
                                 "transmissions": [
                                     "6-speed manual",
                                     "6-speed automatic"
-                                ]
+                                ],
+                                "torque": 400,
+                                "source": {
+                                    "name": "Ford Media Center: 2017 Mustang (archived copy)",
+                                    "url": "https://web.archive.org/web/20240815052756/https://media.ford.com/content/fordmedia/fna/us/en/products/icons/mustang/2017-mustang.html"
+                                }
                             }
                         ],
                         "evidence": "complete"
@@ -4754,7 +5075,12 @@
                                 "drivetrain": "Rear-wheel drive",
                                 "transmissions": [
                                     "6-speed manual"
-                                ]
+                                ],
+                                "torque": 420,
+                                "source": {
+                                    "name": "Ford 2020 Mustang technical specifications (archived copy)",
+                                    "url": "https://web.archive.org/web/20201109184001/https://media.ford.com/content/dam/fordmedia/North%20America/US/product/2020/mustang/2020-Mustang-Tech_Specs.pdf"
+                                }
                             }
                         ],
                         "evidence": "partial"
@@ -4803,7 +5129,12 @@
                                 "drivetrain": "Rear-wheel drive",
                                 "transmissions": [
                                     "6-speed manual"
-                                ]
+                                ],
+                                "torque": 420,
+                                "source": {
+                                    "name": "Ford 2020 Mustang technical specifications (archived copy)",
+                                    "url": "https://web.archive.org/web/20201109184001/https://media.ford.com/content/dam/fordmedia/North%20America/US/product/2020/mustang/2020-Mustang-Tech_Specs.pdf"
+                                }
                             }
                         ],
                         "evidence": "partial"
@@ -4852,7 +5183,12 @@
                                 "drivetrain": "Rear-wheel drive",
                                 "transmissions": [
                                     "6-speed manual"
-                                ]
+                                ],
+                                "torque": 420,
+                                "source": {
+                                    "name": "Ford 2020 Mustang technical specifications (archived copy)",
+                                    "url": "https://web.archive.org/web/20201109184001/https://media.ford.com/content/dam/fordmedia/North%20America/US/product/2020/mustang/2020-Mustang-Tech_Specs.pdf"
+                                }
                             }
                         ],
                         "evidence": "partial"
@@ -4928,7 +5264,12 @@
                                 "transmissions": [
                                     "6-speed manual",
                                     "10-speed automatic"
-                                ]
+                                ],
+                                "torque": 420,
+                                "source": {
+                                    "name": "Ford 2022 Mustang technical specifications (archived copy)",
+                                    "url": "https://web.archive.org/web/20220213055914/https://media.ford.com/content/dam/fordmedia/North%20America/US/product/2022/mustang/2022-Mustang-Tech-Specs.pdf"
+                                }
                             },
                             {
                                 "year": 2022,
@@ -4941,7 +5282,12 @@
                                 "transmissions": [
                                     "6-speed manual",
                                     "10-speed automatic"
-                                ]
+                                ],
+                                "torque": 410,
+                                "source": {
+                                    "name": "Ford 2022 Mustang technical specifications (archived copy)",
+                                    "url": "https://web.archive.org/web/20220213055914/https://media.ford.com/content/dam/fordmedia/North%20America/US/product/2022/mustang/2022-Mustang-Tech-Specs.pdf"
+                                }
                             }
                         ],
                         "evidence": "complete"
@@ -4991,7 +5337,12 @@
                                 "transmissions": [
                                     "6-speed manual",
                                     "10-speed automatic"
-                                ]
+                                ],
+                                "torque": 420,
+                                "source": {
+                                    "name": "Ford 2022 Mustang technical specifications (archived copy)",
+                                    "url": "https://web.archive.org/web/20220213055914/https://media.ford.com/content/dam/fordmedia/North%20America/US/product/2022/mustang/2022-Mustang-Tech-Specs.pdf"
+                                }
                             },
                             {
                                 "year": 2022,
@@ -5004,7 +5355,12 @@
                                 "transmissions": [
                                     "6-speed manual",
                                     "10-speed automatic"
-                                ]
+                                ],
+                                "torque": 410,
+                                "source": {
+                                    "name": "Ford 2022 Mustang technical specifications (archived copy)",
+                                    "url": "https://web.archive.org/web/20220213055914/https://media.ford.com/content/dam/fordmedia/North%20America/US/product/2022/mustang/2022-Mustang-Tech-Specs.pdf"
+                                }
                             }
                         ],
                         "evidence": "complete"
@@ -5054,7 +5410,12 @@
                                 "transmissions": [
                                     "6-speed manual",
                                     "10-speed automatic"
-                                ]
+                                ],
+                                "torque": 420,
+                                "source": {
+                                    "name": "Ford 2022 Mustang technical specifications (archived copy)",
+                                    "url": "https://web.archive.org/web/20220213055914/https://media.ford.com/content/dam/fordmedia/North%20America/US/product/2022/mustang/2022-Mustang-Tech-Specs.pdf"
+                                }
                             },
                             {
                                 "year": 2022,
@@ -5067,7 +5428,12 @@
                                 "transmissions": [
                                     "6-speed manual",
                                     "10-speed automatic"
-                                ]
+                                ],
+                                "torque": 410,
+                                "source": {
+                                    "name": "Ford 2022 Mustang technical specifications (archived copy)",
+                                    "url": "https://web.archive.org/web/20220213055914/https://media.ford.com/content/dam/fordmedia/North%20America/US/product/2022/mustang/2022-Mustang-Tech-Specs.pdf"
+                                }
                             }
                         ],
                         "evidence": "complete"
@@ -5139,7 +5505,12 @@
                                 "transmissions": [
                                     "6-speed manual",
                                     "10-speed automatic"
-                                ]
+                                ],
+                                "torque": 420,
+                                "source": {
+                                    "name": "Ford 2019 Mustang technical specifications (archived copy)",
+                                    "url": "https://web.archive.org/web/20201114162449/https://media.ford.com/content/dam/fordmedia/North%20America/US/product/2019/mustang/2019-mustang-techspecs.pdf"
+                                }
                             }
                         ],
                         "evidence": "complete"
@@ -5187,7 +5558,12 @@
                                 "transmissions": [
                                     "6-speed manual",
                                     "10-speed automatic"
-                                ]
+                                ],
+                                "torque": 420,
+                                "source": {
+                                    "name": "Ford 2019 Mustang technical specifications (archived copy)",
+                                    "url": "https://web.archive.org/web/20201114162449/https://media.ford.com/content/dam/fordmedia/North%20America/US/product/2019/mustang/2019-mustang-techspecs.pdf"
+                                }
                             }
                         ],
                         "evidence": "complete"
@@ -5235,7 +5611,12 @@
                                 "transmissions": [
                                     "6-speed manual",
                                     "10-speed automatic"
-                                ]
+                                ],
+                                "torque": 420,
+                                "source": {
+                                    "name": "Ford 2019 Mustang technical specifications (archived copy)",
+                                    "url": "https://web.archive.org/web/20201114162449/https://media.ford.com/content/dam/fordmedia/North%20America/US/product/2019/mustang/2019-mustang-techspecs.pdf"
+                                }
                             }
                         ],
                         "evidence": "complete"
@@ -5307,7 +5688,12 @@
                                 "transmissions": [
                                     "6-speed manual",
                                     "10-speed automatic"
-                                ]
+                                ],
+                                "torque": 420,
+                                "source": {
+                                    "name": "Ford 2020 Mustang technical specifications (archived copy)",
+                                    "url": "https://web.archive.org/web/20201109184001/https://media.ford.com/content/dam/fordmedia/North%20America/US/product/2020/mustang/2020-Mustang-Tech_Specs.pdf"
+                                }
                             }
                         ],
                         "evidence": "complete"
@@ -5355,7 +5741,12 @@
                                 "transmissions": [
                                     "6-speed manual",
                                     "10-speed automatic"
-                                ]
+                                ],
+                                "torque": 420,
+                                "source": {
+                                    "name": "Ford 2020 Mustang technical specifications (archived copy)",
+                                    "url": "https://web.archive.org/web/20201109184001/https://media.ford.com/content/dam/fordmedia/North%20America/US/product/2020/mustang/2020-Mustang-Tech_Specs.pdf"
+                                }
                             }
                         ],
                         "evidence": "complete"
@@ -5403,7 +5794,12 @@
                                 "transmissions": [
                                     "6-speed manual",
                                     "10-speed automatic"
-                                ]
+                                ],
+                                "torque": 420,
+                                "source": {
+                                    "name": "Ford 2020 Mustang technical specifications (archived copy)",
+                                    "url": "https://web.archive.org/web/20201109184001/https://media.ford.com/content/dam/fordmedia/North%20America/US/product/2020/mustang/2020-Mustang-Tech_Specs.pdf"
+                                }
                             }
                         ],
                         "evidence": "complete"
@@ -7086,6 +7482,799 @@
                         "args": null,
                         "vehicles": null,
                         "evidence": null
+                    }
+                }
+            ]
+        },
+        {
+            "id": "fuel-economy-gt",
+            "category": "fuel_economy",
+            "input": "What is the gas mileage of a 2019 Mustang GT?",
+            "expected": {
+                "allowed": true,
+                "intent": "fuel_economy",
+                "status": "ready",
+                "years": [
+                    2019
+                ],
+                "trims": [
+                    "GT"
+                ],
+                "tools": [
+                    "getFuelEconomy"
+                ],
+                "args": {
+                    "make": "Ford",
+                    "model": "Mustang",
+                    "trims": [
+                        "GT"
+                    ],
+                    "years": [
+                        2019
+                    ]
+                }
+            },
+            "passedFirstRun": true,
+            "passedAllRuns": true,
+            "runs": [
+                {
+                    "run": 1,
+                    "passed": true,
+                    "mismatches": [],
+                    "actual": {
+                        "allowed": true,
+                        "intent": "fuel_economy",
+                        "status": "ready",
+                        "sanitized": false,
+                        "requiresApproval": false,
+                        "years": [
+                            2019
+                        ],
+                        "unsupportedYears": [],
+                        "trims": [
+                            "GT"
+                        ],
+                        "tools": [
+                            "getFuelEconomy"
+                        ],
+                        "args": {
+                            "make": "Ford",
+                            "model": "Mustang",
+                            "trims": [
+                                "GT"
+                            ],
+                            "years": [
+                                2019
+                            ]
+                        },
+                        "vehicles": null,
+                        "evidence": null
+                    }
+                },
+                {
+                    "run": 2,
+                    "passed": true,
+                    "mismatches": [],
+                    "actual": {
+                        "allowed": true,
+                        "intent": "fuel_economy",
+                        "status": "ready",
+                        "sanitized": false,
+                        "requiresApproval": false,
+                        "years": [
+                            2019
+                        ],
+                        "unsupportedYears": [],
+                        "trims": [
+                            "GT"
+                        ],
+                        "tools": [
+                            "getFuelEconomy"
+                        ],
+                        "args": {
+                            "make": "Ford",
+                            "model": "Mustang",
+                            "trims": [
+                                "GT"
+                            ],
+                            "years": [
+                                2019
+                            ]
+                        },
+                        "vehicles": null,
+                        "evidence": null
+                    }
+                },
+                {
+                    "run": 3,
+                    "passed": true,
+                    "mismatches": [],
+                    "actual": {
+                        "allowed": true,
+                        "intent": "fuel_economy",
+                        "status": "ready",
+                        "sanitized": false,
+                        "requiresApproval": false,
+                        "years": [
+                            2019
+                        ],
+                        "unsupportedYears": [],
+                        "trims": [
+                            "GT"
+                        ],
+                        "tools": [
+                            "getFuelEconomy"
+                        ],
+                        "args": {
+                            "make": "Ford",
+                            "model": "Mustang",
+                            "trims": [
+                                "GT"
+                            ],
+                            "years": [
+                                2019
+                            ]
+                        },
+                        "vehicles": null,
+                        "evidence": null
+                    }
+                }
+            ]
+        },
+        {
+            "id": "fuel-economy-mpg-all-trims",
+            "category": "fuel_economy",
+            "input": "2021 Mustang mpg",
+            "expected": {
+                "allowed": true,
+                "intent": "fuel_economy",
+                "status": "ready",
+                "years": [
+                    2021
+                ],
+                "trims": [],
+                "tools": [
+                    "getFuelEconomy"
+                ]
+            },
+            "passedFirstRun": true,
+            "passedAllRuns": true,
+            "runs": [
+                {
+                    "run": 1,
+                    "passed": true,
+                    "mismatches": [],
+                    "actual": {
+                        "allowed": true,
+                        "intent": "fuel_economy",
+                        "status": "ready",
+                        "sanitized": false,
+                        "requiresApproval": false,
+                        "years": [
+                            2021
+                        ],
+                        "unsupportedYears": [],
+                        "trims": [],
+                        "tools": [
+                            "getFuelEconomy"
+                        ],
+                        "args": {
+                            "make": "Ford",
+                            "model": "Mustang",
+                            "trims": [],
+                            "years": [
+                                2021
+                            ]
+                        },
+                        "vehicles": null,
+                        "evidence": null
+                    }
+                },
+                {
+                    "run": 2,
+                    "passed": true,
+                    "mismatches": [],
+                    "actual": {
+                        "allowed": true,
+                        "intent": "fuel_economy",
+                        "status": "ready",
+                        "sanitized": false,
+                        "requiresApproval": false,
+                        "years": [
+                            2021
+                        ],
+                        "unsupportedYears": [],
+                        "trims": [],
+                        "tools": [
+                            "getFuelEconomy"
+                        ],
+                        "args": {
+                            "make": "Ford",
+                            "model": "Mustang",
+                            "trims": [],
+                            "years": [
+                                2021
+                            ]
+                        },
+                        "vehicles": null,
+                        "evidence": null
+                    }
+                },
+                {
+                    "run": 3,
+                    "passed": true,
+                    "mismatches": [],
+                    "actual": {
+                        "allowed": true,
+                        "intent": "fuel_economy",
+                        "status": "ready",
+                        "sanitized": false,
+                        "requiresApproval": false,
+                        "years": [
+                            2021
+                        ],
+                        "unsupportedYears": [],
+                        "trims": [],
+                        "tools": [
+                            "getFuelEconomy"
+                        ],
+                        "args": {
+                            "make": "Ford",
+                            "model": "Mustang",
+                            "trims": [],
+                            "years": [
+                                2021
+                            ]
+                        },
+                        "vehicles": null,
+                        "evidence": null
+                    }
+                }
+            ]
+        },
+        {
+            "id": "specs-torque-2022-gt",
+            "category": "vehicle_information",
+            "input": "Specs for the 2022 Mustang GT",
+            "expected": {
+                "allowed": true,
+                "intent": "vehicle_information",
+                "status": "ready",
+                "tools": [
+                    "getVehicleInfo"
+                ],
+                "vehicles": [
+                    {
+                        "year": 2022,
+                        "trim": "GT",
+                        "horsepower": 450,
+                        "torque": 420
+                    }
+                ]
+            },
+            "passedFirstRun": true,
+            "passedAllRuns": true,
+            "runs": [
+                {
+                    "run": 1,
+                    "passed": true,
+                    "mismatches": [],
+                    "actual": {
+                        "allowed": true,
+                        "intent": "vehicle_information",
+                        "status": "ready",
+                        "sanitized": false,
+                        "requiresApproval": false,
+                        "years": [
+                            2022
+                        ],
+                        "unsupportedYears": [],
+                        "trims": [
+                            "GT"
+                        ],
+                        "tools": [
+                            "getVehicleInfo"
+                        ],
+                        "args": {
+                            "make": "Ford",
+                            "model": "Mustang",
+                            "trims": [
+                                "GT"
+                            ],
+                            "years": [
+                                2022
+                            ]
+                        },
+                        "vehicles": [
+                            {
+                                "year": 2022,
+                                "make": "Ford",
+                                "model": "Mustang",
+                                "trim": "GT",
+                                "engine": "5.0L V8",
+                                "horsepower": 450,
+                                "drivetrain": "Rear-wheel drive",
+                                "transmissions": [
+                                    "6-speed manual",
+                                    "10-speed automatic"
+                                ],
+                                "torque": 420,
+                                "source": {
+                                    "name": "Ford 2022 Mustang technical specifications (archived copy)",
+                                    "url": "https://web.archive.org/web/20220213055914/https://media.ford.com/content/dam/fordmedia/North%20America/US/product/2022/mustang/2022-Mustang-Tech-Specs.pdf"
+                                }
+                            }
+                        ],
+                        "evidence": "complete"
+                    }
+                },
+                {
+                    "run": 2,
+                    "passed": true,
+                    "mismatches": [],
+                    "actual": {
+                        "allowed": true,
+                        "intent": "vehicle_information",
+                        "status": "ready",
+                        "sanitized": false,
+                        "requiresApproval": false,
+                        "years": [
+                            2022
+                        ],
+                        "unsupportedYears": [],
+                        "trims": [
+                            "GT"
+                        ],
+                        "tools": [
+                            "getVehicleInfo"
+                        ],
+                        "args": {
+                            "make": "Ford",
+                            "model": "Mustang",
+                            "trims": [
+                                "GT"
+                            ],
+                            "years": [
+                                2022
+                            ]
+                        },
+                        "vehicles": [
+                            {
+                                "year": 2022,
+                                "make": "Ford",
+                                "model": "Mustang",
+                                "trim": "GT",
+                                "engine": "5.0L V8",
+                                "horsepower": 450,
+                                "drivetrain": "Rear-wheel drive",
+                                "transmissions": [
+                                    "6-speed manual",
+                                    "10-speed automatic"
+                                ],
+                                "torque": 420,
+                                "source": {
+                                    "name": "Ford 2022 Mustang technical specifications (archived copy)",
+                                    "url": "https://web.archive.org/web/20220213055914/https://media.ford.com/content/dam/fordmedia/North%20America/US/product/2022/mustang/2022-Mustang-Tech-Specs.pdf"
+                                }
+                            }
+                        ],
+                        "evidence": "complete"
+                    }
+                },
+                {
+                    "run": 3,
+                    "passed": true,
+                    "mismatches": [],
+                    "actual": {
+                        "allowed": true,
+                        "intent": "vehicle_information",
+                        "status": "ready",
+                        "sanitized": false,
+                        "requiresApproval": false,
+                        "years": [
+                            2022
+                        ],
+                        "unsupportedYears": [],
+                        "trims": [
+                            "GT"
+                        ],
+                        "tools": [
+                            "getVehicleInfo"
+                        ],
+                        "args": {
+                            "make": "Ford",
+                            "model": "Mustang",
+                            "trims": [
+                                "GT"
+                            ],
+                            "years": [
+                                2022
+                            ]
+                        },
+                        "vehicles": [
+                            {
+                                "year": 2022,
+                                "make": "Ford",
+                                "model": "Mustang",
+                                "trim": "GT",
+                                "engine": "5.0L V8",
+                                "horsepower": 450,
+                                "drivetrain": "Rear-wheel drive",
+                                "transmissions": [
+                                    "6-speed manual",
+                                    "10-speed automatic"
+                                ],
+                                "torque": 420,
+                                "source": {
+                                    "name": "Ford 2022 Mustang technical specifications (archived copy)",
+                                    "url": "https://web.archive.org/web/20220213055914/https://media.ford.com/content/dam/fordmedia/North%20America/US/product/2022/mustang/2022-Mustang-Tech-Specs.pdf"
+                                }
+                            }
+                        ],
+                        "evidence": "complete"
+                    }
+                }
+            ]
+        },
+        {
+            "id": "specs-torque-2015-v6",
+            "category": "vehicle_information",
+            "input": "What engine is in a 2015 Mustang V6?",
+            "expected": {
+                "allowed": true,
+                "intent": "vehicle_information",
+                "status": "ready",
+                "tools": [
+                    "getVehicleInfo"
+                ],
+                "vehicles": [
+                    {
+                        "year": 2015,
+                        "trim": "V6",
+                        "horsepower": 300,
+                        "torque": 280
+                    }
+                ]
+            },
+            "passedFirstRun": true,
+            "passedAllRuns": true,
+            "runs": [
+                {
+                    "run": 1,
+                    "passed": true,
+                    "mismatches": [],
+                    "actual": {
+                        "allowed": true,
+                        "intent": "vehicle_information",
+                        "status": "ready",
+                        "sanitized": false,
+                        "requiresApproval": false,
+                        "years": [
+                            2015
+                        ],
+                        "unsupportedYears": [],
+                        "trims": [
+                            "V6"
+                        ],
+                        "tools": [
+                            "getVehicleInfo"
+                        ],
+                        "args": {
+                            "make": "Ford",
+                            "model": "Mustang",
+                            "trims": [
+                                "V6"
+                            ],
+                            "years": [
+                                2015
+                            ]
+                        },
+                        "vehicles": [
+                            {
+                                "year": 2015,
+                                "make": "Ford",
+                                "model": "Mustang",
+                                "trim": "V6",
+                                "engine": "3.7L V6",
+                                "horsepower": 300,
+                                "drivetrain": "Rear-wheel drive",
+                                "transmissions": [
+                                    "6-speed manual",
+                                    "6-speed automatic"
+                                ],
+                                "torque": 280,
+                                "source": {
+                                    "name": "Ford 2015 Mustang specifications (archived copy)",
+                                    "url": "https://web.archive.org/web/20151022233042/https://media.ford.com/content/dam/fordmedia/North%20America/US/2015_Specs/2015_Mustang_Specs.pdf"
+                                },
+                                "sourceNote": "Ford's 2015 sheet marks these ratings as projected."
+                            }
+                        ],
+                        "evidence": "complete"
+                    }
+                },
+                {
+                    "run": 2,
+                    "passed": true,
+                    "mismatches": [],
+                    "actual": {
+                        "allowed": true,
+                        "intent": "vehicle_information",
+                        "status": "ready",
+                        "sanitized": false,
+                        "requiresApproval": false,
+                        "years": [
+                            2015
+                        ],
+                        "unsupportedYears": [],
+                        "trims": [
+                            "V6"
+                        ],
+                        "tools": [
+                            "getVehicleInfo"
+                        ],
+                        "args": {
+                            "make": "Ford",
+                            "model": "Mustang",
+                            "trims": [
+                                "V6"
+                            ],
+                            "years": [
+                                2015
+                            ]
+                        },
+                        "vehicles": [
+                            {
+                                "year": 2015,
+                                "make": "Ford",
+                                "model": "Mustang",
+                                "trim": "V6",
+                                "engine": "3.7L V6",
+                                "horsepower": 300,
+                                "drivetrain": "Rear-wheel drive",
+                                "transmissions": [
+                                    "6-speed manual",
+                                    "6-speed automatic"
+                                ],
+                                "torque": 280,
+                                "source": {
+                                    "name": "Ford 2015 Mustang specifications (archived copy)",
+                                    "url": "https://web.archive.org/web/20151022233042/https://media.ford.com/content/dam/fordmedia/North%20America/US/2015_Specs/2015_Mustang_Specs.pdf"
+                                },
+                                "sourceNote": "Ford's 2015 sheet marks these ratings as projected."
+                            }
+                        ],
+                        "evidence": "complete"
+                    }
+                },
+                {
+                    "run": 3,
+                    "passed": true,
+                    "mismatches": [],
+                    "actual": {
+                        "allowed": true,
+                        "intent": "vehicle_information",
+                        "status": "ready",
+                        "sanitized": false,
+                        "requiresApproval": false,
+                        "years": [
+                            2015
+                        ],
+                        "unsupportedYears": [],
+                        "trims": [
+                            "V6"
+                        ],
+                        "tools": [
+                            "getVehicleInfo"
+                        ],
+                        "args": {
+                            "make": "Ford",
+                            "model": "Mustang",
+                            "trims": [
+                                "V6"
+                            ],
+                            "years": [
+                                2015
+                            ]
+                        },
+                        "vehicles": [
+                            {
+                                "year": 2015,
+                                "make": "Ford",
+                                "model": "Mustang",
+                                "trim": "V6",
+                                "engine": "3.7L V6",
+                                "horsepower": 300,
+                                "drivetrain": "Rear-wheel drive",
+                                "transmissions": [
+                                    "6-speed manual",
+                                    "6-speed automatic"
+                                ],
+                                "torque": 280,
+                                "source": {
+                                    "name": "Ford 2015 Mustang specifications (archived copy)",
+                                    "url": "https://web.archive.org/web/20151022233042/https://media.ford.com/content/dam/fordmedia/North%20America/US/2015_Specs/2015_Mustang_Specs.pdf"
+                                },
+                                "sourceNote": "Ford's 2015 sheet marks these ratings as projected."
+                            }
+                        ],
+                        "evidence": "complete"
+                    }
+                }
+            ]
+        },
+        {
+            "id": "specs-torque-not-on-file",
+            "category": "vehicle_information",
+            "input": "Specs for the 2018 Mustang GT",
+            "expected": {
+                "allowed": true,
+                "intent": "vehicle_information",
+                "status": "ready",
+                "tools": [
+                    "getVehicleInfo"
+                ],
+                "vehicles": [
+                    {
+                        "year": 2018,
+                        "trim": "GT",
+                        "horsepower": 460,
+                        "torque": null,
+                        "source": null
+                    }
+                ]
+            },
+            "passedFirstRun": true,
+            "passedAllRuns": true,
+            "runs": [
+                {
+                    "run": 1,
+                    "passed": true,
+                    "mismatches": [],
+                    "actual": {
+                        "allowed": true,
+                        "intent": "vehicle_information",
+                        "status": "ready",
+                        "sanitized": false,
+                        "requiresApproval": false,
+                        "years": [
+                            2018
+                        ],
+                        "unsupportedYears": [],
+                        "trims": [
+                            "GT"
+                        ],
+                        "tools": [
+                            "getVehicleInfo"
+                        ],
+                        "args": {
+                            "make": "Ford",
+                            "model": "Mustang",
+                            "trims": [
+                                "GT"
+                            ],
+                            "years": [
+                                2018
+                            ]
+                        },
+                        "vehicles": [
+                            {
+                                "year": 2018,
+                                "make": "Ford",
+                                "model": "Mustang",
+                                "trim": "GT",
+                                "engine": "5.0L V8",
+                                "horsepower": 460,
+                                "drivetrain": "Rear-wheel drive",
+                                "transmissions": [
+                                    "6-speed manual",
+                                    "10-speed automatic"
+                                ],
+                                "torque": null,
+                                "source": null
+                            }
+                        ],
+                        "evidence": "complete"
+                    }
+                },
+                {
+                    "run": 2,
+                    "passed": true,
+                    "mismatches": [],
+                    "actual": {
+                        "allowed": true,
+                        "intent": "vehicle_information",
+                        "status": "ready",
+                        "sanitized": false,
+                        "requiresApproval": false,
+                        "years": [
+                            2018
+                        ],
+                        "unsupportedYears": [],
+                        "trims": [
+                            "GT"
+                        ],
+                        "tools": [
+                            "getVehicleInfo"
+                        ],
+                        "args": {
+                            "make": "Ford",
+                            "model": "Mustang",
+                            "trims": [
+                                "GT"
+                            ],
+                            "years": [
+                                2018
+                            ]
+                        },
+                        "vehicles": [
+                            {
+                                "year": 2018,
+                                "make": "Ford",
+                                "model": "Mustang",
+                                "trim": "GT",
+                                "engine": "5.0L V8",
+                                "horsepower": 460,
+                                "drivetrain": "Rear-wheel drive",
+                                "transmissions": [
+                                    "6-speed manual",
+                                    "10-speed automatic"
+                                ],
+                                "torque": null,
+                                "source": null
+                            }
+                        ],
+                        "evidence": "complete"
+                    }
+                },
+                {
+                    "run": 3,
+                    "passed": true,
+                    "mismatches": [],
+                    "actual": {
+                        "allowed": true,
+                        "intent": "vehicle_information",
+                        "status": "ready",
+                        "sanitized": false,
+                        "requiresApproval": false,
+                        "years": [
+                            2018
+                        ],
+                        "unsupportedYears": [],
+                        "trims": [
+                            "GT"
+                        ],
+                        "tools": [
+                            "getVehicleInfo"
+                        ],
+                        "args": {
+                            "make": "Ford",
+                            "model": "Mustang",
+                            "trims": [
+                                "GT"
+                            ],
+                            "years": [
+                                2018
+                            ]
+                        },
+                        "vehicles": [
+                            {
+                                "year": 2018,
+                                "make": "Ford",
+                                "model": "Mustang",
+                                "trim": "GT",
+                                "engine": "5.0L V8",
+                                "horsepower": 460,
+                                "drivetrain": "Rear-wheel drive",
+                                "transmissions": [
+                                    "6-speed manual",
+                                    "10-speed automatic"
+                                ],
+                                "torque": null,
+                                "source": null
+                            }
+                        ],
+                        "evidence": "complete"
                     }
                 }
             ]

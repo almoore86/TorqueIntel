@@ -38,9 +38,17 @@
                 placeholder="Example: I'm considering a 2020 Mustang GT. What engine does it have and what should I know about it?"
             ></textarea>
 
-            <button id="analyzeButton" type="button">
-                Analyze Vehicle
-            </button>
+            <div class="button-row">
+                <button id="analyzeButton" type="button">
+                    Analyze Vehicle
+                </button>
+
+                <button id="openVinButton" type="button" class="accent-button">
+                    Check my VIN
+                </button>
+            </div>
+
+            <div id="suggestions" class="suggestions"></div>
 
             <p class="example-text">
                 TorqueIntel currently covers the Ford Mustang, all trims,
@@ -48,6 +56,32 @@
                 17-character VIN to see recalls for your Mustang's model
                 year; the VIN is sent to NHTSA to identify the car.
             </p>
+
+        </section>
+
+
+        <section id="pickerCard" class="search-card picker-card">
+
+            <p class="card-label">Or pick a Mustang</p>
+
+            <div class="picker-row">
+                <select id="pickYear" aria-label="Model year"></select>
+                <select id="pickTrim" aria-label="Trim"></select>
+            </div>
+
+            <div id="pickTopics" class="topic-row" role="group" aria-label="Topic">
+                <button type="button" class="topic-button" data-topic="specs" aria-pressed="true">Specs</button>
+                <button type="button" class="topic-button" data-topic="recalls" aria-pressed="false">Recalls</button>
+                <button type="button" class="topic-button" data-topic="complaints" aria-pressed="false">Owner complaints</button>
+                <button type="button" class="topic-button" data-topic="fuel" aria-pressed="false">Fuel economy</button>
+                <button type="button" class="topic-button" data-topic="buying" aria-pressed="false">Buying research</button>
+            </div>
+
+            <button id="pickButton" type="button" class="primary-button">
+                Analyze
+            </button>
+
+            <p id="pickPreview" class="pick-preview"></p>
 
         </section>
 

@@ -652,7 +652,8 @@
             "tools": [
                 "getVehicleInfo",
                 "getRecalls",
-                "searchReliability"
+                "searchReliability",
+                "getFuelEconomy"
             ]
         }
     },
@@ -684,6 +685,7 @@
                     "engine",
                     "transmission",
                     "horsepower",
+                    "torque",
                     "drivetrain",
                     "recalls",
                     "reliability"
@@ -718,6 +720,7 @@
                     "engine",
                     "transmission",
                     "horsepower",
+                    "torque",
                     "drivetrain",
                     "recalls",
                     "reliability"
@@ -1217,6 +1220,116 @@
             "intent": "harmful_request",
             "status": "blocked",
             "tools": []
+        }
+    },
+    {
+        "id": "fuel-economy-gt",
+        "category": "fuel_economy",
+        "input": "What is the gas mileage of a 2019 Mustang GT?",
+        "expected": {
+            "allowed": true,
+            "intent": "fuel_economy",
+            "status": "ready",
+            "years": [
+                2019
+            ],
+            "trims": [
+                "GT"
+            ],
+            "tools": [
+                "getFuelEconomy"
+            ],
+            "args": {
+                "make": "Ford",
+                "model": "Mustang",
+                "trims": [
+                    "GT"
+                ],
+                "years": [
+                    2019
+                ]
+            }
+        }
+    },
+    {
+        "id": "fuel-economy-mpg-all-trims",
+        "category": "fuel_economy",
+        "input": "2021 Mustang mpg",
+        "expected": {
+            "allowed": true,
+            "intent": "fuel_economy",
+            "status": "ready",
+            "years": [
+                2021
+            ],
+            "trims": [],
+            "tools": [
+                "getFuelEconomy"
+            ]
+        }
+    },
+    {
+        "id": "specs-torque-2022-gt",
+        "category": "vehicle_information",
+        "input": "Specs for the 2022 Mustang GT",
+        "expected": {
+            "allowed": true,
+            "intent": "vehicle_information",
+            "status": "ready",
+            "tools": [
+                "getVehicleInfo"
+            ],
+            "vehicles": [
+                {
+                    "year": 2022,
+                    "trim": "GT",
+                    "horsepower": 450,
+                    "torque": 420
+                }
+            ]
+        }
+    },
+    {
+        "id": "specs-torque-2015-v6",
+        "category": "vehicle_information",
+        "input": "What engine is in a 2015 Mustang V6?",
+        "expected": {
+            "allowed": true,
+            "intent": "vehicle_information",
+            "status": "ready",
+            "tools": [
+                "getVehicleInfo"
+            ],
+            "vehicles": [
+                {
+                    "year": 2015,
+                    "trim": "V6",
+                    "horsepower": 300,
+                    "torque": 280
+                }
+            ]
+        }
+    },
+    {
+        "id": "specs-torque-not-on-file",
+        "category": "vehicle_information",
+        "input": "Specs for the 2018 Mustang GT",
+        "expected": {
+            "allowed": true,
+            "intent": "vehicle_information",
+            "status": "ready",
+            "tools": [
+                "getVehicleInfo"
+            ],
+            "vehicles": [
+                {
+                    "year": 2018,
+                    "trim": "GT",
+                    "horsepower": 460,
+                    "torque": null,
+                    "source": null
+                }
+            ]
         }
     }
 ]
