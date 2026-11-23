@@ -1313,6 +1313,28 @@
     {
         "id": "specs-torque-not-on-file",
         "category": "vehicle_information",
+        "input": "Specs for the 2017 Mustang Shelby GT350",
+        "expected": {
+            "allowed": true,
+            "intent": "vehicle_information",
+            "status": "ready",
+            "tools": [
+                "getVehicleInfo"
+            ],
+            "vehicles": [
+                {
+                    "year": 2017,
+                    "trim": "Shelby GT350",
+                    "horsepower": 526,
+                    "torque": null,
+                    "source": null
+                }
+            ]
+        }
+    },
+    {
+        "id": "specs-torque-2018-gt",
+        "category": "vehicle_information",
         "input": "Specs for the 2018 Mustang GT",
         "expected": {
             "allowed": true,
@@ -1326,8 +1348,7 @@
                     "year": 2018,
                     "trim": "GT",
                     "horsepower": 460,
-                    "torque": null,
-                    "source": null
+                    "torque": 420
                 }
             ]
         }

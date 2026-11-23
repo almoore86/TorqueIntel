@@ -1630,8 +1630,8 @@ function showVinDialog() {
                 <p id="vinMessage" class="vin-message" aria-live="polite"></p>
                 <p id="vinHelp" class="note">
                     A VIN is 17 characters of letters and numbers. It never uses
-                    the letters I, O or Q, so type the number 0 (zero), not the
-                    letter O, and the number 1 (one), not the letter I. Find it on
+                    the letters I, O or Q, so type the number 0 (zero) and the
+                    number 1 (one) instead. Find it on
                     the driver's side of the dashboard, the driver's door frame,
                     or your registration. Your VIN is sent to NHTSA to identify
                     the car.

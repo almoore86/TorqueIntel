@@ -266,8 +266,11 @@
             "6-speed manual",
             "10-speed automatic"
         ],
-        "torque": null,
-        "source": null
+        "torque": 350,
+        "source": {
+            "name": "Ford 2018 Mustang brochure (filed with NHTSA, docket NHTSA-2018-0067)",
+            "url": "https://downloads.regulations.gov/NHTSA-2018-0067-12603/attachment_7.pdf"
+        }
     },
     {
         "year": 2018,
@@ -281,8 +284,11 @@
             "6-speed manual",
             "10-speed automatic"
         ],
-        "torque": null,
-        "source": null
+        "torque": 420,
+        "source": {
+            "name": "Ford 2018 Mustang brochure (filed with NHTSA, docket NHTSA-2018-0067)",
+            "url": "https://downloads.regulations.gov/NHTSA-2018-0067-12603/attachment_7.pdf"
+        }
     },
     {
         "year": 2018,
@@ -295,8 +301,11 @@
         "transmissions": [
             "6-speed manual"
         ],
-        "torque": null,
-        "source": null
+        "torque": 429,
+        "source": {
+            "name": "Ford 2018 Mustang brochure (filed with NHTSA, docket NHTSA-2018-0067)",
+            "url": "https://downloads.regulations.gov/NHTSA-2018-0067-12603/attachment_7.pdf"
+        }
     },
     {
         "year": 2018,
@@ -309,8 +318,12 @@
         "transmissions": [
             "6-speed manual"
         ],
-        "torque": null,
-        "source": null
+        "torque": 429,
+        "source": {
+            "name": "Ford 2018 Mustang brochure (filed with NHTSA, docket NHTSA-2018-0067)",
+            "url": "https://downloads.regulations.gov/NHTSA-2018-0067-12603/attachment_7.pdf"
+        },
+        "sourceNote": "Ford's 2018 brochure lists the GT350R as a package on the GT350, which has one powertrain (526 hp, 429 lb-ft)."
     },
     {
         "year": 2019,

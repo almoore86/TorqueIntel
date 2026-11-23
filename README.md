@@ -100,8 +100,9 @@ specification sheets and Ford Media Center pages, linked through Internet
 Archive copies because Ford no longer hosts them. Every horsepower value
 matches Ford's sheets. Ford's 2015 sheet marks its ratings as projected.
 
-No Ford document has been found yet for the 2018 Mustang, the 2015 and 2017
-Shelby GT350 and GT350R, or the 2019 and 2020 GT350R. Those entries have
+The 2018 figures come from Ford's 2018 Mustang brochure, filed publicly with
+NHTSA. No Ford document has been found yet for the 2015 and 2017 Shelby
+GT350 and GT350R, or the 2019 and 2020 GT350R. Those entries have
 `torque: null` and `source: null`, and the app says torque is not on file
 rather than guessing.
 

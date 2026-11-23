@@ -1,14 +1,14 @@
 {
-    "generatedAt": "2026-11-23T16:12:51.645Z",
+    "generatedAt": "2026-11-23T17:10:45.237Z",
     "runsPerCase": 3,
     "summary": {
-        "totalCases": 60,
+        "totalCases": 61,
         "passAt1": {
-            "passed": 60,
+            "passed": 61,
             "rate": 1
         },
         "passPow3": {
-            "passed": 60,
+            "passed": 61,
             "rate": 1
         }
     },
@@ -2116,8 +2116,11 @@
                                     "6-speed manual",
                                     "10-speed automatic"
                                 ],
-                                "torque": null,
-                                "source": null
+                                "torque": 420,
+                                "source": {
+                                    "name": "Ford 2018 Mustang brochure (filed with NHTSA, docket NHTSA-2018-0067)",
+                                    "url": "https://downloads.regulations.gov/NHTSA-2018-0067-12603/attachment_7.pdf"
+                                }
                             },
                             {
                                 "year": 2022,
@@ -2206,8 +2209,11 @@
                                     "6-speed manual",
                                     "10-speed automatic"
                                 ],
-                                "torque": null,
-                                "source": null
+                                "torque": 420,
+                                "source": {
+                                    "name": "Ford 2018 Mustang brochure (filed with NHTSA, docket NHTSA-2018-0067)",
+                                    "url": "https://downloads.regulations.gov/NHTSA-2018-0067-12603/attachment_7.pdf"
+                                }
                             },
                             {
                                 "year": 2022,
@@ -2296,8 +2302,11 @@
                                     "6-speed manual",
                                     "10-speed automatic"
                                 ],
-                                "torque": null,
-                                "source": null
+                                "torque": 420,
+                                "source": {
+                                    "name": "Ford 2018 Mustang brochure (filed with NHTSA, docket NHTSA-2018-0067)",
+                                    "url": "https://downloads.regulations.gov/NHTSA-2018-0067-12603/attachment_7.pdf"
+                                }
                             },
                             {
                                 "year": 2022,
@@ -8106,6 +8115,179 @@
         {
             "id": "specs-torque-not-on-file",
             "category": "vehicle_information",
+            "input": "Specs for the 2017 Mustang Shelby GT350",
+            "expected": {
+                "allowed": true,
+                "intent": "vehicle_information",
+                "status": "ready",
+                "tools": [
+                    "getVehicleInfo"
+                ],
+                "vehicles": [
+                    {
+                        "year": 2017,
+                        "trim": "Shelby GT350",
+                        "horsepower": 526,
+                        "torque": null,
+                        "source": null
+                    }
+                ]
+            },
+            "passedFirstRun": true,
+            "passedAllRuns": true,
+            "runs": [
+                {
+                    "run": 1,
+                    "passed": true,
+                    "mismatches": [],
+                    "actual": {
+                        "allowed": true,
+                        "intent": "vehicle_information",
+                        "status": "ready",
+                        "sanitized": false,
+                        "requiresApproval": false,
+                        "years": [
+                            2017
+                        ],
+                        "unsupportedYears": [],
+                        "trims": [
+                            "Shelby GT350"
+                        ],
+                        "tools": [
+                            "getVehicleInfo"
+                        ],
+                        "args": {
+                            "make": "Ford",
+                            "model": "Mustang",
+                            "trims": [
+                                "Shelby GT350"
+                            ],
+                            "years": [
+                                2017
+                            ]
+                        },
+                        "vehicles": [
+                            {
+                                "year": 2017,
+                                "make": "Ford",
+                                "model": "Mustang",
+                                "trim": "Shelby GT350",
+                                "engine": "5.2L V8",
+                                "horsepower": 526,
+                                "drivetrain": "Rear-wheel drive",
+                                "transmissions": [
+                                    "6-speed manual"
+                                ],
+                                "torque": null,
+                                "source": null
+                            }
+                        ],
+                        "evidence": "complete"
+                    }
+                },
+                {
+                    "run": 2,
+                    "passed": true,
+                    "mismatches": [],
+                    "actual": {
+                        "allowed": true,
+                        "intent": "vehicle_information",
+                        "status": "ready",
+                        "sanitized": false,
+                        "requiresApproval": false,
+                        "years": [
+                            2017
+                        ],
+                        "unsupportedYears": [],
+                        "trims": [
+                            "Shelby GT350"
+                        ],
+                        "tools": [
+                            "getVehicleInfo"
+                        ],
+                        "args": {
+                            "make": "Ford",
+                            "model": "Mustang",
+                            "trims": [
+                                "Shelby GT350"
+                            ],
+                            "years": [
+                                2017
+                            ]
+                        },
+                        "vehicles": [
+                            {
+                                "year": 2017,
+                                "make": "Ford",
+                                "model": "Mustang",
+                                "trim": "Shelby GT350",
+                                "engine": "5.2L V8",
+                                "horsepower": 526,
+                                "drivetrain": "Rear-wheel drive",
+                                "transmissions": [
+                                    "6-speed manual"
+                                ],
+                                "torque": null,
+                                "source": null
+                            }
+                        ],
+                        "evidence": "complete"
+                    }
+                },
+                {
+                    "run": 3,
+                    "passed": true,
+                    "mismatches": [],
+                    "actual": {
+                        "allowed": true,
+                        "intent": "vehicle_information",
+                        "status": "ready",
+                        "sanitized": false,
+                        "requiresApproval": false,
+                        "years": [
+                            2017
+                        ],
+                        "unsupportedYears": [],
+                        "trims": [
+                            "Shelby GT350"
+                        ],
+                        "tools": [
+                            "getVehicleInfo"
+                        ],
+                        "args": {
+                            "make": "Ford",
+                            "model": "Mustang",
+                            "trims": [
+                                "Shelby GT350"
+                            ],
+                            "years": [
+                                2017
+                            ]
+                        },
+                        "vehicles": [
+                            {
+                                "year": 2017,
+                                "make": "Ford",
+                                "model": "Mustang",
+                                "trim": "Shelby GT350",
+                                "engine": "5.2L V8",
+                                "horsepower": 526,
+                                "drivetrain": "Rear-wheel drive",
+                                "transmissions": [
+                                    "6-speed manual"
+                                ],
+                                "torque": null,
+                                "source": null
+                            }
+                        ],
+                        "evidence": "complete"
+                    }
+                }
+            ]
+        },
+        {
+            "id": "specs-torque-2018-gt",
+            "category": "vehicle_information",
             "input": "Specs for the 2018 Mustang GT",
             "expected": {
                 "allowed": true,
@@ -8119,8 +8301,7 @@
                         "year": 2018,
                         "trim": "GT",
                         "horsepower": 460,
-                        "torque": null,
-                        "source": null
+                        "torque": 420
                     }
                 ]
             },
@@ -8170,8 +8351,11 @@
                                     "6-speed manual",
                                     "10-speed automatic"
                                 ],
-                                "torque": null,
-                                "source": null
+                                "torque": 420,
+                                "source": {
+                                    "name": "Ford 2018 Mustang brochure (filed with NHTSA, docket NHTSA-2018-0067)",
+                                    "url": "https://downloads.regulations.gov/NHTSA-2018-0067-12603/attachment_7.pdf"
+                                }
                             }
                         ],
                         "evidence": "complete"
@@ -8220,8 +8404,11 @@
                                     "6-speed manual",
                                     "10-speed automatic"
                                 ],
-                                "torque": null,
-                                "source": null
+                                "torque": 420,
+                                "source": {
+                                    "name": "Ford 2018 Mustang brochure (filed with NHTSA, docket NHTSA-2018-0067)",
+                                    "url": "https://downloads.regulations.gov/NHTSA-2018-0067-12603/attachment_7.pdf"
+                                }
                             }
                         ],
                         "evidence": "complete"
@@ -8270,8 +8457,11 @@
                                     "6-speed manual",
                                     "10-speed automatic"
                                 ],
-                                "torque": null,
-                                "source": null
+                                "torque": 420,
+                                "source": {
+                                    "name": "Ford 2018 Mustang brochure (filed with NHTSA, docket NHTSA-2018-0067)",
+                                    "url": "https://downloads.regulations.gov/NHTSA-2018-0067-12603/attachment_7.pdf"
+                                }
                             }
                         ],
                         "evidence": "complete"
