@@ -2,12 +2,11 @@
     TorqueIntel - VIN scanning
 
     Reads a VIN from:
-      - a live camera view of the VIN barcode (where the browser allows it)
-      - a photo of the barcode
+      - a photo of the barcode (on phones, the button opens the camera)
       - a photo of the 17 printed characters (text recognition)
 
-    Everything runs in the browser. The photo and camera feed never leave
-    the device; only the VIN is used, when the person presses Look up.
+    Everything runs in the browser. The photo never leaves the device;
+    only the VIN is used, when the person presses Look up.
 
     The barcode and text-recognition libraries are large, so they are
     loaded only when someone first scans. Uses isValidVin() from agent.js.
@@ -387,69 +386,5 @@ async function scanVinFromPhoto(file, mode, onStatus) {
         console.error(error);
 
         return { hit: null, message: "The text reader couldn't start on this device. You can still scan the barcode or type the VIN." };
-    }
-}
-
-
-/* ---------- Live camera ---------- */
-
-let liveReader = null;
-
-
-function liveScanAvailable() {
-
-    return Boolean(navigator.mediaDevices && navigator.mediaDevices.getUserMedia);
-}
-
-
-/*
-    Shows the back camera in the given video element and calls onVin with
-    the first barcode that holds a VIN. Resolves once the camera is on;
-    rejects if the camera can't start (no permission, no camera).
-*/
-async function startLiveScan(video, onVin) {
-
-    stopLiveScan();
-
-    await loadScript(SCAN_LIBRARIES.zxing);
-
-    video.setAttribute("playsinline", "");
-    video.muted = true;
-
-    liveReader = new ZXing.BrowserMultiFormatReader(barcodeHints());
-
-    await liveReader.decodeFromConstraints(
-        { video: { facingMode: { ideal: "environment" } } },
-        video,
-        result => {
-
-            if (!result) {
-                return;
-            }
-
-            const hit = vinFromBarcodeText(result.getText());
-
-            if (hit) {
-                stopLiveScan();
-                onVin(hit);
-            }
-        }
-    );
-}
-
-
-function stopLiveScan() {
-
-    if (liveReader) {
-
-        try {
-            liveReader.reset();
-        }
-
-        catch (error) {
-            /* Already stopped. */
-        }
-
-        liveReader = null;
     }
 }

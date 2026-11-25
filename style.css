@@ -1007,15 +1007,6 @@ dialog.glossary-dialog::backdrop {
     cursor: pointer;
 }
 
-.scan-video {
-    display: block;
-    width: 100%;
-    max-height: 300px;
-    margin-top: 12px;
-    background: #000;
-    border-radius: var(--radius-sm);
-    object-fit: cover;
-}
 
 .scan-preview {
     display: block;

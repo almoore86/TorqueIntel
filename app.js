@@ -1221,8 +1221,6 @@ function showResult(
     resultTitle.textContent =
         title;
 
-    stopLiveScan();
-
     resultContent.innerHTML =
         html;
 
@@ -1245,8 +1243,6 @@ function showResult(
 function hideResult() {
 
     pendingAction = null;
-
-    stopLiveScan();
 
     resultModal.classList.add(
         "hidden"
@@ -1581,11 +1577,10 @@ function showVinDialog() {
                 <p class="note">
                     Scan the barcode on the driver's door-frame sticker, or read the
                     17 printed characters from the dashboard plate, door sticker,
-                    registration or insurance card. Photos and the camera are used
-                    only on your device.
+                    registration or insurance card. On a phone, the photo buttons
+                    open your camera. Photos are read only on your device.
                 </p>
                 <div class="scan-buttons">
-                    ${liveScanAvailable() ? `<button type="button" class="primary-button" id="liveScanButton">Scan barcode with camera</button>` : ""}
                     <label class="accent-button" for="scanBarcodePhoto">Photo of barcode</label>
                     <input id="scanBarcodePhoto" type="file" accept="image/*" capture="environment" hidden>
                     <label class="accent-button" for="scanPrintedPhoto">Read printed VIN</label>
@@ -1593,7 +1588,6 @@ function showVinDialog() {
                     <label class="secondary-button" for="scanAnyPhoto">Choose a photo</label>
                     <input id="scanAnyPhoto" type="file" accept="image/*" hidden>
                 </div>
-                <video id="scanVideo" class="scan-video" hidden></video>
                 <img id="scanPreview" class="scan-preview" alt="The photo you chose" hidden>
                 <p id="scanStatus" class="vin-message" aria-live="polite"></p>
                 <p id="scanDetail" class="note" hidden></p>
@@ -1618,8 +1612,6 @@ function setupScanControls() {
     const status = document.getElementById("scanStatus");
     const detail = document.getElementById("scanDetail");
     const preview = document.getElementById("scanPreview");
-    const video = document.getElementById("scanVideo");
-    const liveButton = document.getElementById("liveScanButton");
 
     const setStatus = (text, state = "") => {
         status.className = `vin-message ${state}`;
@@ -1644,52 +1636,12 @@ function setupScanControls() {
         );
     };
 
-    const stopCamera = () => {
-        stopLiveScan();
-        video.hidden = true;
-        if (liveButton) liveButton.textContent = "Scan barcode with camera";
-    };
-
-    if (liveButton) {
-
-        liveButton.addEventListener("click", async () => {
-
-            if (!video.hidden) {
-                stopCamera();
-                setStatus("");
-                return;
-            }
-
-            preview.hidden = true;
-            detail.hidden = true;
-            video.hidden = false;
-            liveButton.textContent = "Stop camera";
-            setStatus("Starting the camera… Point it at the VIN barcode on the door-frame sticker.");
-
-            try {
-                await startLiveScan(video, hit => {
-                    stopCamera();
-                    useHit(hit, "from the barcode");
-                });
-
-                setStatus("Point the camera at the VIN barcode and hold steady.");
-            }
-
-            catch (error) {
-                console.error(error);
-                stopCamera();
-                setStatus("The camera couldn't start. Allow camera access for this site, or use Photo of barcode.", "invalid");
-            }
-        });
-    }
-
     const scanPhoto = async (file, mode) => {
 
         if (!file) {
             return;
         }
 
-        stopCamera();
         detail.hidden = true;
         preview.src = URL.createObjectURL(file);
         preview.hidden = false;
