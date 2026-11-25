@@ -720,10 +720,15 @@ button {
     position: relative;
 }
 
-.garage-button {
+.top-actions {
     position: absolute;
     top: 0;
     right: 0;
+    display: flex;
+    gap: 8px;
+}
+
+.garage-button {
     display: inline-flex;
     align-items: center;
     gap: 8px;
@@ -835,10 +840,188 @@ button {
 
 @media (max-width: 560px) {
 
-    .garage-button {
+    .top-actions {
         position: static;
-        display: flex;
-        width: max-content;
-        margin: 0 0 14px auto;
+        justify-content: flex-end;
+        flex-wrap: wrap;
+        margin: 0 0 14px;
     }
+}
+
+
+/* Explain terms switch (result window) */
+.modal-topline {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 6px 16px;
+    padding-right: 44px;
+}
+
+.explain-switch {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.85rem;
+    color: var(--text-soft);
+    cursor: pointer;
+}
+
+.explain-switch input {
+    accent-color: var(--accent);
+    width: 17px;
+    height: 17px;
+}
+
+/* A glossary word: quiet dotted underline; the pointer becomes a question mark. */
+.glossary-term {
+    background: none;
+    border: none;
+    border-bottom: 1px dotted var(--border-strong);
+    padding: 0;
+    color: inherit;
+    font: inherit;
+    letter-spacing: inherit;
+    text-transform: inherit;
+    cursor: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='28' height='28' viewBox='0 0 28 28'><circle cx='14' cy='14' r='12' fill='%2338BDF8' stroke='%230B0F19' stroke-width='2'/><text x='14' y='19.5' font-size='16' font-family='Arial, sans-serif' font-weight='700' text-anchor='middle' fill='%230B0F19'>?</text></svg>") 14 14, help;
+}
+
+.glossary-term:hover,
+.glossary-term:focus-visible {
+    border-bottom-color: var(--accent);
+    color: var(--text);
+}
+
+/* Glossary popups */
+dialog.glossary-dialog {
+    background: var(--surface);
+    color: var(--text);
+    border: 1px solid var(--border-strong);
+    border-radius: var(--radius-lg);
+    padding: clamp(18px, 4vw, 26px);
+    width: min(600px, calc(100vw - 32px));
+    max-height: 85vh;
+}
+
+dialog.glossary-dialog::backdrop {
+    background: rgba(0, 0, 0, 0.6);
+}
+
+.dialog-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 12px;
+    margin-bottom: 12px;
+}
+
+.dialog-head h2 {
+    margin: 4px 0 0;
+}
+
+.close-button.static {
+    position: static;
+    flex: none;
+}
+
+.glossary-search {
+    width: 100%;
+    background: var(--bg);
+    color: var(--text);
+    border: 1px solid var(--border-strong);
+    border-radius: var(--radius-sm);
+    padding: 10px 12px;
+    font: inherit;
+    margin-bottom: 10px;
+}
+
+.glossary-list {
+    display: grid;
+    gap: 10px;
+}
+
+.glossary-item {
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    padding: 12px 14px;
+}
+
+.glossary-item.highlight {
+    border-color: var(--accent);
+}
+
+.glossary-item strong {
+    display: block;
+    margin: 2px 0 4px;
+}
+
+.glossary-item p,
+.term-text {
+    margin: 0;
+    color: var(--text-soft);
+}
+
+/* Diagrams */
+.diagram {
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    padding: 10px;
+    margin: 12px 0 0;
+}
+
+.diagram svg {
+    display: block;
+    width: 100%;
+    height: auto;
+    max-height: 240px;
+}
+
+.diagram figcaption {
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    margin-top: 6px;
+}
+
+.diagram .ln { fill: none; stroke: var(--text-soft); stroke-width: 2; }
+.diagram .thin { fill: none; stroke: var(--text-muted); stroke-width: 1.4; }
+.diagram .acc { fill: none; stroke: var(--accent); stroke-width: 3; }
+.diagram .accfill { fill: var(--accent); }
+.diagram .dim { fill: var(--border); stroke: var(--border-strong); stroke-width: 1.5; }
+.diagram .tire { fill: #1a2233; stroke: var(--text-soft); stroke-width: 2; }
+.diagram text { fill: var(--text-soft); font-family: inherit; font-size: 11px; }
+.diagram text.big { font-size: 22px; font-weight: 700; font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; }
+.diagram text.lab { fill: var(--text); font-weight: 600; }
+
+/* VIN scanning */
+.scan-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 12px;
+}
+
+.scan-buttons label {
+    display: inline-block;
+    cursor: pointer;
+}
+
+.scan-video {
+    display: block;
+    width: 100%;
+    max-height: 300px;
+    margin-top: 12px;
+    background: #000;
+    border-radius: var(--radius-sm);
+    object-fit: cover;
+}
+
+.scan-preview {
+    display: block;
+    max-width: 100%;
+    max-height: 220px;
+    margin-top: 12px;
+    border-radius: var(--radius-sm);
+    border: 1px solid var(--border);
 }

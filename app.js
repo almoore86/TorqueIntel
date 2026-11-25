@@ -1221,8 +1221,14 @@ function showResult(
     resultTitle.textContent =
         title;
 
+    stopLiveScan();
+
     resultContent.innerHTML =
         html;
+
+    if (explainTermsOn()) {
+        linkGlossaryTerms(resultContent);
+    }
 
     resultModal.classList.remove(
         "hidden"
@@ -1239,6 +1245,8 @@ function showResult(
 function hideResult() {
 
     pendingAction = null;
+
+    stopLiveScan();
 
     resultModal.classList.add(
         "hidden"
@@ -1568,10 +1576,142 @@ function showVinDialog() {
                     the car.
                 </p>
             </div>
+            <div class="result-section">
+                <h3>Or scan it</h3>
+                <p class="note">
+                    Scan the barcode on the driver's door-frame sticker, or read the
+                    17 printed characters from the dashboard plate, door sticker,
+                    registration or insurance card. Photos and the camera are used
+                    only on your device.
+                </p>
+                <div class="scan-buttons">
+                    ${liveScanAvailable() ? `<button type="button" class="primary-button" id="liveScanButton">Scan barcode with camera</button>` : ""}
+                    <label class="accent-button" for="scanBarcodePhoto">Photo of barcode</label>
+                    <input id="scanBarcodePhoto" type="file" accept="image/*" capture="environment" hidden>
+                    <label class="accent-button" for="scanPrintedPhoto">Read printed VIN</label>
+                    <input id="scanPrintedPhoto" type="file" accept="image/*" capture="environment" hidden>
+                    <label class="secondary-button" for="scanAnyPhoto">Choose a photo</label>
+                    <input id="scanAnyPhoto" type="file" accept="image/*" hidden>
+                </div>
+                <video id="scanVideo" class="scan-video" hidden></video>
+                <img id="scanPreview" class="scan-preview" alt="The photo you chose" hidden>
+                <p id="scanStatus" class="vin-message" aria-live="polite"></p>
+                <p id="scanDetail" class="note" hidden></p>
+            </div>
         `
     );
 
+    setupScanControls();
+
     document.getElementById("vinInput").focus();
+}
+
+
+/*
+    Scan buttons in the Check my VIN popup (see scan.js).
+    A VIN that is found fills the field and goes through the same
+    live check as typing; nothing is looked up until Look up.
+*/
+function setupScanControls() {
+
+    const input = document.getElementById("vinInput");
+    const status = document.getElementById("scanStatus");
+    const detail = document.getElementById("scanDetail");
+    const preview = document.getElementById("scanPreview");
+    const video = document.getElementById("scanVideo");
+    const liveButton = document.getElementById("liveScanButton");
+
+    const setStatus = (text, state = "") => {
+        status.className = `vin-message ${state}`;
+        status.textContent = text;
+    };
+
+    const useHit = (hit, method) => {
+
+        input.value = hit.vin;
+        checkVinInput(input);
+
+        detail.hidden = !hit.changes.length;
+        detail.textContent = hit.changes.length
+            ? `Read "${hit.raw}" and corrected ${hit.changes.join(", ")} using VIN rules.`
+            : "";
+
+        setStatus(
+            hit.checked
+                ? `VIN found ${method}. Compare it with your car, then press Look up.`
+                : `Read ${hit.vin} ${method}, but its check digit doesn't match. Compare it with the car and fix any wrong characters.`,
+            hit.checked ? "valid" : "invalid"
+        );
+    };
+
+    const stopCamera = () => {
+        stopLiveScan();
+        video.hidden = true;
+        if (liveButton) liveButton.textContent = "Scan barcode with camera";
+    };
+
+    if (liveButton) {
+
+        liveButton.addEventListener("click", async () => {
+
+            if (!video.hidden) {
+                stopCamera();
+                setStatus("");
+                return;
+            }
+
+            preview.hidden = true;
+            detail.hidden = true;
+            video.hidden = false;
+            liveButton.textContent = "Stop camera";
+            setStatus("Starting the camera… Point it at the VIN barcode on the door-frame sticker.");
+
+            try {
+                await startLiveScan(video, hit => {
+                    stopCamera();
+                    useHit(hit, "from the barcode");
+                });
+
+                setStatus("Point the camera at the VIN barcode and hold steady.");
+            }
+
+            catch (error) {
+                console.error(error);
+                stopCamera();
+                setStatus("The camera couldn't start. Allow camera access for this site, or use Photo of barcode.", "invalid");
+            }
+        });
+    }
+
+    const scanPhoto = async (file, mode) => {
+
+        if (!file) {
+            return;
+        }
+
+        stopCamera();
+        detail.hidden = true;
+        preview.src = URL.createObjectURL(file);
+        preview.hidden = false;
+
+        const result = await scanVinFromPhoto(file, mode, text => setStatus(text));
+
+        if (result.hit) {
+            useHit(result.hit, result.method);
+        }
+
+        else {
+            setStatus(result.message, "invalid");
+        }
+    };
+
+    for (const [id, mode] of [["scanBarcodePhoto", "barcode"], ["scanPrintedPhoto", "text"], ["scanAnyPhoto", "auto"]]) {
+
+        document.getElementById(id).addEventListener("change", event => {
+            scanPhoto(event.target.files[0], mode);
+            event.target.value = "";
+        });
+    }
 }
 
 
@@ -2110,6 +2250,10 @@ async function showPackages(year, trim) {
                     </p>
                 `
                 : `<p class="note">The package breakdown for the ${escapeHtml(`${selectedYear} Mustang ${trimSelect.value}`)} hasn't been added yet. It comes from Ford's brochure for that year, and TorqueIntel doesn't guess.</p>`;
+
+        if (explainTermsOn()) {
+            linkGlossaryTerms(document.getElementById("packageBody"));
+        }
     };
 
     const fillTrims = keep => {
@@ -2246,7 +2390,8 @@ document.addEventListener(
 
         if (
             event.key === "Escape" &&
-            !resultModal.classList.contains("hidden")
+            !resultModal.classList.contains("hidden") &&
+            !anyGlossaryDialogOpen()
         ) {
             hideResult();
         }
@@ -2310,3 +2455,28 @@ document.getElementById("pickPackages").addEventListener("click", () =>
 );
 
 updateGarageCount();
+
+
+/* Explain terms switch in the result window (see glossary.js). */
+const explainSwitch = document.getElementById("explainTerms");
+
+explainSwitch.checked = explainTermsOn();
+
+explainSwitch.addEventListener("change", () => {
+
+    setExplainTerms(explainSwitch.checked);
+
+    if (explainSwitch.checked) {
+        linkGlossaryTerms(resultContent);
+    }
+
+    else {
+        for (const term of resultContent.querySelectorAll(".glossary-term")) {
+            term.replaceWith(document.createTextNode(term.textContent));
+        }
+
+        resultContent.normalize();
+    }
+});
+
+setupGlossary();

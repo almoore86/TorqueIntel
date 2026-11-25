@@ -18,11 +18,18 @@
     <main class="page-container">
 
         <header class="hero">
-            <button id="garageButton" type="button" class="garage-button" aria-label="Open My Garage">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 21V9l9-6 9 6v12"/><path d="M7 21v-8h10v8"/><path d="M7 17h10"/></svg>
-                <span>My Garage</span>
-                <span id="garageCount" class="garage-count">0</span>
-            </button>
+            <div class="top-actions">
+                <button id="glossaryButton" type="button" class="garage-button" aria-label="Open the glossary">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4.5A2.5 2.5 0 0 1 6.5 2H20v17H6.5A2.5 2.5 0 0 0 4 21.5z"/><path d="M4 21.5A2.5 2.5 0 0 1 6.5 19H20v3H6.5"/><path d="M9 7h7M9 11h5"/></svg>
+                    <span>Glossary</span>
+                </button>
+
+                <button id="garageButton" type="button" class="garage-button" aria-label="Open My Garage">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 21V9l9-6 9 6v12"/><path d="M7 21v-8h10v8"/><path d="M7 17h10"/></svg>
+                    <span>My Garage</span>
+                    <span id="garageCount" class="garage-count">0</span>
+                </button>
+            </div>
 
             <p class="eyebrow">AUTOMOTIVE INTELLIGENCE</p>
 
@@ -133,9 +140,16 @@
                 ×
             </button>
 
-            <p class="eyebrow">
-                TORQUEINTEL RESULT
-            </p>
+            <div class="modal-topline">
+                <p class="eyebrow">
+                    TORQUEINTEL RESULT
+                </p>
+
+                <label class="explain-switch" title="Underline words that have a plain-English explanation">
+                    <input type="checkbox" id="explainTerms">
+                    <span>Explain terms</span>
+                </label>
+            </div>
 
             <h2 id="resultTitle">
                 Vehicle Research
@@ -147,8 +161,40 @@
 
     </div>
 
+    <!-- Glossary popups (open above the result window) -->
+    <dialog id="glossaryDialog" class="glossary-dialog" aria-labelledby="glossaryTitle">
+        <div class="dialog-head">
+            <div>
+                <p class="eyebrow">TORQUEINTEL</p>
+                <h2 id="glossaryTitle">Glossary</h2>
+            </div>
+            <button type="button" class="close-button static" data-close-dialog aria-label="Close glossary">×</button>
+        </div>
+        <input id="glossarySearch" class="glossary-search" type="search" placeholder="Search terms, e.g. torque" aria-label="Search the glossary">
+        <div id="glossaryCategories" class="topic-row" role="group" aria-label="Categories"></div>
+        <p id="glossaryCount" class="note"></p>
+        <div id="glossaryList" class="glossary-list"></div>
+    </dialog>
+
+    <dialog id="termDialog" class="glossary-dialog" aria-labelledby="termTitle">
+        <div class="dialog-head">
+            <div>
+                <p class="eyebrow" id="termCategory"></p>
+                <h2 id="termTitle"></h2>
+            </div>
+            <button type="button" class="close-button static" data-close-dialog aria-label="Close">×</button>
+        </div>
+        <p id="termText" class="term-text"></p>
+        <div id="termDiagram"></div>
+        <div class="button-row">
+            <button type="button" class="secondary-button" id="termToGlossary">See the full glossary</button>
+        </div>
+    </dialog>
+
     <script src="agent.js"></script>
     <script src="tools.js"></script>
+    <script src="glossary.js"></script>
+    <script src="scan.js"></script>
     <script src="app.js"></script>
 
 </body>

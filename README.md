@@ -171,6 +171,30 @@ cards. The 2019 Shelby GT350/GT350R come from Ford's 2019 GT350 web page. No US
 source has been found yet for 2022, which shows a "not added yet" message
 rather than a guess.
 
+## Glossary
+
+`glossary.js` holds plain-English explanations of 37 terms (horsepower,
+torque, TORSEN, Brembo, MagneRide, tire sizes, equipment groups, VIN, and
+more), with labeled diagrams for the ones easier to see: calipers, two-piece
+rotors, the K-member brace, the strut-tower brace, the sway bar, tire-size
+markings and staggered wheels. The **Glossary** button (top right) opens the
+searchable list. In a result window, the **Explain terms** switch underlines
+glossary words; the pointer becomes a question mark over them, and clicking
+one explains it in a popup above the result.
+
+## Scanning a VIN
+
+`scan.js` adds scanning to the Check my VIN popup: a live camera view of the
+door-frame barcode (where the browser allows camera access), a photo of the
+barcode, or a photo of the 17 printed characters. Barcodes are read with the
+phone's built-in reader where available, otherwise the ZXing library; printed
+characters with Tesseract.js. Both libraries load from jsDelivr only when
+someone first scans, and everything runs in the browser, so photos and the
+camera feed never leave the device. Letters VINs never use (I, O, Q) are
+corrected to 1 and 0, look-alikes such as 8/B or 5/S are only swapped when
+that makes the check digit add up, and the popup says what it corrected. The
+VIN is looked up only when the person presses Look up.
+
 ## Evidence review
 
 After the tools run and before any output is given, `reviewEvidence` reads what
@@ -205,6 +229,8 @@ to 5 vehicles (model years x trims) and needs at least one trim named.
 | `agent.js` | Limits, security / scope guard, coordinating agent, evidence review (no page code) |
 | `tools.js` | Tools that return data (no page code) |
 | `app.js` | Page logic: runs the plan, approval gate, evidence review display, results |
+| `glossary.js` | Glossary terms, diagrams, Explain terms and glossary popups |
+| `scan.js` | VIN scanning: live camera, barcode photos and printed VINs |
 | `data/vehicles.json` | Ford Mustang dataset, all trims, 2015 through 2023 |
 | `evaluation/test-cases.json` | Evaluation Test Cases |
 | `evaluation/evaluation.js` | Evaluation harness (pass@1 and pass^3) |
