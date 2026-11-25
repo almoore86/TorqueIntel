@@ -166,10 +166,11 @@ Mustang card) has year and trim dropdowns and shows each trim level,
 equipment group and package as its own card, with what it adds. The content
 is in `data/packages.json`, transcribed from Ford's brochure for each year
 (2015–2021), Ford's GT350 launch brochure (July 2015, for the 2015 Shelby
-GT350/GT350R) and Ford's 2023 order guide, with the source linked under the
-cards. The 2019 Shelby GT350/GT350R come from Ford's 2019 GT350 web page. No US
-source has been found yet for 2022, which shows a "not added yet" message
-rather than a guess.
+GT350/GT350R) and Ford's 2022 and 2023 order guides, with the source linked
+under the cards. Ford didn't print a US brochure for 2022, so that year comes
+from the US order guide dated 01/03/22. The 2019 Shelby GT350/GT350R come from
+Ford's 2019 GT350 web page. The 2022 Shelby GT500 isn't in that order guide and
+shows a "not added yet" message rather than a guess.
 
 ## Glossary
 

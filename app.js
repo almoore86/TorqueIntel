@@ -2201,7 +2201,7 @@ async function showPackages(year, trim) {
                         <a href="${escapeHtml(source.url)}" target="_blank" rel="noopener noreferrer">${escapeHtml(source.name)}</a>
                     </p>
                 `
-                : `<p class="note">The package breakdown for the ${escapeHtml(`${selectedYear} Mustang ${trimSelect.value}`)} hasn't been added yet. It comes from Ford's brochure for that year, and TorqueIntel doesn't guess.</p>`;
+                : `<p class="note">The package breakdown for the ${escapeHtml(`${selectedYear} Mustang ${trimSelect.value}`)} hasn't been added yet. It comes from Ford's brochure or order guide for that year, and TorqueIntel doesn't guess.</p>`;
 
         if (explainTermsOn()) {
             linkGlossaryTerms(document.getElementById("packageBody"));
