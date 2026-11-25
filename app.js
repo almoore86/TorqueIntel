@@ -108,6 +108,17 @@ async function handleUserRequest(questionOverride) {
     }
 
 
+    /*
+        "Which Mustang fits me?" opens the question popup (finder.js).
+        It runs no tools, so it doesn't count toward the session limit.
+    */
+    if (FINDER_REQUEST.test(question)) {
+        openFinder();
+
+        return;
+    }
+
+
     if (sessionTurns >= MAX_TURNS_PER_SESSION) {
 
         statusArea.textContent =
@@ -2256,6 +2267,10 @@ resultContent.addEventListener(
             return;
         }
 
+        if (handleFinderAction(button)) {
+            return;
+        }
+
         if (button.dataset.action === "approve") {
             approvePendingAction();
         }
@@ -2352,6 +2367,9 @@ document.addEventListener(
 
 
 document.getElementById("openVinButton").addEventListener("click", showVinDialog);
+
+/* Optional chaining: a cached older index.html may not have this button yet. */
+document.getElementById("openFinderButton")?.addEventListener("click", openFinder);
 
 
 document.getElementById("suggestions").addEventListener("click", event => {

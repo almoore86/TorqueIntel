@@ -172,6 +172,20 @@ from the US order guide dated 01/03/22. The 2019 Shelby GT350/GT350R come from
 Ford's 2019 GT350 web page. The 2022 Shelby GT500 isn't in that order guide and
 shows a "not added yet" message rather than a guess.
 
+## Which Mustang fits me?
+
+The **Which Mustang fits me?** button (next to Check my VIN), or typing
+"Which Mustang fits me?" in any capitalization and pressing Analyze Vehicle,
+opens 12 questions in the result window: what the car is for, passengers,
+body style, transmission, model years, power or price, track plans,
+modifications, tech, comfort, insurance concerns and cold weather. It then
+suggests up to three trims, each with the model years that fit best, why,
+and how that trim changed across the years. Specs come from
+`data/vehicles.json` and features from `data/packages.json`, with sources
+linked. Opening it runs no tools, so it doesn't count toward the session
+limit. Compare goes through the usual approval gate, one model year at a time.
+The logic is in `finder.js`.
+
 ## Glossary
 
 `glossary.js` holds plain-English explanations of 37 terms (horsepower,

@@ -1016,3 +1016,140 @@ dialog.glossary-dialog::backdrop {
     border-radius: var(--radius-sm);
     border: 1px solid var(--border);
 }
+
+
+/* =====================================================
+    Which Mustang fits me? (finder.js)
+   ===================================================== */
+
+.finder-bar {
+    height: 4px;
+    background: var(--border);
+    border-radius: 999px;
+    overflow: hidden;
+}
+
+.finder-bar span {
+    display: block;
+    height: 100%;
+    background: var(--accent);
+}
+
+.finder-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+    margin: 10px 0 6px;
+}
+
+.result-section p.finder-progress {
+    margin: 0;
+    color: var(--text-muted);
+    font-family: ui-monospace, Menlo, Consolas, monospace;
+    font-size: 0.8rem;
+}
+
+.finder-options {
+    display: grid;
+    gap: 8px;
+    margin-top: 14px;
+}
+
+.finder-option {
+    display: grid;
+    gap: 2px;
+    text-align: left;
+    background: var(--bg);
+    color: var(--text);
+    border: 1px solid var(--border-strong);
+    border-radius: var(--radius-sm);
+    padding: 12px 14px;
+    font-size: 1rem;
+}
+
+.finder-option small {
+    color: var(--text-muted);
+    font-size: 0.82rem;
+}
+
+.finder-option:hover,
+.finder-option[aria-pressed="true"] {
+    border-color: var(--accent);
+}
+
+.finder-option[aria-pressed="true"] {
+    box-shadow: inset 3px 0 0 var(--accent);
+}
+
+.finder-chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-top: 8px;
+}
+
+.finder-card {
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    padding: 14px;
+    margin-top: 12px;
+}
+
+.finder-card.top {
+    border-color: var(--accent);
+}
+
+.finder-card .result-label:first-child {
+    color: var(--accent);
+}
+
+.finder-name {
+    display: block;
+    font-size: 1.1rem;
+}
+
+.finder-specs {
+    margin-top: 10px;
+}
+
+.finder-specs .result-item {
+    padding: 8px 10px;
+}
+
+.finder-list li.warn {
+    color: var(--warn);
+}
+
+.finder-list li.best {
+    color: var(--accent);
+}
+
+.finder-card .garage-actions {
+    margin-top: 12px;
+}
+
+.finder-sources {
+    margin-top: 10px;
+    font-size: 0.82rem;
+    color: var(--text-muted);
+}
+
+.finder-sources summary {
+    cursor: pointer;
+}
+
+.finder-sources a {
+    color: var(--text-muted);
+}
+
+.finder-notes {
+    border-left: 3px solid var(--warn);
+    padding: 4px 12px;
+}
+
+.finder-notes p {
+    font-size: 0.9rem;
+    margin: 6px 0;
+}
