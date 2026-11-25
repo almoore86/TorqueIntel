@@ -87,34 +87,83 @@ const DIAGRAMS = {
         <path class="thin" d="M150 105L230 110"/><text class="lab" x="234" y="108">Aluminum hat</text><text x="234" y="121">lighter center</text>
         <path class="thin" d="M148 86L230 82"/><text x="234" y="82">bolts join them</text>
     </svg>`,
-    "k-member": `<svg viewBox="0 0 340 210" role="img" aria-label="Underside view of the front end: the K-member subframe holds the engine and suspension, and the K-member brace ties it to the body">
-        <text x="170" y="16" text-anchor="middle">Underneath the front of the car (front at top)</text>
-        <rect class="tire" x="20" y="40" width="34" height="70" rx="8"/><rect class="tire" x="286" y="40" width="34" height="70" rx="8"/>
-        <rect class="dim" x="130" y="30" width="80" height="60" rx="6"/><text x="170" y="64" text-anchor="middle">engine</text>
-        <path class="ln" d="M70 70L130 95H210L270 70M130 95L110 140M210 95L230 140M110 140H230"/>
-        <text x="250" y="112">K-member</text><text x="250" y="125">(front subframe)</text>
-        <path class="acc" d="M110 140L170 185L230 140M170 185V150"/>
-        <path class="thin" d="M178 180L235 190"/><text class="lab" x="238" y="194">K-member brace</text>
-        <text x="20" y="200">Schematic, not to scale</text>
+    "k-member": `<svg viewBox="0 0 400 330" role="img" aria-label="Underside view of the front of an S550 Mustang. The K-member is the front subframe under the engine; it carries the lower control arms and steering rack and bolts to the body's frame rails. The K-member brace ties the rear K-member mounts to the frame rails behind them.">
+        <text x="200" y="16" text-anchor="middle">Looking up at the underside (front bumper at top)</text>
+        <path class="thin" d="M40 30H360"/><text x="200" y="44" text-anchor="middle">front bumper</text>
+        <rect x="112" y="54" width="14" height="250" rx="3" fill="none" stroke="var(--text-muted)" stroke-width="1.4" stroke-dasharray="5 4"/>
+        <rect x="274" y="54" width="14" height="250" rx="3" fill="none" stroke="var(--text-muted)" stroke-width="1.4" stroke-dasharray="5 4"/>
+        <text x="106" y="300" text-anchor="end">frame rail</text><text x="294" y="300">frame rail</text>
+        <rect class="tire" x="16" y="70" width="42" height="92" rx="10"/><rect class="tire" x="342" y="70" width="42" height="92" rx="10"/>
+        <rect class="dim" x="58" y="104" width="14" height="24" rx="3"/><rect class="dim" x="328" y="104" width="14" height="24" rx="3"/>
+        <text x="37" y="178" text-anchor="middle">wheel</text><text x="363" y="178" text-anchor="middle">wheel</text>
+        <rect x="150" y="54" width="100" height="48" rx="10" fill="none" stroke="var(--text-muted)" stroke-width="1.4" stroke-dasharray="4 3"/>
+        <text x="200" y="74" text-anchor="middle">engine oil pan</text><text x="200" y="88" text-anchor="middle">(above, inside)</text>
+        <path class="ln" d="M72 112L104 128H296L328 112"/>
+        <rect class="dim" x="170" y="121" width="60" height="14" rx="4"/>
+        <text x="200" y="116" text-anchor="middle">steering rack</text>
+        <path d="M86 148 L314 148 L314 170 L270 172 L252 216 L234 216 L246 174 L154 174 L166 216 L148 216 L130 172 L86 170 Z" fill="var(--border)" stroke="var(--text-soft)" stroke-width="2"/>
+        <text x="200" y="165" text-anchor="middle" class="lab">K-member (subframe)</text>
+        <path class="ln" d="M72 120L98 154M72 126L140 172"/><path class="ln" d="M328 120L302 154M328 126L260 172"/>
+        <text x="16" y="196">lower control arms</text><path class="thin" d="M70 190L110 160"/>
+        <circle cx="119" cy="159" r="4.5" fill="var(--text-soft)"/><circle cx="281" cy="159" r="4.5" fill="var(--text-soft)"/>
+        <circle cx="157" cy="208" r="4.5" fill="var(--text-soft)"/><circle cx="243" cy="208" r="4.5" fill="var(--text-soft)"/>
+        <text x="16" y="222">K-member bolts</text><text x="16" y="235">to the body here</text><path class="thin" d="M86 216L150 208"/>
+        <rect x="178" y="226" width="44" height="78" rx="10" fill="none" stroke="var(--text-muted)" stroke-width="1.4" stroke-dasharray="4 3"/>
+        <text x="200" y="320" text-anchor="middle">transmission</text>
+        <path class="acc" d="M157 208L243 208M157 208L119 262M243 208L281 262"/>
+        <circle class="accfill" cx="119" cy="262" r="5"/><circle class="accfill" cx="281" cy="262" r="5"/>
+        <text class="lab" x="300" y="228" fill="#38BDF8">K-member brace</text>
+        <text x="300" y="242">ties the rear</text><text x="300" y="255">K-member mounts</text><text x="300" y="268">to the frame rails</text>
+        <path class="thin" d="M298 230L262 232"/>
     </svg>`,
-    "strut-tower": `<svg viewBox="0 0 340 200" role="img" aria-label="Top view of the engine bay: a bar connects the tops of the two front strut towers">
-        <text x="170" y="16" text-anchor="middle">Looking down into the engine bay (front at bottom)</text>
-        <path class="ln" d="M40 30H300V190H40Z"/>
-        <circle class="dim" cx="80" cy="60" r="20"/><circle class="dim" cx="260" cy="60" r="20"/>
-        <text x="80" y="96" text-anchor="middle">strut tower</text><text x="260" y="96" text-anchor="middle">strut tower</text>
-        <rect class="dim" x="125" y="80" width="90" height="80" rx="8"/><text x="170" y="124" text-anchor="middle">engine</text>
-        <path class="acc" d="M80 60H260"/><circle class="accfill" cx="80" cy="60" r="5"/><circle class="accfill" cx="260" cy="60" r="5"/>
-        <text class="lab" x="170" y="52" text-anchor="middle" fill="#38BDF8">strut-tower brace</text>
-        <text x="170" y="182" text-anchor="middle">grille / front bumper</text>
+    "strut-tower": `<svg viewBox="0 0 380 280" role="img" aria-label="Top view into an S550 Mustang engine bay. The two front strut towers sit at the rear corners of the bay, near the windshield. Each has a strut top mount held by three studs. The strut-tower brace is a bar bolted across the tops of both towers, over the back of the engine.">
+        <text x="190" y="14" text-anchor="middle">Looking down into the engine bay (windshield at top)</text>
+        <rect x="24" y="22" width="332" height="20" rx="4" fill="var(--border)" stroke="var(--text-muted)" stroke-width="1.4"/>
+        <text x="190" y="36" text-anchor="middle">windshield and cowl</text>
+        <path class="ln" d="M24 42V230Q24 262 60 262H320Q356 262 356 230V42"/>
+        <circle class="dim" cx="80" cy="82" r="30"/><circle class="dim" cx="300" cy="82" r="30"/>
+        <circle cx="80" cy="82" r="12" fill="var(--bg)" stroke="var(--text-soft)" stroke-width="1.6"/>
+        <circle cx="300" cy="82" r="12" fill="var(--bg)" stroke="var(--text-soft)" stroke-width="1.6"/>
+        <rect x="122" y="96" width="136" height="120" rx="12" fill="var(--border)" stroke="var(--text-soft)" stroke-width="2"/>
+        <rect x="150" y="112" width="80" height="88" rx="8" fill="none" stroke="var(--text-muted)" stroke-width="1.4"/>
+        <path class="thin" d="M160 126H220M160 142H220M160 158H220M160 174H220M160 190H220"/>
+        <text x="190" y="232" text-anchor="middle" class="lab">engine (V8 intake on top)</text>
+        <rect x="70" y="244" width="240" height="10" rx="3" fill="var(--border)" stroke="var(--text-muted)" stroke-width="1.2"/>
+        <text x="190" y="275" text-anchor="middle">radiator, then grille and front bumper</text>
+        <path d="M64 70 L96 70 L102 82 L96 94 L64 94 L58 82 Z" fill="#38BDF8" fill-opacity="0.22" stroke="#38BDF8" stroke-width="2.5"/>
+        <path d="M284 70 L316 70 L322 82 L316 94 L284 94 L278 82 Z" fill="#38BDF8" fill-opacity="0.22" stroke="#38BDF8" stroke-width="2.5"/>
+        <path d="M98 78H282M98 86H282" stroke="#38BDF8" stroke-width="3" fill="none"/>
+        ${[[80, 82], [300, 82]].map(([x, y]) => [0, 120, 240].map(a => `<circle cx="${(x + 15 * Math.cos((a - 90) * Math.PI / 180)).toFixed(1)}" cy="${(y + 15 * Math.sin((a - 90) * Math.PI / 180)).toFixed(1)}" r="3.2" fill="#0B0F19" stroke="#38BDF8" stroke-width="1.5"/>`).join("")).join("")}
+        <text class="lab" x="190" y="66" text-anchor="middle" fill="#38BDF8">strut-tower brace</text>
+        <path class="thin" d="M80 116V134"/><text x="80" y="146" text-anchor="middle">strut tower</text><text x="80" y="159" text-anchor="middle">(top of front</text><text x="80" y="172" text-anchor="middle">suspension)</text>
+        <path class="thin" d="M300 116V134"/><text x="308" y="146" text-anchor="middle">strut top mount</text><text x="308" y="159" text-anchor="middle">(3 studs hold</text><text x="308" y="172" text-anchor="middle">the brace end)</text>
     </svg>`,
-    "sway-bar": `<svg viewBox="0 0 340 190" role="img" aria-label="Front view: the sway bar links the left and right suspension to reduce body lean">
-        <text x="170" y="16" text-anchor="middle">Front view</text>
-        <path class="ln" d="M70 40H270L285 95H55Z"/><text x="170" y="72" text-anchor="middle">body</text>
-        <rect class="tire" x="22" y="95" width="36" height="78" rx="8"/><rect class="tire" x="282" y="95" width="36" height="78" rx="8"/>
-        <path class="ln" d="M58 140L120 132M282 140L220 132"/><text x="72" y="160">lower arm</text>
-        <path class="acc" d="M100 120V150H240V120"/><path class="thin" d="M100 120L100 134M240 120L240 134"/>
-        <text class="lab" x="170" y="168" text-anchor="middle" fill="#38BDF8">sway bar</text>
-        <text x="170" y="182" text-anchor="middle">twists to resist one side dipping in a corner</text>
+    "sway-bar": `<svg viewBox="0 0 380 300" role="img" aria-label="Front view of the front suspension. Each wheel's knuckle is held by a lower control arm to the K-member and by a strut with a coil spring up to the strut tower. The sway bar runs across the car in bushings on the subframe, and an end link at each end connects it to the suspension. In a corner the bar twists and pushes back, reducing body lean.">
+        <text x="190" y="14" text-anchor="middle">Looking at the front suspension from the front</text>
+        <path class="thin" d="M8 252H372"/><text x="190" y="266" text-anchor="middle">road</text>
+        <text x="190" y="284" text-anchor="middle">In a corner the outside wheel pushes up; the bar twists</text><text x="190" y="297" text-anchor="middle">and pushes back on the other side, so the car leans less.</text>
+        <path d="M62 40 Q190 14 318 40 L330 92 H50 Z" fill="none" stroke="var(--text-muted)" stroke-width="1.4" stroke-dasharray="5 4"/>
+        <text x="190" y="62" text-anchor="middle">body (strut towers at the top corners)</text>
+        <rect class="tire" x="14" y="128" width="44" height="122" rx="10"/><rect class="tire" x="322" y="128" width="44" height="122" rx="10"/>
+        <rect class="dim" x="58" y="168" width="16" height="44" rx="3"/><rect class="dim" x="306" y="168" width="16" height="44" rx="3"/>
+        <text x="66" y="230" text-anchor="middle">knuckle</text>
+        <path class="ln" d="M68 168L90 86M312 168L290 86" stroke-width="7" stroke="var(--border-strong)"/>
+        <path class="ln" d="M68 168L90 86M312 168L290 86" stroke-width="2"/>
+        <path class="thin" d="M74 140l14-4 -10 -8 14-4 -10-8 14-4 -10-8 14-4 -10-8 14-4"/>
+        <path class="thin" d="M306 140l-14-4 10 -8 -14-4 10-8 -14-4 10-8 -14-4 10-8 -14-4"/>
+        <circle cx="90" cy="86" r="5" fill="var(--text-soft)"/><circle cx="290" cy="86" r="5" fill="var(--text-soft)"/>
+        <text x="104" y="112">strut (damper</text><text x="104" y="125">+ coil spring)</text>
+        <rect class="dim" x="124" y="212" width="132" height="18" rx="5"/><text x="190" y="225" text-anchor="middle">K-member</text>
+        <path class="ln" d="M72 206L128 220M308 206L252 220"/><text x="80" y="244">lower control arm</text>
+        <path class="acc" d="M98 184H282"/>
+        <path class="acc" d="M98 184L84 178M282 184L296 178"/>
+        <rect x="142" y="178" width="14" height="13" rx="3" fill="var(--bg)" stroke="#38BDF8" stroke-width="1.6"/><rect x="224" y="178" width="14" height="13" rx="3" fill="var(--bg)" stroke="#38BDF8" stroke-width="1.6"/>
+        <path d="M84 178L80 140M296 178L300 140" stroke="#f2c97d" stroke-width="3" fill="none"/>
+        <circle cx="80" cy="140" r="3.5" fill="#f2c97d"/><circle cx="84" cy="178" r="3.5" fill="#f2c97d"/><circle cx="300" cy="140" r="3.5" fill="#f2c97d"/><circle cx="296" cy="178" r="3.5" fill="#f2c97d"/>
+        <text x="314" y="112" fill="#f2c97d">end link</text><path class="thin" d="M320 116L302 150"/>
+        <text class="lab" x="190" y="176" text-anchor="middle" fill="#38BDF8">sway bar</text>
+        <text x="190" y="204" text-anchor="middle">bushing mounts</text>
+        <path class="thin" d="M166 200L154 192M214 200L226 192"/>
     </svg>`,
     "staggered": `<svg viewBox="0 0 340 200" role="img" aria-label="Top view: rear tires are wider than the front tires">
         <text x="170" y="16" text-anchor="middle">Top view (front at top)</text>

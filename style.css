@@ -975,7 +975,7 @@ dialog.glossary-dialog::backdrop {
     display: block;
     width: 100%;
     height: auto;
-    max-height: 240px;
+    max-height: 420px;
 }
 
 .diagram figcaption {
