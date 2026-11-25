@@ -2089,6 +2089,7 @@ async function showPackages(year, trim) {
         const selectedYear = yearSelect.value;
         const entry = data[selectedYear];
         const levels = entry && entry.trims[trimSelect.value];
+        const source = entry && ((entry.trimSources || {})[trimSelect.value] || entry.source);
 
         document.getElementById("packageBody").innerHTML =
             levels
@@ -2105,7 +2106,7 @@ async function showPackages(year, trim) {
                     `).join("")}
                     <p class="source">
                         Source:
-                        <a href="${escapeHtml(entry.source.url)}" target="_blank" rel="noopener noreferrer">${escapeHtml(entry.source.name)}</a>
+                        <a href="${escapeHtml(source.url)}" target="_blank" rel="noopener noreferrer">${escapeHtml(source.name)}</a>
                     </p>
                 `
                 : `<p class="note">The package breakdown for the ${escapeHtml(`${selectedYear} Mustang ${trimSelect.value}`)} hasn't been added yet. It comes from Ford's brochure for that year, and TorqueIntel doesn't guess.</p>`;

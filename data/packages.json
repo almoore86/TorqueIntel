@@ -194,7 +194,143 @@
                         "Reverse Sensing System, spare wheel and tire, floor mats, spoiler delete"
                     ]
                 }
+            ],
+            "Shelby GT350": [
+                {
+                    "name": "Shelby GT350",
+                    "kind": "Trim level",
+                    "note": "From Ford's GT350 launch brochure (July 2015), which describes the launch cars and doesn't name a model year.",
+                    "items": [
+                        "5.2L naturally aspirated V8 with flat-plane crankshaft: 526 hp / 429 lb-ft",
+                        "Lightweight TREMEC 6-speed manual",
+                        "3.73:1 TORSEN limited-slip differential",
+                        "Brembo 6-piston front calipers with 15.5\" two-piece cross-drilled rotors; Brembo 4-piston rear with 14.9\" two-piece rotors",
+                        "Aluminum front bumper beam, aerodynamically optimized GT350 bodywork",
+                        "Dual-mode exhaust",
+                        "19\" Ebony Black wheels (19\" x 10.5\" front / 19\" x 11\" rear) with Michelin Pilot Super Sport tires",
+                        "RECARO cloth seats with Miko suede inserts, manual adjustment"
+                    ]
+                },
+                {
+                    "name": "Track Package",
+                    "kind": "Package",
+                    "note": "",
+                    "items": [
+                        "MagneRide semi-active suspension with selectable drive modes",
+                        "Performance front springs",
+                        "Engine, transmission and differential oil coolers",
+                        "Aluminum front strut-tower brace",
+                        "Raised decklid spoiler"
+                    ]
+                },
+                {
+                    "name": "Technology Package",
+                    "kind": "Package",
+                    "note": "",
+                    "items": [
+                        "MagneRide semi-active suspension with selectable drive modes",
+                        "Voice-activated navigation",
+                        "Heated and cooled front seats, 6-way power driver's seat with power lumbar and 6-way power passenger seat",
+                        "7-speaker audio, SYNC 3 with 8\" screen, SiriusXM",
+                        "Dual-zone climate control, mirror turn signals, garage door opener"
+                    ]
+                },
+                {
+                    "name": "Shelby GT350R",
+                    "kind": "Package",
+                    "note": "All GT350 Track Package content, plus:",
+                    "items": [
+                        "19\" lightweight carbon-fiber wheels (about 60 lb lighter than aluminum) with Michelin Pilot Sport Cup 2 tires",
+                        "Unique chassis tuning",
+                        "Racing-optimized front splitter, carbon-fiber rear wing, wheel locks",
+                        "Deletes rear seats, air conditioning, audio, auxiliary gauges, floor mats, tire inflator kit, SYNC and USB port"
+                    ]
+                },
+                {
+                    "name": "GT350R Electronics Package",
+                    "kind": "Package",
+                    "note": "All GT350R content, plus:",
+                    "items": [
+                        "Voice-activated navigation",
+                        "7-speaker audio, SYNC 3 with 8\" screen, SiriusXM",
+                        "Dual-zone climate control, mirror turn signals, garage door opener",
+                        "Adds back auxiliary gauges, floor mats and tire inflator kit"
+                    ]
+                }
+            ],
+            "Shelby GT350R": [
+                {
+                    "name": "Shelby GT350",
+                    "kind": "Trim level",
+                    "note": "From Ford's GT350 launch brochure (July 2015), which describes the launch cars and doesn't name a model year.",
+                    "items": [
+                        "5.2L naturally aspirated V8 with flat-plane crankshaft: 526 hp / 429 lb-ft",
+                        "Lightweight TREMEC 6-speed manual",
+                        "3.73:1 TORSEN limited-slip differential",
+                        "Brembo 6-piston front calipers with 15.5\" two-piece cross-drilled rotors; Brembo 4-piston rear with 14.9\" two-piece rotors",
+                        "Aluminum front bumper beam, aerodynamically optimized GT350 bodywork",
+                        "Dual-mode exhaust",
+                        "19\" Ebony Black wheels (19\" x 10.5\" front / 19\" x 11\" rear) with Michelin Pilot Super Sport tires",
+                        "RECARO cloth seats with Miko suede inserts, manual adjustment"
+                    ]
+                },
+                {
+                    "name": "Track Package",
+                    "kind": "Package",
+                    "note": "",
+                    "items": [
+                        "MagneRide semi-active suspension with selectable drive modes",
+                        "Performance front springs",
+                        "Engine, transmission and differential oil coolers",
+                        "Aluminum front strut-tower brace",
+                        "Raised decklid spoiler"
+                    ]
+                },
+                {
+                    "name": "Technology Package",
+                    "kind": "Package",
+                    "note": "",
+                    "items": [
+                        "MagneRide semi-active suspension with selectable drive modes",
+                        "Voice-activated navigation",
+                        "Heated and cooled front seats, 6-way power driver's seat with power lumbar and 6-way power passenger seat",
+                        "7-speaker audio, SYNC 3 with 8\" screen, SiriusXM",
+                        "Dual-zone climate control, mirror turn signals, garage door opener"
+                    ]
+                },
+                {
+                    "name": "Shelby GT350R",
+                    "kind": "Package",
+                    "note": "All GT350 Track Package content, plus:",
+                    "items": [
+                        "19\" lightweight carbon-fiber wheels (about 60 lb lighter than aluminum) with Michelin Pilot Sport Cup 2 tires",
+                        "Unique chassis tuning",
+                        "Racing-optimized front splitter, carbon-fiber rear wing, wheel locks",
+                        "Deletes rear seats, air conditioning, audio, auxiliary gauges, floor mats, tire inflator kit, SYNC and USB port"
+                    ]
+                },
+                {
+                    "name": "GT350R Electronics Package",
+                    "kind": "Package",
+                    "note": "All GT350R content, plus:",
+                    "items": [
+                        "Voice-activated navigation",
+                        "7-speaker audio, SYNC 3 with 8\" screen, SiriusXM",
+                        "Dual-zone climate control, mirror turn signals, garage door opener",
+                        "Adds back auxiliary gauges, floor mats and tire inflator kit"
+                    ]
+                }
             ]
+        },
+        "trimSources": {
+            "Shelby GT350": {
+                "name": "Ford Shelby GT350 launch brochure, July 2015 (Ford-hosted)",
+                "url": "https://application-ford-dealerenroll.s3.us-east-2.amazonaws.com/staging/GT350_brochure_071015.pdf"
+            },
+            "Shelby GT350R": {
+                "name": "Ford Shelby GT350 launch brochure, July 2015 (Ford-hosted)",
+                "url": "https://application-ford-dealerenroll.s3.us-east-2.amazonaws.com/staging/GT350_brochure_071015.pdf"
+            }
         }
     },
     "2016": {
@@ -1515,7 +1651,79 @@
                         "RECARO leather-trimmed seats with Green accent stitching"
                     ]
                 }
+            ],
+            "Shelby GT350": [
+                {
+                    "name": "Shelby GT350",
+                    "kind": "Trim level",
+                    "note": "From Ford's 2019 GT350 web page, which lists features rather than every package.",
+                    "items": [
+                        "Hand-assembled 5.2L Ti-VCT V8 with flat-plane crankshaft: 526 hp / 429 lb-ft, 8,250 rpm redline",
+                        "TREMEC 6-speed manual",
+                        "MagneRide Damping System (upgraded for 2019, with recalibrated springs and revised damping)",
+                        "Brembo front and rear calipers with two-piece rotors (15.5\" front, 14.9\" rear)",
+                        "Transmission and differential coolers",
+                        "New-for-2019 spoiler, available Gurney flap, Michelin Pilot Sport Cup 2 tires, revised chassis and ABS tuning",
+                        "RECARO cloth seats with Dark Slate Miko inserts, Shelby shift knob, Shelby aluminum appliqu\u00e9 (new for 2019)",
+                        "Leather and Alcantara flat-bottom steering wheel, Track Apps with line-lock and launch control",
+                        "Integrated Driver Control System, unique chassis number",
+                        "Dual exhaust with electronic valves and quad tips, rear diffuser"
+                    ]
+                },
+                {
+                    "name": "Shelby GT350R",
+                    "kind": "Trim level",
+                    "note": "All GT350 content, plus:",
+                    "items": [
+                        "19\" carbon-fiber wheels with Michelin Pilot Sport Cup 2 tires",
+                        "Carbon-fiber rear wing and large front splitter",
+                        "Unique chassis tuning",
+                        "Rear seat delete",
+                        "New for 2019, standard: rear camera, air conditioning, audio, SYNC 3, auxiliary gauges, tire inflator kit and USB port"
+                    ]
+                }
+            ],
+            "Shelby GT350R": [
+                {
+                    "name": "Shelby GT350",
+                    "kind": "Trim level",
+                    "note": "From Ford's 2019 GT350 web page, which lists features rather than every package.",
+                    "items": [
+                        "Hand-assembled 5.2L Ti-VCT V8 with flat-plane crankshaft: 526 hp / 429 lb-ft, 8,250 rpm redline",
+                        "TREMEC 6-speed manual",
+                        "MagneRide Damping System (upgraded for 2019, with recalibrated springs and revised damping)",
+                        "Brembo front and rear calipers with two-piece rotors (15.5\" front, 14.9\" rear)",
+                        "Transmission and differential coolers",
+                        "New-for-2019 spoiler, available Gurney flap, Michelin Pilot Sport Cup 2 tires, revised chassis and ABS tuning",
+                        "RECARO cloth seats with Dark Slate Miko inserts, Shelby shift knob, Shelby aluminum appliqu\u00e9 (new for 2019)",
+                        "Leather and Alcantara flat-bottom steering wheel, Track Apps with line-lock and launch control",
+                        "Integrated Driver Control System, unique chassis number",
+                        "Dual exhaust with electronic valves and quad tips, rear diffuser"
+                    ]
+                },
+                {
+                    "name": "Shelby GT350R",
+                    "kind": "Trim level",
+                    "note": "All GT350 content, plus:",
+                    "items": [
+                        "19\" carbon-fiber wheels with Michelin Pilot Sport Cup 2 tires",
+                        "Carbon-fiber rear wing and large front splitter",
+                        "Unique chassis tuning",
+                        "Rear seat delete",
+                        "New for 2019, standard: rear camera, air conditioning, audio, SYNC 3, auxiliary gauges, tire inflator kit and USB port"
+                    ]
+                }
             ]
+        },
+        "trimSources": {
+            "Shelby GT350": {
+                "name": "Ford.com: 2019 Mustang Shelby GT350 model page",
+                "url": "https://www.ford.com/performance/gt350/2019/"
+            },
+            "Shelby GT350R": {
+                "name": "Ford.com: 2019 Mustang Shelby GT350 model page",
+                "url": "https://www.ford.com/performance/gt350/2019/"
+            }
         }
     },
     "2020": {
