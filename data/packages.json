@@ -1,0 +1,2617 @@
+{
+    "2015": {
+        "source": {
+            "name": "Ford 2015 Mustang brochure (copy hosted at shnack.com)",
+            "url": "https://www.shnack.com/docs/2015_Mustang_Brochure.pdf"
+        },
+        "trims": {
+            "V6": [
+                {
+                    "name": "V6 (Equipment Group 050A)",
+                    "kind": "Trim level",
+                    "note": "",
+                    "items": [
+                        "3.7L Ti-VCT V6",
+                        "6-speed manual transmission",
+                        "3.15:1 limited-slip rear differential",
+                        "4-way manual driver's seat with height adjustment, 2-way manual passenger seat, cloth seats",
+                        "SYNC with 4.2\" screen, 6-speaker audio, auxiliary input",
+                        "Single-zone manual air conditioning, Track Apps in the instrument cluster",
+                        "17\" Sparkle Silver aluminum wheels with P235/55R17 all-season tires",
+                        "HID headlamps, LED taillamps with sequential turn signals, Intelligent Access with push-button start",
+                        "Dual bright slash-cut exhaust tips"
+                    ]
+                },
+                {
+                    "name": "Equipment Group 051A",
+                    "kind": "Equipment group",
+                    "note": "V6",
+                    "items": [
+                        "Blade-style decklid spoiler",
+                        "6-way power driver's seat with power lumbar",
+                        "LED fog lamps",
+                        "18\" Foundry Black aluminum wheels"
+                    ]
+                },
+                {
+                    "name": "Options",
+                    "kind": "Options",
+                    "note": "",
+                    "items": [
+                        "3.55:1 limited-slip rear differential",
+                        "6-speed SelectShift automatic with paddle shifters and Remote Start",
+                        "Enhanced Security Package: electronic-locking center console, Active Anti-Theft System, electronic steering column lock and wheel locks",
+                        "Reverse Sensing System, spare wheel and tire, all-weather floor mats, spoiler delete (051A only)"
+                    ]
+                }
+            ],
+            "EcoBoost": [
+                {
+                    "name": "EcoBoost (Equipment Group 100A)",
+                    "kind": "Trim level",
+                    "note": "Includes select V6 features, plus:",
+                    "items": [
+                        "2.3L EcoBoost I-4",
+                        "3.31:1 limited-slip rear differential",
+                        "Active noise cancellation",
+                        "6-way power driver's seat with power lumbar, 6-way power passenger seat",
+                        "Diamond-mesh aluminum dash panel",
+                        "Blade-style decklid spoiler, LED fog lamps"
+                    ]
+                },
+                {
+                    "name": "EcoBoost Premium (Equipment Group 200A)",
+                    "kind": "Trim level",
+                    "note": "Includes select EcoBoost features, plus:",
+                    "items": [
+                        "Selectable Drive Modes (Normal, Sport+, Track, Snow/Wet)",
+                        "Leather-trimmed, heated and cooled front seats",
+                        "SYNC with MyFord Touch and 8\" touchscreen, 9 speakers with amplifier, SiriusXM",
+                        "Ambient lighting, dual-zone climate control, aluminum pedals",
+                        "Satin Brush aluminum dash panel, premium door trim, illuminated door-sill plates",
+                        "18\" Magnetic machined aluminum wheels with all-season tires",
+                        "Heated mirrors with turn signals, pony projection lamps, rear diffuser, garage door opener"
+                    ]
+                },
+                {
+                    "name": "Equipment Group 201A",
+                    "kind": "Equipment group",
+                    "note": "EcoBoost Premium",
+                    "items": [
+                        "Shaker Pro audio with 12 speakers and HD Radio",
+                        "Driver's seat and mirror memory",
+                        "BLIS (Blind Spot Information System) with cross-traffic alert"
+                    ]
+                },
+                {
+                    "name": "EcoBoost Performance Package",
+                    "kind": "Package",
+                    "note": "Fastback only",
+                    "items": [
+                        "front air splitter, larger radiator, upsized rear sway bar, heavy-duty front springs, unique chassis tuning, larger brake rotors with 4-piston calipers, 19\" Ebony Black wheels with 255/40R19 summer-only tires, unique steering, ABS and stability control tuning, Gauge Pack (oil pressure and boost), spoiler delete, 3.55:1 limited-slip differential"
+                    ]
+                },
+                {
+                    "name": "Wheel and Stripe Package",
+                    "kind": "Package",
+                    "note": "",
+                    "items": [
+                        "Side stripes",
+                        "19\" low-gloss Black machined aluminum wheels with 255/40R19 all-season tires"
+                    ]
+                },
+                {
+                    "name": "50 Years Appearance Package",
+                    "kind": "Package",
+                    "note": "EcoBoost Premium",
+                    "items": [
+                        "50 Years grille, 19\" Luster Nickel wheels with all-season tires, rear gas cap badge, Axle Spin aluminum dash panel, unique seat and door inserts"
+                    ]
+                },
+                {
+                    "name": "Options",
+                    "kind": "Options",
+                    "note": "",
+                    "items": [
+                        "6-speed SelectShift automatic with paddle shifters, 3.15:1 limited-slip and Remote Start",
+                        "18\" Foundry Black wheels; 20\" Foundry Black wheels with summer-only tires (Premium)",
+                        "Adaptive cruise control and collision warning with brake support, rain-sensing wipers (Premium)",
+                        "Premier Trim With Color Accent Group (Premium)",
+                        "RECARO sport cloth seats (EcoBoost) or leather RECARO seats (Premium, fastback)",
+                        "Voice-activated navigation (Premium)",
+                        "Enhanced Security Package: electronic-locking center console, Active Anti-Theft System, electronic steering column lock and wheel locks",
+                        "Reverse Sensing System, spare wheel and tire, floor mats, spoiler delete"
+                    ]
+                }
+            ],
+            "GT": [
+                {
+                    "name": "GT (Equipment Group 300A)",
+                    "kind": "Trim level",
+                    "note": "Includes select EcoBoost features, plus:",
+                    "items": [
+                        "5.0L Ti-VCT V8",
+                        "3.31:1 limited-slip rear differential",
+                        "Electronic line-lock (track use only), launch control (manual only)",
+                        "Engine oil cooler",
+                        "Larger brake rotors with 4-piston calipers",
+                        "18\" Magnetic machined aluminum wheels",
+                        "Hood-vented air extractors, raised blade-style spoiler, dual bright rolled exhaust tips"
+                    ]
+                },
+                {
+                    "name": "GT Premium (Equipment Group 400A)",
+                    "kind": "Trim level",
+                    "note": "Includes select GT features, plus:",
+                    "items": [
+                        "Selectable Drive Modes (Normal, Sport+, Track, Snow/Wet)",
+                        "Leather-trimmed, heated and cooled front seats",
+                        "SYNC with MyFord Touch and 8\" touchscreen, 9 speakers with amplifier, SiriusXM",
+                        "Ambient lighting, dual-zone climate control, aluminum pedals, leather-wrapped parking brake handle",
+                        "Satin Brush aluminum dash panel, premium door trim, illuminated door-sill plates",
+                        "Heated mirrors with turn signals, pony projection lamps, rear diffuser, garage door opener"
+                    ]
+                },
+                {
+                    "name": "Equipment Group 401A",
+                    "kind": "Equipment group",
+                    "note": "GT Premium",
+                    "items": [
+                        "Shaker Pro audio with 12 speakers and HD Radio",
+                        "Driver's seat and mirror memory",
+                        "BLIS with cross-traffic alert"
+                    ]
+                },
+                {
+                    "name": "GT Performance Package",
+                    "kind": "Package",
+                    "note": "Fastback manual only",
+                    "items": [
+                        "Front air splitter, strut-tower brace, larger radiator, upsized rear sway bar, heavy-duty front springs, unique chassis tuning, K-member brace, Brembo 6-piston front calipers, 19\" x 9\" front and 19\" x 9.5\" rear Ebony Black wheels with summer-only tires, unique steering, ABS and stability control tuning, Gauge Pack (oil pressure and vacuum), spoiler delete, 3.73:1 TORSEN differential (manual only)"
+                    ]
+                },
+                {
+                    "name": "50 Years Appearance Package",
+                    "kind": "Package",
+                    "note": "GT Premium",
+                    "items": [
+                        "50 Years grille, 19\" Luster Nickel wheels with all-season tires, rear gas cap badge, Axle Spin aluminum dash panel, unique seat and door inserts"
+                    ]
+                },
+                {
+                    "name": "Options",
+                    "kind": "Options",
+                    "note": "",
+                    "items": [
+                        "3.55:1 limited-slip rear differential",
+                        "6-speed SelectShift automatic with paddle shifters, 3.15:1 limited-slip and Remote Start",
+                        "18\" Foundry Black wheels; 19\" Dark Stainless or 20\" Foundry Black wheels (Premium)",
+                        "Adaptive cruise control and collision warning with brake support, rain-sensing wipers (Premium)",
+                        "Premier Trim With Color Accent Group (Premium)",
+                        "RECARO sport cloth seats (GT) or leather RECARO seats (Premium, fastback)",
+                        "Voice-activated navigation (Premium)",
+                        "Enhanced Security Package: electronic-locking center console, Active Anti-Theft System, electronic steering column lock and wheel locks",
+                        "Reverse Sensing System, spare wheel and tire, floor mats, spoiler delete"
+                    ]
+                }
+            ]
+        }
+    },
+    "2016": {
+        "source": {
+            "name": "Ford 2016 Mustang brochure (copy hosted at mustangspecs.com)",
+            "url": "https://www.mustangspecs.com/wp-content/uploads/2020/05/2016-Ford-Mustang-Sales-Brochures.pdf"
+        },
+        "trims": {
+            "V6": [
+                {
+                    "name": "V6 (Equipment Group 050A)",
+                    "kind": "Trim level",
+                    "note": "",
+                    "items": [
+                        "3.7L Ti-VCT V6",
+                        "6-speed manual transmission",
+                        "3.15:1 limited-slip rear differential",
+                        "4-way manual driver's seat with height adjustment, 2-way manual passenger seat, cloth seats",
+                        "SYNC with 4.2\" screen, 6-speaker audio",
+                        "Single-zone manual air conditioning, TrackApps in the instrument cluster",
+                        "17\" Sparkle Silver aluminum wheels with P235/55R17 all-season tires",
+                        "HID headlamps, LED taillamps with sequential turn signals, Intelligent Access with push-button start"
+                    ]
+                },
+                {
+                    "name": "Equipment Group 051A",
+                    "kind": "Equipment group",
+                    "note": "V6",
+                    "items": [
+                        "Blade-style decklid spoiler",
+                        "6-way power driver's seat with power lumbar",
+                        "Machined aluminum wheels"
+                    ]
+                },
+                {
+                    "name": "Options",
+                    "kind": "Options",
+                    "note": "",
+                    "items": [
+                        "3.55:1 limited-slip rear differential (requires 051A)",
+                        "6-speed SelectShift automatic with paddle shifters and Remote Start",
+                        "Enhanced Security Package: electronic-locking center console, Active Anti-Theft System, electronic steering column lock and wheel locks (standard on convertible)",
+                        "Over-the-top racing stripe (fastback)",
+                        "Reverse Sensing System, spare wheel and tire, floor mats, spoiler delete (requires 051A)"
+                    ]
+                }
+            ],
+            "EcoBoost": [
+                {
+                    "name": "EcoBoost (Equipment Group 100A)",
+                    "kind": "Trim level",
+                    "note": "Includes select V6 features, plus:",
+                    "items": [
+                        "2.3L EcoBoost I-4",
+                        "3.31:1 limited-slip rear differential",
+                        "Active noise cancellation",
+                        "6-way power driver's seat with power lumbar, 6-way power passenger seat",
+                        "Diamond-mesh aluminum dash panel",
+                        "18\" Magnetic machined aluminum wheels with all-season tires",
+                        "Blade-style decklid spoiler, LED fog lamps"
+                    ]
+                },
+                {
+                    "name": "EcoBoost Premium (Equipment Group 200A)",
+                    "kind": "Trim level",
+                    "note": "Includes select EcoBoost features, plus:",
+                    "items": [
+                        "Selectable Drive Modes (Normal, Sport+, Track, Snow/Wet)",
+                        "Leather-trimmed, heated and cooled front seats",
+                        "SYNC 3 with 8\" touchscreen, 9 speakers with amplifier, SiriusXM",
+                        "Ambient lighting, dual-zone climate control, aluminum pedals",
+                        "Satin Brush aluminum dash panel, premium door trim, illuminated door-sill plates",
+                        "Heated mirrors with turn signals, pony projection lamps, rear diffuser, garage door opener"
+                    ]
+                },
+                {
+                    "name": "Equipment Group 201A",
+                    "kind": "Equipment group",
+                    "note": "EcoBoost Premium",
+                    "items": [
+                        "Shaker Pro audio with 12 speakers and HD Radio",
+                        "Driver's seat and mirror memory",
+                        "BLIS with cross-traffic alert"
+                    ]
+                },
+                {
+                    "name": "EcoBoost Performance Package",
+                    "kind": "Package",
+                    "note": "Fastback only on EcoBoost",
+                    "items": [
+                        "Front air splitter, larger radiator, upsized rear sway bar, heavy-duty front springs, unique chassis tuning",
+                        "Larger brake rotors with 4-piston calipers",
+                        "19\" Ebony Black wheels with 255/40R19 summer-only tires",
+                        "Unique steering, ABS and stability control tuning",
+                        "Gauge Pack (oil pressure and boost), Engine Turn dash panel, spoiler delete",
+                        "3.55:1 limited-slip rear differential"
+                    ]
+                },
+                {
+                    "name": "Appearance packages",
+                    "kind": "Packages",
+                    "note": "",
+                    "items": [
+                        "Interior & Wheel Package: Metal Gray contrast stitching on seats and door panels, embroidered Pony logo seats and floor mats, 19\" low-gloss Black machined aluminum wheels (EcoBoost)",
+                        "Wheel & Stripe Package: 19\" low-gloss Black machined aluminum wheels and side stripes",
+                        "Pony Package (EcoBoost Premium, late availability): 19\" polished aluminum wheels, Pony grilles, side stripes, bright beltline and window moldings (fastback), embroidered floor mats"
+                    ]
+                },
+                {
+                    "name": "Options",
+                    "kind": "Options",
+                    "note": "",
+                    "items": [
+                        "6-speed SelectShift automatic with paddle shifters, 3.15:1 limited-slip and Remote Start",
+                        "18\" Foundry Black wheels; 20\" Foundry Black wheels with summer-only tires (Premium)",
+                        "Adaptive cruise control and collision warning with brake support, rain-sensing wipers (Premium)",
+                        "Premier Trim With Color Accent Group (Premium)",
+                        "RECARO sport cloth seats (EcoBoost) or leather RECARO seats (Premium)",
+                        "Black-painted roof, over-the-top racing stripe",
+                        "Voice-activated navigation with pinch-to-zoom (Premium)",
+                        "Enhanced Security Package: electronic-locking center console, Active Anti-Theft System, electronic steering column lock and wheel locks (standard on convertible)",
+                        "Reverse Sensing System, spare wheel and tire, floor mats, spoiler delete"
+                    ]
+                }
+            ],
+            "GT": [
+                {
+                    "name": "GT (Equipment Group 300A)",
+                    "kind": "Trim level",
+                    "note": "Includes select EcoBoost features, plus:",
+                    "items": [
+                        "5.0L Ti-VCT V8",
+                        "3.31:1 limited-slip rear differential",
+                        "Electronic line-lock (track use only), launch control (manual only)",
+                        "Engine oil cooler",
+                        "Larger brake rotors with 4-piston calipers",
+                        "18\" Magnetic machined aluminum wheels",
+                        "Hood-vented air extractors with secondary turn signals, raised blade-style spoiler, dual bright rolled exhaust tips"
+                    ]
+                },
+                {
+                    "name": "GT Premium (Equipment Group 400A)",
+                    "kind": "Trim level",
+                    "note": "Includes select GT features, plus:",
+                    "items": [
+                        "Selectable Drive Modes (Normal, Sport+, Track, Snow/Wet)",
+                        "Leather-trimmed, heated and cooled front seats",
+                        "SYNC 3 with 8\" touchscreen, 9 speakers with amplifier, SiriusXM",
+                        "Ambient lighting, dual-zone climate control, aluminum pedals",
+                        "Satin Brush aluminum dash panel, premium door trim, illuminated door-sill plates",
+                        "Heated mirrors with turn signals, pony projection lamps, rear diffuser, garage door opener"
+                    ]
+                },
+                {
+                    "name": "Equipment Group 401A",
+                    "kind": "Equipment group",
+                    "note": "GT Premium",
+                    "items": [
+                        "Shaker Pro audio with 12 speakers and HD Radio",
+                        "Driver's seat and mirror memory",
+                        "BLIS with cross-traffic alert"
+                    ]
+                },
+                {
+                    "name": "GT Performance Package",
+                    "kind": "Package",
+                    "note": "Fastback, manual only",
+                    "items": [
+                        "Front air splitter, strut-tower brace, larger radiator, upsized rear sway bar, heavy-duty front springs, K-member brace, unique chassis tuning",
+                        "Brembo 6-piston front calipers",
+                        "19\" x 9\" front / 19\" x 9.5\" rear Ebony Black wheels with 255/40R19 and 275/40R19 summer-only tires",
+                        "Unique steering, ABS and stability control tuning",
+                        "Gauge Pack (oil pressure and vacuum), Engine Turn dash panel, spoiler delete",
+                        "3.73:1 TORSEN helical gear differential"
+                    ]
+                },
+                {
+                    "name": "California Special",
+                    "kind": "Package",
+                    "note": "GT Premium",
+                    "items": [
+                        "19\" machined aluminum wheels, unique front air splitter, black grilles, hood and side stripes",
+                        "Strut tower brace, black raised spoiler, mirrors and hood vents, faux gas cap, dark taillamp bezels",
+                        "Leather seats with Miko sueded inserts and red stitching, unique dash finish and door inserts, embroidered floor mats"
+                    ]
+                },
+                {
+                    "name": "Appearance packages",
+                    "kind": "Packages",
+                    "note": "",
+                    "items": [
+                        "Black Accent Package: Black-painted wheels and badging, dark taillamp accents, Black raised spoiler",
+                        "Interior & Wheel Package: Metal Gray contrast stitching on seats and door panels, embroidered Pony logo seats and floor mats, 19\" low-gloss Black machined aluminum wheels (GT)"
+                    ]
+                },
+                {
+                    "name": "Options",
+                    "kind": "Options",
+                    "note": "",
+                    "items": [
+                        "3.55:1 limited-slip rear differential",
+                        "6-speed SelectShift automatic with paddle shifters, 3.15:1 limited-slip and Remote Start",
+                        "Optional wheels: 18\" Foundry Black, 19\" Dark Stainless, 20\" Foundry Black (Premium), Luster Nickel GT Performance Package wheels",
+                        "Adaptive cruise control and collision warning with brake support, rain-sensing wipers (Premium)",
+                        "Premier Trim With Color Accent Group (Premium)",
+                        "RECARO sport cloth or leather seats",
+                        "Black-painted roof, over-the-top racing stripe, full vehicle cover (California Special)",
+                        "Voice-activated navigation with pinch-to-zoom (Premium)",
+                        "Enhanced Security Package: electronic-locking center console, Active Anti-Theft System, electronic steering column lock and wheel locks (standard on convertible)",
+                        "Reverse Sensing System, spare wheel and tire, floor mats, spoiler delete"
+                    ]
+                }
+            ],
+            "Shelby GT350": [
+                {
+                    "name": "Shelby GT350 (Equipment Group 900A)",
+                    "kind": "Trim level",
+                    "note": "Fastback only. Includes select GT Premium features, plus:",
+                    "items": [
+                        "5.2L Ti-VCT V8 with 180\u00b0 flat-plane crankshaft",
+                        "TREMEC TR-3160 6-speed manual",
+                        "3.73:1 TORSEN helical gear differential",
+                        "Brembo 6-piston front and 4-piston rear calipers, 15.5\" front and 14.9\" rear cross-drilled two-piece rotors",
+                        "Aluminum front bumper beam",
+                        "RECARO sport Carbon Weave cloth seats with Miko inserts (4-way manual driver, 2-way passenger)",
+                        "Leather and Alcantara flat-bottom steering wheel, unique instrument cluster",
+                        "19\" x 10.5\" front / 19\" x 11\" rear Ebony Black wheels with Michelin Pilot Super Sport summer-only tires",
+                        "Aluminum hood with center vent, front fender vents, carbon-fiber grille opening, rear diffuser",
+                        "Dual exhaust with quad tips and active valves"
+                    ]
+                },
+                {
+                    "name": "R Package (Equipment Group 920A): makes it a GT350R",
+                    "kind": "Equipment group",
+                    "note": "",
+                    "items": [
+                        "MagneRide Damping System, Integrated Driver Control System",
+                        "Heavy-duty front springs; engine oil, transmission and differential coolers",
+                        "19\" x 11\" front / 19\" x 11.5\" rear carbon-fiber wheels with Michelin Pilot Sport Cup 2 summer-only tires",
+                        "Unique chassis tuning, front air splitter, strut-tower brace, carbon-fiber rear wing, red accent stitching, wheel locks",
+                        "Deletes air conditioning, audio, rear seat, rear camera, tire inflator kit, floor mats and SYNC"
+                    ]
+                },
+                {
+                    "name": "Track Package",
+                    "kind": "Package",
+                    "note": "Not with the R Package or Technology Package",
+                    "items": [
+                        "MagneRide Damping System, Integrated Driver Control System",
+                        "Heavy-duty front springs",
+                        "Engine oil, transmission and differential coolers",
+                        "Raised rear spoiler, aluminum strut tower brace"
+                    ]
+                },
+                {
+                    "name": "Technology Package",
+                    "kind": "Package",
+                    "note": "Not with the R Package or Track Package",
+                    "items": [
+                        "Everything in the Electronics Package",
+                        "MagneRide Damping System, Integrated Driver Control System",
+                        "Leather seats with Miko inserts",
+                        "6-way power, heated and cooled front seats"
+                    ]
+                },
+                {
+                    "name": "Electronics Package",
+                    "kind": "Package",
+                    "note": "Requires the R Package",
+                    "items": [
+                        "7-speaker audio, SYNC 3 with 8\" touchscreen, voice-activated navigation, SiriusXM",
+                        "Dual-zone climate control, garage door opener, mirror turn signals",
+                        "Floor mats, auxiliary gauges, tire inflator kit"
+                    ]
+                },
+                {
+                    "name": "Options",
+                    "kind": "Options",
+                    "note": "",
+                    "items": [
+                        "Black-painted roof",
+                        "Over-the-top racing stripe"
+                    ]
+                }
+            ],
+            "Shelby GT350R": [
+                {
+                    "name": "Shelby GT350 (Equipment Group 900A)",
+                    "kind": "Trim level",
+                    "note": "Fastback only. Includes select GT Premium features, plus:",
+                    "items": [
+                        "5.2L Ti-VCT V8 with 180\u00b0 flat-plane crankshaft",
+                        "TREMEC TR-3160 6-speed manual",
+                        "3.73:1 TORSEN helical gear differential",
+                        "Brembo 6-piston front and 4-piston rear calipers, 15.5\" front and 14.9\" rear cross-drilled two-piece rotors",
+                        "Aluminum front bumper beam",
+                        "RECARO sport Carbon Weave cloth seats with Miko inserts (4-way manual driver, 2-way passenger)",
+                        "Leather and Alcantara flat-bottom steering wheel, unique instrument cluster",
+                        "19\" x 10.5\" front / 19\" x 11\" rear Ebony Black wheels with Michelin Pilot Super Sport summer-only tires",
+                        "Aluminum hood with center vent, front fender vents, carbon-fiber grille opening, rear diffuser",
+                        "Dual exhaust with quad tips and active valves"
+                    ]
+                },
+                {
+                    "name": "R Package (Equipment Group 920A): makes it a GT350R",
+                    "kind": "Equipment group",
+                    "note": "",
+                    "items": [
+                        "MagneRide Damping System, Integrated Driver Control System",
+                        "Heavy-duty front springs; engine oil, transmission and differential coolers",
+                        "19\" x 11\" front / 19\" x 11.5\" rear carbon-fiber wheels with Michelin Pilot Sport Cup 2 summer-only tires",
+                        "Unique chassis tuning, front air splitter, strut-tower brace, carbon-fiber rear wing, red accent stitching, wheel locks",
+                        "Deletes air conditioning, audio, rear seat, rear camera, tire inflator kit, floor mats and SYNC"
+                    ]
+                },
+                {
+                    "name": "Track Package",
+                    "kind": "Package",
+                    "note": "Not with the R Package or Technology Package",
+                    "items": [
+                        "MagneRide Damping System, Integrated Driver Control System",
+                        "Heavy-duty front springs",
+                        "Engine oil, transmission and differential coolers",
+                        "Raised rear spoiler, aluminum strut tower brace"
+                    ]
+                },
+                {
+                    "name": "Technology Package",
+                    "kind": "Package",
+                    "note": "Not with the R Package or Track Package",
+                    "items": [
+                        "Everything in the Electronics Package",
+                        "MagneRide Damping System, Integrated Driver Control System",
+                        "Leather seats with Miko inserts",
+                        "6-way power, heated and cooled front seats"
+                    ]
+                },
+                {
+                    "name": "Electronics Package",
+                    "kind": "Package",
+                    "note": "Requires the R Package",
+                    "items": [
+                        "7-speaker audio, SYNC 3 with 8\" touchscreen, voice-activated navigation, SiriusXM",
+                        "Dual-zone climate control, garage door opener, mirror turn signals",
+                        "Floor mats, auxiliary gauges, tire inflator kit"
+                    ]
+                },
+                {
+                    "name": "Options",
+                    "kind": "Options",
+                    "note": "",
+                    "items": [
+                        "Black-painted roof",
+                        "Over-the-top racing stripe"
+                    ]
+                }
+            ]
+        }
+    },
+    "2017": {
+        "source": {
+            "name": "Ford 2017 Mustang brochure (copy hosted at billswebspace.com)",
+            "url": "https://billswebspace.com/2017MustangBrochure.pdf"
+        },
+        "trims": {
+            "V6": [
+                {
+                    "name": "V6",
+                    "kind": "Trim level",
+                    "note": "",
+                    "items": [
+                        "3.7L Ti-VCT V6",
+                        "6-speed manual transmission",
+                        "3.15 limited-slip rear differential",
+                        "Brakes: 12.6\" vented discs with 2-piston front calipers",
+                        "4-way manual driver's seat, 2-way manual passenger seat, cloth trim",
+                        "SYNC with 4.2\" screen, 6-speaker audio",
+                        "Single-zone manual air conditioning, Carbon Zag instrument panel trim",
+                        "Leather-wrapped steering wheel, dual bright slash-cut exhaust tips"
+                    ]
+                },
+                {
+                    "name": "Equipment Group 051A",
+                    "kind": "Equipment group",
+                    "note": "Convertible only",
+                    "items": [
+                        "Blade-style decklid spoiler",
+                        "6-way power driver's seat with power lumbar",
+                        "LED fog lamps",
+                        "18\" Foundry Black machined aluminum wheels"
+                    ]
+                },
+                {
+                    "name": "Options",
+                    "kind": "Options",
+                    "note": "",
+                    "items": [
+                        "6-speed SelectShift automatic with paddle shifters and Remote Start",
+                        "3.55 limited-slip rear differential",
+                        "Enhanced Security Package: electronic-locking center console, Active Anti-Theft System, electronic steering column lock and wheel locks (standard on convertible)",
+                        "Over-the-top racing stripe",
+                        "Reverse Sensing System, spare wheel and tire, all-weather floor mats, spoiler delete"
+                    ]
+                }
+            ],
+            "EcoBoost": [
+                {
+                    "name": "EcoBoost",
+                    "kind": "Trim level",
+                    "note": "",
+                    "items": [
+                        "2.3L EcoBoost I-4",
+                        "6-speed manual transmission",
+                        "3.31 limited-slip rear differential",
+                        "Active noise control",
+                        "Brakes: 12.6\" vented discs with 2-piston front calipers",
+                        "6-way power driver's seat with power lumbar, 6-way power passenger seat, cloth trim",
+                        "SYNC with 4.2\" screen, 6-speaker audio, single-zone manual air conditioning",
+                        "Diamond-mesh aluminum instrument panel trim",
+                        "LED fog lamps, blade-style decklid spoiler, dual bright slash-cut exhaust tips"
+                    ]
+                },
+                {
+                    "name": "EcoBoost Premium",
+                    "kind": "Trim level",
+                    "note": "",
+                    "items": [
+                        "Selectable Drive Modes (Normal, Sport+, Track, Snow/Wet)",
+                        "Leather-trimmed, heated and cooled front seats",
+                        "SYNC 3 with 8\" touchscreen, 9 speakers with amplifier, SiriusXM",
+                        "Ambient lighting, dual-zone climate control, aluminum pedals",
+                        "Satin Brush aluminum trim, premium door inserts, illuminated door-sill plates",
+                        "Heated mirrors with turn signals, pony projection lamps, rear diffuser, garage door opener"
+                    ]
+                },
+                {
+                    "name": "Equipment Group 201A",
+                    "kind": "Equipment group",
+                    "note": "EcoBoost Premium",
+                    "items": [
+                        "Shaker Pro audio with 12 speakers and HD Radio, driver's seat and mirror memory, ambient lighting, BLIS with cross-traffic alert"
+                    ]
+                },
+                {
+                    "name": "EcoBoost Performance Package",
+                    "kind": "Package",
+                    "note": "",
+                    "items": [
+                        "Front air splitter, larger radiator, upsized rear sway bar, heavy-duty front springs, unique chassis tuning",
+                        "Larger brake rotors with 4-piston front calipers",
+                        "19\" Ebony Black wheels with 255/40R19 summer-only tires",
+                        "Unique steering, ABS and stability control tuning",
+                        "Gauge Pack (oil pressure and boost), Engine Turn aluminum trim, spoiler delete",
+                        "3.55:1 limited-slip rear differential"
+                    ]
+                },
+                {
+                    "name": "Appearance packages",
+                    "kind": "Packages",
+                    "note": "",
+                    "items": [
+                        "Interior & Wheel Package: Ebony interior with Metal Gray contrast stitching, embroidered Pony logo on seats and floor mats, 19\" low-gloss Black machined aluminum wheels (EcoBoost)",
+                        "Pony Package (EcoBoost Premium): 19\" polished wheels, Pony grilles, side stripes, bright beltline and window moldings (fastback), embroidered floor mats",
+                        "Wheel & Stripe Package: 19\" low-gloss Black machined aluminum wheels and side stripes",
+                        "Premier Trim With Color Accent Group: Ebony interior with color-accented seats, unique door-trim panels and soft upper-door trim (EcoBoost Premium)"
+                    ]
+                },
+                {
+                    "name": "Options",
+                    "kind": "Options",
+                    "note": "",
+                    "items": [
+                        "6-speed SelectShift automatic with paddle shifters, 3.15 limited-slip and Remote Start",
+                        "Adaptive cruise control and collision warning with brake support, rain-sensing wipers (Premium)",
+                        "RECARO sport cloth seats (EcoBoost) or leather RECARO seats (Premium)",
+                        "Voice-activated navigation (Premium)",
+                        "20\" wheels with summer-only tires (Premium)",
+                        "Enhanced Security Package: electronic-locking center console, Active Anti-Theft System, electronic steering column lock and wheel locks (standard on convertible)",
+                        "Black-painted roof, over-the-top racing stripe",
+                        "Reverse Sensing System, spare wheel and tire, floor mats, spoiler delete"
+                    ]
+                }
+            ],
+            "GT": [
+                {
+                    "name": "GT",
+                    "kind": "Trim level",
+                    "note": "",
+                    "items": [
+                        "5.0L Ti-VCT V8",
+                        "6-speed manual transmission",
+                        "3.31 limited-slip rear differential",
+                        "Brakes: larger rotors with 4-piston front calipers",
+                        "Electronic line-lock (track use only), launch control (manual only)",
+                        "Engine oil cooler",
+                        "6-way power front seats, cloth trim",
+                        "SYNC with 4.2\" screen, 6-speaker audio, single-zone manual air conditioning",
+                        "Hood-vented air extractors, raised blade-style spoiler (fastback), dual bright rolled and polished exhaust tips, LED fog lamps"
+                    ]
+                },
+                {
+                    "name": "GT Premium",
+                    "kind": "Trim level",
+                    "note": "",
+                    "items": [
+                        "Selectable Drive Modes (Normal, Sport+, Track, Snow/Wet)",
+                        "Leather-trimmed, heated and cooled front seats",
+                        "SYNC 3 with 8\" touchscreen, 9 speakers with amplifier, SiriusXM",
+                        "Ambient lighting, dual-zone climate control, aluminum pedals",
+                        "Satin Brush aluminum trim, premium door inserts, illuminated door-sill plates",
+                        "Heated mirrors with turn signals, pony projection lamps, rear diffuser, garage door opener"
+                    ]
+                },
+                {
+                    "name": "Equipment Group 401A",
+                    "kind": "Equipment group",
+                    "note": "GT Premium",
+                    "items": [
+                        "Shaker Pro audio with 12 speakers and HD Radio, driver's seat and mirror memory, ambient lighting, BLIS with cross-traffic alert"
+                    ]
+                },
+                {
+                    "name": "GT Performance Package",
+                    "kind": "Package",
+                    "note": "",
+                    "items": [
+                        "Front air splitter, strut-tower brace, larger radiator, upsized rear sway bar, heavy-duty front springs, K-member brace, unique chassis tuning",
+                        "Brembo 6-piston front calipers",
+                        "19\" x 9\" front / 19\" x 9.5\" rear Ebony Black wheels with 255/40R19 and 275/40R19 summer-only tires",
+                        "Unique steering, ABS and stability control tuning",
+                        "Gauge Pack (oil pressure and vacuum), Engine Turn aluminum trim, spoiler delete",
+                        "3.73:1 TORSEN helical gear differential"
+                    ]
+                },
+                {
+                    "name": "California Special",
+                    "kind": "Package",
+                    "note": "GT Premium",
+                    "items": [
+                        "19\" Ebony Black machined wheels, unique front air splitter, black grilles, hood and side stripes",
+                        "Strut tower brace, black raised spoiler, mirrors and hood vents, faux gas cap, dark taillamp bezels",
+                        "Leather seats with Miko sueded inserts and red stitching, Diamond Plate aluminum trim, red-stitched floor mats"
+                    ]
+                },
+                {
+                    "name": "Appearance packages",
+                    "kind": "Packages",
+                    "note": "",
+                    "items": [
+                        "Black Accent Package: 19\" Ebony Black wheels, Black badging, dark taillamp accents, Black raised spoiler",
+                        "Interior & Wheel Package: Ebony interior with Metal Gray contrast stitching, embroidered Pony logo on seats and floor mats, 19\" low-gloss Black machined aluminum wheels (GT)",
+                        "Premier Trim With Color Accent Group: Ebony interior with color-accented seats, unique door-trim panels and soft upper-door trim (GT Premium)"
+                    ]
+                },
+                {
+                    "name": "Options",
+                    "kind": "Options",
+                    "note": "",
+                    "items": [
+                        "6-speed SelectShift automatic with paddle shifters, 3.15 limited-slip and Remote Start",
+                        "3.55 limited-slip rear differential",
+                        "Adaptive cruise control and collision warning with brake support, rain-sensing wipers (Premium)",
+                        "RECARO sport cloth seats (GT) or leather RECARO seats (Premium)",
+                        "Voice-activated navigation (Premium)",
+                        "20\" wheels with summer-only tires (Premium)",
+                        "Full vehicle cover with California Special logo",
+                        "Enhanced Security Package: electronic-locking center console, Active Anti-Theft System, electronic steering column lock and wheel locks (standard on convertible)",
+                        "Black-painted roof, over-the-top racing stripe",
+                        "Reverse Sensing System, spare wheel and tire, floor mats, spoiler delete"
+                    ]
+                }
+            ],
+            "Shelby GT350": [
+                {
+                    "name": "Shelby GT350",
+                    "kind": "Trim level",
+                    "note": "",
+                    "items": [
+                        "5.2L Ti-VCT V8 with 180\u00b0 flat-plane crankshaft",
+                        "TREMEC TR-3160 6-speed manual",
+                        "3.73 TORSEN helical gear differential",
+                        "Brembo 6-piston front and 4-piston rear calipers, 15.5\" front and 14.9\" rear cross-drilled two-piece rotors",
+                        "MagneRide Damping System, Integrated Driver Control System",
+                        "Engine oil, transmission and differential coolers",
+                        "Electronic line-lock (track use only), launch control",
+                        "Aluminum front bumper beam and strut-tower brace",
+                        "RECARO sport Carbon Weave cloth seats with Miko inserts, Alcantara flat-bottom steering wheel, Gauge Pack",
+                        "Aluminum hood with center vent, front fender vents, carbon-fiber grille opening, rear diffuser, dual exhaust with active valves"
+                    ]
+                },
+                {
+                    "name": "GT350R Package (Equipment Group 920A)",
+                    "kind": "Equipment group",
+                    "note": "",
+                    "items": [
+                        "19\" x 11\" front / 19\" x 11.5\" rear carbon-fiber wheels with Michelin Pilot Sport Cup 2 summer-only tires",
+                        "Unique chassis tuning and front air splitter",
+                        "Carbon-fiber rear wing, red accent stitching, wheel locks",
+                        "Deletes air conditioning, audio, USB port, floor mats, Gauge Pack, rear seat, rear camera, tire inflator kit and SYNC"
+                    ]
+                },
+                {
+                    "name": "Electronics Package",
+                    "kind": "Package",
+                    "note": "Not with the GT350R Package",
+                    "items": [
+                        "9-speaker audio, SYNC 3, voice-activated navigation, SiriusXM",
+                        "Dual-zone climate control, soft upper-door trim",
+                        "Garage door opener, mirror turn signals"
+                    ]
+                },
+                {
+                    "name": "Convenience Package",
+                    "kind": "Package",
+                    "note": "Not with the GT350R Package",
+                    "items": [
+                        "Everything in the Electronics Package",
+                        "Ebony leather seats with Miko inserts (replace RECARO seats)",
+                        "6-way power, heated and cooled front seats with driver memory"
+                    ]
+                },
+                {
+                    "name": "GT350R-Electronics Package",
+                    "kind": "Package",
+                    "note": "Requires the GT350R Package",
+                    "items": [
+                        "Everything in the Electronics Package",
+                        "Adds back audio, floor mats, Gauge Pack (oil pressure and temperature), rear camera and tire inflator kit"
+                    ]
+                },
+                {
+                    "name": "Options",
+                    "kind": "Options",
+                    "note": "",
+                    "items": [
+                        "Full vehicle cover with Cobra logo",
+                        "Black-painted roof",
+                        "Over-the-top racing stripe"
+                    ]
+                }
+            ],
+            "Shelby GT350R": [
+                {
+                    "name": "Shelby GT350",
+                    "kind": "Trim level",
+                    "note": "",
+                    "items": [
+                        "5.2L Ti-VCT V8 with 180\u00b0 flat-plane crankshaft",
+                        "TREMEC TR-3160 6-speed manual",
+                        "3.73 TORSEN helical gear differential",
+                        "Brembo 6-piston front and 4-piston rear calipers, 15.5\" front and 14.9\" rear cross-drilled two-piece rotors",
+                        "MagneRide Damping System, Integrated Driver Control System",
+                        "Engine oil, transmission and differential coolers",
+                        "Electronic line-lock (track use only), launch control",
+                        "Aluminum front bumper beam and strut-tower brace",
+                        "RECARO sport Carbon Weave cloth seats with Miko inserts, Alcantara flat-bottom steering wheel, Gauge Pack",
+                        "Aluminum hood with center vent, front fender vents, carbon-fiber grille opening, rear diffuser, dual exhaust with active valves"
+                    ]
+                },
+                {
+                    "name": "GT350R Package (Equipment Group 920A)",
+                    "kind": "Equipment group",
+                    "note": "",
+                    "items": [
+                        "19\" x 11\" front / 19\" x 11.5\" rear carbon-fiber wheels with Michelin Pilot Sport Cup 2 summer-only tires",
+                        "Unique chassis tuning and front air splitter",
+                        "Carbon-fiber rear wing, red accent stitching, wheel locks",
+                        "Deletes air conditioning, audio, USB port, floor mats, Gauge Pack, rear seat, rear camera, tire inflator kit and SYNC"
+                    ]
+                },
+                {
+                    "name": "Electronics Package",
+                    "kind": "Package",
+                    "note": "Not with the GT350R Package",
+                    "items": [
+                        "9-speaker audio, SYNC 3, voice-activated navigation, SiriusXM",
+                        "Dual-zone climate control, soft upper-door trim",
+                        "Garage door opener, mirror turn signals"
+                    ]
+                },
+                {
+                    "name": "Convenience Package",
+                    "kind": "Package",
+                    "note": "Not with the GT350R Package",
+                    "items": [
+                        "Everything in the Electronics Package",
+                        "Ebony leather seats with Miko inserts (replace RECARO seats)",
+                        "6-way power, heated and cooled front seats with driver memory"
+                    ]
+                },
+                {
+                    "name": "GT350R-Electronics Package",
+                    "kind": "Package",
+                    "note": "Requires the GT350R Package",
+                    "items": [
+                        "Everything in the Electronics Package",
+                        "Adds back audio, floor mats, Gauge Pack (oil pressure and temperature), rear camera and tire inflator kit"
+                    ]
+                },
+                {
+                    "name": "Options",
+                    "kind": "Options",
+                    "note": "",
+                    "items": [
+                        "Full vehicle cover with Cobra logo",
+                        "Black-painted roof",
+                        "Over-the-top racing stripe"
+                    ]
+                }
+            ]
+        }
+    },
+    "2018": {
+        "source": {
+            "name": "Ford 2018 Mustang brochure (filed with NHTSA, docket NHTSA-2018-0067)",
+            "url": "https://downloads.regulations.gov/NHTSA-2018-0067-12603/attachment_7.pdf"
+        },
+        "trims": {
+            "EcoBoost": [
+                {
+                    "name": "EcoBoost",
+                    "kind": "Trim level",
+                    "note": "",
+                    "items": [
+                        "2.3L EcoBoost I-4: 310 hp / 350 lb-ft",
+                        "6-speed manual transmission",
+                        "3.31 limited-slip rear differential",
+                        "Active noise control",
+                        "Brakes: 12.6\" vented discs with 2-piston front calipers",
+                        "SYNC with 4.2\" color screen",
+                        "4-way manual cloth driver's seat, 2-way manual passenger seat",
+                        "AM/FM/CD audio with 6 speakers",
+                        "Carbon Zag instrument panel trim",
+                        "Dual bright exhaust with rolled tips"
+                    ]
+                },
+                {
+                    "name": "Equipment Group 101A",
+                    "kind": "Equipment group",
+                    "note": "EcoBoost",
+                    "items": [
+                        "18\" machined-face aluminum wheels with 235/50R18 all-season tires",
+                        "SYNC 3 and 9-speaker audio",
+                        "Selectable Drive Modes",
+                        "6-way power cloth front seats",
+                        "SiriusXM Radio, dual-zone automatic climate control",
+                        "Remote Start System (requires automatic)",
+                        "Silver Arrow aluminum instrument panel trim, blade-style decklid spoiler",
+                        "Reverse Sensing System"
+                    ]
+                },
+                {
+                    "name": "EcoBoost Premium",
+                    "kind": "Trim level",
+                    "note": "",
+                    "items": [
+                        "Selectable Drive Modes (Normal, Sport+, Track, Drag Strip, Snow/Wet)",
+                        "6-way power leather-trimmed front seats with driver power lumbar",
+                        "Heated and cooled front seats",
+                        "SYNC 3 with 8\" touchscreen, Apple CarPlay and Android Auto",
+                        "9 speakers with amplifier, SiriusXM Radio",
+                        "Reverse Sensing System",
+                        "Aluminum pedals, ambient lighting, dual-zone climate control",
+                        "Angled Brush aluminum trim, premium door trim, illuminated door-sill plates",
+                        "Universal garage door opener, LED fog lamps, heated mirrors with turn signals",
+                        "Pony projection lamps, blade-style decklid spoiler"
+                    ]
+                },
+                {
+                    "name": "Premium Plus Package (Equipment Group 201A)",
+                    "kind": "Equipment group",
+                    "note": "EcoBoost Premium only",
+                    "items": [
+                        "12\" configurable LCD digital instrument cluster",
+                        "Heated steering wheel",
+                        "SYNC Connect 4G LTE modem with Wi-Fi hotspot",
+                        "Voice-activated navigation",
+                        "Premier Trim with Color Accent Group (accent stitching, color-accented leather seats)",
+                        "Linked Graphite aluminum instrument panel trim"
+                    ]
+                },
+                {
+                    "name": "EcoBoost Performance Package",
+                    "kind": "Package",
+                    "note": "",
+                    "items": [
+                        "3.55 TORSEN limited-slip rear differential",
+                        "Larger brake rotors with 4-piston front calipers",
+                        "19\" x 9\" low-gloss Ebony Black wheels with 255/40R19 summer-only tires",
+                        "Heavy-duty front springs, upsized rear sway bar, strut tower brace",
+                        "Larger radiator and unique chassis tuning",
+                        "Unique steering, ABS and stability control tuning",
+                        "Gauge Pack (oil pressure and boost), Engine Spun aluminum trim",
+                        "Performance rear wing (fastback)"
+                    ]
+                },
+                {
+                    "name": "Other packages",
+                    "kind": "Packages",
+                    "note": "",
+                    "items": [
+                        "Black Accent Package",
+                        "Carbon Sport Interior Package (EcoBoost Premium only)",
+                        "Enhanced Security Package",
+                        "Ford Safe and Smart Package (EcoBoost Premium only)",
+                        "Pony Package (EcoBoost Premium only)",
+                        "Wheel and Stripe Package"
+                    ]
+                },
+                {
+                    "name": "Options",
+                    "kind": "Options",
+                    "note": "",
+                    "items": [
+                        "10-speed SelectShift automatic with paddle shifters",
+                        "MagneRide Damping System",
+                        "RECARO sport leather seats (EcoBoost Premium only)",
+                        "Shaker Pro audio with 12 speakers (EcoBoost Premium only)",
+                        "Voice-activated navigation, compact spare, premium floor liners, spoiler delete"
+                    ]
+                }
+            ],
+            "GT": [
+                {
+                    "name": "GT",
+                    "kind": "Trim level",
+                    "note": "",
+                    "items": [
+                        "5.0L Ti-VCT V8: 460 hp / 420 lb-ft",
+                        "6-speed manual with dual-mass flywheel and twin-disc clutch",
+                        "3.55 limited-slip rear differential",
+                        "Brakes: larger rotors with 4-piston front calipers",
+                        "Engine oil cooler",
+                        "SYNC with 4.2\" screen, 6-way power cloth seats with power lumbar",
+                        "Dual exhaust with quad tips, LED fog lamps, Reverse Sensing System",
+                        "Raised blade-style spoiler, high-gloss Black grille, unique rear valance"
+                    ]
+                },
+                {
+                    "name": "Equipment Group 301A",
+                    "kind": "Equipment group",
+                    "note": "GT",
+                    "items": [
+                        "SYNC 3 and 9-speaker audio",
+                        "Selectable Drive Modes",
+                        "SiriusXM Radio, dual-zone automatic climate control",
+                        "Ambient lighting"
+                    ]
+                },
+                {
+                    "name": "GT Premium",
+                    "kind": "Trim level",
+                    "note": "Convertible is available on GT Premium only",
+                    "items": [
+                        "Selectable Drive Modes (Normal, Sport+, Track, Drag Strip, Snow/Wet)",
+                        "Leather-trimmed, heated and cooled front seats",
+                        "SYNC 3, 9 speakers with amplifier, SiriusXM Radio",
+                        "Aluminum pedals, ambient lighting, dual-zone climate control",
+                        "Angled Brush aluminum trim, premium door trim, illuminated door-sill plates",
+                        "Universal garage door opener, heated mirrors with turn signals, pony projection lamps"
+                    ]
+                },
+                {
+                    "name": "Premium Plus Package (Equipment Group 401A)",
+                    "kind": "Equipment group",
+                    "note": "GT Premium only",
+                    "items": [
+                        "12\" configurable LCD digital instrument cluster",
+                        "Heated steering wheel",
+                        "SYNC Connect 4G LTE modem with Wi-Fi hotspot",
+                        "Voice-activated navigation",
+                        "Premier Trim with Color Accent Group"
+                    ]
+                },
+                {
+                    "name": "GT Performance Package",
+                    "kind": "Package",
+                    "note": "",
+                    "items": [
+                        "TORSEN differential: 3.73 (manual) / 3.55 (automatic)",
+                        "Brembo 6-piston front calipers",
+                        "19\" x 9\" front / 19\" x 9.5\" rear Ebony Black wheels, 255/40R19 and 275/40R19 summer-only tires",
+                        "Heavy-duty front springs, upsized rear sway bar, K-member brace, strut-tower brace",
+                        "Front air splitter, larger radiator, unique chassis tuning",
+                        "Unique steering, ABS and stability control tuning",
+                        "Gauge Pack (oil pressure and vacuum), Engine Spun aluminum trim",
+                        "Performance rear wing (fastback)"
+                    ]
+                },
+                {
+                    "name": "GT Performance Package Level II",
+                    "kind": "Package",
+                    "note": "Manual only; listed as coming spring 2018",
+                    "items": [
+                        "Everything in the GT Performance Package",
+                        "MagneRide Damping System",
+                        "Track-inspired springs and sway bar",
+                        "19\" x 10.5\" front / 19\" x 11\" rear Dark Tarnish wheels with 305/30R19 summer-only tires",
+                        "Unique track-inspired tuning, front splitter and rear spoiler"
+                    ]
+                },
+                {
+                    "name": "Other packages",
+                    "kind": "Packages",
+                    "note": "",
+                    "items": [
+                        "Black Accent Package",
+                        "Carbon Sport Interior Package (GT Premium only)",
+                        "Enhanced Security Package",
+                        "Ford Safe and Smart Package (GT Premium only)"
+                    ]
+                },
+                {
+                    "name": "Options",
+                    "kind": "Options",
+                    "note": "",
+                    "items": [
+                        "10-speed SelectShift automatic with 3.15 limited-slip differential and Remote Start",
+                        "Active Valve Performance Exhaust",
+                        "MagneRide Damping System",
+                        "RECARO sport leather seats and Shaker Pro audio (GT Premium only)",
+                        "Voice-activated navigation, compact spare, premium floor liners, spoiler delete"
+                    ]
+                }
+            ],
+            "Shelby GT350": [
+                {
+                    "name": "Shelby GT350",
+                    "kind": "Trim level",
+                    "note": "",
+                    "items": [
+                        "Hand-assembled 5.2L flat-plane-crank V8: 526 hp / 429 lb-ft",
+                        "TREMEC TR-3160 6-speed manual",
+                        "3.73 TORSEN helical gear differential",
+                        "Brembo 6-piston front / 4-piston rear calipers, 15.5\" front and 14.9\" rear cross-drilled two-piece rotors",
+                        "Engine oil, transmission and differential coolers",
+                        "MagneRide Damping System, Integrated Driver Control System",
+                        "Electronic line-lock (track use only)",
+                        "RECARO sport cloth seats, leather and Alcantara flat-bottom steering wheel, Gauge Pack",
+                        "19\" x 10.5\" front / 19\" x 11\" rear Ebony Black aluminum wheels",
+                        "Aluminum hood with vent, front fender vents, carbon-fiber grille opening, rear diffuser"
+                    ]
+                },
+                {
+                    "name": "R Package (Equipment Group 920A): makes it a GT350R",
+                    "kind": "Equipment group",
+                    "note": "",
+                    "items": [
+                        "19\" x 11\" front / 19\" x 11.5\" rear Ebony Black carbon-fiber wheels",
+                        "Michelin Pilot Sport Cup 2 summer-only tires",
+                        "Unique chassis tuning and front air splitter",
+                        "Carbon-fiber rear wing, red accent stitching, wheel locks",
+                        "Deletes air conditioning, audio, floor mats, Gauge Pack, rear seat, rear camera, tire inflator kit and SYNC to save weight"
+                    ]
+                },
+                {
+                    "name": "Convenience Package",
+                    "kind": "Package",
+                    "note": "Not available with the R Package",
+                    "items": [
+                        "Ebony leather seats with perforated inserts (replace RECARO seats)",
+                        "6-way power, heated and cooled front seats with driver memory",
+                        "Includes the Electronics Package"
+                    ]
+                },
+                {
+                    "name": "Electronics Package",
+                    "kind": "Package",
+                    "note": "Not available with the R Package",
+                    "items": [
+                        "9-speaker audio, SYNC 3, voice-activated navigation, SiriusXM Radio",
+                        "Dual-zone automatic climate control",
+                        "Soft upper-door trim, garage door opener, mirror turn signals"
+                    ]
+                },
+                {
+                    "name": "GT350R Electronics Package",
+                    "kind": "Package",
+                    "note": "Requires the R Package",
+                    "items": [
+                        "Adds back the Gauge Pack, floor mats, rear camera and tire inflator kit",
+                        "Includes the Electronics Package"
+                    ]
+                },
+                {
+                    "name": "Options",
+                    "kind": "Options",
+                    "note": "",
+                    "items": [
+                        "Full vehicle cover with Shelby GT350 logo",
+                        "Over-the-top racing stripe",
+                        "Painted Black roof"
+                    ]
+                }
+            ],
+            "Shelby GT350R": [
+                {
+                    "name": "Shelby GT350",
+                    "kind": "Trim level",
+                    "note": "",
+                    "items": [
+                        "Hand-assembled 5.2L flat-plane-crank V8: 526 hp / 429 lb-ft",
+                        "TREMEC TR-3160 6-speed manual",
+                        "3.73 TORSEN helical gear differential",
+                        "Brembo 6-piston front / 4-piston rear calipers, 15.5\" front and 14.9\" rear cross-drilled two-piece rotors",
+                        "Engine oil, transmission and differential coolers",
+                        "MagneRide Damping System, Integrated Driver Control System",
+                        "Electronic line-lock (track use only)",
+                        "RECARO sport cloth seats, leather and Alcantara flat-bottom steering wheel, Gauge Pack",
+                        "19\" x 10.5\" front / 19\" x 11\" rear Ebony Black aluminum wheels",
+                        "Aluminum hood with vent, front fender vents, carbon-fiber grille opening, rear diffuser"
+                    ]
+                },
+                {
+                    "name": "R Package (Equipment Group 920A): makes it a GT350R",
+                    "kind": "Equipment group",
+                    "note": "",
+                    "items": [
+                        "19\" x 11\" front / 19\" x 11.5\" rear Ebony Black carbon-fiber wheels",
+                        "Michelin Pilot Sport Cup 2 summer-only tires",
+                        "Unique chassis tuning and front air splitter",
+                        "Carbon-fiber rear wing, red accent stitching, wheel locks",
+                        "Deletes air conditioning, audio, floor mats, Gauge Pack, rear seat, rear camera, tire inflator kit and SYNC to save weight"
+                    ]
+                },
+                {
+                    "name": "Convenience Package",
+                    "kind": "Package",
+                    "note": "Not available with the R Package",
+                    "items": [
+                        "Ebony leather seats with perforated inserts (replace RECARO seats)",
+                        "6-way power, heated and cooled front seats with driver memory",
+                        "Includes the Electronics Package"
+                    ]
+                },
+                {
+                    "name": "Electronics Package",
+                    "kind": "Package",
+                    "note": "Not available with the R Package",
+                    "items": [
+                        "9-speaker audio, SYNC 3, voice-activated navigation, SiriusXM Radio",
+                        "Dual-zone automatic climate control",
+                        "Soft upper-door trim, garage door opener, mirror turn signals"
+                    ]
+                },
+                {
+                    "name": "GT350R Electronics Package",
+                    "kind": "Package",
+                    "note": "Requires the R Package",
+                    "items": [
+                        "Adds back the Gauge Pack, floor mats, rear camera and tire inflator kit",
+                        "Includes the Electronics Package"
+                    ]
+                },
+                {
+                    "name": "Options",
+                    "kind": "Options",
+                    "note": "",
+                    "items": [
+                        "Full vehicle cover with Shelby GT350 logo",
+                        "Over-the-top racing stripe",
+                        "Painted Black roof"
+                    ]
+                }
+            ]
+        }
+    },
+    "2019": {
+        "source": {
+            "name": "Ford 2019 Mustang brochure (copy hosted at mustangspecs.com)",
+            "url": "https://www.mustangspecs.com/wp-content/uploads/2020/05/2019-Ford-Mustang-Sales-Brochures.pdf"
+        },
+        "trims": {
+            "EcoBoost": [
+                {
+                    "name": "EcoBoost (Equipment Group 100A)",
+                    "kind": "Trim level",
+                    "note": "Includes standard features, plus:",
+                    "items": [
+                        "6-speed manual transmission",
+                        "3.31 limited-slip rear differential",
+                        "12.6\" vented disc brakes with 2-piston front calipers",
+                        "SYNC with 4.2\" screen, 6-speaker audio",
+                        "4-way manual cloth driver's seat, 2-way manual cloth passenger seat",
+                        "Carbon Zag instrument panel trim",
+                        "Dual bright exhaust with rolled tips"
+                    ]
+                },
+                {
+                    "name": "Equipment Group 101A",
+                    "kind": "Equipment group",
+                    "note": "EcoBoost only",
+                    "items": [
+                        "18\" machined-face aluminum wheels",
+                        "SYNC 3, 9-speaker audio, SiriusXM",
+                        "Selectable Drive Modes",
+                        "6-way power cloth front seats, dual-zone climate control",
+                        "Silver Arrow aluminum trim, Remote Start (requires automatic), decklid spoiler, Reverse Sensing System"
+                    ]
+                },
+                {
+                    "name": "EcoBoost Premium (Equipment Group 200A)",
+                    "kind": "Trim level",
+                    "note": "Includes select EcoBoost features, plus:",
+                    "items": [
+                        "Selectable Drive Modes (Normal, Sport+, Track, Drag Strip, Snow/Wet)",
+                        "SYNC 3 with 8\" touchscreen, Apple CarPlay and Android Auto",
+                        "6-way power, heated and cooled leather-trimmed front seats with driver power lumbar",
+                        "Reverse Sensing System, LED fog lamps, decklid spoiler",
+                        "9 speakers with amplifier, SiriusXM",
+                        "Aluminum pedals, ambient lighting, dual-zone climate control, Angled Brush aluminum trim",
+                        "Heated mirrors with turn signals, illuminated door-sill plates, premium door trim, garage door opener, pony projection lamps"
+                    ]
+                },
+                {
+                    "name": "Premium Plus Package (Equipment Group 201A)",
+                    "kind": "Equipment group",
+                    "note": "EcoBoost Premium",
+                    "items": [
+                        "12\" configurable LCD digital instrument cluster",
+                        "Heated steering wheel",
+                        "FordPass Connect with 4G LTE Wi-Fi hotspot",
+                        "Voice-activated navigation",
+                        "Premier Trim with Color Accent Group (accent stitching, color-accented leather seats, Linked Graphite trim)",
+                        "BLIS with cross-traffic alert",
+                        "Memory for driver's seat, mirrors and ambient lighting"
+                    ]
+                },
+                {
+                    "name": "EcoBoost Performance Package",
+                    "kind": "Package",
+                    "note": "EcoBoost and EcoBoost Premium",
+                    "items": [
+                        "3.55 TORSEN limited-slip rear differential",
+                        "Larger brake rotors with 4-piston front calipers",
+                        "19\" wheels with 255/40R19 summer-only tires",
+                        "Black strut-tower brace, larger radiator, upsized rear sway bar, unique front springs, unique chassis tuning",
+                        "Unique steering, ABS and stability control tuning",
+                        "Gauge Pack (oil pressure and boost), Engine Spun aluminum trim",
+                        "Performance rear wing (fastback) or spoiler delete (convertible)"
+                    ]
+                },
+                {
+                    "name": "Appearance packages",
+                    "kind": "Packages",
+                    "note": "",
+                    "items": [
+                        "Wheel & Stripe Package: 19\" x 8.5\" machined-face wheels with Dark Tarnish pockets and beltline side stripes",
+                        "Black Accent Package: 19\" x 8.5\" Ebony Black wheels, Black roof, badging and spoiler",
+                        "Pony Package (EcoBoost Premium): 19\" polished wheels, Pony grille, side stripes, tri-bar Pony badge, bright moldings (fastback), embroidered floor mats",
+                        "Carbon Sport Interior Package (EcoBoost Premium): Alcantara seat and door inserts, carbon-fiber trim and shift knob"
+                    ]
+                },
+                {
+                    "name": "Options",
+                    "kind": "Options",
+                    "note": "",
+                    "items": [
+                        "10-speed SelectShift automatic with paddle shifters, 3.15 limited-slip and Remote Start",
+                        "Active Valve Performance Exhaust with quad tips",
+                        "MagneRide Damping System",
+                        "Ford Safe and Smart Package: adaptive cruise control and forward collision warning, Pre-Collision Assist with Pedestrian Detection and Automatic Emergency Braking, automatic high beams, Lane-Keeping System, rain-sensing wipers",
+                        "Enhanced Security Package: Active Anti-Theft System, electronic-locking center console, electronic steering column lock and wheel locks (standard on convertible)",
+                        "RECARO sport leather seats and B&O Sound System with 12 speakers (Premium)",
+                        "Voice-activated navigation",
+                        "Compact spare, engine block heater, over-the-top stripes, premium floor liners, spoiler delete"
+                    ]
+                }
+            ],
+            "GT": [
+                {
+                    "name": "GT (Equipment Group 300A)",
+                    "kind": "Trim level",
+                    "note": "Fastback only. Includes standard features, plus:",
+                    "items": [
+                        "6-speed manual with dual-mass flywheel, twin-disc clutch and Rev Matching",
+                        "Larger brake rotors with 4-piston front calipers",
+                        "Engine oil cooler",
+                        "SYNC, Reverse Sensing System",
+                        "6-way power cloth front seats with driver power lumbar",
+                        "Silver Arrow aluminum trim",
+                        "Dual exhaust with quad tips, LED fog lamps, raised blade-style spoiler, high-gloss Black grille, unique rear valance"
+                    ]
+                },
+                {
+                    "name": "Equipment Group 301A",
+                    "kind": "Equipment group",
+                    "note": "GT only",
+                    "items": [
+                        "SYNC 3, 9-speaker audio, SiriusXM",
+                        "Selectable Drive Modes",
+                        "Dual-zone climate control, ambient lighting"
+                    ]
+                },
+                {
+                    "name": "GT Premium (Equipment Group 400A)",
+                    "kind": "Trim level",
+                    "note": "Includes select GT features, plus:",
+                    "items": [
+                        "Selectable Drive Modes (Normal, Sport+, Track, Drag Strip, Snow/Wet)",
+                        "SYNC 3 with 8\" touchscreen, Apple CarPlay and Android Auto",
+                        "Leather-trimmed, heated and cooled front seats",
+                        "9 speakers with amplifier, SiriusXM",
+                        "Aluminum pedals, ambient lighting, dual-zone climate control, Angled Brush aluminum trim",
+                        "Heated mirrors with turn signals, illuminated door-sill plates, premium door trim, garage door opener, pony projection lamps"
+                    ]
+                },
+                {
+                    "name": "Premium Plus Package (Equipment Group 401A)",
+                    "kind": "Equipment group",
+                    "note": "GT Premium",
+                    "items": [
+                        "12\" configurable LCD digital instrument cluster",
+                        "Heated steering wheel",
+                        "FordPass Connect with 4G LTE Wi-Fi hotspot",
+                        "Voice-activated navigation",
+                        "Premier Trim with Color Accent Group (accent stitching, color-accented leather seats, Linked Graphite trim)",
+                        "BLIS with cross-traffic alert",
+                        "Memory for driver's seat, mirrors and ambient lighting"
+                    ]
+                },
+                {
+                    "name": "GT Performance Package",
+                    "kind": "Package",
+                    "note": "GT and GT Premium",
+                    "items": [
+                        "3.73 (manual) / 3.55 (automatic) TORSEN limited-slip rear differential",
+                        "Brembo 6-piston front calipers",
+                        "19\" wheels with 255/40R19 front and 275/40R19 rear summer-only tires",
+                        "Front air splitter, Silver strut-tower brace, larger radiator, upsized rear sway bar, heavy-duty front springs, K-member brace, unique chassis tuning",
+                        "Unique steering, ABS and stability control tuning",
+                        "Gauge Pack (oil pressure and vacuum), Engine Spun aluminum trim",
+                        "Performance rear wing (fastback)"
+                    ]
+                },
+                {
+                    "name": "GT Performance Package Level II",
+                    "kind": "Package",
+                    "note": "GT and GT Premium",
+                    "items": [
+                        "Everything in the GT Performance Package",
+                        "MagneRide Damping System",
+                        "Track-inspired springs, sway bar and tuning",
+                        "Unique front splitter and rear spoiler",
+                        "19\" x 10.5\" front / 19\" x 11\" rear Dark Tarnish wheels with 305/30R19 Michelin Pilot Sport Cup 2 summer-only tires"
+                    ]
+                },
+                {
+                    "name": "California Special Package",
+                    "kind": "Package",
+                    "note": "GT Premium",
+                    "items": [
+                        "19\" x 8.5\" machined-face wheels with Ebony Black pockets",
+                        "Unique grille with tri-bar Pony badge, GT Performance Package front splitter, pedestal-style spoiler",
+                        "Mid-body side stripes, side scoops, unique California Special badging",
+                        "Ebony leather seats and door inserts with Miko and red stitching, California Special floor mats"
+                    ]
+                },
+                {
+                    "name": "Appearance packages",
+                    "kind": "Packages",
+                    "note": "",
+                    "items": [
+                        "Black Accent Package: 19\" x 8.5\" Ebony Black wheels, Black roof, badging and spoiler",
+                        "Carbon Sport Interior Package (GT Premium): Alcantara seat and door inserts, carbon-fiber trim and shift knob"
+                    ]
+                },
+                {
+                    "name": "Options",
+                    "kind": "Options",
+                    "note": "",
+                    "items": [
+                        "10-speed SelectShift automatic with paddle shifters, 3.15 limited-slip and Remote Start",
+                        "Active Valve Performance Exhaust",
+                        "MagneRide Damping System",
+                        "Ford Safe and Smart Package: adaptive cruise control and forward collision warning, Pre-Collision Assist with Pedestrian Detection and Automatic Emergency Braking, automatic high beams, Lane-Keeping System, rain-sensing wipers",
+                        "Enhanced Security Package: Active Anti-Theft System, electronic-locking center console, electronic steering column lock and wheel locks (standard on convertible)",
+                        "RECARO sport leather seats and B&O Sound System with 12 speakers (GT Premium)",
+                        "Voice-activated navigation",
+                        "Compact spare, over-the-top stripes, premium floor liners, spoiler delete"
+                    ]
+                }
+            ],
+            "Bullitt": [
+                {
+                    "name": "BULLITT (Equipment Group 500A)",
+                    "kind": "Trim level",
+                    "note": "Limited edition. Includes select GT Premium features, plus:",
+                    "items": [
+                        "5.0L V8 with Shelby GT350 intake manifold, Open Air Induction and revised calibration",
+                        "6-speed manual only, with Rev Matching and a white cue-ball shift knob",
+                        "3.73 TORSEN limited-slip rear differential",
+                        "Brembo 6-piston front calipers (red-painted)",
+                        "19\" x 9\" front / 19\" x 9.5\" rear 5-spoke Heritage wheels with summer-only tires",
+                        "Active Valve Performance Exhaust with Black NitroPlate tips",
+                        "High-performance radiator, K-member brace, unique front springs, upsized rear stabilizer bar, unique chassis tuning",
+                        "Gauge Pack, 12\" digital instrument cluster, SYNC 3, heated steering wheel",
+                        "Green accent stitching throughout, BULLITT scuff plates and chassis-number badge",
+                        "Enhanced Security Package, unique upper and lower grilles, spoiler delete"
+                    ]
+                },
+                {
+                    "name": "BULLITT Electronics Package",
+                    "kind": "Package",
+                    "note": "",
+                    "items": [
+                        "BLIS with cross-traffic alert",
+                        "Voice-activated navigation",
+                        "B&O Sound System with 12 speakers"
+                    ]
+                },
+                {
+                    "name": "Options",
+                    "kind": "Options",
+                    "note": "",
+                    "items": [
+                        "MagneRide Damping System",
+                        "RECARO leather-trimmed seats with Green accent stitching"
+                    ]
+                }
+            ]
+        }
+    },
+    "2020": {
+        "source": {
+            "name": "Ford 2020 Mustang brochure (copy hosted at mustangspecs.com)",
+            "url": "https://www.mustangspecs.com/wp-content/uploads/2020/05/2020-Ford-Mustang-Sales-Brochures.pdf"
+        },
+        "trims": {
+            "EcoBoost": [
+                {
+                    "name": "EcoBoost",
+                    "kind": "Trim level",
+                    "note": "Includes standard features, plus:",
+                    "items": [
+                        "6-speed manual transmission",
+                        "3.31 limited-slip rear differential",
+                        "12.6\" vented disc brakes with 2-piston front calipers",
+                        "SYNC with 4.2\" screen, 6-speaker audio",
+                        "4-way manual cloth driver's seat, 2-way manual cloth passenger seat",
+                        "Carbon Zag instrument panel trim",
+                        "Dual bright exhaust with rolled tips"
+                    ]
+                },
+                {
+                    "name": "Equipment Group 101A",
+                    "kind": "Equipment group",
+                    "note": "EcoBoost only",
+                    "items": [
+                        "18\" machined-face aluminum wheels",
+                        "SYNC 3, 9-speaker audio, SiriusXM",
+                        "Selectable Drive Modes",
+                        "6-way power cloth front seats, dual-zone climate control",
+                        "Silver Arrow aluminum trim, Remote Start (requires automatic), decklid spoiler, Reverse Sensing System"
+                    ]
+                },
+                {
+                    "name": "EcoBoost Premium",
+                    "kind": "Trim level",
+                    "note": "Includes select EcoBoost features, plus:",
+                    "items": [
+                        "Selectable Drive Modes (Normal, Sport+, Track, Drag Strip, Snow/Wet)",
+                        "SYNC 3 with 8\" touchscreen, Apple CarPlay and Android Auto",
+                        "6-way power, heated and cooled leather-trimmed front seats with driver power lumbar",
+                        "Reverse Sensing System, LED fog lamps, decklid spoiler",
+                        "9 speakers with amplifier, SiriusXM",
+                        "Aluminum pedals, ambient lighting, dual-zone climate control, Angled Brush aluminum trim",
+                        "Heated mirrors with turn signals, illuminated door-sill plates, premium door trim, garage door opener, pony projection lamps"
+                    ]
+                },
+                {
+                    "name": "Premium Plus Package (Equipment Group 201A)",
+                    "kind": "Equipment group",
+                    "note": "EcoBoost Premium",
+                    "items": [
+                        "12\" configurable LCD digital instrument cluster",
+                        "Heated steering wheel",
+                        "Voice-activated navigation",
+                        "Premier Trim with Color Accent Group (accent stitching, color-accented leather seats, Linked Graphite trim)",
+                        "BLIS with cross-traffic alert",
+                        "Memory for driver's seat, mirrors and ambient lighting"
+                    ]
+                },
+                {
+                    "name": "2.3L High Performance Package",
+                    "kind": "Package",
+                    "note": "EcoBoost and EcoBoost Premium",
+                    "items": [
+                        "2.3L High Performance EcoBoost I-4",
+                        "19\" x 9\" machined-face wheels; forged Luster Nickel wheels optional",
+                        "Unique grille with tri-bar Pony badge, GT Performance Package front splitter, hood accent stripes, Magnetic mirror caps",
+                        "Active Valve Performance Exhaust System",
+                        "Larger radiator, upsized rear sway bar, unique front springs, unique chassis tuning, Black strut-tower brace",
+                        "Larger brake rotors with 4-piston front calipers",
+                        "Unique steering, ABS and stability control tuning",
+                        "Gauge Pack (oil pressure and boost), Engine Spun aluminum trim",
+                        "Magnetic raised blade spoiler (fastback) or spoiler delete (convertible)",
+                        "3.55 limited-slip rear differential"
+                    ]
+                },
+                {
+                    "name": "EcoBoost Handling Package",
+                    "kind": "Package",
+                    "note": "Fastback only; requires the 2.3L High Performance Package",
+                    "items": [
+                        "19\" x 9.5\" wheels with 265/40R19 Pirelli Corsa4 summer-only tires",
+                        "MagneRide Damping System",
+                        "3.55 TORSEN limited-slip rear differential"
+                    ]
+                },
+                {
+                    "name": "Appearance packages",
+                    "kind": "Packages",
+                    "note": "",
+                    "items": [
+                        "Pony Package (EcoBoost Premium): 19\" polished wheels, Pony grille, side stripes, tri-bar Pony badge, bright moldings (fastback), embroidered floor mats",
+                        "Black Accent Package: 19\" x 8.5\" Ebony Black wheels, Black roof, badging and spoiler",
+                        "Wheel & Stripe Package: 19\" x 8.5\" machined-face wheels, hood and side stripes",
+                        "Carbon Sport Interior Package (EcoBoost Premium): Alcantara seat and door inserts, carbon-fiber trim and shift knob"
+                    ]
+                },
+                {
+                    "name": "Options",
+                    "kind": "Options",
+                    "note": "",
+                    "items": [
+                        "10-speed SelectShift automatic with paddle shifters, 3.15 limited-slip and Remote Start",
+                        "Active Valve Performance Exhaust with quad tips",
+                        "Ford Safe and Smart Package: adaptive cruise, Pre-Collision Assist with Automatic Emergency Braking, auto high beams, Lane-Keeping System, rain-sensing wipers",
+                        "Enhanced Security Package (standard on convertible)",
+                        "RECARO sport leather seats and B&O Sound System with 12 speakers (Premium)",
+                        "Voice-activated touchscreen navigation",
+                        "Compact spare, engine block heater, over-the-top stripes, premium floor liners, spoiler delete"
+                    ]
+                }
+            ],
+            "GT": [
+                {
+                    "name": "GT",
+                    "kind": "Trim level",
+                    "note": "Fastback. Includes select standard features, plus:",
+                    "items": [
+                        "6-speed manual with dual-mass flywheel, twin-disc clutch and Rev Matching; 3.55 limited-slip rear differential",
+                        "Larger brake rotors with 4-piston front calipers",
+                        "Engine oil cooler",
+                        "SYNC, Reverse Sensing System",
+                        "6-way power cloth front seats with driver power lumbar",
+                        "Silver Arrow aluminum trim",
+                        "Dual exhaust with quad tips, LED fog lamps, raised blade-style spoiler, high-gloss Black grille, unique rear valance"
+                    ]
+                },
+                {
+                    "name": "Equipment Group 301A",
+                    "kind": "Equipment group",
+                    "note": "GT only",
+                    "items": [
+                        "SYNC 3, 9-speaker audio, SiriusXM",
+                        "Selectable Drive Modes",
+                        "Dual-zone climate control, ambient lighting"
+                    ]
+                },
+                {
+                    "name": "GT Premium",
+                    "kind": "Trim level",
+                    "note": "Fastback or convertible. Includes select GT features, plus:",
+                    "items": [
+                        "Selectable Drive Modes (Normal, Sport+, Track, Drag Strip, Snow/Wet)",
+                        "SYNC 3 with 8\" touchscreen, Apple CarPlay and Android Auto",
+                        "Leather-trimmed, heated and cooled front seats",
+                        "9 speakers with amplifier, SiriusXM",
+                        "Aluminum pedals, ambient lighting, dual-zone climate control, Angled Brush aluminum trim",
+                        "Heated mirrors with turn signals, illuminated door-sill plates, premium door trim, garage door opener, pony projection lamps"
+                    ]
+                },
+                {
+                    "name": "Premium Plus Package (Equipment Group 401A)",
+                    "kind": "Equipment group",
+                    "note": "GT Premium",
+                    "items": [
+                        "12\" configurable LCD digital instrument cluster",
+                        "Heated steering wheel",
+                        "Voice-activated navigation",
+                        "Premier Trim with Color Accent Group (accent stitching, color-accented leather seats, Linked Graphite trim)",
+                        "BLIS with cross-traffic alert",
+                        "Memory for driver's seat, mirrors and ambient lighting"
+                    ]
+                },
+                {
+                    "name": "GT Performance Package",
+                    "kind": "Package",
+                    "note": "GT and GT Premium",
+                    "items": [
+                        "3.73 (manual) / 3.55 (automatic) TORSEN limited-slip rear differential",
+                        "Brembo 6-piston front calipers",
+                        "Luster Nickel forged-aluminum wheels optional",
+                        "19\" wheels with 255/40R19 front and 275/40R19 rear summer-only tires",
+                        "Front air splitter, Silver strut-tower brace, larger radiator, upsized rear sway bar, heavy-duty front springs, K-member brace, unique chassis tuning",
+                        "Unique steering, ABS and stability control tuning",
+                        "Gauge Pack (oil pressure and vacuum), Engine Spun aluminum trim",
+                        "Performance rear wing (fastback)"
+                    ]
+                },
+                {
+                    "name": "GT Performance Package Level 2",
+                    "kind": "Package",
+                    "note": "GT and GT Premium",
+                    "items": [
+                        "Everything in the GT Performance Package",
+                        "MagneRide Damping System",
+                        "Track-inspired springs, sway bar and tuning",
+                        "Unique front splitter and rear spoiler",
+                        "19\" x 10.5\" front / 19\" x 11\" rear Dark Tarnish wheels with 305/30R19 Michelin Pilot Sport Cup 2 summer-only tires",
+                        "RECARO sport cloth seats optional"
+                    ]
+                },
+                {
+                    "name": "California Special Package",
+                    "kind": "Package",
+                    "note": "GT Premium",
+                    "items": [
+                        "19\" x 8.5\" machined-face wheels with Ebony Black pockets",
+                        "Unique grille with tri-bar Pony badge, GT Performance Package front splitter, pedestal-style spoiler",
+                        "Mid-body side stripes, side scoops, unique California Special badging",
+                        "Carbon Hex aluminum trim; Ebony leather seats and door inserts with Miko and red stitching; California Special floor mats"
+                    ]
+                },
+                {
+                    "name": "Appearance packages",
+                    "kind": "Packages",
+                    "note": "",
+                    "items": [
+                        "Black Accent Package: 19\" x 8.5\" Ebony Black wheels, Black roof, badging and spoiler",
+                        "Carbon Sport Interior Package (GT Premium): Alcantara seat and door inserts, carbon-fiber trim and shift knob"
+                    ]
+                },
+                {
+                    "name": "Options",
+                    "kind": "Options",
+                    "note": "",
+                    "items": [
+                        "10-speed SelectShift automatic with paddle shifters, 3.15 limited-slip and Remote Start",
+                        "3.55 limited-slip rear differential (requires automatic)",
+                        "Active Valve Performance Exhaust",
+                        "MagneRide Damping System",
+                        "Ford Safe and Smart Package: adaptive cruise control and forward collision warning, Pre-Collision Assist with Pedestrian Detection and Automatic Emergency Braking, automatic high beams, Lane-Keeping System, rain-sensing wipers",
+                        "Enhanced Security Package: Active Anti-Theft System, electronic-locking center console, electronic steering column lock and wheel locks (standard on convertible)",
+                        "RECARO sport leather seats and B&O Sound System with 12 speakers (GT Premium)",
+                        "Voice-activated navigation",
+                        "Compact spare, over-the-top stripes, premium floor liners, spoiler delete"
+                    ]
+                }
+            ],
+            "Bullitt": [
+                {
+                    "name": "BULLITT",
+                    "kind": "Trim level",
+                    "note": "Limited edition, fastback. Includes select GT Premium features, plus:",
+                    "items": [
+                        "5.0L V8 with Shelby GT350 intake manifold, Open Air Induction and revised calibration",
+                        "6-speed manual only, with Rev Matching and a white cue-ball shift knob",
+                        "3.73 TORSEN limited-slip rear differential",
+                        "Brembo 6-piston front calipers (red-painted)",
+                        "19\" x 9\" front / 19\" x 9.5\" rear 5-spoke Heritage wheels with summer-only tires",
+                        "Active Valve Performance Exhaust with Black NitroPlate tips",
+                        "High-performance radiator, K-member brace, unique front springs, upsized rear stabilizer bar, unique chassis tuning",
+                        "Gauge Pack, 12\" digital instrument cluster, SYNC 3, heated steering wheel",
+                        "6-way power, heated and cooled Ebony leather seats with Green accent stitching",
+                        "Green accent stitching throughout, BULLITT scuff plates and chassis-number badge",
+                        "Enhanced Security Package, unique upper and lower grilles, spoiler delete"
+                    ]
+                },
+                {
+                    "name": "BULLITT Electronics Package",
+                    "kind": "Package",
+                    "note": "",
+                    "items": [
+                        "BLIS with cross-traffic alert",
+                        "Voice-activated navigation",
+                        "B&O Sound System with 12 speakers",
+                        "Memory for driver's seat, mirrors and ambient lighting"
+                    ]
+                },
+                {
+                    "name": "Options",
+                    "kind": "Options",
+                    "note": "",
+                    "items": [
+                        "Full vehicle cover",
+                        "MagneRide Damping System",
+                        "RECARO sport leather-trimmed seats"
+                    ]
+                }
+            ],
+            "Shelby GT350": [
+                {
+                    "name": "Shelby GT350",
+                    "kind": "Trim level",
+                    "note": "Fastback. Includes select GT Premium features, plus:",
+                    "items": [
+                        "5.2L Ti-VCT V8 with flat-plane crank",
+                        "TREMEC TR-3160 6-speed manual",
+                        "3.73 TORSEN limited-slip rear differential",
+                        "Brembo 6-piston front and 4-piston rear calipers, 15.5\" front and 14.9\" rear two-piece rotors",
+                        "MagneRide Damping System, Integrated Driver Control System",
+                        "Engine oil, transmission and differential coolers; front radiator block-off plate",
+                        "Electronic line-lock (track use only), aluminum front bumper beam, carbon composite grille opening",
+                        "RECARO sport Carbon Weave cloth seats with Miko inserts, leather and Alcantara flat-bottom steering wheel",
+                        "9-speaker audio with HD Radio, SYNC 3, unique instrument cluster",
+                        "Aluminum hood with center vent, dual exhaust with electronic valves, rear diffuser, raised decklid spoiler"
+                    ]
+                },
+                {
+                    "name": "R Package (Equipment Group 920A): makes it a GT350R",
+                    "kind": "Equipment group",
+                    "note": "",
+                    "items": [
+                        "19\" x 11\" front / 19\" x 11.5\" rear carbon-fiber wheels with Michelin Pilot Sport Cup 2 summer-only tires",
+                        "Adjustable strut top mounts, unique chassis tuning, unique front air splitter",
+                        "Carbon-fiber rear wing, red accent stitching, rear seat delete, wheel locks"
+                    ]
+                },
+                {
+                    "name": "Handling Package",
+                    "kind": "Package",
+                    "note": "",
+                    "items": [
+                        "Adjustable strut top mounts",
+                        "Gurney flap"
+                    ]
+                },
+                {
+                    "name": "Technology Package",
+                    "kind": "Package",
+                    "note": "",
+                    "items": [
+                        "BLIS with cross-traffic alert",
+                        "Voice-activated touchscreen navigation",
+                        "B&O Sound System with 12 speakers",
+                        "Heated mirrors with turn signals and Cobra projection lamps"
+                    ]
+                },
+                {
+                    "name": "Options",
+                    "kind": "Options",
+                    "note": "",
+                    "items": [
+                        "Ebony leather seats with perforated Miko inserts; 6-way power, heated and cooled with driver memory (not with R Package)",
+                        "Exposed carbon-fiber instrument panel",
+                        "Black-painted roof, vinyl over-the-top stripes, full vehicle cover with Cobra logo"
+                    ]
+                }
+            ],
+            "Shelby GT350R": [
+                {
+                    "name": "Shelby GT350",
+                    "kind": "Trim level",
+                    "note": "Fastback. Includes select GT Premium features, plus:",
+                    "items": [
+                        "5.2L Ti-VCT V8 with flat-plane crank",
+                        "TREMEC TR-3160 6-speed manual",
+                        "3.73 TORSEN limited-slip rear differential",
+                        "Brembo 6-piston front and 4-piston rear calipers, 15.5\" front and 14.9\" rear two-piece rotors",
+                        "MagneRide Damping System, Integrated Driver Control System",
+                        "Engine oil, transmission and differential coolers; front radiator block-off plate",
+                        "Electronic line-lock (track use only), aluminum front bumper beam, carbon composite grille opening",
+                        "RECARO sport Carbon Weave cloth seats with Miko inserts, leather and Alcantara flat-bottom steering wheel",
+                        "9-speaker audio with HD Radio, SYNC 3, unique instrument cluster",
+                        "Aluminum hood with center vent, dual exhaust with electronic valves, rear diffuser, raised decklid spoiler"
+                    ]
+                },
+                {
+                    "name": "R Package (Equipment Group 920A): makes it a GT350R",
+                    "kind": "Equipment group",
+                    "note": "",
+                    "items": [
+                        "19\" x 11\" front / 19\" x 11.5\" rear carbon-fiber wheels with Michelin Pilot Sport Cup 2 summer-only tires",
+                        "Adjustable strut top mounts, unique chassis tuning, unique front air splitter",
+                        "Carbon-fiber rear wing, red accent stitching, rear seat delete, wheel locks"
+                    ]
+                },
+                {
+                    "name": "Handling Package",
+                    "kind": "Package",
+                    "note": "",
+                    "items": [
+                        "Adjustable strut top mounts",
+                        "Gurney flap"
+                    ]
+                },
+                {
+                    "name": "Technology Package",
+                    "kind": "Package",
+                    "note": "",
+                    "items": [
+                        "BLIS with cross-traffic alert",
+                        "Voice-activated touchscreen navigation",
+                        "B&O Sound System with 12 speakers",
+                        "Heated mirrors with turn signals and Cobra projection lamps"
+                    ]
+                },
+                {
+                    "name": "Options",
+                    "kind": "Options",
+                    "note": "",
+                    "items": [
+                        "Ebony leather seats with perforated Miko inserts; 6-way power, heated and cooled with driver memory (not with R Package)",
+                        "Exposed carbon-fiber instrument panel",
+                        "Black-painted roof, vinyl over-the-top stripes, full vehicle cover with Cobra logo"
+                    ]
+                }
+            ],
+            "Shelby GT500": [
+                {
+                    "name": "Shelby GT500",
+                    "kind": "Trim level",
+                    "note": "Includes select GT350 features, plus:",
+                    "items": [
+                        "5.2L supercharged cross-plane-crank V8: 760 hp / 625 lb-ft",
+                        "7-speed TREMEC dual-clutch automatic, rotary shifter, paddle shifters",
+                        "Magnesium tower-to-tower brace, larger front radiator block-off plate",
+                        "6-way power, heated and cooled Ebony leather sport seats with Miko inserts",
+                        "Leather and Alcantara flat-bottom steering wheel, Shelby aluminum instrument panel",
+                        "Remote Start, garage door opener",
+                        "Unique front fascia, fenders, grille, front splitter, hood with hood pins and rear valance"
+                    ]
+                },
+                {
+                    "name": "Carbon Fiber Track Pack",
+                    "kind": "Package",
+                    "note": "",
+                    "items": [
+                        "20\" x 11\" front / 20\" x 11.5\" rear exposed carbon-fiber wheels with Michelin Pilot Sport Cup 2 summer-only tires",
+                        "Adjustable strut top mounts",
+                        "RECARO leather sport seats, rear seat delete",
+                        "Exposed carbon-fiber instrument panel and GT4 track wing, splitter wickers, wheel locks"
+                    ]
+                },
+                {
+                    "name": "Handling Package",
+                    "kind": "Package",
+                    "note": "",
+                    "items": [
+                        "Gurney flap",
+                        "Splitter wickers"
+                    ]
+                },
+                {
+                    "name": "Technology Package",
+                    "kind": "Package",
+                    "note": "",
+                    "items": [
+                        "BLIS with cross-traffic alert",
+                        "Voice-activated touchscreen navigation",
+                        "B&O Sound System with 12 speakers",
+                        "Driver's seat memory, heated mirrors with turn signals and Cobra projection lamps"
+                    ]
+                },
+                {
+                    "name": "Options",
+                    "kind": "Options",
+                    "note": "",
+                    "items": [
+                        "RECARO sport leather seats",
+                        "Exposed carbon-fiber instrument panel",
+                        "Black-painted roof, painted or vinyl over-the-top stripes, vinyl side stripes",
+                        "Full vehicle cover with Shelby GT500 logo"
+                    ]
+                }
+            ]
+        }
+    },
+    "2021": {
+        "source": {
+            "name": "Ford 2021 Mustang brochure (copy hosted by a Ford dealer, fordofkendall.com)",
+            "url": "https://www.fordofkendall.com/static/brand-ford/vehicle/2021/brochures/2021_Mustang.pdf"
+        },
+        "trims": {
+            "EcoBoost": [
+                {
+                    "name": "EcoBoost",
+                    "kind": "Trim level",
+                    "note": "Includes standard features, plus:",
+                    "items": [
+                        "6-speed manual transmission",
+                        "3.31 limited-slip rear differential",
+                        "12.6\" vented disc brakes with 2-piston front calipers",
+                        "SYNC with 4.2\" screen, 6-speaker audio",
+                        "4-way manual cloth driver's seat, 2-way manual cloth passenger seat",
+                        "Carbon Zag instrument panel trim",
+                        "Dual bright exhaust with rolled tips"
+                    ]
+                },
+                {
+                    "name": "Equipment Group 101A",
+                    "kind": "Equipment group",
+                    "note": "EcoBoost only",
+                    "items": [
+                        "18\" machined-face aluminum wheels",
+                        "SYNC 3, 9-speaker audio, SiriusXM",
+                        "Selectable Drive Modes",
+                        "6-way power driver's seat and 4-way power passenger seat, dual-zone climate control",
+                        "Silver Arrow aluminum trim, Remote Start (requires automatic), decklid spoiler, Reverse Sensing System"
+                    ]
+                },
+                {
+                    "name": "EcoBoost Premium",
+                    "kind": "Trim level",
+                    "note": "Includes select EcoBoost features, plus:",
+                    "items": [
+                        "Selectable Drive Modes (Normal, Sport+, Track, Drag Strip, Snow/Wet)",
+                        "SYNC 3 with 8\" touchscreen, Apple CarPlay and Android Auto",
+                        "6-way power, heated and cooled leather-trimmed front seats with driver power lumbar",
+                        "Reverse Sensing System, LED fog lamps, decklid spoiler",
+                        "9 speakers with amplifier, SiriusXM",
+                        "Aluminum pedals, ambient lighting, dual-zone climate control, Angled Brush aluminum trim",
+                        "Heated mirrors with turn signals, illuminated door-sill plates, premium door trim, garage door opener, pony projection lamps"
+                    ]
+                },
+                {
+                    "name": "Equipment Group 201A",
+                    "kind": "Equipment group",
+                    "note": "EcoBoost Premium",
+                    "items": [
+                        "12\" configurable LCD digital instrument cluster",
+                        "Heated steering wheel",
+                        "Ford Safe and Smart Package",
+                        "Premier Trim with Color Accent Group: color-accented leather seats and trim, Linked Graphite aluminum trim, wrapped console and knee bolsters"
+                    ]
+                },
+                {
+                    "name": "2.3L High Performance Package",
+                    "kind": "Package",
+                    "note": "EcoBoost and EcoBoost Premium",
+                    "items": [
+                        "2.3L High Performance EcoBoost I-4",
+                        "19\" x 9\" machined-face wheels; forged Luster Nickel wheels optional",
+                        "Unique grille with tri-bar Pony badge, GT Performance Package front splitter and belly pan, hood accent stripes, Carbonized Gray mirror caps",
+                        "Active Valve Performance Exhaust System",
+                        "Larger radiator, upsized rear sway bar, unique front springs, unique chassis tuning, Black strut-tower brace",
+                        "Larger brake rotors with 4-piston front calipers",
+                        "Unique steering, ABS and stability control tuning",
+                        "Gauge Pack (oil pressure and boost), Engine Spun aluminum trim",
+                        "Magnetic raised blade spoiler (fastback) or spoiler delete (convertible)",
+                        "3.55 limited-slip rear differential"
+                    ]
+                },
+                {
+                    "name": "EcoBoost Handling Package",
+                    "kind": "Package",
+                    "note": "Fastback only; requires the 2.3L High Performance Package",
+                    "items": [
+                        "19\" x 9.5\" wheels with 265/40R19 Pirelli Corsa4 summer-only tires",
+                        "MagneRide Damping System",
+                        "3.55 TORSEN limited-slip rear differential"
+                    ]
+                },
+                {
+                    "name": "Appearance packages",
+                    "kind": "Packages",
+                    "note": "",
+                    "items": [
+                        "Pony Package (EcoBoost Premium): 19\" polished wheels, Pony grille, side stripes, tri-bar Pony badge, bright moldings (fastback), embroidered floor mats",
+                        "Black Accent Package: 19\" x 8.5\" Ebony Black wheels, Black roof, badging and spoiler",
+                        "Wheel & Stripe Package: 19\" x 8.5\" machined-face wheels, hood and side stripes",
+                        "Carbon Sport Interior Package (EcoBoost Premium): Alcantara seat and door inserts, carbon-fiber trim and shift knob"
+                    ]
+                },
+                {
+                    "name": "Options",
+                    "kind": "Options",
+                    "note": "",
+                    "items": [
+                        "10-speed SelectShift automatic with paddle shifters, 3.15 limited-slip and Remote Start",
+                        "Active Valve Performance Exhaust with quad tips",
+                        "Ford Safe and Smart Package: adaptive cruise, Pre-Collision Assist with Automatic Emergency Braking, auto high beams, Lane-Keeping System, rain-sensing wipers",
+                        "Enhanced Security Package (standard on convertible)",
+                        "RECARO sport leather seats and B&O Sound System with 12 speakers (Premium)",
+                        "Voice-activated touchscreen navigation",
+                        "Compact spare, engine block heater, over-the-top stripes, premium floor liners, spoiler delete",
+                        "Stripe delete (requires the 2.3L High Performance Package)"
+                    ]
+                }
+            ],
+            "GT": [
+                {
+                    "name": "GT",
+                    "kind": "Trim level",
+                    "note": "Fastback. Includes select standard features, plus:",
+                    "items": [
+                        "6-speed manual with dual-mass flywheel, twin-disc clutch and Rev Matching; 3.55 limited-slip rear differential",
+                        "Larger brake rotors with 4-piston front calipers",
+                        "Engine oil cooler",
+                        "SYNC, Reverse Sensing System",
+                        "6-way power cloth front seats with driver power lumbar",
+                        "Silver Arrow aluminum trim",
+                        "Dual exhaust with quad tips, LED fog lamps, raised blade-style spoiler, high-gloss Black grille, unique rear valance"
+                    ]
+                },
+                {
+                    "name": "Equipment Group 301A",
+                    "kind": "Equipment group",
+                    "note": "GT only",
+                    "items": [
+                        "SYNC 3, 9-speaker audio, SiriusXM",
+                        "Selectable Drive Modes",
+                        "Dual-zone climate control, ambient lighting"
+                    ]
+                },
+                {
+                    "name": "GT Premium",
+                    "kind": "Trim level",
+                    "note": "Fastback or convertible. Includes select GT features, plus:",
+                    "items": [
+                        "Selectable Drive Modes (Normal, Sport+, Track, Drag Strip, Snow/Wet)",
+                        "SYNC 3 with 8\" touchscreen, Apple CarPlay and Android Auto",
+                        "Leather-trimmed, heated and cooled front seats",
+                        "9 speakers with amplifier, SiriusXM",
+                        "Aluminum pedals, ambient lighting, dual-zone climate control, Angled Brush aluminum trim",
+                        "Heated mirrors with turn signals, illuminated door-sill plates, premium door trim, garage door opener, pony projection lamps"
+                    ]
+                },
+                {
+                    "name": "Equipment Group 401A",
+                    "kind": "Equipment group",
+                    "note": "GT Premium",
+                    "items": [
+                        "12\" configurable LCD digital instrument cluster",
+                        "Heated steering wheel",
+                        "Ford Safe and Smart Package",
+                        "Premier Trim with Color Accent Group: color-accented leather seats and trim, Linked Graphite aluminum trim, wrapped console and knee bolsters"
+                    ]
+                },
+                {
+                    "name": "GT Performance Package",
+                    "kind": "Package",
+                    "note": "GT and GT Premium",
+                    "items": [
+                        "3.73 (manual) / 3.55 (automatic) TORSEN limited-slip rear differential",
+                        "Brembo 6-piston front calipers",
+                        "Luster Nickel forged-aluminum wheels optional",
+                        "19\" wheels with 255/40R19 front and 275/40R19 rear summer-only tires",
+                        "Front air splitter, Silver strut-tower brace, larger radiator, upsized rear sway bar, heavy-duty front springs, K-member brace, unique chassis tuning",
+                        "Unique steering, ABS and stability control tuning",
+                        "Gauge Pack (oil pressure and vacuum), Engine Spun aluminum trim",
+                        "Performance rear wing (fastback)"
+                    ]
+                },
+                {
+                    "name": "GT Performance Package Level 2",
+                    "kind": "Package",
+                    "note": "GT and GT Premium",
+                    "items": [
+                        "Everything in the GT Performance Package",
+                        "MagneRide Damping System",
+                        "Track-inspired springs, sway bar and tuning",
+                        "Unique front splitter and rear spoiler",
+                        "19\" x 10.5\" front / 19\" x 11\" rear Dark Tarnish wheels with 305/30R19 Michelin Pilot Sport Cup 2 summer-only tires",
+                        "RECARO sport cloth seats optional"
+                    ]
+                },
+                {
+                    "name": "California Special Package",
+                    "kind": "Package",
+                    "note": "GT Premium",
+                    "items": [
+                        "19\" x 8.5\" machined-face wheels with Ebony Black pockets",
+                        "Unique grille with tri-bar Pony badge, GT Performance Package front splitter, pedestal-style spoiler",
+                        "Mid-body side stripes, side scoops, unique California Special badging",
+                        "Carbon Hex aluminum trim; Ebony leather seats and door inserts with Miko and red stitching; California Special floor mats"
+                    ]
+                },
+                {
+                    "name": "Appearance packages",
+                    "kind": "Packages",
+                    "note": "",
+                    "items": [
+                        "Black Accent Package: 19\" x 8.5\" Ebony Black wheels, Black roof, badging and spoiler",
+                        "Carbon Sport Interior Package (GT Premium): Alcantara seat and door inserts, carbon-fiber trim and shift knob"
+                    ]
+                },
+                {
+                    "name": "Options",
+                    "kind": "Options",
+                    "note": "",
+                    "items": [
+                        "10-speed SelectShift automatic with paddle shifters, 3.15 limited-slip and Remote Start",
+                        "3.55 limited-slip rear differential (requires automatic)",
+                        "Active Valve Performance Exhaust",
+                        "MagneRide Damping System",
+                        "Ford Safe and Smart Package: adaptive cruise control and forward collision warning, Pre-Collision Assist with Pedestrian Detection and Automatic Emergency Braking, automatic high beams, Lane-Keeping System, rain-sensing wipers",
+                        "Enhanced Security Package: Active Anti-Theft System, electronic-locking center console, electronic steering column lock and wheel locks (standard on convertible)",
+                        "RECARO sport leather seats and B&O Sound System with 12 speakers (GT Premium)",
+                        "Voice-activated navigation",
+                        "Compact spare, over-the-top stripes, premium floor liners, spoiler delete"
+                    ]
+                }
+            ],
+            "Mach 1": [
+                {
+                    "name": "Mach 1",
+                    "kind": "Trim level",
+                    "note": "Fastback. Includes select GT 301A features, plus:",
+                    "items": [
+                        "5.0L Ti-VCT V8 with Open Air Induction, unique intake manifold and throttle body, revised calibration",
+                        "TREMEC TR-3160 6-speed manual with Rev Matching",
+                        "3.73 TORSEN limited-slip rear differential",
+                        "Brembo 6-piston front calipers (Black-painted)",
+                        "MagneRide Damping System",
+                        "Engine oil, transmission and differential coolers",
+                        "Heavy-duty front springs, K-member brace, upsized rear sway bar, Silver strut-tower brace with Mach 1 badge, unique chassis tuning",
+                        "Michelin Pilot Sport Cup 2 summer-only tires (255/40R19 front, 275/40R19 rear)",
+                        "Active Valve Performance Exhaust with quad tips, Gauge Pack, 12\" digital instrument cluster",
+                        "Unique grille, fascias and spoiler, hood and side stripes, white cue-ball shift knob, Mach 1 scuff plates"
+                    ]
+                },
+                {
+                    "name": "Mach 1 Premium",
+                    "kind": "Trim level",
+                    "note": "Includes select Mach 1 features, plus:",
+                    "items": [
+                        "Heated and cooled front seats",
+                        "Heated steering wheel",
+                        "Aluminum pedals",
+                        "Memory for driver's seat, mirrors and ambient lighting",
+                        "Premier Trim with Color Accent Group, Dark Spindrift aluminum trim"
+                    ]
+                },
+                {
+                    "name": "Handling Package",
+                    "kind": "Package",
+                    "note": "Mach 1 and Mach 1 Premium",
+                    "items": [
+                        "19\" x 10.5\" front / 19\" x 11\" rear Tarnish Dark wheels with 305/30R19 and 315/30R19 tires",
+                        "Adjustable strut top mounts",
+                        "Performance rear spoiler with Gurney flap and front aero splitter",
+                        "Revised chassis tuning",
+                        "Available with the manual or automatic"
+                    ]
+                },
+                {
+                    "name": "Appearance Package",
+                    "kind": "Package",
+                    "note": "Mach 1 Premium",
+                    "items": [
+                        "Fighter Jet Gray paint",
+                        "Ebony interior with Orange seat accents",
+                        "Orange-painted brake calipers",
+                        "Black and Orange hood and side stripes"
+                    ]
+                },
+                {
+                    "name": "Elite Package",
+                    "kind": "Package",
+                    "note": "Mach 1 Premium",
+                    "items": [
+                        "B&O Sound System with 12 speakers and HD Radio",
+                        "Enhanced Security Package"
+                    ]
+                },
+                {
+                    "name": "Options",
+                    "kind": "Options",
+                    "note": "",
+                    "items": [
+                        "10-speed SelectShift automatic with paddle shifters, 3.55 TORSEN differential and Remote Start",
+                        "RECARO sport leather or cloth seats",
+                        "Red-painted brake calipers",
+                        "Voice-activated touchscreen navigation",
+                        "Enhanced Security Package"
+                    ]
+                }
+            ],
+            "Shelby GT500": [
+                {
+                    "name": "Shelby GT500",
+                    "kind": "Trim level",
+                    "note": "Includes select Mach 1 features, plus:",
+                    "items": [
+                        "5.2L supercharged cross-plane-crank V8 with 2.65L Eaton supercharger",
+                        "7-speed TREMEC dual-clutch automatic, rotary shifter, paddle shifters",
+                        "Magnesium tower-to-tower brace, larger front radiator block-off plate",
+                        "6-way power, heated and cooled Ebony leather sport seats with Miko inserts",
+                        "Leather and Alcantara flat-bottom steering wheel, Shelby aluminum instrument panel",
+                        "Remote Start, garage door opener",
+                        "Unique front fascia, fenders, grille, front splitter, hood with hood pins and rear valance"
+                    ]
+                },
+                {
+                    "name": "Carbon Fiber Track Pack",
+                    "kind": "Package",
+                    "note": "",
+                    "items": [
+                        "20\" x 11\" front / 20\" x 11.5\" rear exposed carbon-fiber wheels with Michelin Pilot Sport Cup 2 summer-only tires",
+                        "Adjustable strut top mounts",
+                        "RECARO leather sport seats, rear seat delete",
+                        "Exposed carbon-fiber instrument panel and GT4 track wing, splitter wickers, wheel locks"
+                    ]
+                },
+                {
+                    "name": "Handling Package",
+                    "kind": "Package",
+                    "note": "",
+                    "items": [
+                        "Gurney flap",
+                        "Splitter wickers"
+                    ]
+                },
+                {
+                    "name": "Carbon Fiber Handling Package",
+                    "kind": "Package",
+                    "note": "",
+                    "items": [
+                        "20\" x 11\" front / 20\" x 11.5\" rear Black-painted carbon-fiber wheels with Michelin Pilot Sport Cup 2 summer-only tires"
+                    ]
+                },
+                {
+                    "name": "Technology Package",
+                    "kind": "Package",
+                    "note": "",
+                    "items": [
+                        "BLIS with cross-traffic alert",
+                        "Voice-activated touchscreen navigation",
+                        "B&O Sound System with 12 speakers",
+                        "Driver's seat memory, heated mirrors with turn signals and Cobra projection lamps"
+                    ]
+                },
+                {
+                    "name": "Options",
+                    "kind": "Options",
+                    "note": "",
+                    "items": [
+                        "Oil catch can",
+                        "RECARO sport leather seats",
+                        "Exposed carbon-fiber instrument panel",
+                        "Black-painted roof, painted or vinyl over-the-top stripes, vinyl side stripes",
+                        "Full vehicle cover with Shelby GT500 logo"
+                    ]
+                }
+            ]
+        }
+    },
+    "2023": {
+        "source": {
+            "name": "Ford 2023 Mustang order guide, 09/21/22 (copy hosted at autoevolution.com)",
+            "url": "https://www.autoevolution.com/pdf/news_attachements/2023-ford-mustang-drops-two-exterior-colors-shelby-gt500-discontinued-199500.pdf"
+        },
+        "trims": {
+            "EcoBoost": [
+                {
+                    "name": "EcoBoost",
+                    "kind": "Trim level",
+                    "note": "For 2023, Ford's order guide lists packages and equipment groups; it doesn't break out every standard feature the way the brochures do.",
+                    "items": [
+                        "2.3L EcoBoost I-4",
+                        "6-speed manual transmission",
+                        "Fastback or convertible"
+                    ]
+                },
+                {
+                    "name": "Equipment Group 101A",
+                    "kind": "Equipment group",
+                    "note": "EcoBoost",
+                    "items": [
+                        "9-speaker audio",
+                        "Dual-zone automatic climate control",
+                        "Selectable Drive Modes",
+                        "Rear parking sensors",
+                        "18\" x 8\" machined-face wheels with 235/50R18 all-season tires"
+                    ]
+                },
+                {
+                    "name": "EcoBoost Premium (Equipment Group 201A)",
+                    "kind": "Equipment group",
+                    "note": "EcoBoost Premium",
+                    "items": [
+                        "12\" LCD digital instrument cluster",
+                        "Heated steering wheel",
+                        "Premier Trim with Color Accent Group: accent-stitched console, knee bolsters and shifter boot, color-accented leather seats, Angled Brush aluminum trim",
+                        "Universal garage door opener"
+                    ]
+                },
+                {
+                    "name": "2.3L High Performance Package",
+                    "kind": "Package",
+                    "note": "EcoBoost and EcoBoost Premium; comes with the 2.3L High Performance engine",
+                    "items": [
+                        "3.55 limited-slip rear axle",
+                        "19\" x 9\" machined-face wheels with 255/40R19 summer-only tires",
+                        "Active Valve Performance Exhaust",
+                        "Larger brake rotors with 4-piston fixed calipers, larger radiator",
+                        "Heavy-duty front springs, upsized rear sway bar, Black strut-tower brace",
+                        "Unique chassis, steering, ABS and stability control tuning",
+                        "Gauge Pack (oil pressure and boost), Engine Spun aluminum trim",
+                        "GT Performance Package front splitter and belly pan, hood accent stripe, Carbonized Gray mirror caps and spoiler (fastback)"
+                    ]
+                },
+                {
+                    "name": "EcoBoost Handling Package",
+                    "kind": "Package",
+                    "note": "Fastback only; requires the 2.3L High Performance Package",
+                    "items": [
+                        "19\" x 9.5\" Magnetic wheels with 265/40R19 Pirelli Corsa4 summer-only tires",
+                        "3.55 TORSEN limited-slip rear axle",
+                        "MagneRide Damping System",
+                        "Black Brembo 6-piston front calipers with larger rotors"
+                    ]
+                },
+                {
+                    "name": "EcoBoost Premium appearance packages",
+                    "kind": "Packages",
+                    "note": "EcoBoost Premium",
+                    "items": [
+                        "Coastal Limited Package: 19\" machined-face wheels, high-gloss Black grille, pedestal spoiler, side scoops, unique stripe, lighted sill plates",
+                        "Stealth Package: 19\" Ebony Black wheels, Black badges, grille and mirror caps, performance rear wing, clear LED taillamps, lighted sill plates"
+                    ]
+                },
+                {
+                    "name": "Mustang Ice White Appearance Package",
+                    "kind": "Package",
+                    "note": "Premium models",
+                    "items": [
+                        "Oxford White paint",
+                        "19\" x 9\" machined-face wheels with white-painted pockets",
+                        "Ice White door trim, instrument panel and performance rear wing",
+                        "Unique white leather seat trim and white interior",
+                        "Black grille with Ice White Pony badging, clear LED taillamps"
+                    ]
+                },
+                {
+                    "name": "Mustang Nite Pony Package",
+                    "kind": "Package",
+                    "note": "",
+                    "items": [
+                        "19\" x 8.5\" Ebony Black wheels",
+                        "Black grille, badges, mirror caps and spoiler",
+                        "Painted Black roof"
+                    ]
+                },
+                {
+                    "name": "Wheel & Stripe Package",
+                    "kind": "Package",
+                    "note": "",
+                    "items": [
+                        "19\" x 8.5\" machined-face wheels with low-gloss Black pockets",
+                        "Hood and side stripes"
+                    ]
+                },
+                {
+                    "name": "Security Package",
+                    "kind": "Package",
+                    "note": "Standard on convertible",
+                    "items": [
+                        "Active Anti-Theft System",
+                        "Electronic-locking center console",
+                        "Wheel locking kit"
+                    ]
+                },
+                {
+                    "name": "Ford Safe and Smart Package",
+                    "kind": "Package",
+                    "note": "",
+                    "items": [
+                        "Adaptive cruise control",
+                        "Voice-activated touchscreen navigation"
+                    ]
+                }
+            ],
+            "GT": [
+                {
+                    "name": "GT",
+                    "kind": "Trim level",
+                    "note": "For 2023, Ford's order guide lists packages and equipment groups; it doesn't break out every standard feature the way the brochures do.",
+                    "items": [
+                        "5.0L Ti-VCT V8",
+                        "6-speed manual transmission with Rev Matching",
+                        "Fastback (convertible on GT Premium)"
+                    ]
+                },
+                {
+                    "name": "Equipment Group 301A",
+                    "kind": "Equipment group",
+                    "note": "GT",
+                    "items": [
+                        "9-speaker audio",
+                        "Ambient lighting",
+                        "Dual-zone automatic climate control",
+                        "Illuminated door-sill plates",
+                        "Selectable Drive Modes"
+                    ]
+                },
+                {
+                    "name": "GT Premium (Equipment Group 401A)",
+                    "kind": "Equipment group",
+                    "note": "GT Premium",
+                    "items": [
+                        "12\" LCD digital instrument cluster",
+                        "Heated steering wheel"
+                    ]
+                },
+                {
+                    "name": "GT Performance Package",
+                    "kind": "Package",
+                    "note": "",
+                    "items": [
+                        "TORSEN differential: 3.73 (manual) / 3.55 (automatic)",
+                        "Black Brembo 6-piston front calipers with larger rotors",
+                        "19\" x 9\" front / 19\" x 9.5\" rear Ebony Black wheels with 255/40R19 and 275/40R19 summer-only tires",
+                        "Heavy-duty front springs, upsized rear sway bar, K-brace, Black strut-tower brace, larger radiator",
+                        "Unique chassis, stability control, steering and ABS tuning",
+                        "Gauge Pack (oil pressure and vacuum), Engine Spun aluminum trim",
+                        "Performance rear wing (fastback) or spoiler delete (convertible)"
+                    ]
+                },
+                {
+                    "name": "California Special Package",
+                    "kind": "Package",
+                    "note": "GT Premium",
+                    "items": [
+                        "19\" Carbonized Gray wheels",
+                        "Honeycomb grilles with GT/CS badge, Performance Package front splitter, side scoops, mid-body stripe, performance rear wing",
+                        "Miko suede seat and door inserts with red stitching, Mesh 45 aluminum trim, California Special floor mats and badging"
+                    ]
+                },
+                {
+                    "name": "Mustang Ice White Appearance Package",
+                    "kind": "Package",
+                    "note": "Premium models",
+                    "items": [
+                        "Oxford White paint",
+                        "19\" x 9\" machined-face wheels with white-painted pockets",
+                        "Ice White door trim, instrument panel and performance rear wing",
+                        "Unique white leather seat trim and white interior",
+                        "Black grille with Ice White Pony badging, clear LED taillamps"
+                    ]
+                },
+                {
+                    "name": "Mustang Nite Pony Package",
+                    "kind": "Package",
+                    "note": "",
+                    "items": [
+                        "19\" x 8.5\" Ebony Black wheels",
+                        "Black grille, badges, mirror caps and spoiler",
+                        "Painted Black roof"
+                    ]
+                },
+                {
+                    "name": "Security Package",
+                    "kind": "Package",
+                    "note": "Standard on convertible",
+                    "items": [
+                        "Active Anti-Theft System",
+                        "Electronic-locking center console",
+                        "Wheel locking kit"
+                    ]
+                },
+                {
+                    "name": "Ford Safe and Smart Package",
+                    "kind": "Package",
+                    "note": "",
+                    "items": [
+                        "Adaptive cruise control",
+                        "Voice-activated touchscreen navigation"
+                    ]
+                }
+            ],
+            "Mach 1": [
+                {
+                    "name": "Mach 1",
+                    "kind": "Trim level",
+                    "note": "For 2023, Ford's order guide lists packages and equipment groups; it doesn't break out every standard feature the way the brochures do.",
+                    "items": [
+                        "5.0L Ti-VCT V8 (470 hp)",
+                        "TREMEC 6-speed manual with Rev Matching",
+                        "Fastback"
+                    ]
+                },
+                {
+                    "name": "Mach 1 Handling Package",
+                    "kind": "Package",
+                    "note": "",
+                    "items": [
+                        "19\" x 10.5\" front / 19\" x 11\" rear Tarnished Dark wheels with 305/30R19 and 315/30R19 tires",
+                        "Adjustable strut top mounts, revised chassis tuning",
+                        "Performance rear spoiler with Gurney flap and front aero splitter",
+                        "Black front-wheel lip molding"
+                    ]
+                },
+                {
+                    "name": "Mach 1 Appearance Package",
+                    "kind": "Package",
+                    "note": "",
+                    "items": [
+                        "Fighter Jet Gray paint",
+                        "Ebony and Orange interior with unique seatback accents",
+                        "Orange brake calipers",
+                        "Black and Orange hood and side stripes"
+                    ]
+                },
+                {
+                    "name": "Mach 1 Elite Package",
+                    "kind": "Package",
+                    "note": "",
+                    "items": [
+                        "B&O Sound System with 12 speakers, subwoofer and HD Radio",
+                        "Security Package"
+                    ]
+                },
+                {
+                    "name": "Security Package",
+                    "kind": "Package",
+                    "note": "",
+                    "items": [
+                        "Electronic-locking center console",
+                        "Wheel locking kit"
+                    ]
+                }
+            ]
+        }
+    }
+}

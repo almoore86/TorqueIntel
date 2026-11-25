@@ -550,6 +550,10 @@ function vehicleInfoHtml(result) {
                 <div class="result-grid">
                     ${items.map(resultItemHtml).join("")}
                 </div>
+                <div class="button-row">
+                    ${garageButtonHtml(vehicle.year, vehicle.trim)}
+                    <button type="button" class="secondary-button" data-action="open-packages" data-year="${escapeHtml(vehicle.year)}" data-trim="${escapeHtml(vehicle.trim)}">Trims and packages</button>
+                </div>
                 ${missingHtml}
                 ${specSourcesHtml(vehicles)}
             </div>
@@ -560,7 +564,10 @@ function vehicleInfoHtml(result) {
         vehicles
             .map(vehicle => `
                 <tr>
-                    <th scope="row">${escapeHtml(`${vehicle.year} ${vehicle.trim}`)}</th>
+                    <th scope="row">
+                        ${escapeHtml(`${vehicle.year} ${vehicle.trim}`)}
+                        ${garageButtonHtml(vehicle.year, vehicle.trim, true)}
+                    </th>
                     <td>${escapeHtml(vehicle.engine)}</td>
                     <td class="nowrap">${escapeHtml(vehicle.horsepower)} hp</td>
                     <td class="nowrap">${escapeHtml(torqueText(vehicle.torque))}</td>
@@ -1477,6 +1484,11 @@ function followUpsHtml(analysis) {
                 ask("Owner complaints", `Owner complaints for the ${vehicle}`);
                 ask("Fuel economy", `Fuel economy for the ${vehicle}`);
                 if (compareQuery) ask(`Compare with the ${compare}`, compareQuery);
+                if (years.length === 1 && trims.length === 1) {
+                    buttons.push(
+                        `<button type="button" class="follow-up" data-action="open-packages" data-year="${years[0]}" data-trim="${escapeHtml(trims[0])}">Trims and packages</button>`
+                    );
+                }
                 break;
 
             case "recall_lookup":
@@ -1897,6 +1909,226 @@ async function setupPicker() {
 
 
 /* =====================================================
+    My Garage (saved cars, this browser only)
+   ===================================================== */
+
+const GARAGE_KEY = "torqueintel.garage";
+
+
+function loadGarage() {
+
+    try {
+        const list = JSON.parse(localStorage.getItem(GARAGE_KEY) || "[]");
+
+        return Array.isArray(list)
+            ? list.filter(car => car && Number.isInteger(car.year) && typeof car.trim === "string")
+            : [];
+    }
+
+    catch (error) {
+        return [];
+    }
+}
+
+
+function saveGarage(list) {
+
+    try {
+        localStorage.setItem(GARAGE_KEY, JSON.stringify(list));
+    }
+
+    catch (error) {
+        /* Storage blocked (private window); the garage just won't persist. */
+    }
+
+    updateGarageCount();
+}
+
+
+function inGarage(year, trim) {
+
+    return loadGarage().some(car => car.year === year && car.trim === trim);
+}
+
+
+function toggleGarage(year, trim) {
+
+    const garage = loadGarage();
+
+    saveGarage(
+        inGarage(year, trim)
+            ? garage.filter(car => !(car.year === year && car.trim === trim))
+            : [{ year, trim }, ...garage]
+    );
+}
+
+
+function garageButtonHtml(year, trim, compact = false) {
+
+    const saved = inGarage(Number(year), trim);
+
+    const label = compact
+        ? (saved ? "★" : "☆")
+        : (saved ? "★ Saved to garage" : "☆ Save to garage");
+
+    return `<button type="button" class="${compact ? "row-save" : "secondary-button"}" data-action="save-garage" data-year="${escapeHtml(year)}" data-trim="${escapeHtml(trim)}" aria-label="${saved ? "Remove from" : "Save to"} My Garage: ${escapeHtml(`${year} ${trim}`)}" aria-pressed="${saved}">${label}</button>`;
+}
+
+
+function updateGarageCount() {
+
+    const badge = document.getElementById("garageCount");
+
+    if (badge) {
+        badge.textContent = loadGarage().length;
+    }
+}
+
+
+function showGarage() {
+
+    const garage = loadGarage();
+
+    showResult(
+        "My Garage",
+        garage.length
+            ? `
+                <div class="result-section">
+                    <p class="note">Saved only in this browser. Click a car to see its results again.</p>
+                    <div class="garage-list">
+                        ${garage.map(car => `
+                            <div class="garage-item">
+                                <button type="button" class="garage-name" data-action="open-garage-car" data-year="${car.year}" data-trim="${escapeHtml(car.trim)}">
+                                    ${escapeHtml(`${car.year} Ford Mustang ${car.trim}`)}
+                                </button>
+                                <div class="garage-actions">
+                                    <button type="button" class="text-button" data-action="open-packages" data-year="${car.year}" data-trim="${escapeHtml(car.trim)}">Trims and packages</button>
+                                    <button type="button" class="text-button" data-action="run-query" data-query="${escapeHtml(`Recalls for the ${car.year} Mustang`)}">Recalls</button>
+                                    <button type="button" class="text-button" data-action="run-query" data-query="${escapeHtml(`Owner complaints for the ${car.year} Mustang ${car.trim}`)}">Owner complaints</button>
+                                    <button type="button" class="text-button" data-action="run-query" data-query="${escapeHtml(`Fuel economy for the ${car.year} Mustang ${car.trim}`)}">Fuel economy</button>
+                                    <button type="button" class="text-button danger" data-action="remove-garage" data-year="${car.year}" data-trim="${escapeHtml(car.trim)}">Remove</button>
+                                </div>
+                            </div>
+                        `).join("")}
+                    </div>
+                </div>
+            `
+            : sectionHtml("", ["Your garage is empty. Use ☆ Save to garage on any Mustang's results to keep it here."])
+    );
+}
+
+
+/* =====================================================
+    Trims and packages (from Ford brochures)
+   ===================================================== */
+
+let packagesCache = null;
+
+
+async function loadPackages() {
+
+    if (packagesCache) {
+        return packagesCache;
+    }
+
+    const response = await fetch("data/packages.json");
+
+    if (!response.ok) {
+        throw new Error("Package data could not be loaded.");
+    }
+
+    packagesCache = await response.json();
+
+    return packagesCache;
+}
+
+
+async function showPackages(year, trim) {
+
+    let data;
+
+    try {
+        data = await loadPackages();
+    }
+
+    catch (error) {
+
+        console.error(error);
+
+        showMessage("Trims and Packages", ["TorqueIntel could not load its package data. Try again in a moment."]);
+
+        return;
+    }
+
+    const years = [...trimsByYear.keys()].sort((a, b) => b - a);
+
+    if (!trimsByYear.has(year)) {
+        year = years.find(item => data[item]) || years[0];
+    }
+
+    showResult(
+        "Trims and Packages",
+        `
+            <div class="result-section">
+                <div class="picker-row">
+                    <select id="packageYear" aria-label="Model year">
+                        ${years.map(item => `<option ${item === year ? "selected" : ""}>${item}</option>`).join("")}
+                    </select>
+                    <select id="packageTrim" aria-label="Trim"></select>
+                </div>
+                <div id="packageBody"></div>
+            </div>
+        `
+    );
+
+    const yearSelect = document.getElementById("packageYear");
+    const trimSelect = document.getElementById("packageTrim");
+
+    const render = () => {
+
+        const selectedYear = yearSelect.value;
+        const entry = data[selectedYear];
+        const levels = entry && entry.trims[trimSelect.value];
+
+        document.getElementById("packageBody").innerHTML =
+            levels
+                ? `
+                    ${levels.map(level => `
+                        <div class="package-card${/R Package/.test(level.name) && /R$/.test(trimSelect.value) ? " highlight" : ""}">
+                            <span class="result-label">${escapeHtml(level.kind)}</span>
+                            <strong>${escapeHtml(level.name)}</strong>
+                            ${level.note ? `<p class="note">${escapeHtml(level.note)}</p>` : ""}
+                            <ul class="plain-list">
+                                ${level.items.map(item => `<li>${escapeHtml(item)}</li>`).join("")}
+                            </ul>
+                        </div>
+                    `).join("")}
+                    <p class="source">
+                        Source:
+                        <a href="${escapeHtml(entry.source.url)}" target="_blank" rel="noopener noreferrer">${escapeHtml(entry.source.name)}</a>
+                    </p>
+                `
+                : `<p class="note">The package breakdown for the ${escapeHtml(`${selectedYear} Mustang ${trimSelect.value}`)} hasn't been added yet. It comes from Ford's brochure for that year, and TorqueIntel doesn't guess.</p>`;
+    };
+
+    const fillTrims = keep => {
+
+        const trims = trimsByYear.get(Number(yearSelect.value)) || [];
+
+        trimSelect.innerHTML =
+            trims.map(item => `<option ${item === keep ? "selected" : ""}>${escapeHtml(item)}</option>`).join("");
+
+        render();
+    };
+
+    yearSelect.addEventListener("change", () => fillTrims(trimSelect.value));
+    trimSelect.addEventListener("change", render);
+
+    fillTrims(trim);
+}
+
+
+/* =====================================================
     Event listeners
    ===================================================== */
 
@@ -1946,6 +2178,27 @@ resultContent.addEventListener(
 
         if (button.dataset.action === "vin-lookup") {
             submitVinDialog();
+        }
+
+        if (button.dataset.action === "save-garage") {
+            toggleGarage(Number(button.dataset.year), button.dataset.trim);
+            for (const item of document.querySelectorAll(`[data-action="save-garage"][data-year="${button.dataset.year}"][data-trim="${CSS.escape(button.dataset.trim)}"]`)) {
+                item.outerHTML = garageButtonHtml(Number(button.dataset.year), button.dataset.trim, item.classList.contains("row-save"));
+            }
+        }
+
+        if (button.dataset.action === "open-garage-car") {
+            hideResult();
+            handleUserRequest(`Specs for the ${button.dataset.year} Mustang ${button.dataset.trim}`);
+        }
+
+        if (button.dataset.action === "remove-garage") {
+            toggleGarage(Number(button.dataset.year), button.dataset.trim);
+            showGarage();
+        }
+
+        if (button.dataset.action === "open-packages") {
+            showPackages(Number(button.dataset.year), button.dataset.trim);
         }
 
         if (button.dataset.action === "clear-recent") {
@@ -2045,3 +2298,14 @@ document.getElementById("pickButton").addEventListener("click", () => handleUser
 
 renderSuggestions();
 setupPicker();
+
+document.getElementById("garageButton").addEventListener("click", showGarage);
+
+document.getElementById("pickPackages").addEventListener("click", () =>
+    showPackages(
+        Number(document.getElementById("pickYear").value),
+        document.getElementById("pickTrim").value
+    )
+);
+
+updateGarageCount();

@@ -713,3 +713,132 @@ button {
     height: auto;
     flex: none;
 }
+
+
+/* My Garage */
+.hero {
+    position: relative;
+}
+
+.garage-button {
+    position: absolute;
+    top: 0;
+    right: 0;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--surface);
+    color: var(--text);
+    border: 1px solid var(--border-strong);
+    border-radius: 999px;
+    padding: 8px 14px;
+    font-size: 0.9rem;
+}
+
+.garage-button svg {
+    color: var(--accent);
+}
+
+.garage-button:hover {
+    border-color: var(--accent);
+}
+
+.garage-count {
+    background: var(--accent);
+    color: var(--button-text);
+    border-radius: 999px;
+    padding: 0 7px;
+    font-size: 0.75rem;
+    font-weight: bold;
+}
+
+.garage-list {
+    display: grid;
+    gap: 10px;
+}
+
+.garage-item {
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    padding: 12px 14px;
+}
+
+.garage-name {
+    background: none;
+    border: none;
+    padding: 0;
+    color: var(--text);
+    font-size: 1rem;
+    font-weight: bold;
+    text-align: left;
+    text-decoration: underline;
+    text-decoration-color: var(--accent);
+    text-underline-offset: 4px;
+}
+
+.garage-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px 14px;
+    margin-top: 8px;
+}
+
+.text-button {
+    background: none;
+    border: none;
+    padding: 0;
+    color: var(--accent);
+    font-size: 0.85rem;
+    text-decoration: underline;
+}
+
+.text-button.danger {
+    color: var(--fail);
+}
+
+.row-save {
+    background: none;
+    border: none;
+    padding: 0 0 0 6px;
+    color: var(--accent);
+    font-size: 1rem;
+}
+
+.picker-actions {
+    margin-top: 0;
+}
+
+/* Trims and packages */
+.package-card {
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    padding: 12px 14px;
+    margin-top: 10px;
+}
+
+.package-card.highlight {
+    border-color: var(--accent);
+}
+
+.package-card strong {
+    display: block;
+    margin: 2px 0 4px;
+}
+
+.package-card .plain-list {
+    margin: 6px 0 0;
+    padding-left: 18px;
+    list-style: disc;
+}
+
+@media (max-width: 560px) {
+
+    .garage-button {
+        position: static;
+        display: flex;
+        width: max-content;
+        margin: 0 0 14px auto;
+    }
+}

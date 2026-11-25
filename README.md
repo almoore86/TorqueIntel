@@ -152,6 +152,24 @@ TorqueIntel shows every recall for the car's model year, says plainly that
 some may not apply to that exact car and that it cannot tell whether a recall
 has been repaired, and links to nhtsa.gov/recalls to check the exact VIN.
 
+## My Garage
+
+**☆ Save to garage** on any Mustang's specs saves it to **My Garage** (top
+right of the page), kept only in that browser. The garage popup lists saved
+cars; clicking a car reopens its results, and each car has quick links for
+trims and packages, recalls, owner complaints, fuel economy, and Remove.
+
+## Trims and packages
+
+The **Trims and packages** popup (from a result, the garage, or the Pick a
+Mustang card) has year and trim dropdowns and shows each trim level,
+equipment group and package as its own card, with what it adds. The content
+is in `data/packages.json`, transcribed from Ford's brochure for each year
+(2015–2021) and Ford's 2023 order guide, with the source linked under the
+cards. No US source has been found yet for 2022, and the 2015 and 2019
+brochures don't cover the Shelby GT350/GT350R; those show a "not added yet"
+message rather than a guess.
+
 ## Evidence review
 
 After the tools run and before any output is given, `reviewEvidence` reads what
